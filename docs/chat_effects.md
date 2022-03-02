@@ -33,17 +33,17 @@ To turn chat effects on Element Android:
 
 | Command | Emoji | Effect | Platform
 |---|---|---|---|
-| /snowfall | :snowflake: | light-grey balls fall slowly from the top of the screen to the bottom | Web, 
-| /rainfall | :raincloud: | blue lines fall from the top of the screen to the bottom, lookins like rain | Web, 
-| /confetti | :tada: | multi-colour squares fall slowly across the screen, from top to bottom | Web, 
-| /spaceinvaders | :space_invader: | the space invader emoji falls from the top of the screen to the bottom | Web, 
-| /heart | :gift_heart: | love hearts float across the screen | Web, 
+| /snowfall | :snowflake: | light-grey balls fall slowly from the top of the screen to the bottom | Web & Android (backslash only)
+| /rainfall | :raincloud: | blue lines fall from the top of the screen to the bottom, lookins like rain | Web only
+| /confetti | :tada: | multi-colour squares fall slowly across the screen, from top to bottom | Web & Android
+| /spaceinvaders | :space_invader: | the space invader emoji falls from the top of the screen to the bottom | Web only 
+| /heart | :gift_heart: | love hearts float across the screen | Web only 
 
 ## The future of chat effects
 
 | Now | Next | Future |
 |--|--|--|
-| We are no longer accepting new chat effect contributions. Our list of 5 is plenty and we run the risk of having so many we frustrate users with unexpected timeline takeovers. | We need to consider the animation over platform. This is a delightful experience and brings fun and joy to our apps, but how does it translate cross-platform? Can we animate the emoji rather than the timeline? This may be a better experience for those users on smaller screens or devices. <br /> We also need to consider chat effects in Threads. | How might we offer both emoji animation and full-screen takeover? Apple do this well; It's always in the senders hands. Emojis can be sent with or without their animation effect. <br /> How else might chat effects bring delight to our users for example, New Years Eve 24h animation or others. |
+| - We are no longer accepting new chat effect contributions. <br /> - Our list of 5 is plenty and we run the risk of having so many we frustrate users with unexpected timeline takeovers. | - We need to consider the animation over platform. This is a delightful experience and brings fun and joy to our apps, but how does it translate cross-platform? Can we animate the emoji rather than the timeline? This may be a better experience for those users on smaller screens or devices. <br /> - We do not have any chat effects on iOS <br /> - We also need to consider chat effects in Threads. | - How might we offer both emoji animation and full-screen takeover? Apple do this well; It's always in the senders hands. Emojis can be sent with or without their animation effect. <br /> - How else might chat effects bring delight to our users for example, New Years Eve 24h animation or others. |
 
 ### Other considerations
 Chat effects are great for our personal messaging or community members however, in the workplace they may not be appropriate. Therefore, users must turn on chat effects in order to see the timeline take over. In the future we may offer options such as; Enabling by room, space, or meta-space.
