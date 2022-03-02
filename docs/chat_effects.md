@@ -20,14 +20,11 @@ Backslash commands for chat effects are handy as these are known by power users 
 
 Chat effects are full timeline take-overs in the Element clients. Each chat effect has 2 associated triggers; a backslash command, and an emoji.
 
-To turn chat effects on Element Web or Desktop:
+To turn chat effects on:
 - Head to Settings > Preferences
 - In the Timeline section find: "Show chat effects (animations when receiving e.g. confetti)"
 - Ensure the toggle is "on"
 
-To turn chat effects on Element Android:
-- Head to ...
-- Then ...
 
 ### How do I access chat effects?
 
