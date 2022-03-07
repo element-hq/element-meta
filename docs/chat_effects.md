@@ -44,3 +44,6 @@ To turn chat effects on:
 
 ### Other considerations
 Chat effects are great for our personal messaging or community members however, in the workplace they may not be appropriate. Therefore, users must turn on chat effects in order to see the timeline take over. In the future we may offer options such as; Enabling by room, space, or meta-space.
+
+### Relevant links 
+- https://github.com/matrix-org/matrix-react-sdk/tree/develop/src/effects
