@@ -220,9 +220,11 @@ Unless otherwise specified, the following applies to all code:
 31. Export only what can be reused.
 32. Prefer a type like `Optional<X>` (`type Optional<T> = T | null | undefined`) instead
     of truly optional parameters.
-    1. A notable exception is when the likelihood of a bug is minimal. As an example though,
-       if your function sometimes requires a room ID then the caller should deliberately need
-       to specify null or undefined.
+    1. A notable exception is when the likelihood of a bug is minimal, such as when a function
+       takes an argument that is more often not required than required. An example where the
+       `?` operator is inappropriate is when taking a room ID: typically the caller should
+       supply the room ID if it knows it, otherwise deliberately acknowledge that it doesn't
+       have one with `null`.
 
         ```typescript
         function doThingWithRoom(
