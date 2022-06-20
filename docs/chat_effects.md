@@ -31,7 +31,7 @@ To turn chat effects on:
 | Command | Emoji | Effect | Platform
 |---|---|---|---|
 | /snowfall | :snowflake: | light-grey balls fall slowly from the top of the screen to the bottom | Web & Android (backslash only)
-| /rainfall | :raincloud: | blue lines fall from the top of the screen to the bottom, lookins like rain | Web only
+| /rainfall | :raincloud: | blue lines fall from the top of the screen to the bottom, looking like rain | Web only
 | /confetti | :tada: | multi-colour squares fall slowly across the screen, from top to bottom | Web & Android
 | /spaceinvaders | :space_invader: | the space invader emoji falls from the top of the screen to the bottom | Web only 
 | /heart | :gift_heart: | love hearts float across the screen | Web only 
