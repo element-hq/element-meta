@@ -35,6 +35,7 @@ To turn chat effects on:
 | /confetti | :tada: | multi-colour squares fall slowly across the screen, from top to bottom | Web & Android
 | /spaceinvaders | :space_invader: | the space invader emoji falls from the top of the screen to the bottom | Web only 
 | /heart | :gift_heart: | love hearts float across the screen | Web only 
+| /fireworks | :fireworks: | fireworks burst across the screen | Web only 
 
 ## The future of chat effects
 
