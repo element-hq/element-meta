@@ -240,12 +240,13 @@ Unless otherwise specified, the following applies to all code:
 34. Bulk functions can be declared in a single file, though named as "foo-utils.ts" or "utils/foo.ts".
 35. Imports are grouped by external module imports first, then by internal imports.
 36. File ordering is not strict, but should generally follow this sequence:
-    1. Imports
-    2. Constants
-    3. Enums
-    4. Interfaces
-    5. Functions
-    6. Classes
+    1. Licence header
+    2. Imports
+    3. Constants
+    4. Enums
+    5. Interfaces
+    6. Functions
+    7. Classes
         1. Public/protected/private static properties
         2. Public/protected/private properties
         3. Constructors
