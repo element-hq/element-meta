@@ -193,11 +193,11 @@ Unless otherwise specified, the following applies to all code:
        unlike in this example:
 
         ```typescript
-        interface IMyObject {
+        interface MyObject {
             hasString: boolean;
         }
 
-        type Options = IMyObject | string;
+        type Options = MyObject | string;
 
         function doThing(arg: Options) {
             // ...
