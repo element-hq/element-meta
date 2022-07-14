@@ -261,10 +261,10 @@ Unless otherwise specified, the following applies to all code:
 Inheriting all the rules of TypeScript, the following additionally apply:
 
 1. Types for lifecycle functions are not required (render, componentDidMount, etc).
-2. Class components must always have an IProps interface declared immediately above them. It can be
+2. Class components must always have a `Props` interface declared immediately above them. It can be
    empty if the component accepts no props.
-3. Class components should have an IState interface declared immediately above them, but after IProps.
-4. IProps and IState should not be exported. Use `React.ComponentProps<typeof ComponentNameHere>`
+3. Class components should have an `State` interface declared immediately above them, but after `Props`.
+4. Props and State should not be exported. Use `React.ComponentProps<typeof ComponentNameHere>`
    instead.
 5. One component per file, except when a component is a utility component specifically for the "primary"
    component. The utility component should not be exported.
