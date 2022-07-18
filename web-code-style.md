@@ -349,7 +349,10 @@ Inheriting all the rules of TypeScript, the following additionally apply:
 17. Components should serve a single, or near-single, purpose.
 18. Prefer to derive information from component properties rather than establish state.
 
-## (S)CSS
+## Stylesheets (\*.pcss = PostCSS + Plugins)
+
+Note: We use PostCSS + some plugins to process our styles.
+It looks like SCSS, but actually it is not.
 
 1. Class names must be prefixed with "mx_".
 2. Class names should denote the component which defines them, followed by any context:
@@ -383,11 +386,12 @@ Inheriting all the rules of TypeScript, the following additionally apply:
     ```scss
     .mx_MyFoo {
         width: calc(100% - 12px); // 12px for read receipts
-        top: -2px; // visually centered vertically
+        top: -2px; // visually centred vertically
         z-index: 10; // above user avatar, but below dialogs
     }
     ```
 9. Use and define generic mixins when reusing styles a lot.
+10. Avoid the use of `!important`. If necessary, add a comment.
 
 ## Tests
 
