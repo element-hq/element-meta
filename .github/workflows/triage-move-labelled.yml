@@ -30,8 +30,8 @@ jobs:
               labels: ['Z-Labs']
             })
 
-  add_priority_design_issues_to_project:
-    name: P1 X-Needs-Design to Design project board
+  add_design_issues_to_project:
+    name: X-Needs-Design to Design project board
     runs-on: ubuntu-latest
     if: >
         contains(github.event.issue.labels.*.name, 'X-Needs-Design')
