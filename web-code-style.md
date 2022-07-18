@@ -89,7 +89,7 @@ Unless otherwise specified, the following applies to all code:
     ```
 4. Use semicolons for block/line termination.
     1. Except when defining interfaces, classes, and non-arrow functions specifically.
-5. Single-line blocks are permitted, so long as they don't use newlines.
+5. When a statement's body is a single line, it may be written without curly braces, so long as the body is placed on the same line as the statement.
 
     ```typescript
     if (x) doThing();
@@ -124,7 +124,7 @@ Unless otherwise specified, the following applies to all code:
     ```
 9. lowerCamelCase is used for function and variable naming.
 10. UpperCamelCase is used for general naming.
-11. Interface names begin with an uppercase i.
+11. Interface names should not be marked with an uppercase `I`.
 12. One variable declaration per line.
 13. If a variable is not receiving a value on declaration, its type must be defined.
 
@@ -208,7 +208,7 @@ Unless otherwise specified, the following applies to all code:
 27. Prefer arrow formatting when declaring functions for interfaces/types:
 
     ```typescript
-    interface ITest {
+    interface Test {
         myCallback: (arg: string) => Promise<void>;
     }
     ```
