@@ -86,6 +86,14 @@ Unless otherwise specified, the following applies to all code:
         "String1", "String 2",
         "A much longer string 3",
     );
+
+    // Chaining function calls
+    something.doThing()
+        .doOtherThing()
+        .doMore()
+        .somethingElse(it =>
+            useIt(it)
+        );
     ```
 4. Use semicolons for block/line termination.
     1. Except when defining interfaces, classes, and non-arrow functions specifically.
