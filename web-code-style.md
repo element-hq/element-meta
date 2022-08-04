@@ -264,6 +264,20 @@ Unless otherwise specified, the following applies to all code:
         7. Public/protected/private static functions
 37. Variable names should be noticeably unique from their types. For example, "str: string" instead
     of "string: string"
+38. Use double quotes to enclose strings. You may use single quotes if the string contains double quotes.
+
+    ```typescript
+    const example1 = "simple string";
+    const example2 = 'string containing "double quotes"';
+    ```
+39. Prefer async-await to promise-chaining
+
+    ```typescript
+    async function () {
+        const result = await anotherAsyncFunction();
+        // ...
+    }
+    ```
 
 ## React
 
@@ -348,6 +362,7 @@ Inheriting all the rules of TypeScript, the following additionally apply:
     isolated components.
 17. Components should serve a single, or near-single, purpose.
 18. Prefer to derive information from component properties rather than establish state.
+19. Do not use `React.Component::forceUpdate`.
 
 ## Stylesheets (\*.pcss = PostCSS + Plugins)
 
@@ -390,8 +405,7 @@ It looks like SCSS, but actually it is not.
         z-index: 10; // above user avatar, but below dialogs
     }
     ```
-9. Use and define generic mixins when reusing styles a lot.
-10. Avoid the use of `!important`. If necessary, add a comment.
+9. Avoid the use of `!important`. If necessary, add a comment.
 
 ## Tests
 
