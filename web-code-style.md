@@ -71,7 +71,9 @@ Unless otherwise specified, the following applies to all code:
         arg2: string,
         arg3: string,
     ): boolean {
-        return !!arg1 && !!arg2 && !!arg3;
+        return !!arg1 
+            && !!arg2 
+            && !!arg3;
     }
 
     // Calling a function
