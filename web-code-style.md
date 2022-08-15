@@ -1,43 +1,43 @@
-# Element Web/Desktop code style
+# Element Web/Desktop code style guide
 
 This code style applies to projects which the element-web team directly maintains or is reasonably
-adjacent to. As of writing, that is:
+adjacent to. As of writing, these are:
 
 * element-desktop
 * element-web
 * matrix-react-sdk
 * matrix-js-sdk
 
-Other projects might extend this code style for increased strictness. Such an example is the
-matrix-events-sdk which has a theoretically higher bar for code organization, for a necessity
-of eternal maintenance. These projects will declare their code style within their repos.
+Other projects might extend this code style for increased strictness. For example, matrix-events-sdk
+has stricter code organization to reduce the maintenance burden. These projects will declare their code
+style within their own repos.
 
-Note that some rules will be layer-specific. Where the rules don't make sense for the project,
-they are used to the best of their ability, used in spirit, or ignored if not applicable, in that
-order.
+Note that some requirements will be layer-specific. Where the requirements don't make sense for the
+project, they are used to the best of their ability, used in spirit, or ignored if not applicable,
+in that order.
 
 ## Guiding principles
 
-1. We want the lint rules to feel natural for most team members. No one should have to overly
-   think about the linter.
+1. We want the lint rules to feel natural for most team members. No one should have to think too much
+   about the linter.
 2. We want to stay relatively close to [industry standards](https://google.github.io/styleguide/tsguide.html)
    to make onboarding easier.
-3. We describe what good code looks like rather than bad code. We do this to avoid excessively
-   punishing people for writing code which fails the linter.
-4. When something isn't covered by the style guide, we infer a reasonable rule rather than claim
-   that it "passes the linter". We update the style guide and linter accordingly.
-5. While we aim to improve readability, understanding, etc of the code, we deliberately do not
-   let our personal preferences solely drive rule decisions.
-6. We aim for an understandable guide. We're not lawyers.
+3. We describe what good code looks like rather than point out bad examples. We do this to avoid
+   excessively punishing people for writing code which fails the linter.
+4. When something isn't covered by the style guide, we come up with a reasonable rule rather than
+   claim that it "passes the linter". We update the style guide and linter accordingly.
+5. While we aim to improve readability, understanding, and other aspects of the code, we deliberately
+   do not let solely our personal preferences drive decisions.
+6. We aim to have an understandable guide.
 
 ## Coding practices
 
 1. Lint rules enforce decisions made by this guide. The lint rules and this guide are kept in
    perfect sync.
 2. Commit messages are descriptive for the changes. When the project supports squash merging,
-   only the resulting commit needs to be descriptive.
+   only the squashed commit needs to have a descriptive message.
 3. When there is disagreement with a code style approved by the linter, a PR is opened against
-   the lint rules rather than making decisions on the introducing PR.
+   the lint rules rather than making exceptions on the responsible code PR.
 4. Rules which are intentionally broken (via eslint-ignore, @ts-ignore, etc) have a comment
    included in the immediate vicinity for why. Determination of whether this is valid applies at
    code review time.
@@ -99,12 +99,13 @@ Unless otherwise specified, the following applies to all code:
     ```
 4. Use semicolons for block/line termination.
     1. Except when defining interfaces, classes, and non-arrow functions specifically.
-5. When a statement's body is a single line, it may be written without curly braces, so long as the body is placed on the same line as the statement.
+5. When a statement's body is a single line, it may be written without curly braces, so long as the body is placed on
+   the same line as the statement.
 
     ```typescript
     if (x) doThing();
     ```
-6. Blocks for `if`, `for`, `switch`, etc must have a space surrounding the condition, but not
+6. Blocks for `if`, `for`, `switch` and so on must have a space surrounding the condition, but not
    within the condition.
 
     ```typescript
@@ -141,7 +142,7 @@ Unless otherwise specified, the following applies to all code:
     ```typescript
     let errorMessage: Optional<string>;
     ```
-14. Objects, arrays, enums, etc must have each line terminated with a comma:
+14. Objects, arrays, enums and so on must have each line terminated with a comma:
 
     ```typescript
     const obj = {
@@ -198,8 +199,8 @@ Unless otherwise specified, the following applies to all code:
     1. Convention is to use an underscore or the word "internal" to denote conflicted member names.
     2. "Conflicted" typically refers to a getter which wants the same name as the underlying variable.
 23. Prefer readonly members over getters backed by a variable, unless an internal setter is required.
-24. Prefer Interfaces for object definitions, and Types for parameter-value-only declarations.
-    1. Note that an explicit Type is optional if not expected to be used outside of the function call,
+24. Prefer Interfaces for object definitions, and types for parameter-value-only declarations.
+    1. Note that an explicit type is optional if not expected to be used outside of the function call,
        unlike in this example:
 
         ```typescript
@@ -214,7 +215,7 @@ Unless otherwise specified, the following applies to all code:
         }
         ```
 25. Variables/properties which are `public static` should also be `readonly` when possible.
-26. Interface and Type properties are terminated with semicolons, not commas.
+26. Interface and type properties are terminated with semicolons, not commas.
 27. Prefer arrow formatting when declaring functions for interfaces/types:
 
     ```typescript
@@ -265,7 +266,7 @@ Unless otherwise specified, the following applies to all code:
         6. Public/private functions
         7. Public/protected/private static functions
 37. Variable names should be noticeably unique from their types. For example, "str: string" instead
-    of "string: string"
+    of "string: string".
 38. Use double quotes to enclose strings. You may use single quotes if the string contains double quotes.
 
     ```typescript
@@ -285,7 +286,7 @@ Unless otherwise specified, the following applies to all code:
 
 Inheriting all the rules of TypeScript, the following additionally apply:
 
-1. Types for lifecycle functions are not required (render, componentDidMount, etc).
+1. Types for lifecycle functions are not required (render, componentDidMount, and so on).
 2. Class components must always have a `Props` interface declared immediately above them. It can be
    empty if the component accepts no props.
 3. Class components should have an `State` interface declared immediately above them, but after `Props`.
@@ -368,8 +369,7 @@ Inheriting all the rules of TypeScript, the following additionally apply:
 
 ## Stylesheets (\*.pcss = PostCSS + Plugins)
 
-Note: We use PostCSS + some plugins to process our styles.
-It looks like SCSS, but actually it is not.
+Note: We use PostCSS + some plugins to process our styles. It looks like SCSS, but actually it is not.
 
 1. Class names must be prefixed with "mx_".
 2. Class names should denote the component which defines them, followed by any context:
@@ -387,7 +387,7 @@ It looks like SCSS, but actually it is not.
         }
     }
     ```
-6. Break multiple selectors over multiple lines like so:
+6. Break multiple selectors over multiple lines this way:
 
     ```scss
     .mx_MyFoo,
@@ -397,7 +397,7 @@ It looks like SCSS, but actually it is not.
     }
     ```
 7. Non-shared variables should use $lowerCamelCase. Shared variables use $dashed-naming.
-8. Overrides to Z indexes, adjustments of dimensions/padding with pixels, etc should all be
+8. Overrides to Z indexes, adjustments of dimensions/padding with pixels, and so on should all be
    documented for what the values mean:
 
     ```scss
@@ -411,7 +411,7 @@ It looks like SCSS, but actually it is not.
 
 ## Tests
 
-1. Are written in TypeScript.
+1. Tests must be written in TypeScript.
 2. Jest mocks are declared below imports, but above everything else.
 3. Use the following convention template:
 
