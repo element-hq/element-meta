@@ -12,6 +12,7 @@ Chat effects provide a delightful experience to the user. They add personality a
 
 ### Complication
 
+We are not currently looking to add any more chat effects to Element. 
 Too many chat effects, and too many triggers could cause users to turn chat effects off. If timeline take-overs happen too often we may frustrate our users instead of delight them. This is likely to occur in large rooms but may also happen in DMs of one or two people.
 
 Backslash commands for chat effects are handy as these are known by power users and less common. The use of Emojis as triggers lowers the barrier to usage, and increases the chances of users happening across this delight feature by accident but the 'shadow' of that is it may occur too often - or on emoji's that users send for other reasons. 
