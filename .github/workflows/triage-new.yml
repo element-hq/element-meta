@@ -24,5 +24,5 @@ jobs:
           projectid: ${{ env.PROJECT_ID }}
           contentid: ${{ github.event.issue.node_id }}
         env:
-          PROJECT_ID: "PN_kwDOAM0swc4AA19d"
+          PROJECT_ID: "PVT_kwDOAM0swc4AA19d"
           GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
