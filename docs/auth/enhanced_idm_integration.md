@@ -16,7 +16,7 @@ IDM is defined as the customer's user directory and/or identity management syste
 
 ## Prerequisites
 
-- Pull additional user attributes from IDM with dynamic mappings (user state, avatar, phone number, mail address etc.)
+- Pull additional (arbitrary) user attributes from IDM with dynamic mappings (user state, avatar, phone number, mail address etc.)
 
 ## Features
 
