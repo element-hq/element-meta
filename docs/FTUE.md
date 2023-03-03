@@ -48,10 +48,11 @@ This document aims to make first time user experience as simple as possible. FTU
 5. Open web view overlay for login (or redirect to IdP on Web/Desktop; OIDC flow; requires consent on iOS)
 6. User authenticates, web view closes (or redirect back to Web/Desktop app), user is back in the app
 7. [user is logged in]
-8. [user attributes are pulled from the server]
-9. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs)
-10. User account summary? (your name, avatar, etc.)
-11. Element is set up, user sees their 'All chats' list 
+8. [user attributes are pulled from the server, if possible]
+9. [if we don't get user attributes from the server or user is allowed to change them] Additional user attributes: display name, avatar, e-mail, phone number (user can skip)
+10. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs)
+11. User account summary? (your name, avatar, etc.)
+12. Element is set up, user sees their 'All chats' list 
 
 
 ### 1b) Regular user invitation
@@ -106,7 +107,9 @@ This document aims to make first time user experience as simple as possible. FTU
 
 ### Registration design on MAS as part of OIDC flow
 
-### How do you want others to find you
+### Additional user attributes
+
+### How do you want others to find you?
 
 We could make a difference by giving the user choice over which identifiers they want to associate with their MXID to allow others to find them by.
 
@@ -122,3 +125,4 @@ For enterprise use cases there should be a way to pre-configure/enforce this so 
 ### Settings
 - User registration enabled/disabled
 - Restrict user invitations to administrators
+- Allow/disallow users to change user attributes
