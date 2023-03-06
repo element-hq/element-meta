@@ -4,7 +4,7 @@ This document aims to make first time user experience as simple as possible. FTU
 
 | Status | Last updated |
 |--|--|
-| Draft | March 1, 2023 |
+| Draft | March 6, 2023 |
 
 ## Use cases / scenarios
 
@@ -49,9 +49,9 @@ This document aims to make first time user experience as simple as possible. FTU
 6. User authenticates, web view closes (or redirect back to Web/Desktop app), user is back in the app
 7. [user is logged in]
 8. [user attributes are pulled from the server, if possible]
-9. [if we don't get user attributes from the server or user is allowed to change them] Additional user attributes: display name, avatar, e-mail, phone number (user can skip)
+9. [if we don't get user attributes from the server or user is allowed to change them] Additional user attributes (user can skip)
 10. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs)
-11. User account summary? (your name, avatar, etc.)
+11. User account summary? (your name, avatar, MXID, etc.)
 12. Element is set up, user sees their 'All chats' list 
 
 
@@ -69,9 +69,9 @@ This document aims to make first time user experience as simple as possible. FTU
 8. User might get a verification token (e.g., via mail) and needs to supply it
 9. Web view closes (or redirect back to Web/Desktop app), user is back in the app
 10. [user is logged in]
-11. Additional user attributes: display name, avatar, e-mail, phone number (user can skip)
+11. Additional user attributes (user can skip)
 12. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs)
-13. User account summary? (your name, avatar, etc.)
+13. User account summary? (your name, avatar, MXID?, etc.)
 14. Element is set up, user sees their 'All chats' list 
 
 ### 2. Manual login / registration
@@ -103,11 +103,24 @@ This document aims to make first time user experience as simple as possible. FTU
 
 ## Related solution concepts
 
-### Login design on MAS as part of OIDC flow
+### Design for MAS-served components as part of OIDC flow
+#### Login
 
-### Registration design on MAS as part of OIDC flow
+For all login flows, the first entry point for a user is a web page served by MAS. There are different scenarios depending on the type of deployment:
+
+- Using **integrated MAS-based login provider** (IdP) => users authenticate directly on the web page served by MAS
+- Providing a **single upstream login provider** (IdP; e.g., Google) => MAS will transparently redirect the user to the upstream login provider to authenticate there
+- Providing **multiple upstream login providers** (IdP; e.g., Google and Keycloak) => MAS will provide a list of login providers and redirects depending on user choice to the respective upstream login provider to authenticate there
+
+#### Registration
 
 ### Additional user attributes
+
+- Display name
+- Mail address
+- Avatar
+- Phone number
+- etc.
 
 ### How do you want others to find you?
 
@@ -120,7 +133,7 @@ We could make a difference by giving the user choice over which identifiers they
 
 As part of this process they might also need to accept T&C's for identity servers.
 
-For enterprise use cases there should be a way to pre-configure/enforce this so that the user does not have the choice and does not see the screen during FTUE.
+**For enterprise use cases** there should be a way to pre-configure/enforce this so that the user does not have the choice and does not see the screen during FTUE.
 
 ### Settings
 - User registration enabled/disabled
