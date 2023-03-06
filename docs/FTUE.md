@@ -112,6 +112,8 @@ For all login flows, the first entry point for a user is a web page served by MA
 - Providing a **single upstream login provider** (IdP; e.g., Google) => MAS will transparently redirect the user to the upstream login provider to authenticate there
 - Providing **multiple upstream login providers** (IdP; e.g., Google and Keycloak) => MAS will provide a list of login providers and redirects depending on user choice to the respective upstream login provider to authenticate there
 
+As part of the flows involving upstream login providers, more sophisticated authentication security measures like 2FA, MFA, Brute-force protection, etc., can be employed, depending on the capabilities and configuration of the upstream login provider.
+
 #### Registration
 
 ### Additional user attributes
