@@ -4,7 +4,7 @@ This document aims to describe the product specification of the 'Enhanced IDM in
 
 | Status | Last updated |
 |--|--|
-| Draft | March 1, 2023 |
+| Draft | March 8, 2023 |
 
 ## Story, context & use cases
 
@@ -21,6 +21,7 @@ IDM is defined as the customer's user directory and/or identity management syste
 ## Features
 
 - Regularly sync configured/mapped user attributes from IDM
+	- Synapse (legacy) user DB
 	- with MAS DB (Matrix Authentication Service)
 	- with Identity Server DB (Sydent)
 - IDM-backed user lifecycle management
@@ -38,3 +39,8 @@ IDM is defined as the customer's user directory and/or identity management syste
 - The 'Enhanced IDM integration' should be deployable together with (or on top of) MAS which delivers the basic IDM connectivity.
 - Customers should only configure their IDM settings once and in one location. This should be used by advanced IDM components like 'Group Sync' or the 'Enhanced IDM integration'.
 - The attribute sync interval should be configurable to cover different requirements towards performance and currency.
+
+## Delivery models?
+- on-premises
+- cloud-hosted
+- cloud-hosted + VPN link to an on-prem IDM
