@@ -49,8 +49,8 @@ This document aims to make first time user experience as simple as possible. FTU
 6. User authenticates, web view closes (or redirect back to Web/Desktop app), user is back in the app
 7. [user is logged in]
 8. [user attributes are pulled from the server, if possible]
-9. [if we don't get user attributes from the server or user is allowed to change them] Additional user attributes (user can skip)
-10. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
+9. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
+10. [if we don't get user attributes from the server or user is allowed to change them] Additional user attributes (user can skip; see [Additional user attributes](#additional-user-attributes) for more details)
 11. Ask to allow notifications
 12. Ask for consent to analytics
 13. User account summary? (your name, avatar, MXID, etc.)
@@ -70,8 +70,8 @@ This document aims to make first time user experience as simple as possible. FTU
 7. User creates account
 8. Web view closes (or redirect back to Web/Desktop app), user is back in the app
 9. [user is logged in]
-10. Additional user attributes (user can skip)
-11. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs)
+10. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
+11. Additional user attributes (user can skip; see [Additional user attributes](#additional-user-attributes) for more details)
 12. Ask to allow notifications
 13. Ask for consent to analytics
 14. User account summary? (your name, avatar, MXID?, etc.)
@@ -104,13 +104,14 @@ This document aims to make first time user experience as simple as possible. FTU
 2. Open web view overlay for login (or redirect to IdP on Web/Desktop; OIDC flow; requires consent on iOS; see [Login](#login) for more details)
 3. User authenticates, web view closes (or redirect back to Web/Desktop app), user is back in the app
 4. [user is logged in]
-5. [ask server if single device or additional device]
+5. [ask server if single device or additional device] Secure Messaging
 	1. If no encryption or secure backup enabled => skip this step
 	2. Single device => Ask for recovery method to obtain 4S (offer to reset?) => can't be skipped
-	3. Additional device => Ask for cross-signing with another device (QR code or 6-digit code comparison) => can't be skipped
-4. Ask to allow notifications
-5. Ask for consent to analytics
-6. Element is fully set up, user sees their 'All chats' list
+	3. Additional device => Ask for cross-signing with another device (QR code or 6-digit code comparison) or recovery method => can't be skipped
+4. [message history and key backup are fetched from server, device is cross-signed (if applicable)]
+5. Ask to allow notifications
+6. Ask for consent to analytics
+7. Element is fully set up, user sees their 'All chats' list
 
 **C) Register new account**
 
@@ -119,11 +120,12 @@ This document aims to make first time user experience as simple as possible. FTU
 3. User creates account
 4. Web view closes (or redirect back to Web/Desktop app), user is back in the app
 5. [user is logged in]
-6. Additional user attributes (user can skip)
-7. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs)
+6. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
+7. Additional user attributes (user can skip; see [Additional user attributes](#additional-user-attributes) for more details)
 8. Ask to allow notifications
 9. Ask for consent to analytics
-10. Element is fully set up, user sees their 'All chats' list
+10. Element is fully set up, user sees their (empty) 'All chats' list
+11. User gets hints on how to get started (start a conversation, join a public room, etc.)
 
 ## Related solution concepts
 
@@ -142,7 +144,7 @@ As part of the flows involving upstream login providers, more sophisticated auth
 
 The options for registering a new user account depend on the respective user backend and the homeserver configuration.
 
-- For a **MAS-backed** deployment (only using the integrated user directory), the user creates their account directly on a web page served by MAS.
+- For a **MAS-backed** deployment (only using the internal user directory), the user creates their account directly on a web page served by MAS.
 	- UserID
 	- Password
 	- E-Mail
