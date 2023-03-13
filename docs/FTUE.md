@@ -50,7 +50,7 @@ This document aims to make first time user experience as simple as possible. FTU
 7. [user is logged in]
 8. [user attributes are pulled from the server, if possible]
 9. [if we don't get user attributes from the server or user is allowed to change them] Additional user attributes (user can skip)
-10. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs)
+10. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#howdoyouwantotherstofindyou) for more details)
 11. Ask to allow notifications
 12. Ask for consent to analytics
 13. User account summary? (your name, avatar, MXID, etc.)
@@ -66,18 +66,17 @@ This document aims to make first time user experience as simple as possible. FTU
 3. [homeserver, inviting user MXID and/or other information are imported via clipboard in the background ]
 4. Welcome screen
 5. Simplified homeserver choice ("You are about to register on homeserver.tld"; continue/change)
-6. Open web view overlay for registration (or redirect to IDM registration on Web/Desktop; OIDC flow; requires consent on iOS)
+6. Open web view overlay for registration (or redirect to IDM registration on Web/Desktop; OIDC flow; requires consent on iOS; see [Registration](#registration) for more details)
 7. User creates account
-8. User might get a verification token (e.g., via mail) and needs to supply it
-9. Web view closes (or redirect back to Web/Desktop app), user is back in the app
-10. [user is logged in]
-11. Additional user attributes (user can skip)
-12. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs)
-13. Ask to allow notifications
-14. Ask for consent to analytics
-15. User account summary? (your name, avatar, MXID?, etc.)
-16. Element is set up, user sees their 'All chats' list
-17. A DM room with the inviting user is automatically set up
+8. Web view closes (or redirect back to Web/Desktop app), user is back in the app
+9. [user is logged in]
+10. Additional user attributes (user can skip)
+11. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs)
+12. Ask to allow notifications
+13. Ask for consent to analytics
+14. User account summary? (your name, avatar, MXID?, etc.)
+15. Element is set up, user sees their 'All chats' list
+16. A DM room with the inviting user is automatically set up
 
 ### 2. Manual login / registration
 
@@ -95,23 +94,36 @@ This document aims to make first time user experience as simple as possible. FTU
 3.  [user/homeserver information and recovery key are imported in the background]
 4.  [user is logged in]
 5.  [message history and key backup are fetched from server, device is cross-signed]
-6.  Element is fully set up, user sees their 'All chats' list
+6.  Ask to allow notifications
+7.  Ask for consent to analytics
+8.  Element is fully set up, user sees their 'All chats' list
 
 **B) Log in manually (email / username)**
 
 1. Simplified homeserver choice ("You are about to sign in to your account on matrix.org"; continue/change)
-2. Open web view overlay for login (or redirect to IdP on Web/Desktop; OIDC flow; requires consent on iOS)
+2. Open web view overlay for login (or redirect to IdP on Web/Desktop; OIDC flow; requires consent on iOS; see [Login](#login) for more details)
 3. User authenticates, web view closes (or redirect back to Web/Desktop app), user is back in the app
 4. [user is logged in]
 5. [ask server if single device or additional device]
 	1. If no encryption or secure backup enabled => skip this step
 	2. Single device => Ask for recovery method to obtain 4S (offer to reset?) => can't be skipped
 	3. Additional device => Ask for cross-signing with another device (QR code or 6-digit code comparison) => can't be skipped
+4. Ask to allow notifications
+5. Ask for consent to analytics
 6. Element is fully set up, user sees their 'All chats' list
 
 **C) Register new account**
 
-1. Simplified homeserver choice ("You are about to register an account on matrix.org"; continue/change)
+1. Simplified homeserver choice ("You are about to register on matrix.org"; continue/change)
+2. Open web view overlay for registration (or redirect to IDM registration on Web/Desktop; OIDC flow; requires consent on iOS; see [Registration](#registration) for more details)
+3. User creates account
+4. Web view closes (or redirect back to Web/Desktop app), user is back in the app
+5. [user is logged in]
+6. Additional user attributes (user can skip)
+7. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs)
+8. Ask to allow notifications
+9. Ask for consent to analytics
+10. Element is fully set up, user sees their 'All chats' list
 
 ## Related solution concepts
 
