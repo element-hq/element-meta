@@ -76,30 +76,37 @@ This document aims to make first time user experience as simple as possible. FTU
 
 ### 2. Manual login / registration
 
-1.  Welcome screen
-2.  Let's get you set up (options)
-	1.  Log in with another device (highlighted prominently)
-	2.  Log in manually (email / username)
-	3.  Register new account
-3a.  Log in with another device (QR code flow)
-	1.  ‘Scan QR code’ view is shown with camera view and advice => "open Element on another logged-in device and click ‘Link additional device’"; QR code is shown
-	2.  User scans QR code
-	3.  [user/homeserver information and recovery key are imported in the background]
-	4.  [user is logged in]
-	5.  [message history and key backup are fetched from server, device is cross-signed]
-	6.  Element is fully set up, user sees their 'All chats' list
-3b. Log in manually (email / username)
-	1. Simplified homeserver choice ("You are about to sign in to your account on matrix.org"; continue/change)
-	2. Open web view overlay for login (or redirect to IdP on Web/Desktop; OIDC flow; requires consent on iOS)
-	3. User authenticates, web view closes (or redirect back to Web/Desktop app), user is back in the app
-	4. [user is logged in]
-	5. [ask server if single device or additional device]
-		0. If no encryption or secure backup enabled => skip this step
-		1. Single device => Ask for recovery method to obtain 4S (offer to reset?) => can't be skipped
-		2. Additional device => Ask for cross-signing with another device (QR code or 6-digit code comparison) => can't be skipped
-	6. Element is fully set up, user sees their 'All chats' list
-3c. Register new account
-	TBC
+1. Welcome screen
+2. Let's get you set up (options)
+	1.  Log in with another device (highlighted prominently; A)
+	2.  Log in manually (email / username; B)
+	3.  Register new account (C)
+3. Different flows depending on user choice
+
+**A.  Log in with another device (QR code flow)**
+
+1.  ‘Scan QR code’ view is shown with camera view and advice => "open Element on another logged-in device and click ‘Link additional device’"; QR code is shown
+2.  User scans QR code
+3.  [user/homeserver information and recovery key are imported in the background]
+4.  [user is logged in]
+5.  [message history and key backup are fetched from server, device is cross-signed]
+6.  Element is fully set up, user sees their 'All chats' list
+
+**B. Log in manually (email / username)**
+
+1. Simplified homeserver choice ("You are about to sign in to your account on matrix.org"; continue/change)
+2. Open web view overlay for login (or redirect to IdP on Web/Desktop; OIDC flow; requires consent on iOS)
+3. User authenticates, web view closes (or redirect back to Web/Desktop app), user is back in the app
+4. [user is logged in]
+5. [ask server if single device or additional device]
+	1. If no encryption or secure backup enabled => skip this step
+	2. Single device => Ask for recovery method to obtain 4S (offer to reset?) => can't be skipped
+	3. Additional device => Ask for cross-signing with another device (QR code or 6-digit code comparison) => can't be skipped
+6. Element is fully set up, user sees their 'All chats' list
+
+**C. Register new account**
+
+TBC
 
 ## Related solution concepts
 
