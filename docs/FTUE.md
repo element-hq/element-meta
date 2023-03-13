@@ -45,7 +45,7 @@ This document aims to make first time user experience as simple as possible. FTU
 	2. User has the app => Launch it
 3. [homeserver and/or other information are imported via clipboard in the background ]
 4. Welcome screen
-5. Open web view overlay for login (or redirect to IdP on Web/Desktop; OIDC flow; requires consent on iOS)
+5. Open web view overlay for login (or redirect to IdP on Web/Desktop; OIDC flow; requires consent on iOS; see [Login](#login) for more details)
 6. User authenticates, web view closes (or redirect back to Web/Desktop app), user is back in the app
 7. [user is logged in]
 8. [user attributes are pulled from the server, if possible]
@@ -111,7 +111,7 @@ This document aims to make first time user experience as simple as possible. FTU
 
 **C) Register new account**
 
-TBC
+1. Simplified homeserver choice ("You are about to register an account on matrix.org"; continue/change)
 
 ## Related solution concepts
 
