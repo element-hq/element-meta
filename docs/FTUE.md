@@ -50,7 +50,7 @@ This document aims to make first time user experience as simple as possible. FTU
 7. [user is logged in]
 8. [user attributes are pulled from the server, if possible]
 9. [if we don't get user attributes from the server or user is allowed to change them] Additional user attributes (user can skip)
-10. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#howdoyouwantotherstofindyou) for more details)
+10. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
 11. Ask to allow notifications
 12. Ask for consent to analytics
 13. User account summary? (your name, avatar, MXID, etc.)
