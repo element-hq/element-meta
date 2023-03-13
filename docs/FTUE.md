@@ -136,8 +136,8 @@ This document aims to make first time user experience as simple as possible. FTU
 For all login flows, the first entry point for a user is a web page served by MAS. There are different scenarios depending on the type of deployment:
 
 - Using **integrated MAS-based login provider** (IdP) => users authenticate directly on the web page served by MAS
-- Providing a **single upstream login provider** (IdP; e.g., Google) => MAS will transparently redirect the user to the upstream login provider to authenticate there
-- Providing **multiple upstream login providers** (IdP; e.g., Google and Keycloak) => MAS will provide a list of login providers and redirects depending on user choice to the respective upstream login provider to authenticate there
+- Providing a **single upstream login provider** (IdP; e.g., Google) => MAS will ask for the user's mail address to determine the right login provider automatically and will redirect accordingly. If there is no internal user directory, MAS will transparently redirect the user to the upstream login provider to authenticate there (most common case for this scenario).
+- Providing **multiple upstream login providers** (IdP; e.g., Google and Keycloak) => MAS will ask for the user's mail address to determine the right login provider automatically and will redirect accordingly. Additionally, MAS will provide a list of login providers and redirects depending on user choice to the respective upstream login provider to authenticate there.
 
 As part of the flows involving upstream login providers, more sophisticated authentication security measures like 2FA, MFA, Brute-force protection, etc., can be employed, depending on the capabilities and configuration of the upstream login provider.
 
@@ -150,6 +150,7 @@ The options for registering a new user account depend on the respective user bac
 	- Password
 	- E-Mail
 	- E-Mail verification
+	- Captcha (configurable)
 	- Accept T&Cs (configurable)
 	- Consent to share account data with the client
 	
