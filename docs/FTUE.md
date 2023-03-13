@@ -4,7 +4,7 @@ This document aims to make first time user experience as simple as possible. FTU
 
 | Status | Last updated |
 |--|--|
-| Draft | March 6, 2023 |
+| Draft | March 13, 2023 |
 
 ## Use cases / scenarios
 
@@ -51,8 +51,10 @@ This document aims to make first time user experience as simple as possible. FTU
 8. [user attributes are pulled from the server, if possible]
 9. [if we don't get user attributes from the server or user is allowed to change them] Additional user attributes (user can skip)
 10. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs)
-11. User account summary? (your name, avatar, MXID, etc.)
-12. Element is set up, user sees their 'All chats' list 
+11. Ask to allow notifications
+12. Ask for consent to analytics
+13. User account summary? (your name, avatar, MXID, etc.)
+14. Element is set up, user sees their 'All chats' list 
 
 
 ### 1b) Regular user invitation
@@ -61,7 +63,7 @@ This document aims to make first time user experience as simple as possible. FTU
 2. Browser opens and loads Element Web or the mobile app is opened (platform-dependent)
 	1. User doesn't have the app => Open app store and allow to install, then launch it
 	2. User has the app => Launch it
-3. [homeserver and/or other information are imported via clipboard in the background ]
+3. [homeserver, inviting user MXID and/or other information are imported via clipboard in the background ]
 4. Welcome screen
 5. Simplified homeserver choice ("You are about to register on homeserver.tld"; continue/change)
 6. Open web view overlay for registration (or redirect to IDM registration on Web/Desktop; OIDC flow; requires consent on iOS)
@@ -71,8 +73,11 @@ This document aims to make first time user experience as simple as possible. FTU
 10. [user is logged in]
 11. Additional user attributes (user can skip)
 12. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs)
-13. User account summary? (your name, avatar, MXID?, etc.)
-14. Element is set up, user sees their 'All chats' list 
+13. Ask to allow notifications
+14. Ask for consent to analytics
+15. User account summary? (your name, avatar, MXID?, etc.)
+16. Element is set up, user sees their 'All chats' list
+17. A DM room with the inviting user is automatically set up
 
 ### 2. Manual login / registration
 
@@ -83,7 +88,7 @@ This document aims to make first time user experience as simple as possible. FTU
 	3.  Register new account (C)
 3. Different flows depending on user choice
 
-**A.  Log in with another device (QR code flow)**
+**A)  Log in with another device (QR code flow)**
 
 1.  ‘Scan QR code’ view is shown with camera view and advice => "open Element on another logged-in device and click ‘Link additional device’"; QR code is shown
 2.  User scans QR code
@@ -92,7 +97,7 @@ This document aims to make first time user experience as simple as possible. FTU
 5.  [message history and key backup are fetched from server, device is cross-signed]
 6.  Element is fully set up, user sees their 'All chats' list
 
-**B. Log in manually (email / username)**
+**B) Log in manually (email / username)**
 
 1. Simplified homeserver choice ("You are about to sign in to your account on matrix.org"; continue/change)
 2. Open web view overlay for login (or redirect to IdP on Web/Desktop; OIDC flow; requires consent on iOS)
@@ -104,7 +109,7 @@ This document aims to make first time user experience as simple as possible. FTU
 	3. Additional device => Ask for cross-signing with another device (QR code or 6-digit code comparison) => can't be skipped
 6. Element is fully set up, user sees their 'All chats' list
 
-**C. Register new account**
+**C) Register new account**
 
 TBC
 
@@ -123,6 +128,19 @@ As part of the flows involving upstream login providers, more sophisticated auth
 
 #### Registration
 
+The options for registering a new user account depend on the respective user backend and the homeserver configuration.
+
+- For a **MAS-backed** deployment (only using the integrated user directory), the user creates their account directly on a web page served by MAS.
+	- UserID
+	- Password
+	- E-Mail
+	- E-Mail verification
+	- Accept T&Cs (configurable)
+	- Consent to share account data with the client
+	
+- For a deployment **backed by LDAP or another external user backend**, we don't have direct access to account creation. We can provide a configurable link to a web page served by the external user backend which allows account creation.
+- The homeserver can be configured to disallow registration. In this case Element should inform the user after the homeserver choice.
+
 ### Additional user attributes
 
 - Display name
@@ -133,7 +151,7 @@ As part of the flows involving upstream login providers, more sophisticated auth
 
 ### How do you want others to find you?
 
-We could make a difference by giving the user choice over which identifiers they want to associate with their MXID to allow others to find them by.
+We could make a difference by giving the user choice over which identifiers they want to associate with their MXID to allow others to find them by. **For enterprise use cases** there should be a way to pre-configure/enforce this so that the user does not have the choice and does not see the screen during FTUE.
 
 - Name
 - Mail address
@@ -141,8 +159,6 @@ We could make a difference by giving the user choice over which identifiers they
 - etc.
 
 As part of this process they might also need to accept T&C's for identity servers.
-
-**For enterprise use cases** there should be a way to pre-configure/enforce this so that the user does not have the choice and does not see the screen during FTUE.
 
 ### Settings
 - User registration enabled/disabled
