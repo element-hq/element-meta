@@ -53,7 +53,7 @@ This document aims to make first time user experience as simple as possible. FTU
 10. [if we don't get user attributes from the server or user is allowed to change them] Additional user attributes (user can skip; see [Additional user attributes](#additional-user-attributes) for more details)
 11. Ask to allow notifications
 12. Ask for consent to analytics
-13. User account summary? (your name, avatar, MXID, etc.)
+13. User account summary (your name, avatar, MXID, etc.)
 14. Element is set up, user sees their 'All chats' list 
 
 
@@ -74,7 +74,7 @@ This document aims to make first time user experience as simple as possible. FTU
 11. Additional user attributes (user can skip; see [Additional user attributes](#additional-user-attributes) for more details)
 12. Ask to allow notifications
 13. Ask for consent to analytics
-14. User account summary? (your name, avatar, MXID?, etc.)
+14. User account summary (your name, avatar, MXID?, etc.)
 15. Element is set up, user sees their 'All chats' list
 16. A DM room with the inviting user is automatically set up
 
@@ -124,8 +124,9 @@ This document aims to make first time user experience as simple as possible. FTU
 7. Additional user attributes (user can skip; see [Additional user attributes](#additional-user-attributes) for more details)
 8. Ask to allow notifications
 9. Ask for consent to analytics
-10. Element is fully set up, user sees their (empty) 'All chats' list
-11. User gets hints on how to get started (start a conversation, join a public room, etc.)
+10. User account summary (your name, avatar, MXID?, etc.)
+11. Element is fully set up, user sees their (empty) 'All chats' list
+12. User gets hints on how to get started (start a conversation, join a public room, etc.)
 
 ## Related solution concepts
 
