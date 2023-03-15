@@ -191,4 +191,6 @@ As part of this process they might also need to accept T&C's for identity server
 - User registration enabled/disabled
 - Restrict user invitations to administrators
 - Allow/disallow users to change user attributes
+- Force user attribute sharing for user discovery
 - Link to external user management registration (see [Registration](#registration))
+- MAS registration options (T&Cs, privacy policy, captcha, etc.)
