@@ -16,8 +16,8 @@ This document aims to make first time user experience as simple as possible. FTU
 - [Flows](#flows)
   * [0. MDM (not in scope)](#0-mdm-not-in-scope)
   * [1. Invitation via link](#1-invitation-via-link)
-  * [1a) Enterprise / organizational invitation](#1a-enterprise--organizational-invitation)
-  * [1b) Regular user invitation](#1b-regular-user-invitation)
+    + [1a) Enterprise / organizational invitation](#1a-enterprise--organizational-invitation)
+    + [1b) Regular user invitation](#1b-regular-user-invitation)
   * [2. Manual login / registration](#2-manual-login--registration)
 - [Related solution concepts](#related-solution-concepts)
   * [Design for MAS-served components as part of OIDC flow](#design-for-mas-served-components-as-part-of-oidc-flow)
@@ -29,14 +29,14 @@ This document aims to make first time user experience as simple as possible. FTU
 
 ## General guidelines
 
-1. The user onboarding process should be as simple and require as few steps as possible so that users can start using the app and reach their goals quickly, preventing churn.
-2. Many end-users do not understand or know about federation and other technical topics. Therefore the app should not bother the end-user with it but make them reach their goals at least as easily as with a centralized service. It must not be necessary to educate users about technical backgrounds in order to allow them to use the app.
-3. Technical wording should be avoided wherever possible.
-4. In order to simplify FTUE, the app should prominently advertise invitation-based onboarding flows that improve UX by providing information the user might not know or could be confusing (e.g., homeserver choice). See [Use cases / scenarios](#use-cases--scenarios)
-5. The invitation flows should automatically assist the user to reach their goals. An invitation from a regular user should therefore end with the new user having a conversation with the inviting user. 
-6. Users should never end up having unverified devices as these are a threat to integrity/security and the user needs to follow a couple of steps to recover from this situation. Therefore FTUE flows should ensure that additionally linked devices will be verified.
-7. User discovery is not trivial in a federated environment. The app should therefore allow the user to make a conscious decision on which identifiers they want to share for other users to find them by. This way the user has choice over which data to share with the provider and simultaneously gets awareness on how others can find them.
-8. Homeserver deployments will move fully to native OIDC. This needs to be respected in the FTUE flows.
+1. The user onboarding process should be as **simple** and **require as few steps as possible** so that users can start using the app and reach their goals quickly, preventing churn.
+2. Many end-users do not understand or know about **federation and other technical topics**. Therefore the app should **not bother the end-user with it** but make them reach their goals at least as easily as with a centralized service. It must not be necessary to educate users about technical backgrounds in order to allow them to use the app.
+3. **Technical wording** should be avoided wherever possible.
+4. In order to simplify FTUE, the app should prominently advertise **invitation-based onboarding flows** that improve UX by providing information the user might not know or could be confusing (e.g., homeserver choice). See [Use cases / scenarios](#use-cases--scenarios).
+5. The invitation flows should automatically **assist the user to reach their goals**. An invitation from a regular user should therefore end with the new user having a conversation with the inviting user. 
+6. Users should never end up having **unverified devices** as these are a threat to integrity/security and the user needs to follow a couple of steps to recover from this situation. Therefore FTUE flows should ensure that additionally linked devices will be verified.
+7. **User discovery** is not trivial in a federated environment. The app should therefore allow the user to make a conscious decision on which identifiers they want to share for other users to find them by. This way the user has choice over which data to share with the provider and simultaneously gets awareness on how others can find them.
+8. Homeserver deployments will move fully to **native OIDC**. This needs to be respected in the FTUE flows.
 
 ## Use cases / scenarios
 
