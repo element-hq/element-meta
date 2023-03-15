@@ -1,10 +1,31 @@
 # First Time User Experience
 
-This document aims to make first time user experience as simple as possible. FTUE refers to either the first registration/login of a user or to linking additional devices. All FTUE scenarios need to be covered within the initial setup of Element clients.
-
 | Status | Last updated |
 |--|--|
 | Draft | March 15, 2023 |
+
+This document aims to make first time user experience as simple as possible. FTUE refers to either the first registration/login of a user or to linking additional devices. All FTUE scenarios need to be covered within the initial setup of Element clients.
+
+**Table of contents**
+
+- [General guidelines](#general-guidelines)
+- [Use cases / scenarios](#use-cases--scenarios)
+  * [1. A new employee of an organization is onboarded to Element](#1-a-new-employee-of-an-organization-is-onboarded-to-element)
+  * [2. An existing regular user wants to onboard another regular user](#2-an-existing-regular-user-wants-to-onboard-another-regular-user)
+  * [3. A regular user just downloads the app or opens the web app](#3-a-regular-user-just-downloads-the-app-or-opens-the-web-app)
+- [Flows](#flows)
+  * [0. MDM (not in scope)](#0-mdm-not-in-scope)
+  * [1. Invitation via link](#1-invitation-via-link)
+  * [1a) Enterprise / organizational invitation](#1a-enterprise--organizational-invitation)
+  * [1b) Regular user invitation](#1b-regular-user-invitation)
+  * [2. Manual login / registration](#2-manual-login--registration)
+- [Related solution concepts](#related-solution-concepts)
+  * [Design for MAS-served components as part of OIDC flow](#design-for-mas-served-components-as-part-of-oidc-flow)
+    + [Login](#login)
+    + [Registration](#registration)
+  * [Additional user attributes](#additional-user-attributes)
+  * [How do you want others to find you?](#how-do-you-want-others-to-find-you)
+  * [Homeserver settings to consider](#homeserver-settings-to-consider)
 
 ## General guidelines
 
