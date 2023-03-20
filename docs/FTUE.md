@@ -23,6 +23,7 @@ This document aims to make first time user experience as simple as possible. FTU
   * [Design for MAS-served components as part of OIDC flow](#design-for-mas-served-components-as-part-of-oidc-flow)
     + [Login](#login)
     + [Registration](#registration)
+    + [Branding](#branding)
   * [Additional user attributes](#additional-user-attributes)
   * [How do you want others to find you?](#how-do-you-want-others-to-find-you)
   * [Homeserver settings to consider](#homeserver-settings-to-consider)
@@ -33,7 +34,7 @@ This document aims to make first time user experience as simple as possible. FTU
 2. Many end-users do not understand or know about **federation and other technical topics**. Therefore the app should **not bother the end-user with it** but make them reach their goals at least as easily as with a centralized service. It must not be necessary to educate users about technical backgrounds in order to allow them to use the app.
 3. **Technical wording** should be avoided wherever possible.
 4. In order to simplify FTUE, the app should prominently advertise **invitation-based onboarding flows** that improve UX by providing information the user might not know or could be confusing (e.g., homeserver choice). See [Use cases / scenarios](#use-cases--scenarios).
-5. The invitation flows should automatically **assist the user to reach their goals**. An invitation from a regular user should therefore end with the new user having a conversation with the inviting user. 
+5. The invitation flows should automatically **assist the user to reach their goals**. An invitation from a regular user should therefore end with the new user having a conversation with the inviting user. An invitation to a particular room should end with the new user joining that room.
 6. Users should never end up having **unverified devices** as these are a threat to integrity/security and the user needs to follow a couple of steps to recover from this situation. Therefore FTUE flows should ensure that additionally linked devices will be verified.
 7. **User discovery** is not trivial in a federated environment. The app should therefore allow the user to make a conscious decision on which identifiers they want to share for other users to find them by. This way the user has choice over which data to share with the provider and simultaneously gets awareness on how others can find them.
 8. Homeserver deployments will move fully to **native OIDC**. This needs to be respected in the FTUE flows.
@@ -80,13 +81,18 @@ This document aims to make first time user experience as simple as possible. FTU
 5. Open web view overlay for login (or redirect to IdP on Web/Desktop; OIDC flow; requires consent on iOS; see [Login](#login) for more details)
 6. User authenticates, web view closes (or redirect back to Web/Desktop app), user is back in the app
 7. [user is logged in]
-8. [user attributes are pulled from the server, if possible]
-9. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
-10. [if we don't get user attributes from the server or user is allowed to change them] Additional user attributes (user can skip; see [Additional user attributes](#additional-user-attributes) for more details)
-11. Ask to allow notifications
-12. Ask for consent to analytics
-13. User account summary (your name, avatar, MXID, etc.)
-14. Element is set up, user sees their 'All chats' list 
+8. [ask server if single device or additional device] Secure Messaging
+	1. If no encryption or secure backup enabled => skip this step or set up secure messaging if first login
+	2. Single device (and not first login) => Ask for recovery method to obtain 4S (offer to reset?) => can't be skipped
+	3. Additional device => Ask for cross-signing with another device (QR code or 6-digit code comparison) or recovery method => can't be skipped
+9. [message history and key backup are fetched from server, device is cross-signed (if applicable)]
+10. [user attributes are pulled from the server, if possible]
+11. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
+12. [if we don't get user attributes from the server or user is allowed to change them] Additional user attributes (user can skip; see [Additional user attributes](#additional-user-attributes) for more details)
+13. Ask to allow notifications
+14. Ask for consent to analytics
+15. User account summary (your name, avatar, MXID, etc.)
+16. Element is set up, user sees their 'All chats' list 
 
 
 ### 1b) Regular user invitation
@@ -108,7 +114,7 @@ This document aims to make first time user experience as simple as possible. FTU
 13. Ask for consent to analytics
 14. User account summary (your name, avatar, MXID?, etc.)
 15. Element is set up, user sees their 'All chats' list
-16. A DM room with the inviting user is automatically set up
+16. A DM room with the inviting user (or a room join for the room invitation) is automatically set up
 
 ### 2. Manual login / registration
 
@@ -137,13 +143,13 @@ This document aims to make first time user experience as simple as possible. FTU
 3. User authenticates, web view closes (or redirect back to Web/Desktop app), user is back in the app
 4. [user is logged in]
 5. [ask server if single device or additional device] Secure Messaging
-	1. If no encryption or secure backup enabled => skip this step
+	1. If no encryption or secure backup enabled => skip this step or set up secure messaging if first login
 	2. Single device => Ask for recovery method to obtain 4S (offer to reset?) => can't be skipped
 	3. Additional device => Ask for cross-signing with another device (QR code or 6-digit code comparison) or recovery method => can't be skipped
-4. [message history and key backup are fetched from server, device is cross-signed (if applicable)]
-5. Ask to allow notifications
-6. Ask for consent to analytics
-7. Element is fully set up, user sees their 'All chats' list
+6. [message history and key backup are fetched from server, device is cross-signed (if applicable)]
+7. Ask to allow notifications
+8. Ask for consent to analytics
+9. Element is fully set up, user sees their 'All chats' list
 
 **C) Register new account**
 
@@ -188,6 +194,10 @@ The options for registering a new user account depend on the respective user bac
 	
 - For a deployment **backed by LDAP or another external user backend**, we don't have direct access to account creation. We can provide a configurable link to a web page served by the external user backend which allows account creation.
 - The homeserver can be configured to disallow registration. In this case Element should inform the user after the homeserver choice.
+
+#### Branding
+
+MAS should offer different branding capabilities based on the branding of the respective client connecting to it. This capability is part of the OIDC specification and will be used by different clients to give users identification and recognition during login/registration. Apart from that, the general MAS design will provide a 'powered by Matrix' logo to build the bridge to the Matrix protocol.
 
 ### Additional user attributes
 
