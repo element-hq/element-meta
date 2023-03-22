@@ -148,7 +148,8 @@ This document aims to make first time user experience as simple as possible. FTU
 7. [only on first login] How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
 8. Ask to allow notifications
 9. Ask for consent to analytics
-10. Element is fully set up, user sees their 'All chats' list
+10. [only on first login] User account summary (your name, avatar, MXID?, etc.)
+11. Element is fully set up, user sees their 'All chats' list
 
 **C) Register new account**
 
