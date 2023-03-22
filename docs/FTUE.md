@@ -145,9 +145,10 @@ This document aims to make first time user experience as simple as possible. FTU
 	2. Single device => Ask for recovery method to obtain 4S (offer to reset?) => can't be skipped
 	3. Additional device => Ask for cross-signing with another device (QR code or 6-digit code comparison) or recovery method => can't be skipped
 6. [message history and key backup are fetched from server, device is cross-signed (if applicable)]
-7. Ask to allow notifications
-8. Ask for consent to analytics
-9. Element is fully set up, user sees their 'All chats' list
+7. [only on first login] How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
+8. Ask to allow notifications
+9. Ask for consent to analytics
+10. Element is fully set up, user sees their 'All chats' list
 
 **C) Register new account**
 
@@ -156,7 +157,7 @@ This document aims to make first time user experience as simple as possible. FTU
 3. User creates account (including optional additional attributes; see [Additional user attributes](#additional-user-attributes) for more details)
 4. Web view closes (or redirect back to Web/Desktop app), user is back in the app
 5. [user is logged in]
-6. [if this is the first login; otherwise skip] How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
+6. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
 7. Ask to allow notifications
 8. Ask for consent to analytics
 9. User account summary (your name, avatar, MXID?, etc.)
@@ -185,6 +186,7 @@ The options for registering a new user account depend on the respective user bac
 	- Password
 	- E-Mail
 	- E-Mail verification
+	- Optional additional user attributes (see [Additional user attributes](#additional-user-attributes) for more details)
 	- Captcha (configurable)
 	- Accept T&Cs (configurable)
 	- Consent to share account data with the client
@@ -199,7 +201,6 @@ MAS should offer different branding capabilities based on the branding of the re
 ### Additional user attributes
 
 - Display name
-- Mail address
 - Avatar
 - Phone number
 - etc.
