@@ -87,7 +87,7 @@ This document aims to make first time user experience as simple as possible. FTU
 	3. Additional device => Ask for cross-signing with another device (QR code or 6-digit code comparison) or recovery method => can't be skipped
 9. [message history and key backup are fetched from server, device is cross-signed (if applicable)]
 10. [user attributes are pulled from the server, if possible]
-11. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
+11. [if this is the first login; otherwise skip] How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
 12. [if we don't get user attributes from the server or user is allowed to change them] Additional user attributes (user can skip; see [Additional user attributes](#additional-user-attributes) for more details)
 13. Ask to allow notifications
 14. Ask for consent to analytics
@@ -115,6 +115,7 @@ This document aims to make first time user experience as simple as possible. FTU
 14. User account summary (your name, avatar, MXID?, etc.)
 15. Element is set up, user sees their 'All chats' list
 16. A DM room with the inviting user (or a room join for the room invitation) is automatically set up
+17. The user invitation is invalidated
 
 ### 2. Manual login / registration
 
@@ -158,7 +159,7 @@ This document aims to make first time user experience as simple as possible. FTU
 3. User creates account
 4. Web view closes (or redirect back to Web/Desktop app), user is back in the app
 5. [user is logged in]
-6. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
+6. [if this is the first login; otherwise skip] How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
 7. Additional user attributes (user can skip; see [Additional user attributes](#additional-user-attributes) for more details)
 8. Ask to allow notifications
 9. Ask for consent to analytics
