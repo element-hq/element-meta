@@ -87,12 +87,11 @@ This document aims to make first time user experience as simple as possible. FTU
 	3. Additional device => Ask for cross-signing with another device (QR code or 6-digit code comparison) or recovery method => can't be skipped
 9. [message history and key backup are fetched from server, device is cross-signed (if applicable)]
 10. [user attributes are pulled from the server, if possible]
-11. [if this is the first login; otherwise skip] How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
-12. [if we don't get user attributes from the server or user is allowed to change them] Additional user attributes (user can skip; see [Additional user attributes](#additional-user-attributes) for more details)
-13. Ask to allow notifications
-14. Ask for consent to analytics
-15. User account summary (your name, avatar, MXID, etc.)
-16. Element is set up, user sees their 'All chats' list 
+11. [only on first login] How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
+12. Ask to allow notifications
+13. Ask for consent to analytics
+14. User account summary (your name, avatar, MXID, etc.)
+15. Element is set up, user sees their 'All chats' list 
 
 
 ### 1b) Regular user invitation
@@ -105,17 +104,15 @@ This document aims to make first time user experience as simple as possible. FTU
 4. Welcome screen
 5. Simplified homeserver choice ("You are about to register on homeserver.tld"; continue/change)
 6. Open web view overlay for registration (or redirect to IDM registration on Web/Desktop; OIDC flow; requires consent on iOS; see [Registration](#registration) for more details)
-7. User creates account
+7. User creates account (including optional additional attributes; see [Additional user attributes](#additional-user-attributes) for more details)
 8. Web view closes (or redirect back to Web/Desktop app), user is back in the app
 9. [user is logged in]
-10. How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
-11. Additional user attributes (user can skip; see [Additional user attributes](#additional-user-attributes) for more details)
-12. Ask to allow notifications
-13. Ask for consent to analytics
-14. User account summary (your name, avatar, MXID?, etc.)
-15. Element is set up, user sees their 'All chats' list
-16. A DM room with the inviting user (or a room join for the room invitation) is automatically set up
-17. The user invitation is invalidated
+10. [only on first login] How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
+11. Ask to allow notifications
+12. Ask for consent to analytics
+13. User account summary (your name, avatar, MXID?, etc.)
+14. Element is set up, user sees their 'All chats' list
+15. A DM room with the inviting user (or a room join for the room/space invitation) is automatically set up
 
 ### 2. Manual login / registration
 
@@ -156,16 +153,15 @@ This document aims to make first time user experience as simple as possible. FTU
 
 1. Simplified homeserver choice ("You are about to register on matrix.org"; continue/change)
 2. Open web view overlay for registration (or redirect to IDM registration on Web/Desktop; OIDC flow; requires consent on iOS; see [Registration](#registration) for more details)
-3. User creates account
+3. User creates account (including optional additional attributes; see [Additional user attributes](#additional-user-attributes) for more details)
 4. Web view closes (or redirect back to Web/Desktop app), user is back in the app
 5. [user is logged in]
 6. [if this is the first login; otherwise skip] How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
-7. Additional user attributes (user can skip; see [Additional user attributes](#additional-user-attributes) for more details)
-8. Ask to allow notifications
-9. Ask for consent to analytics
-10. User account summary (your name, avatar, MXID?, etc.)
-11. Element is fully set up, user sees their (empty) 'All chats' list
-12. User gets hints on how to get started (start a conversation, join a public room, etc.)
+7. Ask to allow notifications
+8. Ask for consent to analytics
+9. User account summary (your name, avatar, MXID?, etc.)
+10. Element is fully set up, user sees their (empty) 'All chats' list
+11. User gets hints on how to get started (start a conversation, join a public room, etc.)
 
 ## Related solution concepts
 
@@ -208,9 +204,11 @@ MAS should offer different branding capabilities based on the branding of the re
 - Phone number
 - etc.
 
+The availability of additional user attributes depend on the deployment scenario and/or whether the user has supplied them. When asking for optional user attributes, the app should clarify what they can be used for.
+
 ### How do you want others to find you?
 
-We could make a difference by giving the user choice over which identifiers they want to associate with their MXID to allow others to find them by. **For enterprise use cases** there should be a way to pre-configure/enforce this so that the user does not have the choice and does not see the screen during FTUE.
+We can make a difference by giving the user choice over which identifiers they want to associate with their MXID to allow others to find them by. **For enterprise use cases** there should be a way to pre-configure/enforce this so that the user does not have the choice and does not see the screen during FTUE.
 
 - Name
 - Mail address
@@ -219,10 +217,13 @@ We could make a difference by giving the user choice over which identifiers they
 
 As part of this process they might also need to accept T&C's for identity servers.
 
+The identifiers to choose have to be available either by obtaining them automatically from IDM or by the user supplying them in a prior step. If the user didn't supply certain identifiers, those will be listed but disabled. The user can later supply them in their settings and 'manage account' views, respectively. Furthermore, the user can change the available identifiers for user discovery at any point in time.
+
 ### Homeserver settings to consider
 - User registration enabled/disabled
 - Restrict user invitations to administrators
 - Allow/disallow users to change user attributes
 - Force user attribute sharing for user discovery
 - Link to external user management registration (see [Registration](#registration))
+- Link to external 'manage account' view
 - MAS registration options (T&Cs, privacy policy, captcha, etc.)
