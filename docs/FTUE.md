@@ -197,11 +197,19 @@ The options for registering a new user account depend on the respective user bac
 
 #### Branding
 
-MAS should offer different branding capabilities based on the branding of the respective client connecting to it. This capability is part of the OIDC specification and will be used by different clients to give users identification and recognition during login/registration. Apart from that, the general MAS design will provide a 'powered by Matrix' logo to build the bridge to the Matrix protocol.
+**Client-based branding**
+
+MAS should offer different branding capabilities based on the branding of the respective client connecting to it. This capability is part of the OIDC specification and will be used by different clients to give users identification and recognition during login/registration. This mainly refers to the respective client logo.
+
+**Server-side branding**
+
+There will be means to control the overall branding of MAS for different types of deployments (e.g., Matrix branding, Element branding, custom branding).
+This refers to logo and colors that can be changed by server-side configuration.
 
 ### Additional user attributes
 
 - Display name
+- Mail address
 - Avatar
 - Phone number
 - etc.
