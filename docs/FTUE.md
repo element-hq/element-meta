@@ -28,6 +28,10 @@ This document aims to make first time user experience as simple as possible. FTU
   * [How do you want others to find you?](#how-do-you-want-others-to-find-you)
   * [Homeserver settings to consider](#homeserver-settings-to-consider)
 
+**Figma prototypes**
+
+https://www.figma.com/file/o9p34zmiuEpZRyvZXJZAYL/FTUE?node-id=1-1496&t=fGZ56cXrNTbvyRyD-0
+
 ## General guidelines
 
 1. The user onboarding process should be as **simple** and **require as few steps as possible** so that users can start using the app and reach their goals quickly, preventing churn.
