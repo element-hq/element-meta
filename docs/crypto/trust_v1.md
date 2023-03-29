@@ -59,7 +59,7 @@ When a user has a logged-in device that has not been verified with the identity 
 To keep security and integrity intact, the following measures will be taken
 - Isolate untrusted devices in encrypted rooms (can't send/receive messages) so that no information is accidentally leaked
 
-### Isolation of unverified devices
+### Isolation of untrusted devices
 
 If users deviate from the regular processes or there is a malicious homeserver inserting new devices, unverified devices can appear.
 
