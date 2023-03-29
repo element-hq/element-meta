@@ -48,10 +48,9 @@ The default behavior should be different depending on how trust has been establi
 
 ### Manually trusted user (!WIP!)
 
-- Indicator for bad room integrity is shown => lists the users who are violating it and allows to resolve it
-- Other user will be able to post messages but not receive messages until they are verified (=> only allow replies to the user's messages to enable a conversation)
-- Messages will have a decoration until the user is verified (explain the identity mismatch, explain that the user will not receive messages)
-- Other users will be asked to verify the new identity (accept / manual verification)
+- Other users will see the indicator for bad room integrity is shown (red shield) => lists the users who are violating it and allows to resolve it
+- Other users will be asked to verify the new identity to resolve the situation (manual verification)
+- Users can communicate as before (unless they use the setting _Never send encrypted messages to unverified sessions from this session_)
 
 ## Behavior for untrusted devices
 
@@ -62,8 +61,12 @@ To keep security and integrity intact, the following measures will be taken
 
 ### Isolation of unverified devices
 
-If users deviate from the regular processes (e.g., 3rd party clients) or there is a malicious homeserver inserting new devices, unverified devices can still appear.
+If users deviate from the regular processes or there is a malicious homeserver inserting new devices, unverified devices can appear.
 
 To cover for the risk of information leakage, the following steps will be taken
 1. Users on unverified devices cannot send or receive messages in encrypted rooms
 2. Users on unverified devices are informed about this state and guided to device verification to resolve it
+
+## Settings
+
+- Never send encrypted messages to unverified sessions from this session (global / per room)
