@@ -22,14 +22,14 @@ For the first iteration in the classic Element clients, only the room indicators
 
 - Indicator for room encryption (on/off)
 - Indicator for room integrity (currently part of the 'room encryption' indicator)
-	- Shows information on an individual user's view
-	- Use cases
-		- Do I trust the identities of all other users in the room? Yes/No
-		- Is there an identity mismatch with a verified user?
-	- States (**currently**)
-		- Room is encrypted but the user trusts no other user (grey shield)
-		- Room is encrypted but at least one user violates trust (identity mismatch; red shield with exclamation mark)
-		- Room is encrypted and the user trusts all other users (green shield with checkmark)
+  - Shows information on an individual user's view
+  - Use cases
+    - Do I trust the identities of all other users in the room? Yes/No
+    - Is there an identity mismatch with a verified user?
+  - States (**currently**)
+    - Room is encrypted but the user trusts no other user (grey shield)
+    - Room is encrypted but at least one user violates trust (identity mismatch; red shield with exclamation mark)
+    - Room is encrypted and the user trusts all other users (green shield with checkmark)
   - States (**with TOFU**)
     - Room is encrypted and other users are TOFU-trusted (grey shield)
     - Room is encrypted but at least one user violates **manual** trust (identity mismatch; red shield with exclamation mark)
