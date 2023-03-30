@@ -70,13 +70,12 @@ jobs:
             projectId = "PVT_kwDOAM0swc4AA19d";
             fieldId = "PVTSSF_lADOAM0swc4ALoFYzgJAimw";
             
-            const { PROJECT_ITEMS, TRACKED_ISSUES } = process.env;
+            const { DATA } = process.env;
             
             // Check project membership and extract field value
 
-            const projectItems = JSON.parse(`${PROJECT_ITEMS}`);
-            console.log(PROJECT_ITEMS);
-            console.log(`${PROJECT_ITEMS}`);
+            const projectItems = JSON.parse(DATA).repository.issue.projectItems.edges;
+            console.log(DATA);
             console.log(projectItems);
             
             if (!projectItems) {
@@ -102,7 +101,7 @@ jobs:
             
             // Apply field value to tracked issues
             
-            const trackedIssues = JSON.parse(`${TRACKED_ISSUES}`);
+            const trackedIssues = JSON.parse(DATA).repository.issue.trackedIssues.edges;
             
             if (!trackedIssues) {
               console.log("Issue has no tracked issues");
@@ -151,8 +150,7 @@ jobs:
               }
             }
         env:
-          PROJECT_ITEMS: ${{ toJSON(steps.get_field_value_and_tracked_issues.outputs.data) }}
-          TRACKED_ISSUES: ${{ toJSON(steps.get_field_value_and_tracked_issues.outputs) }}
+          DATA: ${{ toJSON(steps.get_field_value_and_tracked_issues.outputs.data) }}
           GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
 
       - uses: actions/github-script@v6
