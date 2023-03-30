@@ -66,7 +66,8 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issueNumber: context.issue.number,
-              fieldName
+              fieldName,
+              headers: { "GraphQL-Features": "projects_next_graphql" }
             };
             
             console.log(JSON.stringify(query));
@@ -139,7 +140,8 @@ jobs:
                     projectId,
                     itemId: item.node.id,
                     fieldId,
-                    optionId: fieldValueId
+                    optionId: fieldValueId,
+                    headers: { "GraphQL-Features": "projects_next_graphql" }
                   };
                   
                   const result = await github.graphql(mutation, parameters);
