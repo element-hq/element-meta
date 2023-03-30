@@ -70,6 +70,7 @@ jobs:
             };
             
             const result = await github.graphql(query, parameters);
+            console.log(JSON.stringify(result));
             
             // Check project membership and extract field value
 
