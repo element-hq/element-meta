@@ -73,7 +73,7 @@ jobs:
             
             // Check project membership and extract field value
 
-            const projectItems = JSON.parse("${PROJECT_ITEMS}");
+            const projectItems = JSON.parse(`${PROJECT_ITEMS}`);
             
             if (!projectItems) {
               console.log("Issue is not part of any projects");
@@ -98,7 +98,7 @@ jobs:
             
             // Apply field value to tracked issues
             
-            const trackedIssues = JSON.parse("${TRACKED_ISSUES}");
+            const trackedIssues = JSON.parse(`${TRACKED_ISSUES}`);
             
             if (!trackedIssues) {
               console.log("Issue has no tracked issues");
