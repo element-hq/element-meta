@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          version: 16
+          node-version: 18
       - run: npm install @octokit/action
       - run: node .github/actions/forward-project-field.js
         env:
