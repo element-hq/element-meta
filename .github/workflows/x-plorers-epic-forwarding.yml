@@ -75,6 +75,9 @@ jobs:
             // Check project membership and extract field value
 
             const projectItems = JSON.parse(`${PROJECT_ITEMS}`);
+            console.log(PROJECT_ITEMS);
+            console.log(`${PROJECT_ITEMS}`);
+            console.log(projectItems);
             
             if (!projectItems) {
               console.log("Issue is not part of any projects");
