@@ -5,12 +5,14 @@ on:
     types: [edited]
 
 jobs:
-  forward_epic_field_value:
-    name: Forward epic field value into tracked issues
+  get_field_value_and_tracked_issues:
+    name: Get field value and tracked issues
     runs-on: ubuntu-latest
+    outputs:
+      tracked_issues: ${{ steps.get_field_value_and_tracked_issues.outputs.data.repository.issue.trackedIssues.edges }}
     steps:
       - uses: octokit/graphql-action@v2.x
-        id: query_projects_and_tracked_issues
+        id: get_field_value_and_tracked_issues
         with:
           headers: '{"GraphQL-Features": "projects_next_graphql"}'
           query: |
@@ -64,7 +66,12 @@ jobs:
         env:
           FIELD_NAME: "Epic"
           GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
-      - run: "echo '${{ steps.query_projects_and_tracked_issues.outputs.data }}'"
+      - run: "echo '${{ steps.get_field_value_and_tracked_issues.outputs.data }}'"    
+
+  forward_epic_field_value:
+    name: Forward epic field value into tracked issues
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/github-script@v6
         with:
           script: |
