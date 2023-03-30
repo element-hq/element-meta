@@ -72,8 +72,14 @@ jobs:
             
             console.log(JSON.stringify(query));
             console.log(JSON.stringify(parameters));
-            
-            const result = await github.graphql(query, parameters);
+    
+            const graphql = github.graphql.defaults({
+              headers: {
+                "GraphQL-Features": "projects_next_graphql"
+              }
+            });
+
+            const result = await graphql(query, parameters);
             console.log(JSON.stringify(result));
             
             // Check project membership and extract field value
@@ -144,7 +150,7 @@ jobs:
                     headers: { "GraphQL-Features": "projects_next_graphql" }
                   };
                   
-                  const result = await github.graphql(mutation, parameters);
+                  const result = await graphql(mutation, parameters);
                   console.log(JSON.stringify(result));
                   
                   break;
