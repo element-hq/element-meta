@@ -82,20 +82,18 @@ async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueNumber, pr
     const trackedIssueRepoName = issue.node.repository.name;
     const projectItems = issue.node.projectItems.edges;
 
-    if (!projectItems) {
-      continue;
-    }
-
-    for (const item of projectItems) {
+    for (const item of projectItems ?? []) {
       if (item.node.project.id != projectId) {
         continue;
       }
 
       mutateFieldValue(projectId, item.node.id, fieldId, fieldValue.id);
-      console.log(`Set value "${fieldValue.name}" for field ${fieldName} of #${trackedIssueNumber} in ${trackedIssueRepoOwner}/${trackedIssueRepoName}`);
+      console.log(`Set value "${fieldValue.name}" for field "${fieldName}" of #${trackedIssueNumber} in ${trackedIssueRepoOwner}/${trackedIssueRepoName}`);
 
       break;
     }
+    
+    setFieldValueOnTrackedIssues(trackedIssueRepoOwner, trackedIssueRepoName, trackedIssueNumber, projectId, fieldId, fieldName, fieldValue);
   }
 }
 
@@ -174,7 +172,7 @@ async function mutateFieldValue(projectId, itemId, fieldId, fieldValueId) {
 (async function main() {
   // Get project items
 
-  console.log(`Querying value for field ${FIELD_NAME} of #${ISSUE_NUMBER} in ${REPO_OWNER}/${REPO_NAME}`);
+  console.log(`Querying value for field "${FIELD_NAME}" of #${ISSUE_NUMBER} in ${REPO_OWNER}/${REPO_NAME}`);
   const projectItems = await queryFieldValue(REPO_OWNER, REPO_NAME, ISSUE_NUMBER, FIELD_NAME);
 
   if (!projectItems) {
