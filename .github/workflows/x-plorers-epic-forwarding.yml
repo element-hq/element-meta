@@ -20,6 +20,6 @@ jobs:
           REPO_OWNER: ${{ github.event.repository.owner.login }}
           REPO_NAME: ${{ github.event.repository.name }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-          PROJECT_ID: "PVT_kwDOAM0swc4AA19d"
+          PROJECT_ID: "PVT_kwDOAM0swc4ALoFY"
           FIELD_ID: "PVTSSF_lADOAM0swc4ALoFYzgJAimw"
           FIELD_NAME: Epic
