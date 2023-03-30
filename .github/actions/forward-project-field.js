@@ -48,7 +48,7 @@ async function queryFieldValue(repoOwner, repoName, issueNumber, fieldName) {
     headers
   };
 
-  const result = octokit.graphql(query, parameters);
+  const result = await octokit.graphql(query, parameters);
   
   return result.repository.issue.projectItems.edges;
 }
