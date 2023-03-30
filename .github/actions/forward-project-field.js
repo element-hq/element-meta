@@ -53,6 +53,16 @@ async function queryFieldValue(repoOwner, repoName, issueNumber, fieldName) {
   return result.repository.issue.projectItems.edges;
 }
 
+function determineFieldValue(projectItems, projectId, fieldId) {
+  for (const item of projectItems) {
+    if (item.node.project.id == projectId && item.node.fieldValueByName && item.node.fieldValueByName.field.id == fieldId) {
+      return { name: item.node.fieldValueByName.name, id: item.node.fieldValueByName.optionId };
+    }
+  }
+
+  return {}
+}
+
 async function queryTrackedIssues(repoOwner, repoName, issueNumber) {
   const query = `query ($owner: String!, $repo: String!, $issueNumber: Int!) {
     repository(owner: $owner, name: $repo) {
@@ -91,6 +101,8 @@ async function queryTrackedIssues(repoOwner, repoName, issueNumber) {
 }
 
 (async function main() {
+  // Get project items
+
   console.log(`Querying value for field ${FIELD_NAME} of #${ISSUE_NUMBER} in ${REPO_OWNER}/${REPO_NAME}`);
   const projectItems = await queryFieldValue(REPO_OWNER, REPO_NAME, ISSUE_NUMBER, FIELD_NAME);
 
@@ -99,23 +111,18 @@ async function queryTrackedIssues(repoOwner, repoName, issueNumber) {
     return;
   }
 
-  let fieldValueId = null;
-  let fieldValueName = null;
+  // Determine field value
 
-  for (const item of projectItems) {
-    if (item.node.project.id == PROJECT_ID && item.node.fieldValueByName && item.node.fieldValueByName.field.id == FIELD_ID) {
-      fieldValueId = item.node.fieldValueByName.optionId;
-      fieldValueName = item.node.fieldValueByName.name;
-      break;
-    }
-  }
+  fieldValue = determineFieldValue(projectItems, PROJECT_ID, FIELD_ID);
 
-  if (!fieldValueId || !fieldValueName) {
+  if (!fieldValue.name || !fieldValue.id) {
     console.log("Aborting because issue is not part of the correct project");
     return;
   }
   
-  console.log(`Determined field value "${fieldValueName}" (${fieldValueId})`);
+  console.log(`Determined field value "${fieldValue.name}" (${fieldValue.id})`);
+
+  // Get tracked issues
 
   console.log(`Querying tracked issues of #${ISSUE_NUMBER} in ${REPO_OWNER}/${REPO_NAME}`);
   const trackedIssues = await queryTrackedIssues(REPO_OWNER, REPO_NAME, ISSUE_NUMBER);
@@ -124,6 +131,8 @@ async function queryTrackedIssues(repoOwner, repoName, issueNumber) {
     console.log("Aborting because issue has no tracked issues");
     return;
   }
+  
+  // Set field values
 
   for (const issue of trackedIssues) {
     const projectItems = issue.node.projectItems.edges;
@@ -155,12 +164,12 @@ async function queryTrackedIssues(repoOwner, repoName, issueNumber) {
           projectId: PROJECT_ID,
           itemId: item.node.id,
           fieldId: FIELD_ID,
-          optionId: fieldValueId,
+          optionId: fieldValue.id,
           headers
         };
 
         const result = await octokit.graphql(mutation, parameters);
-        console.log(`Set value "${fieldValueName}" for field ${FIELD_NAME} on ${issue.node.url}`);
+        console.log(`Set value "${fieldValue.name}" for field ${FIELD_NAME} on ${issue.node.url}`);
 
         break;
       }
