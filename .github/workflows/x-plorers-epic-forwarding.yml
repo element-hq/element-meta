@@ -14,14 +14,14 @@ jobs:
         with:
           headers: '{"GraphQL-Features": "projects_next_graphql"}'
           query: |
-            query info($owner: String!, $repo: String!, $issueNumber: Int!, $fieldName: String!) {
+            query info($owner: String!, $repo: String!, $issue_number: Int!, $field_name: String!) {
               repository(owner: $owner, name: $repo) {
-                issue(number: $issueNumber) {
+                issue(number: $issue_number) {
                   projectItems(first: 100) {
                     edges {
                       node {
                         id
-                        fieldValueByName(name: $fieldName) {
+                        fieldValueByName(name: $field_name) {
                           ... on ProjectV2ItemFieldSingleSelectValue {
                             id
                             name
@@ -59,8 +59,8 @@ jobs:
             }
           owner: ${{ github.event.repository.owner.name }}
           repo: ${{ github.event.repository.name }}
-          issueNumber: ${{ github.event.issue.number }}
-          fieldName: ${{ env.FIELD_NAME }}
+          issue_number: ${{ github.event.issue.number }}
+          field_name: ${{ env.FIELD_NAME }}
         env:
           FIELD_NAME: "Epic"
           GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
