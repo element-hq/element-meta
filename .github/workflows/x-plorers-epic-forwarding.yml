@@ -11,7 +11,6 @@ jobs:
     steps:
       - uses: actions/github-script@v6
         with:
-          headers: '{"GraphQL-Features": "projects_next_graphql"}'
           script: |
             projectId = "PVT_kwDOAM0swc4AA19d";
             fieldId = "PVTSSF_lADOAM0swc4ALoFYzgJAimw";
@@ -67,7 +66,8 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issueNumber: context.issue.number,
-              fieldName
+              fieldName,
+              headers: '{"GraphQL-Features": "projects_next_graphql"}'
             };
             
             console.log(JSON.stringify(query));
