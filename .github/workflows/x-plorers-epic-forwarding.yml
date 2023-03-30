@@ -74,8 +74,10 @@ jobs:
             
             // Check project membership and extract field value
 
-            const projectItems = JSON.parse(DATA).repository.issue.projectItems.edges;
             console.log(DATA);
+            console.log(JSON.parse(DATA));
+            const projectItems = JSON.parse(DATA).repository.issue.projectItems.edges;
+
             console.log(projectItems);
             
             if (!projectItems) {
