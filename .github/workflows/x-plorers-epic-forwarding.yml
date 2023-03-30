@@ -9,6 +9,62 @@ jobs:
     name: Forward epic field value into tracked issues
     runs-on: ubuntu-latest
     steps:
+      - uses: octokit/graphql-action@v2.x
+        id: query_projects_and_tracked_issues
+        with:
+          headers: '{"GraphQL-Features": "projects_next_graphql"}'
+          query: |
+            query ($owner: String!, $repo: String!, $issueNumber: Int!, $fieldName: String!) {
+              repository(owner: $owner, name: $repo) {
+                issue(number: $issueNumber) {
+                  projectItems(first: 100) {
+                    edges {
+                      node {
+                        id
+                        fieldValueByName(name: $fieldName) {
+                          ... on ProjectV2ItemFieldSingleSelectValue {
+                            id
+                            name
+                            field {
+                              ... on ProjectV2SingleSelectField {
+                                id
+                              }
+                            }
+                          }
+                        }
+                        project {
+                          id
+                        }
+                      }
+                    }
+                  }
+                  trackedIssues(first: 100) {
+                    edges {
+                      node {
+                        projectItems(first: 100) {
+                          edges {
+                            node {
+                              id
+                              project {
+                                id
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          owner: "vector-im"
+          repo: "element-meta"
+          projectid: ${{ env.PROJECT_ID }}
+          issueNumber: ${{ github.event.issue.number }}
+          fieldName: "Epic"
+        env:
+          GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
+      - run: "echo '${{ steps.query_projects_and_tracked_issues.outputs.data }}'"
       - uses: actions/github-script@v6
         with:
           script: |
