@@ -63,6 +63,39 @@ function determineFieldValue(projectItems, projectId, fieldId) {
   return {}
 }
 
+async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueNumber, projectId, fieldId, fieldName, fieldValue) {
+  // Get tracked issues
+
+  console.log(`Querying tracked issues of #${issueNumber} in ${repoOwner}/${repoName}`);
+  const trackedIssues = await queryTrackedIssues(repoOwner, repoName, issueNumber);
+
+  if (!trackedIssues) {
+    console.log("Aborting because issue has no tracked issues");
+    return;
+  }
+  
+  // Set field values
+
+  for (const issue of trackedIssues) {
+    const projectItems = issue.node.projectItems.edges;
+
+    if (!projectItems) {
+      continue;
+    }
+
+    for (const item of projectItems) {
+      if (item.node.project.id != projectId) {
+        continue;
+      }
+
+      mutateFieldValue(projectId, item.node.id, fieldId, fieldValue.id);
+      console.log(`Set value "${fieldValue.name}" for field ${fieldName} on ${issue.node.url}`);
+
+      break;
+    }
+  }
+}
+
 async function queryTrackedIssues(repoOwner, repoName, issueNumber) {
   const query = `query ($owner: String!, $repo: String!, $issueNumber: Int!) {
     repository(owner: $owner, name: $repo) {
@@ -100,6 +133,35 @@ async function queryTrackedIssues(repoOwner, repoName, issueNumber) {
   return result.repository.issue.trackedIssues.edges;
 }
 
+async function mutateFieldValue(projectId, itemId, fieldId, fieldValueId) {
+  const mutation = `mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $optionId: String!) {
+    updateProjectV2ItemFieldValue(
+      input: {
+        projectId: $projectId
+        itemId: $itemId
+        fieldId: $fieldId
+        value: { 
+          singleSelectOptionId: $optionId        
+        }
+      }
+    ) {
+      projectV2Item {
+        id
+      }
+    }
+  }`;
+
+  const parameters = {
+    projectId: projectId,
+    itemId: itemId,
+    fieldId: fieldId,
+    optionId: fieldValueId,
+    headers
+  };
+
+  await octokit.graphql(mutation, parameters);
+}
+
 (async function main() {
   // Get project items
 
@@ -122,57 +184,8 @@ async function queryTrackedIssues(repoOwner, repoName, issueNumber) {
   
   console.log(`Determined field value "${fieldValue.name}" (${fieldValue.id})`);
 
-  // Get tracked issues
+  // Set field value on tracked issues
 
-  console.log(`Querying tracked issues of #${ISSUE_NUMBER} in ${REPO_OWNER}/${REPO_NAME}`);
-  const trackedIssues = await queryTrackedIssues(REPO_OWNER, REPO_NAME, ISSUE_NUMBER);
-
-  if (!trackedIssues) {
-    console.log("Aborting because issue has no tracked issues");
-    return;
-  }
+  setFieldValueOnTrackedIssues(REPO_OWNER, REPO_NAME, ISSUE_NUMBER, PROJECT_ID, FIELD_ID, FIELD_NAME, fieldValue);
   
-  // Set field values
-
-  for (const issue of trackedIssues) {
-    const projectItems = issue.node.projectItems.edges;
-
-    if (!projectItems) {
-      continue; // TODO: Add tracked issue to project?
-    }
-
-    for (const item of projectItems) {
-      if (item.node.project.id == PROJECT_ID) {
-        const mutation = `mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $optionId: String!) {
-          updateProjectV2ItemFieldValue(
-            input: {
-              projectId: $projectId
-              itemId: $itemId
-              fieldId: $fieldId
-              value: { 
-                singleSelectOptionId: $optionId        
-              }
-            }
-          ) {
-            projectV2Item {
-              id
-            }
-          }
-        }`;
-
-        const parameters = {
-          projectId: PROJECT_ID,
-          itemId: item.node.id,
-          fieldId: FIELD_ID,
-          optionId: fieldValue.id,
-          headers
-        };
-
-        const result = await octokit.graphql(mutation, parameters);
-        console.log(`Set value "${fieldValue.name}" for field ${FIELD_NAME} on ${issue.node.url}`);
-
-        break;
-      }
-    }
-  }
 })();
