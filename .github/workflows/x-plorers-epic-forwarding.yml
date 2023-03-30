@@ -74,7 +74,7 @@ jobs:
             
             // Check project membership and extract field value
 
-            const projectItems = result.data.repository.issue.projectItems.edges;
+            const projectItems = result.repository.issue.projectItems.edges;
             
             if (!projectItems) {
               console.log("Issue is not part of any projects");
@@ -99,7 +99,7 @@ jobs:
             
             // Apply field value to tracked issues
             
-            const trackedIssues = result.data.repository.issue.trackedIssues.edges;
+            const trackedIssues = result.repository.issue.trackedIssues.edges;
             
             if (!trackedIssues) {
               console.log("Issue has no tracked issues");
