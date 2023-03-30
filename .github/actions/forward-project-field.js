@@ -77,6 +77,9 @@ async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueNumber, pr
   // Set field values
 
   for (const issue of trackedIssues) {
+    const trackedIssueNumber = issue.node.number;
+    const trackedIssueRepoOwner = issue.node.repository.owner.login;
+    const trackedIssueRepoName = issue.node.repository.name;
     const projectItems = issue.node.projectItems.edges;
 
     if (!projectItems) {
@@ -89,7 +92,7 @@ async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueNumber, pr
       }
 
       mutateFieldValue(projectId, item.node.id, fieldId, fieldValue.id);
-      console.log(`Set value "${fieldValue.name}" for field ${fieldName} on ${issue.node.url}`);
+      console.log(`Set value "${fieldValue.name}" for field ${fieldName} of #${trackedIssueNumber} in ${trackedIssueRepoOwner}/${trackedIssueRepoName}`);
 
       break;
     }
@@ -113,7 +116,13 @@ async function queryTrackedIssues(repoOwner, repoName, issueNumber) {
                   }
                 }
               }
-              url
+              number
+              repository {
+                name
+                owner {
+                  login
+                }
+              }
             }
           }
         }
