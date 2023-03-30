@@ -22,7 +22,7 @@ const FIELD_NAME = process.env.FIELD_NAME;
               id
               fieldValueByName(name: $fieldName) {
                 ... on ProjectV2ItemFieldSingleSelectValue {
-                  id
+                  optionId
                   name
                   field {
                     ... on ProjectV2SingleSelectField {
@@ -85,7 +85,7 @@ const FIELD_NAME = process.env.FIELD_NAME;
 
   for (const item of projectItems) {
     if (item.node.project.id == PROJECT_ID && item.node.fieldValueByName && item.node.fieldValueByName.field.id == FIELD_ID) {
-      fieldValueId = item.node.fieldValueByName.id;
+      fieldValueId = item.node.fieldValueByName.optionId;
       fieldValueName = item.node.fieldValueByName.name;
       break;
     }
