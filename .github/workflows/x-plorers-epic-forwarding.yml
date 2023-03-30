@@ -57,7 +57,7 @@ jobs:
                 }
               }
             }
-          owner: ${{ github.event.repository.owner.name }}
+          owner: ${{ github.event.organization.name }}
           repo: ${{ github.event.repository.name }}
           issue_number: ${{ github.event.issue.number }}
           field_name: ${{ env.FIELD_NAME }}
