@@ -69,7 +69,8 @@ jobs:
           script: |
             projectId = "PVT_kwDOAM0swc4AA19d";
             fieldId = "PVTSSF_lADOAM0swc4ALoFYzgJAimw";
-            fieldName = "Epic";
+            
+            const { PROJECT_ITEMS, TRACKED_ISSUES } = process.env;
             
             // Check project membership and extract field value
 
