@@ -80,6 +80,8 @@ jobs:
             console.log(JSON.parse(DATA));
             console.log("JSON.parse(DATA).repository");
             console.log(JSON.parse(DATA).repository);
+            console.log("JSON.parse(DATA)['repository']");
+            console.log(JSON.parse(DATA)['repository']);
             console.log("JSON.parse(DATA).repository.issue");
             console.log(JSON.parse(DATA).repository.issue);
             const projectItems = JSON.parse(DATA).repository.issue.projectItems.edges;
