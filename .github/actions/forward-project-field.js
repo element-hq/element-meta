@@ -114,7 +114,7 @@ const FIELD_NAME = process.env.FIELD_NAME;
 
     for (const item of projectItems) {
       if (item.node.project.id == PROJECT_ID) {
-        const mutation = `mutation($projectId: String!, $itemId: String!, $fieldId: String!, $optionId: String!) {
+        const mutation = `mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $optionId: ID!) {
           updateProjectV2ItemFieldValue(
             input: {
               projectId: $projectId
