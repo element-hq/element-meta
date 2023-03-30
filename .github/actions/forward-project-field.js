@@ -69,7 +69,7 @@ async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueNumber, pr
   console.log(`Querying tracked issues of #${issueNumber} in ${repoOwner}/${repoName}`);
   const trackedIssues = await queryTrackedIssues(repoOwner, repoName, issueNumber);
 
-  if (!trackedIssues) {
+  if (!trackedIssues || trackedIssues.length == 0) {
     console.log("Aborting because issue has no tracked issues");
     return;
   }
