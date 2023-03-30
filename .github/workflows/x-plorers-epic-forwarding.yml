@@ -9,8 +9,6 @@ jobs:
     name: Forward epic field value into tracked issues
     runs-on: ubuntu-latest
     steps:
-      - run: "echo '${{ toJSON(github.event.organization) }}'"
-      - run: "echo '${{ toJSON(github.event.repository.owner) }}'"
       - uses: octokit/graphql-action@v2.x
         id: query_projects_and_tracked_issues
         with:
@@ -59,7 +57,7 @@ jobs:
                 }
               }
             }
-          owner: ${{ github.event.organization.name }}
+          owner: ${{ github.event.repository.owner.login }}
           repo: ${{ github.event.repository.name }}
           issue_number: ${{ github.event.issue.number }}
           field_name: ${{ env.FIELD_NAME }}
