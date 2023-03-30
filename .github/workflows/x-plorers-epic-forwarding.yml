@@ -66,8 +66,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issueNumber: context.issue.number,
-              fieldName,
-              headers: '{"GraphQL-Features": "projects_next_graphql"}'
+              fieldName
             };
             
             console.log(JSON.stringify(query));
