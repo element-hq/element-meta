@@ -11,8 +11,7 @@ const PROJECT_ID = process.env.PROJECT_ID;
 const FIELD_ID = process.env.FIELD_ID;
 const FIELD_NAME = process.env.FIELD_NAME;
 
-(async function main() {
-  // Query all the things via GraphQL
+async function queryFieldValue(repoOwner, repoName, issueNumber, fieldName) {
   const query = `query ($owner: String!, $repo: String!, $issueNumber: Int!, $fieldName: String!) {
     repository(owner: $owner, name: $repo) {
       issue(number: $issueNumber) {
@@ -37,6 +36,27 @@ const FIELD_NAME = process.env.FIELD_NAME;
             }
           }
         }
+      }
+    }
+  }`;
+
+  const parameters = {
+    owner: repoOwner,
+    repo: repoName,
+    issueNumber: issueNumber,
+    fieldName: fieldName,
+    headers
+  };
+
+  const result = octokit.graphql(query, parameters);
+  
+  return result.repository.issue.projectItems.edges;
+}
+
+async function queryTrackedIssues(repoOwner, repoName, issueNumber) {
+  const query = `query ($owner: String!, $repo: String!, $issueNumber: Int!) {
+    repository(owner: $owner, name: $repo) {
+      issue(number: $issueNumber) {
         trackedIssues(first: 100) {
           edges {
             node {
@@ -50,6 +70,7 @@ const FIELD_NAME = process.env.FIELD_NAME;
                   }
                 }
               }
+              url
             }
           }
         }
@@ -58,25 +79,23 @@ const FIELD_NAME = process.env.FIELD_NAME;
   }`;
 
   const parameters = {
-    owner: REPO_OWNER,
-    repo: REPO_NAME,
-    issueNumber: ISSUE_NUMBER,
-    fieldName: FIELD_NAME,
+    owner: repoOwner,
+    repo: repoName,
+    issueNumber: issueNumber,
     headers
   };
 
-  console.log(JSON.stringify(query));
-  console.log(JSON.stringify(parameters));
-
   const result = await octokit.graphql(query, parameters);
-  console.log(JSON.stringify(result));
 
-  // Check project membership and extract field value
+  return result.repository.issue.trackedIssues.edges;
+}
 
-  const projectItems = result.repository.issue.projectItems.edges;
+(async function main() {
+  console.log(`Querying value for field ${FIELD_NAME} of #${ISSUE_NUMBER} in ${REPO_OWNER}/${REPO_NAME}`);
+  const projectItems = await queryFieldValue(REPO_OWNER, REPO_NAME, ISSUE_NUMBER, FIELD_NAME);
 
   if (!projectItems) {
-    console.log("Issue is not part of any projects");
+    console.log("Aborting because issue is not part of any projects");
     return;
   }
 
@@ -92,16 +111,17 @@ const FIELD_NAME = process.env.FIELD_NAME;
   }
 
   if (!fieldValueId || !fieldValueName) {
-    console.log("Issue is not part of the correct project or does not have the field value set");
+    console.log("Aborting because issue is not part of the correct project");
     return;
   }
+  
+  console.log(`Determined field value "${fieldValueName}" (${fieldValueId})`);
 
-  // Apply field value to tracked issues
-
-  const trackedIssues = result.repository.issue.trackedIssues.edges;
+  console.log(`Querying tracked issues of #${ISSUE_NUMBER} in ${REPO_OWNER}/${REPO_NAME}`);
+  const trackedIssues = await queryTrackedIssues(REPO_OWNER, REPO_NAME, ISSUE_NUMBER);
 
   if (!trackedIssues) {
-    console.log("Issue has no tracked issues");
+    console.log("Aborting because issue has no tracked issues");
     return;
   }
 
@@ -140,7 +160,7 @@ const FIELD_NAME = process.env.FIELD_NAME;
         };
 
         const result = await octokit.graphql(mutation, parameters);
-        console.log(`Set field value on ${JSON.stringify(result)}`);
+        console.log(`Set value "${fieldValueName}" for field ${FIELD_NAME} on ${issue.node.url}`);
 
         break;
       }
