@@ -6,7 +6,7 @@ const headers = { "GraphQL-Features": "projects_next_graphql" }
 
 const REPO_OWNER = process.env.REPO_OWNER;
 const REPO_NAME = process.env.REPO_NAME;
-const ISSUE_NUMBER = process.env.ISSUE_NUMBER;
+const ISSUE_NUMBER = parseInt(process.env.ISSUE_NUMBER);
 const PROJECT_ID = process.env.PROJECT_ID;
 const FIELD_ID = process.env.FIELD_ID;
 const FIELD_NAME = process.env.FIELD_NAME;
