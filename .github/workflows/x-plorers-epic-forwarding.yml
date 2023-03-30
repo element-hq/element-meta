@@ -78,6 +78,13 @@ jobs:
             console.log(DATA);
             console.log("JSON.parse(DATA)");
             console.log(JSON.parse(DATA));
+            console.log("Object.keys(JSON.parse(DATA))");
+            console.log(Object.keys(JSON.parse(DATA)));
+            
+            const data = JSON.parse(DATA);
+            console.log("data.repository");
+            console.log(data.repository);
+            
             console.log("JSON.parse(DATA).repository");
             console.log(JSON.parse(DATA).repository);
             console.log("JSON.parse(DATA)['repository']");
