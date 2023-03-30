@@ -73,7 +73,7 @@ jobs:
             
             // Check project membership and extract field value
 
-            const projectItems = ${{ steps.get_field_value_and_tracked_issues.outputs.data.repository.issue.projectItems.edges }};
+            const projectItems = ${PROJECT_ITEMS};
             
             if (!projectItems) {
               console.log("Issue is not part of any projects");
@@ -98,7 +98,7 @@ jobs:
             
             // Apply field value to tracked issues
             
-            const trackedIssues = ${{ steps.get_field_value_and_tracked_issues.outputs.data.repository.issue.trackedIssues.edges }};
+            const trackedIssues = ${TRACKED_ISSUES};
             
             if (!trackedIssues) {
               console.log("Issue has no tracked issues");
@@ -147,6 +147,8 @@ jobs:
               }
             }
         env:
+          PROJECT_ITEMS: ${{ steps.get_field_value_and_tracked_issues.outputs.data.repository.issue.projectItems.edges }}
+          TRACKED_ISSUES: ${{ steps.get_field_value_and_tracked_issues.outputs.data.repository.issue.trackedIssues.edges }}
           GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
 
       - uses: actions/github-script@v6
