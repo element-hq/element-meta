@@ -5,11 +5,9 @@ on:
     types: [edited]
 
 jobs:
-  get_field_value_and_tracked_issues:
-    name: Get field value and tracked issues
+  forward_epic_field_value:
+    name: Forward epic field value into tracked issues
     runs-on: ubuntu-latest
-    outputs:
-      tracked_issues: ${{ steps.get_field_value_and_tracked_issues.outputs.data.repository.issue.trackedIssues.edges }}
     steps:
       - uses: octokit/graphql-action@v2.x
         id: get_field_value_and_tracked_issues
@@ -66,12 +64,91 @@ jobs:
         env:
           FIELD_NAME: "Epic"
           GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
-      - run: "echo '${{ steps.get_field_value_and_tracked_issues.outputs.data }}'"    
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            projectId = "PVT_kwDOAM0swc4AA19d";
+            fieldId = "PVTSSF_lADOAM0swc4ALoFYzgJAimw";
+            fieldName = "Epic";
+            
+            // Check project membership and extract field value
 
-  forward_epic_field_value:
-    name: Forward epic field value into tracked issues
-    runs-on: ubuntu-latest
-    steps:
+            const projectItems = ${{ steps.get_field_value_and_tracked_issues.outputs.data.repository.issue.projectItems.edges }};
+            
+            if (!projectItems) {
+              console.log("Issue is not part of any projects");
+              return;
+            }
+            
+            let fieldValueId = null;
+            let fieldValueName = null;
+
+            for (const item of projectItems) {
+              if (item.node.project.id == projectId && item.node.fieldValueByName && item.node.fieldValueByName.field.id == fieldId) {
+                fieldValueId = item.node.fieldValueByName.id;
+                fieldValueName = item.node.fieldValueByName.name;
+                break;
+              }
+            }
+            
+            if (!fieldValueId || !fieldValueName) {
+              console.log("Issue is not part of the correct project or does not have the field value set");
+              return;
+            }
+            
+            // Apply field value to tracked issues
+            
+            const trackedIssues = ${{ steps.get_field_value_and_tracked_issues.outputs.data.repository.issue.trackedIssues.edges }};
+            
+            if (!trackedIssues) {
+              console.log("Issue has no tracked issues");
+              return;
+            }
+            
+            for (const issue of trackedIssues) {
+              const projectItems = issue.node.projectItems.edges;
+              
+              if (!projectItems) {
+                continue; // TODO: Add tracked issue to project?
+              }
+              
+              for (const item of projectItems) {
+                if (item.node.project.id == projectId) {
+                  const mutation = `mutation($projectId: String!, $itemId: String!, $fieldId: String!, $optionId: String!) {
+                    updateProjectV2ItemFieldValue(
+                      input: {
+                        projectId: $projectId
+                        itemId: $itemId
+                        fieldId: $fieldId
+                        value: { 
+                          singleSelectOptionId: $optionId        
+                        }
+                      }
+                    ) {
+                      projectV2Item {
+                        id
+                      }
+                    }
+                  }`;
+                  
+                  const parameters = {
+                    projectId,
+                    itemId: item.node.id,
+                    fieldId,
+                    optionId: fieldValueId,
+                    headers: { "GraphQL-Features": "projects_next_graphql" }
+                  };
+                  
+                  const result = await graphql(mutation, parameters);
+                  console.log(JSON.stringify(result));
+                  
+                  break;
+                }
+              }
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
+
       - uses: actions/github-script@v6
         with:
           script: |
