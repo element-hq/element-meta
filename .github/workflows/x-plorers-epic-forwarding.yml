@@ -57,12 +57,14 @@ jobs:
                 }
               }
             }
-          owner: "vector-im"
-          repo: "element-meta"
-          projectid: ${{ env.PROJECT_ID }}
+          owner: ${{ env.OWNER }}
+          repo: ${{ env.REPO }}
           issueNumber: ${{ github.event.issue.number }}
-          fieldName: "Epic"
+          fieldName: ${{ env.FIELD_NAME }}
         env:
+          OWNER: "vector-im"
+          REPO: "element-meta"
+          FIELD_NAME: "Epic"
           GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
       - run: "echo '${{ steps.query_projects_and_tracked_issues.outputs.data }}'"
       - uses: actions/github-script@v6
