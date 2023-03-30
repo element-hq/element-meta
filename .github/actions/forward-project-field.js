@@ -139,8 +139,8 @@ const FIELD_NAME = process.env.FIELD_NAME;
           headers
         };
 
-        const result = await graphql(mutation, parameters);
-        console.log(JSON.stringify(result));
+        const result = await octokit.graphql(mutation, parameters);
+        console.log(`Set field value on ${JSON.stringify(result)}`);
 
         break;
       }
