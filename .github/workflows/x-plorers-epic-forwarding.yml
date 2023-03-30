@@ -151,7 +151,7 @@ jobs:
               }
             }
         env:
-          PROJECT_ITEMS: ${{ toJSON(steps.get_field_value_and_tracked_issues.outputs.data.repository.issue.projectItems.edges) }}
+          PROJECT_ITEMS: ${{ fromJSON(steps.get_field_value_and_tracked_issues.outputs.data).info.repository.issue.projectItems.edges }}
           TRACKED_ISSUES: ${{ toJSON(steps.get_field_value_and_tracked_issues.outputs.data.repository.issue.trackedIssues.edges) }}
           GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
 
