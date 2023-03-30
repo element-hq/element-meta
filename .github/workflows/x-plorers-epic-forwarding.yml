@@ -57,13 +57,11 @@ jobs:
                 }
               }
             }
-          owner: ${{ env.OWNER }}
-          repo: ${{ env.REPO }}
+          owner: ${{ github.event.repository.owner.name }}
+          repo: ${{ github.event.repository.name }}
           issueNumber: ${{ github.event.issue.number }}
           fieldName: ${{ env.FIELD_NAME }}
         env:
-          OWNER: "vector-im"
-          REPO: "element-meta"
           FIELD_NAME: "Epic"
           GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
       - run: "echo '${{ steps.query_projects_and_tracked_issues.outputs.data }}'"
