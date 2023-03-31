@@ -84,6 +84,8 @@ async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueUrl, issue
     return;
   }
   
+  console.log(trackedIssues.map(issue => issue.node.url));
+  
   // Set field values
 
   for (const issue of trackedIssues) {
