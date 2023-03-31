@@ -161,8 +161,8 @@ async function queryTrackedIssues(repoOwner, repoName, issueNumber) {
 }
 
 async function addItemToProject(projectId, contentId) {
-  const mutation = `mutation ($projectid: ID!, $contentid: ID!) {
-    addProjectV2ItemById(input: {projectId: $projectid contentId: $contentid}) {
+  const mutation = `mutation ($projectId: ID!, $contentId: ID!) {
+    addProjectV2ItemById(input: {projectId: $projectId contentId: $contentId}) {
       item {
         id
       }
