@@ -33,7 +33,7 @@ For the first iteration in the classic Element clients, only the room indicators
   - States (**with TOFU**)
     - Room is encrypted and other users are TOFU-trusted (grey shield)
     - Room is encrypted but at least one user violates its **verified** identity (identity mismatch; red shield with exclamation mark)
-    - Room is encrypted and the user has **verified** the identity of all other users in the room
+    - Room is encrypted and the user has **verified** the identity of all other users in the room (green shield with checkmark)
 
 ## Behavior for identity mismatch
 
@@ -46,7 +46,7 @@ The default behavior should be different depending on how trust has been establi
 - The new identity is automatically trusted via TOFU again
 - Users can communicate as before
 
-### Verified user (!WIP!)
+### Verified user
 
 - Other users will see the indicator for bad room integrity is shown (red shield) => lists the users who are violating it and allows to resolve it
 - Other users will be asked to verify the new identity to resolve the situation (manual verification)
@@ -64,8 +64,8 @@ To keep security and integrity intact, the following measures will be taken
 If users deviate from the regular processes or there is a malicious homeserver inserting new devices, unverified devices can appear.
 
 To cover for the risk of information leakage, the following steps will be taken
-1. Users on unverified devices cannot send or receive messages in encrypted rooms
-2. Users on unverified devices are informed about this state and guided to device verification to resolve it
+1. Users on untrusted devices cannot send or receive messages in encrypted rooms
+2. Users on untrusted devices are informed about this state and guided to device verification to resolve it
 
 ## Settings
 
