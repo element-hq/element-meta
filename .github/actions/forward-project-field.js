@@ -89,30 +89,28 @@ async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueUrl, issue
   // Set field values
 
   for (const issue of trackedIssues) {
+    const trackedIssueId = issue.node.id;
     const trackedIssueUrl = issue.node.url;
     const trackedIssueNumber = issue.node.number;
     const trackedRepoOwner = issue.node.repository.owner.login;
     const trackedRepoName = issue.node.repository.name;
-    const projectItems = issue.node.projectItems.edges;
     
-    let didSetFieldValue = false;
+    // Get project item or add one if needed
 
-    for (const item of projectItems ?? []) {
-      if (item.node.project.id != projectId) {
-        continue;
-      }
-
-      mutateFieldValue(projectId, item.node.id, fieldId, fieldValue.id);
-      didSetFieldValue = true;
-      console.log(`Set value "${fieldValue.name}" for field "${fieldName}" of ${trackedIssueUrl}`);
-
-      break;
+    let itemId = issue.node.projectItems.edges.find(item => item.node.project.id == projectId)?.node?.id;
+    
+    if (!itemId) {
+      console.log(`Adding ${trackedIssueUrl} to project`);
+      itemId = addItemToProject(projectId, trackedIssueId);
     }
-    
-    if (!didSetFieldValue) {
-      console.log(`Ignoring ${trackedIssueUrl} which is not part of the correct project`);
-    }
-    
+
+    // Set field value
+
+    console.log(`Setting value "${fieldValue.name}" for field "${fieldName}" of ${trackedIssueUrl}`);
+    mutateFieldValue(projectId, itemId, fieldId, fieldValue.id);
+
+    // Recurse
+
     await setFieldValueOnTrackedIssues(trackedRepoOwner, trackedRepoName, trackedIssueUrl, trackedIssueNumber, projectId, fieldId, fieldName, fieldValue);
   }
 }
@@ -134,6 +132,7 @@ async function queryTrackedIssues(repoOwner, repoName, issueNumber) {
                   }
                 }
               }
+              id
               url
               number
               repository {
@@ -159,6 +158,24 @@ async function queryTrackedIssues(repoOwner, repoName, issueNumber) {
   const result = await octokit.graphql(query, parameters);
 
   return result.repository.issue.trackedIssues.edges;
+}
+
+async function addItemToProject(projectId, contentId) {
+  const mutation = `mutation ($projectid: ID!, $contentid: ID!) {
+    addProjectV2ItemById(input: {projectId: $projectid contentId: $contentid}) {
+      item {
+        id
+      }
+    }
+  }`;
+
+  const parameters = {
+    projectId: projectId,
+    contentId: contentId,
+    headers
+  };
+
+  return await octokit.graphql(mutation, parameters).item.id;
 }
 
 async function mutateFieldValue(projectId, itemId, fieldId, fieldValueId) {
