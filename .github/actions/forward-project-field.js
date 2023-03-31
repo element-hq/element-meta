@@ -101,7 +101,7 @@ async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueUrl, issue
     
     if (!itemId) {
       console.log(`Adding ${trackedIssueUrl} to project`);
-      itemId = addItemToProject(projectId, trackedIssueId);
+      itemId = await addItemToProject(projectId, trackedIssueId);
     }
 
     // Set field value
