@@ -12,6 +12,8 @@ const PROJECT_ID = process.env.PROJECT_ID;
 const FIELD_ID = process.env.FIELD_ID;
 const FIELD_NAME = process.env.FIELD_NAME;
 
+const visitedIssueUrls = new Set();
+
 async function queryFieldValue(repoOwner, repoName, issueNumber, fieldName) {
   const query = `query ($owner: String!, $repo: String!, $issueNumber: Int!, $fieldName: String!) {
     repository(owner: $owner, name: $repo) {
@@ -65,6 +67,13 @@ function determineFieldValue(projectItems, projectId, fieldId) {
 }
 
 async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueUrl, issueNumber, projectId, fieldId, fieldName, fieldValue) {
+  // Avoid infinite loop
+
+  if (visitedIssueUrls.has(issueUrl)) {
+    return;
+  }
+  visitedIssueUrls.add(issueUrl);
+
   // Get tracked issues
 
   console.log(`Querying tracked issues of ${issueUrl}`);
