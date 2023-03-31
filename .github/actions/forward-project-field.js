@@ -6,6 +6,7 @@ const headers = { "GraphQL-Features": "projects_next_graphql" }
 
 const REPO_OWNER = process.env.REPO_OWNER;
 const REPO_NAME = process.env.REPO_NAME;
+const ISSUE_URL = process.env.ISSUE_URL;
 const ISSUE_NUMBER = parseInt(process.env.ISSUE_NUMBER);
 const PROJECT_ID = process.env.PROJECT_ID;
 const FIELD_ID = process.env.FIELD_ID;
@@ -63,10 +64,10 @@ function determineFieldValue(projectItems, projectId, fieldId) {
   return {}
 }
 
-async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueNumber, projectId, fieldId, fieldName, fieldValue) {
+async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueUrl, issueNumber, projectId, fieldId, fieldName, fieldValue) {
   // Get tracked issues
 
-  console.log(`Querying tracked issues of #${issueNumber} in ${repoOwner}/${repoName}`);
+  console.log(`Querying tracked issues of ${issueUrl}`);
   const trackedIssues = await queryTrackedIssues(repoOwner, repoName, issueNumber);
 
   if (!trackedIssues || trackedIssues.length == 0) {
@@ -77,9 +78,10 @@ async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueNumber, pr
   // Set field values
 
   for (const issue of trackedIssues) {
+    const trackedIssueUrl = issue.node.url;
     const trackedIssueNumber = issue.node.number;
-    const trackedIssueRepoOwner = issue.node.repository.owner.login;
-    const trackedIssueRepoName = issue.node.repository.name;
+    const trackedRepoOwner = issue.node.repository.owner.login;
+    const trackedRepoName = issue.node.repository.name;
     const projectItems = issue.node.projectItems.edges;
 
     for (const item of projectItems ?? []) {
@@ -88,12 +90,12 @@ async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueNumber, pr
       }
 
       mutateFieldValue(projectId, item.node.id, fieldId, fieldValue.id);
-      console.log(`Set value "${fieldValue.name}" for field "${fieldName}" of #${trackedIssueNumber} in ${trackedIssueRepoOwner}/${trackedIssueRepoName}`);
+      console.log(`Set value "${fieldValue.name}" for field "${fieldName}" of ${trackedIssueUrl}`);
 
       break;
     }
     
-    setFieldValueOnTrackedIssues(trackedIssueRepoOwner, trackedIssueRepoName, trackedIssueNumber, projectId, fieldId, fieldName, fieldValue);
+    setFieldValueOnTrackedIssues(trackedRepoOwner, trackedRepoName, trackedIssueUrl, trackedIssueNumber, projectId, fieldId, fieldName, fieldValue);
   }
 }
 
@@ -114,6 +116,7 @@ async function queryTrackedIssues(repoOwner, repoName, issueNumber) {
                   }
                 }
               }
+              url
               number
               repository {
                 name
@@ -172,7 +175,7 @@ async function mutateFieldValue(projectId, itemId, fieldId, fieldValueId) {
 (async function main() {
   // Get project items
 
-  console.log(`Querying value for field "${FIELD_NAME}" of #${ISSUE_NUMBER} in ${REPO_OWNER}/${REPO_NAME}`);
+  console.log(`Querying value for field "${FIELD_NAME}" of ${ISSUE_URL}`);
   const projectItems = await queryFieldValue(REPO_OWNER, REPO_NAME, ISSUE_NUMBER, FIELD_NAME);
 
   if (!projectItems) {
@@ -193,6 +196,6 @@ async function mutateFieldValue(projectId, itemId, fieldId, fieldValueId) {
 
   // Set field value on tracked issues
 
-  setFieldValueOnTrackedIssues(REPO_OWNER, REPO_NAME, ISSUE_NUMBER, PROJECT_ID, FIELD_ID, FIELD_NAME, fieldValue);
+  setFieldValueOnTrackedIssues(REPO_OWNER, REPO_NAME, ISSUE_URL, ISSUE_NUMBER, PROJECT_ID, FIELD_ID, FIELD_NAME, fieldValue);
   
 })();
