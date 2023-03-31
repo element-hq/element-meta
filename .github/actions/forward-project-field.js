@@ -176,8 +176,8 @@ async function addItemToProject(projectId, contentId) {
   };
 
   const result = await octokit.graphql(mutation, parameters);
-  console.log(result);
-  return result.item.id;
+
+  return result.addProjectV2ItemById.item.id;
 }
 
 async function mutateFieldValue(projectId, itemId, fieldId, fieldValueId) {
