@@ -113,7 +113,7 @@ async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueUrl, issue
       console.log(`Ignoring ${trackedIssueUrl} which is not part of the correct project`);
     }
     
-    setFieldValueOnTrackedIssues(trackedRepoOwner, trackedRepoName, trackedIssueUrl, trackedIssueNumber, projectId, fieldId, fieldName, fieldValue);
+    await setFieldValueOnTrackedIssues(trackedRepoOwner, trackedRepoName, trackedIssueUrl, trackedIssueNumber, projectId, fieldId, fieldName, fieldValue);
   }
 }
 
@@ -214,6 +214,6 @@ async function mutateFieldValue(projectId, itemId, fieldId, fieldValueId) {
 
   // Set field value on tracked issues
 
-  setFieldValueOnTrackedIssues(REPO_OWNER, REPO_NAME, ISSUE_URL, ISSUE_NUMBER, PROJECT_ID, FIELD_ID, FIELD_NAME, fieldValue);
+  await setFieldValueOnTrackedIssues(REPO_OWNER, REPO_NAME, ISSUE_URL, ISSUE_NUMBER, PROJECT_ID, FIELD_ID, FIELD_NAME, fieldValue);
   
 })();
