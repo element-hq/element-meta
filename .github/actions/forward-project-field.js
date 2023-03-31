@@ -83,6 +83,8 @@ async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueUrl, issue
     const trackedRepoOwner = issue.node.repository.owner.login;
     const trackedRepoName = issue.node.repository.name;
     const projectItems = issue.node.projectItems.edges;
+    
+    let didSetFieldValue = false;
 
     for (const item of projectItems ?? []) {
       if (item.node.project.id != projectId) {
@@ -90,9 +92,14 @@ async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueUrl, issue
       }
 
       mutateFieldValue(projectId, item.node.id, fieldId, fieldValue.id);
+      didSetFieldValue = true;
       console.log(`Set value "${fieldValue.name}" for field "${fieldName}" of ${trackedIssueUrl}`);
 
       break;
+    }
+    
+    if (!didSetFieldValue) {
+      console.log(`Ignoring ${trackedIssueUrl} which is not part of the correct project`);
     }
     
     setFieldValueOnTrackedIssues(trackedRepoOwner, trackedRepoName, trackedIssueUrl, trackedIssueNumber, projectId, fieldId, fieldName, fieldValue);
