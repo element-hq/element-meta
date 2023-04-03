@@ -11,8 +11,9 @@ This document aims to describe the user-facing changes on the classic Element cl
 ## General guidelines, context, use cases
 
 1. As a security-aware user I want to notice when the identity of users I'm communication with changes so that I can make sure that the authenticity is still intact via other means.
-2. 
-x. As an organization/user, untrusted devices of other users always pose a threat to information security as it is impossible to determine the authenticity of the logged-in user.
+2. As a user I want to know when an identity change has happened to be able to determine impact based on the messages before and after the change.
+3. As a user I want a suitable behavior for identity changes depending on how sensitive I am towards security to make a sensible trade-off between security and usability. Therefore an identity change of a verified user should get more attention than an identity change of an automatically trusted user (TOFU).
+4. As an organization/user, untrusted devices of other users always pose a threat to information security as it is impossible to determine the authenticity of the logged-in user.
 
 ## Indicators
 
