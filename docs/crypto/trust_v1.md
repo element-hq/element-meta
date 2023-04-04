@@ -30,11 +30,14 @@ For the first iteration in the classic Element clients, only the room indicators
   - States (**currently**)
     - Room is encrypted but not all users have been verified, and those that have (if any) still have the verified identity (grey shield)
     - Room is encrypted but at least one user violates trust (identity mismatch; red shield with exclamation mark)
-    - Room is encrypted and the user trusts all other users (green shield with checkmark)
+    - Room is encrypted and the user trusts all users (green shield with checkmark)
+      - The set of “all users” depends on the type of room:
+        - For regular / topic rooms, all users including yourself, are considered when decorating a room
+        - For 1:1 and group DM rooms, all other users (i.e. excluding yourself) are considered when decorating a room
   - States (**with TOFU**)
-    - Room is encrypted and other users are TOFU-trusted (grey shield)
+    - Room is encrypted and other users are TOFU-trusted and only have verified devices (grey shield)
     - Room is encrypted but at least one user violates its **verified** identity (identity mismatch; red shield with exclamation mark)
-    - Room is encrypted and the user has **verified** the identity of all other users in the room (green shield with checkmark)
+    - Room is encrypted and the user has **verified** the identity of all other users in the room and they have verified all their devices (green shield with checkmark)
 
 ## Behavior for identity mismatch
 
@@ -65,7 +68,7 @@ To keep security and integrity intact, the following measures will be taken
 If users deviate from the regular processes or there is a malicious homeserver inserting new devices, unverified devices can appear.
 
 To cover for the risk of information leakage, the following steps will be taken
-1. Users on untrusted devices cannot send or receive messages in encrypted rooms
+1. Users on untrusted devices cannot send or receive messages in encrypted rooms (for now the application won't block sending messages but inform the users about the state)
 2. Users on untrusted devices are informed about this state and guided to device verification to resolve it
 
 ## Settings
