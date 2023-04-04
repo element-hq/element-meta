@@ -52,7 +52,7 @@ https://www.figma.com/file/o9p34zmiuEpZRyvZXJZAYL/FTUE?node-id=1-1496&t=fGZ56cXr
 - Homeserver is known
 - User attributes can be obtained from IDM and should not be changed by users in most cases
 
-### 2. An existing regular user wants to onboard another regular user
+### 2. An existing regular user wants to onboard another regular person
 
 #### Conditions
 - User account does not exist
@@ -61,7 +61,7 @@ https://www.figma.com/file/o9p34zmiuEpZRyvZXJZAYL/FTUE?node-id=1-1496&t=fGZ56cXr
 	- Propose another one ("Element Connect")
 - User attributes are unknown
 
-### 3. A regular user just downloads the app or opens the web app
+### 3. A regular person just downloads the app or opens the web app
 
 #### Conditions
 - User account is unknown
@@ -87,15 +87,16 @@ https://www.figma.com/file/o9p34zmiuEpZRyvZXJZAYL/FTUE?node-id=1-1496&t=fGZ56cXr
 7. [user is logged in]
 8. [ask server if single device or additional device] Secure Messaging
 	1. If no encryption or secure backup enabled => skip this step or set up secure messaging if first login
-	2. Single device (and not first login) => Ask for recovery method to obtain 4S (offer to reset?) => can't be skipped
-	3. Additional device => Ask for cross-signing with another device (QR code or 6-digit code comparison) or recovery method => can't be skipped
+	2. Single device (and not first login) => Ask for recovery method to obtain 4S and offer to reset encryption keys => can't be skipped
+	3. Additional device => Ask for cross-signing with another device (QR code or 6-digit code comparison) or recovery method and offer to reset encryption keys => can't be skipped
 9. [message history and key backup are fetched from server, device is cross-signed (if applicable)]
 10. [user attributes are pulled from the server, if possible]
 11. [only on first login] How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
 12. Ask to allow notifications
 13. Ask for consent to analytics
 14. [only on first login] User account summary (your name, avatar, MXID, etc.)
-15. Element is set up, user sees their 'All chats' list 
+15. Element is set up, user sees their 'All chats' list
+16. User gets hints on how to get started (start a conversation, join a public room, etc.)
 
 
 ### 1b) Regular user invitation
@@ -116,7 +117,8 @@ https://www.figma.com/file/o9p34zmiuEpZRyvZXJZAYL/FTUE?node-id=1-1496&t=fGZ56cXr
 12. Ask for consent to analytics
 13. User account summary (your name, avatar, MXID?, etc.)
 14. Element is set up, user sees their 'All chats' list
-15. A DM room with the inviting user (or a room join for the room/space invitation) is automatically set up
+15. User gets hints on how to get started (start a conversation, join a public room, etc.)
+16. A DM room with the inviting user (or a join for the room/space invitation) is automatically set up
 
 ### 2. Manual login / registration
 
@@ -146,8 +148,8 @@ https://www.figma.com/file/o9p34zmiuEpZRyvZXJZAYL/FTUE?node-id=1-1496&t=fGZ56cXr
 4. [user is logged in]
 5. [ask server if single device or additional device] Secure Messaging
 	1. If no encryption or secure backup enabled => skip this step or set up secure messaging if first login
-	2. Single device => Ask for recovery method to obtain 4S (offer to reset?) => can't be skipped
-	3. Additional device => Ask for cross-signing with another device (QR code or 6-digit code comparison) or recovery method => can't be skipped
+	2. Single device => Ask for recovery method to obtain 4S and offer to reset encryption keys => can't be skipped
+	3. Additional device => Ask for cross-signing with another device (QR code or 6-digit code comparison) or recovery method and offer to reset encryption keys => can't be skipped
 6. [message history and key backup are fetched from server, device is cross-signed (if applicable)]
 7. [only on first login] How do you want others to find you? (which user identifiers to associate with MXID and upload to identity server; potentially ask for consent / accept T&Cs; see [How do you want others to find you?](#how-do-you-want-others-to-find-you) for more details)
 8. Ask to allow notifications
