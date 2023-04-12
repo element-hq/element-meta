@@ -41,3 +41,10 @@ The Global Settings screen for Notifications has been redesigned. [The issue reg
 
 The Element X team is currently working on which settings they will show to users. The above list has been collaboratively designed by both the Web and Element X Mobile teams and therefore we will have platform parity at launch. 
 When Element X Notifications Settings screens have been designed and built, this document should be updated and a new table added to the above section.
+
+## The Work In Progress Design
+While this work is still being built, we'll include the design here for reference:
+| WIP |
+|---|
+| ![Web](https://user-images.githubusercontent.com/89144281/231469501-7ab7b530-e0e2-4e87-8caa-ebc62ec8f609.png) |
+
