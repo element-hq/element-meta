@@ -71,7 +71,8 @@ If users deviate from the regular processes or there is a malicious homeserver i
 
 To cover for the risk of information leakage, users on untrusted devices cannot send or receive messages in encrypted rooms. 
 
-- For now, the application will **block user interaction** for users on untrusted devices
+- For now, the application will **block user interaction** for users on untrusted devices in encrypted rooms.
+- Public rooms will still be accessible and usable from unverified devices
 - Users on untrusted devices are informed about this state and guided to device verification to resolve it
 - Key/secret exchange should be prevented until the situation is resolved
 - Other users do not explicitly have to be informed about this (since there is no bad impact for them and they anyway have no means to resolve the situation)
