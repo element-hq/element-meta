@@ -41,12 +41,13 @@ For the first iteration in the classic Element clients, only the room indicators
 
 ## Behavior for identity mismatch
 
-An identity mismatch can occur due to key reset or malicious activity. This scenario **can't be fixed by the user**. 
+An identity mismatch can occur due to key reset or malicious activity. This scenario **can't be fixed by the affected user**. 
 The default behavior should be different depending on how trust has been established in the first place.
 
 ### TOFU-trusted user
 
 - Other users will see a room notice informing them about the identity change and giving some further information on possible reasons and what to do
+- The room notice allows to determine the point in time when the identity change has occured (or at least which messages were sent before/after)
 - The new identity is automatically trusted via TOFU again
 - Users can communicate as before
 
@@ -58,7 +59,7 @@ The default behavior should be different depending on how trust has been establi
 
 ## Behavior for untrusted devices
 
-When a user has a logged-in device that has not been verified with the identity of the user (using another device or a recovery method + key backup), the device will be untrusted and it is not possible to ensure that the device belongs to the actual user. This scenario **can be fixed by the respective user** by verifying the device. 
+When a user has a logged-in device that has not been verified with the identity of the user (using another device or a recovery method + key backup), the device will be untrusted and it is not possible to ensure that the device belongs to the actual user. This scenario **can be fixed by the affected user** by verifying the device. 
 
 To keep security and integrity intact, the following measures will be taken
 - Isolate untrusted devices in encrypted rooms (can't send/receive messages) so that no information is accidentally leaked
@@ -67,9 +68,12 @@ To keep security and integrity intact, the following measures will be taken
 
 If users deviate from the regular processes or there is a malicious homeserver inserting new devices, unverified devices can appear.
 
-To cover for the risk of information leakage, the following steps will be taken
-1. Users on untrusted devices cannot send or receive messages in encrypted rooms (for now the application won't block sending messages but inform the users about the state)
-2. Users on untrusted devices are informed about this state and guided to device verification to resolve it
+To cover for the risk of information leakage, users on untrusted devices cannot send or receive messages in encrypted rooms. 
+
+- For now, the application will **block user interaction** for users on untrusted devices
+- Key exchange should be prevented until the situation is resolved
+- Users on untrusted devices are informed about this state and guided to device verification to resolve it
+- Other users do not explicitly have to be informed about this (since there is no bad impact for them and they anyway have no means to resolve the situation)
 
 ## Settings
 
