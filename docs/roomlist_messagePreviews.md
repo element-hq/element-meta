@@ -36,4 +36,6 @@ Certain events should not appear in the message previews
 On Web, Message Previews may be toggled on or off from the room list. User's may have different message preview preferences by room tag (favourites, people, rooms, low priority, etc.)
 Many of the Element X ideals are not yet implemented on web due to time restrictions and lack of resources. Where parity does not exist, a GH issue should be available as work on the backlog.
 
-
+## Threads
+The Threads List panel and Thread Summaries in the timeline also show message previews. 
+It should be our goal to use the same components and logic for all message previews throughout the app.
