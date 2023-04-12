@@ -78,4 +78,4 @@ To cover for the risk of information leakage, users on untrusted devices cannot 
 
 ## Settings
 
-- Never send encrypted messages to unverified sessions from this session (global / per room)
+- `Never send encrypted messages to unverified sessions from this session (global / per room)` should be changed to `Never send encrypted messages to unverified users from this session (global / per room)` to reflect the new behavior of isolating unverified devices
