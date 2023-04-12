@@ -35,9 +35,9 @@ For the first iteration in the classic Element clients, only the room indicators
         - For regular / topic rooms, all users including yourself, are considered when decorating a room
         - For 1:1 and group DM rooms, all other users (i.e. excluding yourself) are considered when decorating a room
   - States (**with TOFU**)
-    - Room is encrypted and other users are TOFU-trusted and only have verified devices (grey shield)
+    - Room is encrypted and other users are TOFU-trusted or manually verified (grey shield)
     - Room is encrypted but at least one user violates its **verified** identity (identity mismatch; red shield with exclamation mark)
-    - Room is encrypted and the user has **verified** the identity of all other users in the room and they have verified all their devices (green shield with checkmark)
+    - Room is encrypted and the user has **verified** the identity of all other users in the room (green shield with checkmark)
 
 ## Behavior for identity mismatch
 
@@ -55,6 +55,7 @@ The default behavior should be different depending on how trust has been establi
 
 - Other users will see the indicator for bad room integrity is shown (red shield) => lists the users who are violating it and allows to resolve it
 - Other users will be asked to verify the new identity to resolve the situation (manual verification)
+- Messages from an untrusted identity show a warning until the identity is verified manually again
 - Users can communicate as before (unless they use the setting _Never send encrypted messages to unverified sessions from this session_)
 
 ## Behavior for untrusted devices
@@ -71,8 +72,8 @@ If users deviate from the regular processes or there is a malicious homeserver i
 To cover for the risk of information leakage, users on untrusted devices cannot send or receive messages in encrypted rooms. 
 
 - For now, the application will **block user interaction** for users on untrusted devices
-- Key exchange should be prevented until the situation is resolved
 - Users on untrusted devices are informed about this state and guided to device verification to resolve it
+- Key/secret exchange should be prevented until the situation is resolved
 - Other users do not explicitly have to be informed about this (since there is no bad impact for them and they anyway have no means to resolve the situation)
 
 ## Settings
