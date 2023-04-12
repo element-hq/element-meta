@@ -47,7 +47,6 @@ The default behavior should be different depending on how trust has been establi
 ### TOFU-trusted user
 
 - Other users will see a room notice informing them about the identity change and giving some further information on possible reasons and what to do
-- The room notice allows to determine the point in time when the identity change has occured (or at least which messages were sent before/after)
 - The new identity is automatically trusted via TOFU again
 - Users can communicate as before
 
