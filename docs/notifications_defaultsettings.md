@@ -20,22 +20,22 @@ The Global Settings screen for Notifications has been redesigned. [The issue reg
 
 ## Default Settings for new Users
 
-| Web Setting | Default | What does it mean |
-|---|---|---|
-| Enable Notifications for this account | On | Setting previously existed. No change. | 
-| Enable desktop notifications | Off | We have to ask permission before turning this on. The setting previously existed, there's no change. | 
-| Show message preview in desktop notification | Off | Setting previously existed. No change. | 
-| Enable audible notifications | On | Setting previously existed. No change. | 
-| Default settings for all rooms | All messages | All messages in all rooms are set to "On" by default. There's more information on this decision [here](https://docs.google.com/document/d/1J6-XyVQsthkylffD20UrCFbWF_g9mao8JS2bhn5z1SU/edit#bookmark=id.ayc00ag4dkdj). |
-| Play a sound for | All messages | This is the equivalent of "Noisy". | 
-| Invited to a room | On | Setting previously existed. Its default is “On” and the “Noisy” aspect is determined by the user's Sound settings. | 
-| New room activity, upgrades, and status messages | Off | This is a catch-all bucket. Better explanation pending discussion. | 
-| Messages sent by a bot | On | Setting previously existed. No change. | 
-| Mentions when someone uses "@room" | On | Setting previously existed. Its default is “On” and the “Noisy” aspect is determined by the user's Sound settings. | 
-| Mentions when someone uses "@displayname" | On | Setting previously existed. Its default is “On” and the “Noisy” aspect is determined by the user's Sound settings. | 
-| Notify when someone users a keyword | On | There are no preset keywords configured. Setting previously existed. No change.  | 
-| Email summary | Off | Setting previously existed. We should improve our emails before subjecting all users to them. | 
-| This line is blank intentionally | N/A | N/A | 
+| Web Setting | Default | What does it mean | Push rules (see [predefined rules](https://spec.matrix.org/v1.6/client-server-api/#predefined-rules) |
+|---|---|---|---|
+| Enable Notifications for this account | On | Setting previously existed. No change. | `.m.rule.master` |
+| Enable desktop notifications | Off | We have to ask permission before turning this on. The setting previously existed, there's no change. | N/A | 
+| Show message preview in desktop notification | Off | Setting previously existed. No change. | N/A | 
+| Enable audible notifications | On | Setting previously existed. No change. | N/A | 
+| Default settings for all rooms | All messages | All messages in all rooms are set to "On" by default. There's more information on this decision [here](https://docs.google.com/document/d/1J6-XyVQsthkylffD20UrCFbWF_g9mao8JS2bhn5z1SU/edit#bookmark=id.ayc00ag4dkdj). | `.m.rule.encrypted_room_one_to_one`, `.m.rule.room_one_to_one`, `.m.rule.message`, `.m.rule.encrypted`, and maybe more. |
+| Play a sound for | All messages | This is the equivalent of "Noisy". | N/A | 
+| Invited to a room | On | Setting previously existed. Its default is “On” and the “Noisy” aspect is determined by the user's Sound settings. | `.m.rule.invite_for_me` | 
+| New room activity, upgrades, and status messages | Off | This is a catch-all bucket. Better explanation pending discussion. | `.m.rule.tombstone` + new ones | 
+| Messages sent by a bot | On | Setting previously existed. No change. | `.m.rule.suppress_notices` |
+| Mentions when someone uses "@room" | On | Setting previously existed. Its default is “On” and the “Noisy” aspect is determined by the user's Sound settings. | `.m.rule.roomnotif` ([MCS3952](https://github.com/matrix-org/matrix-spec-proposals/pull/3952) defines `.m.rule.is_room_mention`) | 
+| Mentions when someone uses "@displayname" | On | Setting previously existed. Its default is “On” and the “Noisy” aspect is determined by the user's Sound settings. | `.m.rule.contains_display_name` and `.m.rule.constains_user_name` (maybe?) ([MCS3952](https://github.com/matrix-org/matrix-spec-proposals/pull/3952) defines `.m.rule.is_user_mention`) | 
+| Notify when someone users a keyword | On | There are no preset keywords configured. Setting previously existed. No change. | A custom rule is created for each keyword | 
+| Email summary | Off | Setting previously existed. We should improve our emails before subjecting all users to them. | N/A | 
+| This line is blank intentionally | N/A | N/A | N/A | 
 
 ## How this looks on Mobile
 
