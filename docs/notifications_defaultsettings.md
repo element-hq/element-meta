@@ -26,8 +26,8 @@ The Global Settings screen for Notifications has been redesigned. [The issue reg
 | Enable desktop notifications | Off | We have to ask permission before turning this on. The setting previously existed, there's no change. | N/A | 
 | Show message preview in desktop notification | Off | Setting previously existed. No change. | N/A | 
 | Enable audible notifications | On | Setting previously existed. No change. | N/A | 
-| Default settings for all rooms | All messages | All messages in all rooms are set to "On" by default. There's more information on this decision [here](https://docs.google.com/document/d/1J6-XyVQsthkylffD20UrCFbWF_g9mao8JS2bhn5z1SU/edit#bookmark=id.ayc00ag4dkdj). | `.m.rule.encrypted_room_one_to_one`, `.m.rule.room_one_to_one`, `.m.rule.message`, `.m.rule.encrypted`, and maybe more. |
-| Play a sound for | All messages | This is the equivalent of "Noisy". | N/A | 
+| Default settings for all rooms | All messages | All messages in all rooms are set to "On" by default. There's more information on this decision [here](https://docs.google.com/document/d/1J6-XyVQsthkylffD20UrCFbWF_g9mao8JS2bhn5z1SU/edit#bookmark=id.ayc00ag4dkdj). | `.m.rule.encrypted_room_one_to_one`, `.m.rule.room_one_to_one`, `.m.rule.message`, `.m.rule.encrypted` |
+| Play a sound for | All messages | This is the equivalent of "Noisy". | Customise actions of `.m.rule.encrypted_room_one_to_one`, `.m.rule.room_one_to_one`, `.m.rule.message`, `.m.rule.encrypted` | 
 | Invited to a room | On | Setting previously existed. Its default is “On” and the “Noisy” aspect is determined by the user's Sound settings. | `.m.rule.invite_for_me` | 
 | New room activity, upgrades, and status messages | Off | This is a catch-all bucket. Better explanation pending discussion. | `.m.rule.tombstone` + new ones | 
 | Messages sent by a bot | On | Setting previously existed. No change. | `.m.rule.suppress_notices` |
