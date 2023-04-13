@@ -2,11 +2,23 @@
 
 | Status | Last updated |
 |--|--|
-| Draft | March 29, 2023 |
+| Draft | April 13, 2023 |
 
 This document aims to describe the user-facing changes on the classic Element clients that will be made with the introduction of TOFU.
 
 **Table of contents**
+- [General guidelines, context, use cases](#general-guidelines-context-use-cases)
+- [Indicators](#indicators)
+  * [Room](#room)
+- [Behavior for identity mismatch](#behavior-for-identity-mismatch)
+  * [TOFU-trusted user](#tofu-trusted-user)
+  * [Verified user](#verified-user)
+- [Behavior for untrusted devices](#behavior-for-untrusted-devices)
+  * [Isolation of untrusted devices](#isolation-of-untrusted-devices)
+- [Settings](#settings)
+
+**Figma prototypes**
+https://www.figma.com/file/PJTG8NndqQOSFVOtXJUAoK/TOFU?node-id=12-4684&t=wDqe8xNQhSUz0x77-0
 
 ## General guidelines, context, use cases
 
