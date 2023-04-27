@@ -124,6 +124,10 @@ jobs:
     runs-on: ubuntu-latest
     if: >
       contains(github.event.issue.labels.*.name, 'Team: VoIP')
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/orgs/vector-im/projects/41
           github-token: ${{ secrets.ELEMENT_BOT_TOKEN }}
 
   qa:
