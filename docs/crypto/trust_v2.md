@@ -21,7 +21,7 @@ This document aims to describe the concepts for user-facing crypto-trust compone
 10. As were making FTUE a lot slicker we need tooltips for certain things like setting up recovery
 
 
-## Indicators
+## Indicator analysis & background
 Gathering and analysis: https://docs.google.com/spreadsheets/d/19z9NQtfehwTETIOqA7SbXgaNqXR8xHE54ryUy2YOAzc/edit#gid=0
 
 The following sections outline the encryption-related indicators from an Element Classic point of view. Quite a couple of them can be dropped in EX as we either do not need them anymore for UX reasons or can find solutions on the protocol level that make them obsolete.
@@ -45,6 +45,7 @@ The following refers to different states of the 'shield' indicator that can appe
 
 ### Room
 
+- Indicator for public rooms
 - Indicator for room encryption (on/off)
 - Indicator for room integrity (currently part of the 'room encryption' indicator)
   - Shows information on an individual user's view
@@ -58,10 +59,14 @@ The following refers to different states of the 'shield' indicator that can appe
 	    - The set of “all users” depends on the type of room:
 		    - For regular / topic rooms, all users including yourself, are considered when decorating a room
 		    - For 1:1 and group DM rooms, all other users (i.e. excluding yourself) are considered when decorating a room
-  - States (**Element X with TOFU**)
+  - States (**with TOFU**)
     - Room is encrypted and other users are TOFU-trusted or manually verified (grey shield)
     - Room is encrypted but at least one user violates its **verified** identity (identity mismatch; red shield with exclamation mark)
     - Room is encrypted and the user has **verified** the identity of all other users in the room (green shield with checkmark)
+
+## Indicators in EX
+
+TBC
 
 ## Behavior for identity mismatch
 
