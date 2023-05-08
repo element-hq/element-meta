@@ -42,6 +42,8 @@ The following refers to different states of the 'shield' indicator that can appe
 - ~~Indicator for device verification~~ => legacy and not required anymore as device verification will be forced during FTUE and there will be other handling for unverified devices, making this information redundant for other users
 	- ~~One of the user's devices is unverified~~ (red shield with exclamation mark)
 	- ~~All devices of the user are verified~~ (green shield with checkmark)
+- Indicator for encryption/trust (in DM / room details)
+	- behaves like the room encryption indicator
 
 ### Room
 
