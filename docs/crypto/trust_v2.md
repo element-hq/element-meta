@@ -121,8 +121,6 @@ If users deviate from the regular processes or there is a malicious homeserver i
 
 To cover for the risk of information leakage, users on untrusted devices cannot send nor receive messages in encrypted rooms. 
 
-- For now, the application will **block user interaction** for users on untrusted devices in encrypted rooms.
-- Public rooms will still be accessible and usable from unverified devices
-- Users on untrusted devices are informed about this state and guided to device verification to resolve it
-- Key/secret exchange should be prevented until the situation is resolved
-- Other users do not explicitly have to be informed about this (since there is no bad impact for them and they anyway have no means to resolve the situation)
+- The [new FTUE product spec](https://github.com/vector-im/element-meta/blob/develop/docs/FTUE.md) will force users to verify additional devices during the initial set up
+- Key/secret exchange will be prevented for untrusted devices (isolation of untrusted devices)
+- Other users do not explicitly have to be informed about a user having an untrusted device (since there is no bad impact for them and they anyway have no means to resolve the situation)
