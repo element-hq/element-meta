@@ -4,21 +4,20 @@
 |--|--|
 | Draft | May 3, 2023 |
 
-This document aims to describe the concepts for user-facing crypto-trust components and related decorations in the Element X clients.
+This document aims to describe the concepts for user-facing crypto-trust components and related decorations in the Element X and Element Web clients.
 
 ## General guidelines, context, use cases
 
 1. As a security-aware user I want to notice when the identity of users I'm communication with changes so that I can make sure that the authenticity is still intact via other means.
 2. As a user I want to know when an identity change has happened to be able to determine impact based on the messages before and after the change.
 3. As a user I want a suitable behavior for identity changes depending on how sensitive I am towards security to make a sensible trade-off between security and usability. Therefore an identity change of a verified user should get more attention than an identity change of an automatically trusted user (TOFU).
-3. As a user I want to know whether a room is encrypted for that I can use the room accordingly.
+3. As a user I want to know whether a room is public/encrypted for that I can use the room accordingly.
 4. As a security-aware organization/user I want to ensure user authenticity/trust (make sure that users actually are who they appear to be) in order to prevent information leakage to unauthorized third parties.
 5. As a user I want to know when a message has been sent in clear text in an encrypted room for that I can identify potential information leakage.
 6. As an organization I want to be able to decide which level of trust is suited for users/rooms (TOFU vs. manual trust)
 7. As an organization I want that the options to trust a new identity depend on desired trust level (simple confirmation vs. manual verification)
 8. As a user I don't want to be bothered with technical information I do not need to understand in order to securely use the app. The app should only show crypto-related indications when it is necessary for the user to understand or for cases where they are able to act upon it.
 9. As an organization/user, unverified devices of other users always pose a threat to information security as it is impossible to determine the authenticity of the logged-in user.
-10. As were making FTUE a lot slicker we need tooltips for certain things like setting up recovery
 
 
 ## Indicator analysis & background
@@ -37,15 +36,15 @@ The following refers to different states of the 'shield' indicator that can appe
 - ~~Message sent by a deleted device~~ => legacy and not required anymore as we'll find a solution for this case on the protocol level
 - ~~Authenticity of a message cannot be guaranteed~~ => legacy and not required anymore as unsafe keys will disappear (solved by symmetric backup and trusted key forwards)
 
-### Other user's profiles
+### Room details (right sidebar)
 
 - ~~Indicator for device verification~~ => legacy and not required anymore as device verification will be forced during FTUE and there will be other handling for unverified devices, making this information redundant for other users
 	- ~~One of the user's devices is unverified~~ (red shield with exclamation mark)
 	- ~~All devices of the user are verified~~ (green shield with checkmark)
-- Indicator for encryption/trust (in DM / room details)
+- Indicator for room encryption/trust (in DM / room details)
 	- behaves like the room encryption indicator
 
-### Room
+### Room (top-level)
 
 - Indicator for public rooms
 - Indicator for room encryption (on/off)
@@ -62,13 +61,32 @@ The following refers to different states of the 'shield' indicator that can appe
 		    - For regular / topic rooms, all users including yourself, are considered when decorating a room
 		    - For 1:1 and group DM rooms, all other users (i.e. excluding yourself) are considered when decorating a room
   - States (**with TOFU**)
-    - Room is encrypted and other users are TOFU-trusted or manually verified (grey shield)
+    - Room is encrypted and other users are TOFU-trusted or partly manually verified (grey shield)
     - Room is encrypted but at least one user violates its **verified** identity (identity mismatch; red shield with exclamation mark)
     - Room is encrypted and the user has **verified** the identity of all other users in the room (green shield with checkmark)
 
-## Indicators in EX
+## Indicators and indications in EX/EW
 
-TBC
+### Timeline
+
+- Message sent in clear text in an encrypted room
+
+### Room (top-level)
+
+- Default
+  - Indicator for public rooms
+  - No indicator for room encryption/trust if trust is intact
+  - Indicator for trust violation / identity mismatch of a previously (manually) verified user
+- Later: Policy-based room encryption/trust indicator? (e.g., for verified-only rooms)
+
+### Room details (right sidebar)
+
+- Room encryption/trust indicator
+  - States (same as 'with TOFU')
+    - Room is encrypted and other users are TOFU-trusted or partly manually verified (default encryption indicator)
+    - Room is encrypted but at least one user violates its **verified** identity (identity mismatch; red indicator)
+    - Room is encrypted and the user has **verified** the identity of all other users in the room (checkmark indicator)
+- No device list or device verification indicator for other users
 
 ## Behavior for identity mismatch
 
