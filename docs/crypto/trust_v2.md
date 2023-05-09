@@ -34,7 +34,7 @@ The following refers to different states of the 'shield' indicator that can appe
 	- a) users will not have unverified devices anymore in normal operations (we force verification during FTUE)
 	- b) unverified devices will be isolated in encrypted rooms (can't send/receive messages)
 - ~~Message sent by a deleted device~~ => legacy and not required anymore as we'll find a solution for this case on the protocol level
-- ~~Authenticity of a message cannot be guaranteed~~ => legacy and not required anymore as unsafe keys will disappear (solved by symmetric backup and trusted key forwards)
+- ~~Authenticity of a message cannot be guaranteed~~ => legacy and not required anymore as unsafe keys will disappear (solved by symmetric backup and removal of key forwards)
 
 ### Room details (right sidebar)
 
