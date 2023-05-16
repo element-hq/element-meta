@@ -75,8 +75,9 @@ The following refers to different states of the 'shield' indicator that can appe
 
 - Default
   - Indicator for public rooms
-  - No indicator for room encryption/trust if trust is intact
-  - Indicator for trust violation / identity mismatch of a previously (manually) verified user
+  - No indicator for room encryption/trust if trust is TOFU-based or mixed
+  - Indicator for trust when the user has verified all other users in a room
+  - Indicator for trust violation / identity mismatch of a previously (manually) verified user (at least one user violates its verified identity)
 - Later: Policy-based room encryption/trust indicator? (e.g., for verified-only rooms)
 
 ### Room details (right sidebar)
