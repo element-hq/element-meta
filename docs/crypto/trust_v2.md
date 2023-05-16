@@ -38,6 +38,8 @@ The following refers to different states of the 'shield' indicator that can appe
 
 ### Room details (right sidebar)
 
+The following refers to the room details/information in the right sidebar of a room.
+
 - ~~Indicator for device verification~~ => legacy and not required anymore as device verification will be forced during FTUE and there will be other handling for unverified devices, making this information redundant for other users
 	- ~~One of the user's devices is unverified~~ (red shield with exclamation mark)
 	- ~~All devices of the user are verified~~ (green shield with checkmark)
@@ -46,10 +48,13 @@ The following refers to different states of the 'shield' indicator that can appe
 
 ### Room (top-level)
 
+The following refers to the main view, composer and header of a room
+
 - Indicator for public rooms
 - Indicator for room encryption (on/off)
 - Indicator for room integrity (currently part of the 'room encryption' indicator)
   - Shows information on an individual user's view
+  - Shown in the header and the composer
   - Use cases
     - Do I trust the identities of all other users in the room? Yes/No
     - Is there an identity mismatch with a verified user?
