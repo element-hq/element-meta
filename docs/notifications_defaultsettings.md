@@ -22,7 +22,7 @@ The Global Settings screen for Notifications has been redesigned. [The issue reg
 
 | Web Setting | Default/ Enabled | What does it mean | Push rules (see [predefined rules](https://spec.matrix.org/v1.6/client-server-api/#predefined-rules) |
 |---|---|---|---|
-| Enable Notifications for this account | On | Setting previously existed. No change. | `.m.rule.master` |
+| Enable Notifications for this account | Disabled (when enabled, push notifications are off) | Setting previously existed. No change. https://spec.matrix.org/v1.6/client-server-api/#default-override-rules | `.m.rule.master` |
 | Enable desktop notifications | Off | We have to ask permission before turning this on. The setting previously existed, there's no change. | N/A | 
 | Show message preview in desktop notification | Off | Setting previously existed. No change. | N/A | 
 | Enable audible notifications | On | Setting previously existed. No change. | N/A | 
