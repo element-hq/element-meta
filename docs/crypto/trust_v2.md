@@ -2,9 +2,30 @@
 
 | Status | Last updated |
 |--|--|
-| Draft | May 3, 2023 |
+| Draft | May 17, 2023 |
 
 This document aims to describe the concepts for user-facing crypto-trust components and related decorations in the Element X and Element Web clients.
+
+**Table of contents**
+
+- [General guidelines, context, use cases](#general-guidelines-context-use-cases)
+- [Indicator analysis & background](#indicator-analysis--background)
+  * [Timeline](#timeline)
+  * [Room details (right sidebar)](#room-details-right-sidebar)
+  * [Room (top-level)](#room-top-level)
+- [Indicators and indications in EX/EW](#indicators-and-indications-in-exew)
+  * [Timeline](#timeline-1)
+  * [Room (top-level)](#room-top-level-1)
+  * [Room details (right sidebar)](#room-details-right-sidebar-1)
+- [Behavior for identity mismatch](#behavior-for-identity-mismatch)
+  * [TOFU-trusted user](#tofu-trusted-user)
+  * [Verified user](#verified-user)
+- [Behavior for untrusted devices](#behavior-for-untrusted-devices)
+  * [Isolation of untrusted devices](#isolation-of-untrusted-devices)
+
+**Figma designs**
+
+https://www.figma.com/file/wqgXVb7RVaIybfRsXdWEiL/Trust-%26-Decoration
 
 ## General guidelines, context, use cases
 
@@ -18,7 +39,6 @@ This document aims to describe the concepts for user-facing crypto-trust compone
 7. As an organization I want that the options to trust a new identity depend on desired trust level (simple confirmation vs. manual verification)
 8. As a user I don't want to be bothered with technical information I do not need to understand in order to securely use the app. The app should only show crypto-related indications when it is necessary for the user to understand or for cases where they are able to act upon it.
 9. As an organization/user, unverified devices of other users always pose a threat to information security as it is impossible to determine the authenticity of the logged-in user.
-
 
 ## Indicator analysis & background
 Gathering and analysis: https://docs.google.com/spreadsheets/d/19z9NQtfehwTETIOqA7SbXgaNqXR8xHE54ryUy2YOAzc/edit#gid=0
