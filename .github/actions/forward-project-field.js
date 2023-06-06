@@ -73,6 +73,12 @@ async function setFieldValueOnTrackedIssues(repoOwner, repoName, issueUrl, issue
     return;
   }
   visitedIssueUrls.add(issueUrl);
+  
+  // Make sure this is actually an issue
+  
+  if (issueUrl.indexOf("/issues/") < 0) {
+    return;
+  }
 
   // Get tracked issues
 
