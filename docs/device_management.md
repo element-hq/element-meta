@@ -32,7 +32,7 @@ The concept for OIDC-based device management in EX/EW therefore is split in two 
   - If Matrix Authentication Service is used without an upstream IdP, there is an integrated, web-based device authentication manager
   - If an upstream IdP is used in addition, device authentication management relies on its capabilities
 
-**2. Device verification in the Element clients**
+**2. Device verification management in the Element clients**
   - Element clients provide a (read-only) list of devices showing their verification/trust state
   - Element clients will notify users on login / opening the app if they have unverified devices
 
