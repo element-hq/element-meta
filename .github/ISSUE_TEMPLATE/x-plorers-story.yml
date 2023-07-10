@@ -6,6 +6,7 @@ labels: [T-Story, App: ElementX Android, App: ElementX iOS, T-User Story, Team: 
 body:
 - type: textarea
   attributes:
+    label: Description
     value: |
       * As a ...
       * I want to ...
