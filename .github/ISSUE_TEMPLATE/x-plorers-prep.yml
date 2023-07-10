@@ -1,7 +1,7 @@
 name: X-Plorers – Prep task
 description: A preparatory task without direct user value
 title: "[Prep] ..."
-labels: ["T-Prep", "App: ElementX Android", "App: ElementX iOS", "T-User Story", "Team: Element X Feature"]
+labels: ["App: ElementX Android", "App: ElementX iOS", "T-Prep", "Team: Element X Feature"]
 
 body:
 - type: textarea
