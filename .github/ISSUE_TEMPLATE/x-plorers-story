@@ -1,0 +1,45 @@
+name: X-Plorers – User story
+description: A user story
+title: "[Story] <title>"
+labels: [T-Story, App: ElementX Android, App: ElementX iOS, T-User Story, Team: Element X Feature]
+
+body:
+- type: textarea
+  attributes:
+    value: |
+      * As a ...
+      * I want to ...
+      * so that I can ...
+      
+      # Size estimate
+      
+      S/M/L
+      
+      # Dependencies
+      
+      * None
+      
+      # Acceptance criteria
+      
+      * ...
+      * TBD: ...
+      
+      # Out of scope
+      
+      * Nothing
+      
+      # Subtasks
+      
+      ```[tasklist]
+      ### Android
+      ```
+      
+      ```[tasklist]
+      ### iOS
+      ```
+      
+      ```[tasklist]
+      ### Other
+      ```
+  validations:
+    required: false
