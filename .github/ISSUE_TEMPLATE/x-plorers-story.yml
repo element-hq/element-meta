@@ -1,7 +1,7 @@
 name: X-Plorers – User story
 description: A task that generates direct user value
 title: "[Story] ..."
-labels: ["T-Story", "App: ElementX Android", "App: ElementX iOS", "T-User Story", "Team: Element X Feature"]
+labels: ["App: ElementX Android", "App: ElementX iOS", "T-User Story", "Team: Element X Feature"]
 
 body:
 - type: textarea
