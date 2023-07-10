@@ -1,7 +1,7 @@
 name: X-Plorers – User story
 description: A user story
-title: "[Story] <title>"
-labels: [T-Story, App: ElementX Android, App: ElementX iOS, T-User Story, Team: Element X Feature]
+title: "[Story] ..."
+labels: ["T-Story", "App: ElementX Android", "App: ElementX iOS", "T-User Story", "Team: Element X Feature"]
 
 body:
 - type: textarea
