@@ -57,7 +57,5 @@ This section outlines the requirements/features for a web-based device authentic
 This section outlines the requirements/features around device management entry points in the Element clients (EW/EX). 
 
 - The user must be informed about new logins/devices in their account as long as they are untrusted  (via push notification / when opening the app)
-- Display information about the current device (name, app version, session ID)
-	- Display IP address of devices
-	- Display last seen time (when was the device last online)
+- Display information about the current device (name, session ID?)
 - Button _Manage devices_ that guides the user to 'Device authentication management in the OIDC Provider' (web view)
