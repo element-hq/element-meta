@@ -16,8 +16,16 @@ body:
       ## Scope
       <!--These should be a list of technical tasks which take ½-1 day to complete-->
       ```[tasklist]
-      ### Tasklist
-      - [ ] Task 1
+      ### Android
+      - [ ] Verified with build in screen reader
+      ```
+
+      ### iOS
+      - [ ] Verified with build in screen reader
+      ```
+
+      ### Web
+      - [ ] Verified with build in screen reader
       ```
       
       - [ ] QA signoff on completion
