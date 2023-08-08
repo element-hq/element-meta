@@ -8,29 +8,45 @@ body:
   attributes:
     label: Description
     value: |
-      * As a ...
-      * I want to ...
-      * so that I can ...
-      
-      # Size estimate
-      
-      S/M/L
-      
-      # Dependencies
-      
-      * None
-      
-      # Acceptance criteria
-      
-      * ...
-      * TBD: ...
-      
-      # Out of scope
-      
-      * Nothing
-      
-      # Subtasks
-      
+      * As a [beneficiary]
+      * I want to [objective]
+      * So that [value generated]
+- type: textarea
+  attributes:
+    label: Acceptance criteria
+    value: |
+      - TBD
+- type: dropdown
+  attributes:
+    label: Size estimate
+    options:
+      - S
+      - M
+      - L
+- type: textarea
+  attributes:
+    label: Dependencies
+    value: |
+      - TBD
+- type: textarea
+  attributes:
+    label: Preconditions
+    value: |
+      - TBD
+- type: textarea
+  attributes:
+    label: Out of scope
+    value: |
+      - TBD
+- type: textarea
+  attributes:
+    label: Open questions
+    value: |
+      - TBD
+- type: textarea
+  attributes:
+    label: Subtasks
+    value: |
       ```[tasklist]
       ### Android
       ```
@@ -42,5 +58,3 @@ body:
       ```[tasklist]
       ### Other
       ```
-  validations:
-    required: false
