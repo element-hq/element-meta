@@ -16,7 +16,8 @@ This document aims to describe product requirements for key backup and recovery 
 2. As a user/organization I want to have key backup enabled automatically if my server has it enabled for that I cannot accidentally lose history.
 3. As a user I want that key backup is enabled right away and independent of the recovery for that all keys are being backed-up and I can set up recovery at a later point in time when it suits me.
 4. As a user I want to opt-out from key backup for that I have control over my data and what the server is allowed to store.
-5. As a user I want to be able to change my recovery when I still have signed-in devices for that I can use it in case of a loss.
+5. As a user I will use classic clients and new clients. The key backup mechanism needs to compatible between them.
+6. As a user I want to be able to change my recovery when I still have signed-in devices for that I can use it in case of a loss.
 
 ## Concept
 
