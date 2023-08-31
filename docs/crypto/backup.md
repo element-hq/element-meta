@@ -6,6 +6,9 @@
 
 This document aims to describe product requirements for key backup and recovery and its user-facing components in EX/EW.
 
+- **Key backup** refers to the server-side encryption key backup. Devices can upload encrypted copies of their megolm keys (room history decryption keys) to the server.
+- **Recovery** refers to secret storage (4S) that allows the user to securely store a remote encrypted backup of their devices' local secrets to their homeserver. The recovery restores the key backup secret as well as the cross-signing secrets.
+
 **Table of contents**
 
 **Figma designs**
