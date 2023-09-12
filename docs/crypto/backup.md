@@ -74,6 +74,9 @@ When a user has no signed-in devices, it is necessary to use recovery in order t
       - They will need to rotate it which will be noticeable by other users they communicate with
       - They will lose access to their message history
       - They will need to re-verify users they have verified before to establish trust again
+ - Troubleshooting
+   - Only shown if something is wrong (some keys not available, etc.)
+   - Asks the user to enter the recovery key to re-initialize the backup
 
 ### Recovery
 The recovery process is handled in the [FTUE](https://github.com/vector-im/element-meta/blob/develop/docs/FTUE.md) concept.
