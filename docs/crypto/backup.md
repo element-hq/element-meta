@@ -68,9 +68,10 @@ When a user has no signed-in devices, it is necessary to use recovery in order t
   - Removes existing key backup and 4S
   - Disables further key backup
   - Informs the user about consequences in a confirmation dialogue
-    - On a new device, the user will not be able to retrieve their message history
+    - On a new device, the user will not be able to retrieve their message history from the server (there might still be other clients forwarding keys for message history)
     - If the user loses all of their devices, they'll not be able to get access to their crypto identity.
       - They will need to rotate it which will be noticeable by other users they communicate with
+      - They will lose access to their message history
       - They will need to re-verify users they have verified before to establish trust again
 
 ### Recovery
