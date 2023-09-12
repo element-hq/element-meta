@@ -61,6 +61,7 @@ When a user has no signed-in devices, it is necessary to use recovery in order t
   -  Allows the user to set up recovery (see [Recovery setup](#recovery-setup))
   -  Only shown if recovery isn't yet set up
 - Change recovery key
+  - Requires the device to be trusted. Otherwise an existing recovery key is required.
   - If a user has lost their recovery key (or has other reasons to change it) but still has logged-in devices, they can create a new recovery key
   - Invalidates the previous recovery key(s)
   - Starts a new recovery set up
