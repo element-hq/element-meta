@@ -11,6 +11,14 @@ This document aims to describe product requirements for key backup and recovery 
 
 **Table of contents**
 
+- [General guidelines, context, use cases](#general-guidelines-context-use-cases)
+- [Concept](#concept)
+  * [General requirements](#general-requirements)
+  * [Recovery setup](#recovery-setup)
+    + [Recovery setup steps](#recovery-setup-steps)
+  * [Recovery settings](#recovery-settings)
+  * [Recovery](#recovery)
+
 **Figma designs**
 
 ## General guidelines, context, use cases
@@ -33,7 +41,7 @@ This document aims to describe product requirements for key backup and recovery 
 - Key backup must only contain safe keys such that the server cannot inject keys and the client can verify the keys' authenticity.
 
 ### Recovery setup
-When a user has no signed-in devices, it is necessary to use recovery in order to regain access to 4S and key backup. This section describes the requirements to set up recovery.
+When a user has no signed-in devices, it is necessary to use recovery in order to regain access to their crypto identity (4S and key backup). The recovery key can also be used to verify devices (in a single device use case it's mandatory). This section describes the requirements to set up recovery.
 
 - Recovery setup should not be part of [FTUE](https://github.com/vector-im/element-meta/blob/develop/docs/FTUE.md) to keep the experience slick and reduce the amount of steps.
 - If recovery isn't yet set up, there should be a notice to the user to inform and guide to recovery setup. This notice should be visible until the user has completed it.
@@ -53,13 +61,17 @@ When a user has no signed-in devices, it is necessary to use recovery in order t
   -  Allows the user to set up recovery (see [Recovery setup](#recovery-setup))
   -  Only shown if recovery isn't yet set up
 - Change recovery key
-  - If a user has lost their recovery key but still has logged-in devices (or has other reasons) they can create a new recovery key
+  - If a user has lost their recovery key (or has other reasons to change it) but still has logged-in devices, they can create a new recovery key
   - Invalidates the previous recovery key(s)
   - Starts a new recovery set up
 - Disable recovery
   - Removes existing key backup and 4S
   - Disables further key backup
   - Informs the user about consequences in a confirmation dialogue
+    - On a new device, the user will not be able to retrieve their message history
+    - If the user loses all of their devices, they'll not be able to get access to their crypto identity.
+      - They will need to rotate it which will be noticeable by other users they communicate with
+      - They will need to re-verify users they have verified before to establish trust again
 
 ### Recovery
 The recovery process is handled in the [FTUE](https://github.com/vector-im/element-meta/blob/develop/docs/FTUE.md) concept.
