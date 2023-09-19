@@ -34,11 +34,11 @@ This document aims to describe product requirements for key backup and recovery 
 
 ### General requirements
 
-- Key backup will always be enabled by default
-- On a new device, key backup will be enabled even if the recovery isn't yet set up
-- If recovery has not been set up and the user tries to sign out their last device there should be a warning and guidance to set it up
-- Key backup on EX/EW must be compatible with backup implementations on classic / 3rd party client implementation such that users have a seamless experience when they use both in parallel
+- Key backup will always be enabled by default. On a new device, key backup will be enabled even if the recovery isn't yet set up.
+- If recovery has not been set up and the user tries to sign out their last device there should be a warning and guidance to set it up.
+- Key backup on EX/EW must be compatible with backup implementations on classic / 3rd party client implementation such that users have a seamless experience when they use both in parallel.
 - Key backup must only contain safe keys such that the server cannot inject keys and the client can verify the keys' authenticity.
+- Key backup should only be used to retrieve message history (instead of using it to cover up missing keys that should actually be available to the device).
 
 ### Recovery setup
 When a user has no signed-in devices, it is necessary to use recovery in order to regain access to their crypto identity (4S and key backup). The recovery key can also be used to verify devices (in a single device use case it's mandatory). This section describes the requirements to set up recovery.
@@ -80,3 +80,5 @@ When a user has no signed-in devices, it is necessary to use recovery in order t
 
 ### Recovery
 The recovery process is handled in the [FTUE](https://github.com/vector-im/element-meta/blob/develop/docs/FTUE.md) concept.
+
+### Migration from legacy key backup
