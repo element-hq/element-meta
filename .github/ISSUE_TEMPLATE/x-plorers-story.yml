@@ -35,6 +35,19 @@ body:
       - TBD
 - type: textarea
   attributes:
+    label: Sign-off
+    value: |
+      ### Android
+      - [ ] Design sign-off on completion
+      - [ ] QA sign-off on completion
+      - [ ] Product sign-off on completion
+
+      ### iOS
+      - [ ] Design sign-off on completion
+      - [ ] QA sign-off on completion
+      - [ ] Product sign-off on completion
+- type: textarea
+  attributes:
     label: Out of scope
     value: |
       - TBD
