@@ -62,10 +62,12 @@ body:
     value: |
       ```[tasklist]
       ### Android
+      - [ ] Verified with build in screen reader
       ```
       
       ```[tasklist]
       ### iOS
+      - [ ] Verified with build in screen reader
       ```
       
       ```[tasklist]
