@@ -12,8 +12,33 @@ body:
       As a user…
       I want to…
       so that I can…
-      
-      ## Scope
+- type: textarea
+  attributes:
+    label: Dependencies
+    value: |
+      - TBD
+- type: textarea
+  attributes:
+    label: Sign-offs
+    value: |
+      ### Android
+      - [ ] Design sign-off on completion
+      - [ ] QA sign-off on completion
+      - [ ] Product sign-off on completion
+
+      ### iOS
+      - [ ] Design sign-off on completion
+      - [ ] QA sign-off on completion
+      - [ ] Product sign-off on completion
+
+      ### Web
+      - [ ] Design sign-off on completion
+      - [ ] QA sign-off on completion
+      - [ ] Product sign-off on completion
+- type: textarea
+  attributes:
+    label: Scope
+    value: |
       <!--These should be a list of technical tasks which take ½-1 day to complete-->
       ```[tasklist]
       ### Android
@@ -27,21 +52,12 @@ body:
 
       ```[tasklist]
       ### Web
-      - [ ] Verified with build in screen reader
+      - [ ] Verified with system in screen reader
       ```
-      
-      - [ ] QA signoff on completion
-      - [ ] Design signoff on completion
-      - [ ] Product signoff on completion
-
-      
-      ##  Stretch goals
-      None at this time
-      <!--or add a tasklist-->
       
       ## Out of scope
       <!-- Include known issues here, as well as anything that has been acknowledged as not in the scope of this story -->
-      - 
+      - TBD
       
   validations:
     required: false
