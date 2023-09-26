@@ -1,7 +1,7 @@
 name: User story
 description: Second-level planning issue template. A story should take about a week or a sprint to finish. It is normally one of a number of parts of an Epic
 title: "[Story] <title>"
-labels: [T-Story]
+labels: [T-User Story]
 
 body:
 - type: textarea
