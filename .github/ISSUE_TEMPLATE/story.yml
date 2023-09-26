@@ -20,10 +20,12 @@ body:
       - [ ] Verified with build in screen reader
       ```
 
+      ```[tasklist]
       ### iOS
       - [ ] Verified with build in screen reader
       ```
 
+      ```[tasklist]
       ### Web
       - [ ] Verified with build in screen reader
       ```
@@ -38,6 +40,8 @@ body:
       <!--or add a tasklist-->
       
       ## Out of scope
+      <!-- Include known issues here, as well as anything that has been acknowledged as not in the scope of this story -->
       - 
+      
   validations:
     required: false
