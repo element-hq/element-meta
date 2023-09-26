@@ -1,5 +1,5 @@
-name: User story issue
-description: Second-level planning issue template. A story should take about a week or a sprint to finish.
+name: User story
+description: Second-level planning issue template. A story should take about a week or a sprint to finish. It is normally one of a number of parts of an Epic
 title: "[Story] <title>"
 labels: [T-Story]
 
@@ -21,17 +21,17 @@ body:
   attributes:
     label: Sign-offs
     value: |
-      ### Android
+      #### Android
       - [ ] Design sign-off on completion
       - [ ] QA sign-off on completion
       - [ ] Product sign-off on completion
 
-      ### iOS
+      #### iOS
       - [ ] Design sign-off on completion
       - [ ] QA sign-off on completion
       - [ ] Product sign-off on completion
 
-      ### Web
+      #### Web
       - [ ] Design sign-off on completion
       - [ ] QA sign-off on completion
       - [ ] Product sign-off on completion
