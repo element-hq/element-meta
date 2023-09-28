@@ -65,7 +65,7 @@ When a user has no signed-in devices, it is necessary to use recovery in order t
   - If a user has lost their recovery key (or has other reasons to change it) but still has logged-in devices, they can create a new recovery key
   - Invalidates the previous recovery key(s)
   - Starts a new recovery set up
-- Disable recovery
+- Disable backup
   - Removes existing key backup and 4S
   - Disables further key backup
   - Informs the user about consequences in a confirmation dialogue
