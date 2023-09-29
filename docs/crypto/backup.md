@@ -34,6 +34,8 @@ This document aims to describe product requirements for key backup and recovery 
 
 ### General requirements
 
+- The user can retrieve their encrypted message history
+- Message keys will be stored in the backup
 - Key backup will always be enabled by default. On a new device, key backup will be enabled even if the recovery isn't yet set up.
 - If recovery has not been set up and the user tries to sign out their last device there should be a warning and guidance to set it up.
 - Key backup on EX/EW must be compatible with backup implementations on classic / 3rd party client implementation such that users have a seamless experience when they use both in parallel.
