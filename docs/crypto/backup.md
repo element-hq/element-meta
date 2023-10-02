@@ -34,8 +34,8 @@ This document aims to describe product requirements for key backup and recovery 
 
 ### General requirements
 
-- The user can retrieve their encrypted message history (if the device has been verified)
-- Message keys will be stored in the backup (if the device has been verified)
+- The user can retrieve their encrypted message history (if the device has been verified).
+- Message keys will be stored in the backup (if the device has been verified).
 - Key backup will always be enabled by default. On a new device, key backup will be enabled even if the recovery isn't yet set up.
 - If recovery has not been set up and the user tries to sign out their last device there should be a warning and guidance to set it up.
 - Key backup on EX/EW must be compatible with backup implementations on classic / 3rd party client implementation such that users have a seamless experience when they use both in parallel.
@@ -71,8 +71,8 @@ When a user has no signed-in devices, it is necessary to use recovery in order t
   - Removes existing key backup and 4S
   - Disables further key backup
   - Informs the user about consequences in a confirmation dialogue
-    - On a new device, the user will not be able to retrieve their message history from the server (there might still be other clients forwarding keys for message history)
-    - If the user loses all of their devices, they'll not be able to get access to their crypto identity.
+    - On a new device, the user will not be able to retrieve their message history from the server (there might still be other clients forwarding keys for message history).
+    - If the user signs out (or loses) all of their devices, they'll not be able to get access to their crypto identity.
       - They will need to rotate it which will be noticeable by other users they communicate with
       - They will lose access to their message history
       - They will need to re-verify users they have verified before to establish trust again
