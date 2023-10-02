@@ -21,6 +21,8 @@ This document aims to describe product requirements for key backup and recovery 
 
 **Figma designs**
 
+https://www.figma.com/file/0MMNu7cTOzLOlWb7ctTkv3/Element-X?type=design&node-id=12124-116601&mode=design&t=RLlU4wtjLjUt2xrO-0
+
 ## General guidelines, context, use cases
 
 1. As a user I want to have message history across all my devices for that I can continue communication and use the history independent of the device.
