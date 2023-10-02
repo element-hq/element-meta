@@ -2,7 +2,7 @@
 
 | Status | Last updated |
 |--|--|
-| Draft | Aug 28, 2023 |
+| Draft | Oct 02, 2023 |
 
 This document aims to describe product requirements for key backup and recovery and its user-facing components in EX/EW.
 
@@ -34,8 +34,8 @@ This document aims to describe product requirements for key backup and recovery 
 
 ### General requirements
 
-- The user can retrieve their encrypted message history
-- Message keys will be stored in the backup
+- The user can retrieve their encrypted message history (if the device has been verified)
+- Message keys will be stored in the backup (if the device has been verified)
 - Key backup will always be enabled by default. On a new device, key backup will be enabled even if the recovery isn't yet set up.
 - If recovery has not been set up and the user tries to sign out their last device there should be a warning and guidance to set it up.
 - Key backup on EX/EW must be compatible with backup implementations on classic / 3rd party client implementation such that users have a seamless experience when they use both in parallel.
@@ -76,11 +76,11 @@ When a user has no signed-in devices, it is necessary to use recovery in order t
       - They will need to rotate it which will be noticeable by other users they communicate with
       - They will lose access to their message history
       - They will need to re-verify users they have verified before to establish trust again
- - Troubleshooting
+ - Sync recovery (troubleshooting)
    - Only shown if something is wrong (some keys not available, etc.)
    - Asks the user to enter the recovery key to re-initialize the backup
 
 ### Recovery
 The recovery process is handled in the [FTUE](https://github.com/vector-im/element-meta/blob/develop/docs/FTUE.md) concept.
 
-### Migration from legacy key backup
+### Indicators for message history
