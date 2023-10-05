@@ -39,7 +39,7 @@ https://www.figma.com/file/0MMNu7cTOzLOlWb7ctTkv3/Element-X?type=design&node-id=
 - The user can retrieve their encrypted message history (if the device has been verified).
 - Message keys will be stored in the backup (if the device has been verified).
 - Key backup will always be enabled by default. On a new device, key backup will be enabled even if the recovery isn't yet set up.
-- If recovery has not been set up and the user tries to sign out their last device there should be a warning and guidance to set it up.
+- If the user attempts to sign out their last device there should be a warning asking them whether they have a recovery key available. This should be independent of whether recovery was set up and guide the user to the secure backup settings.
 - Key backup on EX/EW must be compatible with backup implementations on classic / 3rd party client implementation such that users have a seamless experience when they use both in parallel.
 - Key backup must only contain safe keys such that the server cannot inject keys and the client can verify the keys' authenticity.
 - Key backup should only be used to retrieve message history (instead of using it to cover up missing keys that should actually be available to the device).
