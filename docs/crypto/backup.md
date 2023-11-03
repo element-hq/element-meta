@@ -17,6 +17,8 @@ This document aims to describe product requirements for key backup and recovery 
   * [Recovery setup](#recovery-setup)
     + [Recovery setup steps](#recovery-setup-steps)
   * [Recovery settings](#recovery-settings)
+  * [Preventing loss of message history](#preventing-loss-of-message-history)
+  * [Corner cases and unhappy paths](#corner-cases-and-unhappy-paths)
   * [Recovery](#recovery)
 
 **Figma designs**
@@ -39,7 +41,7 @@ https://www.figma.com/file/0MMNu7cTOzLOlWb7ctTkv3/Element-X?type=design&node-id=
 - The user can retrieve their encrypted message history (if the device has been verified).
 - Message keys will be stored in the backup (if the device has been verified).
 - Key backup will always be enabled by default. On a new device, key backup will be enabled even if the recovery isn't yet set up.
-- If the user attempts to sign out their last device there should be a warning asking them whether they have a recovery key available. This should be independent of whether recovery was set up and guide the user to the secure backup settings.
+- If the user attempts to sign out their last device there should be a warning asking them whether they have a recovery key available. This should be independent of whether recovery was set up and guide the user to the secure backup settings. (see [Preventing loss of message history](#preventing-loss-of-message-history))
 - Key backup on EX/EW must be compatible with backup implementations on classic / 3rd party client implementation such that users have a seamless experience when they use both in parallel.
 - Key backup must only contain safe keys such that the server cannot inject keys and the client can verify the keys' authenticity.
 - Key backup should only be used to retrieve message history (instead of using it to cover up missing keys that should actually be available to the device).
@@ -78,9 +80,36 @@ When a user has no signed-in devices, it is necessary to use recovery in order t
       - They will need to rotate it which will be noticeable by other users they communicate with
       - They will lose access to their message history
       - They will need to re-verify users they have verified before to establish trust again
- - Sync recovery (troubleshooting)
+ - Sync backup (troubleshooting)
    - Only shown if something is wrong (some keys not available, etc.)
+   - As this is important to fix, it should also be shown as a banner above the room list to make the user aware
    - Asks the user to enter the recovery key to re-initialize the backup
+
+### Preventing loss of message history
+There are a couple of circumstances where a user will lose access to their message history if they sign out their last device. For these cases, a warning should be shown to inform/remind the user and guide them to do the right thing.
+- Backup is disabled
+  - The user should see a prompt telling them `You have turned off backup`, explaining that they will lose message history if they continue and guiding them to chat backup settings
+- Recovery wasn't set up
+  - The user should see a prompt telling them `Recovery not set up`, explaining that they will lose message history if they continue and guiding them to chat backup settings
+- The client hasn't finished backing up keys
+  - The user should see a prompt telling them `Backup is still in progress`, explaining that they will lose message history if they continue and giving guidance
+- Everything is good but the user lost their recovery key
+  - The user should see a prompt telling them `Do you have your recovery key?`, explaining that they will lose message history if they don't have it and guiding them to settings to create a new one
+
+It should always be possible to force-logout the app.
+
+### Corner cases and unhappy paths
+- User is signed-in but the device isn't verified [this case will be eliminated with the new [FTUE](https://github.com/vector-im/element-meta/blob/develop/docs/FTUE.md) concept]
+  - The user should be prompted to verify the device via a banner at the top of the room list
+  - The user should see a hint at the top of the timeline of each room telling them that `Message history is unavailable in this room. Verify this device to see your message history.`
+- User is signed-in but the device was verified before the chat backup feature was enabled/available [this is a theoretical case for the transition period where chat backup is being introduced]
+  - In this case the client does not have the backup key as it only gets transferred during the verification process
+  - The client should try again to get the backup key from another device
+  - If that doesn't work, the client should prompt the user for the recovery key
+- User is signed-in, device is verified but key backup isn't enabled
+  - The user should see a hint at the top of the timeline of each room telling them that `Message history is unavailable as chat backup was turned off. Please turn on chat backup to avoid this in the future.`
+- Message history is disabled in a particular room
+  - The user should see a hint at the top of the timeline of each room telling them that `Message history is unavailable`
 
 ### Recovery
 The recovery process is handled in the [FTUE](https://github.com/vector-im/element-meta/blob/develop/docs/FTUE.md) concept.
