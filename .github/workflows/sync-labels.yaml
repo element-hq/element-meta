@@ -1,0 +1,20 @@
+name: Sync labels
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - .github/labels.yml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: micnncim/action-label-syncer@v1
+        with:
+          repository: |
+              vector-im/element-meta
+              vector-im/element-desktop
+              vector-im/element-web
+              matrix-org/matrix-js-sdk
+          token: ${{ secrets.ELEMENT_BOT_TOKEN }}
