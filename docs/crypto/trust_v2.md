@@ -70,7 +70,7 @@ The following refers to the room details/information in the right sidebar of a r
 
 The following refers to the main view, composer and header of a room
 
-- Indicator for public rooms
+- Indicator for unencrypted rooms
 - Indicator for room encryption (on/off)
 - Indicator for room integrity (currently part of the 'room encryption' indicator)
   - Shows information on an individual user's view
@@ -98,8 +98,8 @@ The following refers to the main view, composer and header of a room
 
 ### Room (top-level)
 
-- Default
-  - Indicator for public rooms
+- Default 
+- Indicator for room encryption (on/off)
   - No indicator for room encryption/trust if trust is TOFU-based or mixed
   - Indicator for trust when the user has verified all other users in a room
   - Indicator for trust violation / identity mismatch of a previously (manually) verified user (at least one user violates its verified identity)
