@@ -101,7 +101,7 @@ The following refers to the main view, composer and header of a room
 - Default 
 - Indicator for room encryption (on/off)
   - No indicator for room encryption/trust if trust is TOFU-based or mixed
-  - Indicator for trust when the user has verified all other users in a room
+  - Indicator for trust when the user has (manual) verified all other users in a room
   - Indicator for trust violation / identity mismatch of a previously (manually) verified user (at least one user violates its verified identity)
 - Later: Policy-based room encryption/trust indicator? (e.g., for verified-only rooms)
 
