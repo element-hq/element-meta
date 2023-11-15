@@ -29,8 +29,8 @@ https://www.figma.com/file/wqgXVb7RVaIybfRsXdWEiL/Trust-%26-Decoration
 
 ## General guidelines, context, use cases
 
-1. As a security-aware user I want to notice when the identity of users I'm communication with changes so that I can make sure that the authenticity is still intact via other means.
-2. As a user I want to know when an identity change has happened to be able to determine impact based on the messages before and after the change.
+1. As a security-aware user I want to notice **if** the identity of users I'm communication with changes so that I can make sure that the authenticity is still intact via other means.
+2. As a user I want to know **when** an identity change has happened to be able to determine impact based on the messages before and after the change.
 3. As a user I want a suitable behavior for identity changes depending on how sensitive I am towards security to make a sensible trade-off between security and usability. Therefore an identity change of a verified user should get more attention than an identity change of an automatically trusted user (TOFU).
 3. As a user I want to know whether a room is public/encrypted for that I can use the room accordingly.
 4. As a security-aware organization/user I want to ensure user authenticity/trust (make sure that users actually are who they appear to be) in order to prevent information leakage to unauthorized third parties.
