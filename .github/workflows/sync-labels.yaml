@@ -18,7 +18,6 @@ on:
     secrets:
       ELEMENT_BOT_TOKEN:
         description: Sufficiently privileged GitHub token
-        type: string
         required: true
 jobs:
   sync:
