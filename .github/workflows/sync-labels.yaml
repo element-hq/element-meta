@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: Check out calling repository
         uses: actions/checkout@v4
-        if: github.repository != "vector-im/element-meta"
+        if: github.repository != 'vector-im/element-meta'
       - name: Check out vector-im/element-meta
         uses: actions/checkout@v4
         with:
