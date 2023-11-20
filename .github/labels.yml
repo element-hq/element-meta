@@ -336,7 +336,7 @@
 - color: e6ffff
   description: ""
   name: 'Team: QA'
-- color: 5319E7
+- color: "5319E7"
   description: "Element's VoIP team"
   name: 'Team: VoIP'
 
@@ -394,7 +394,7 @@
 - color: 1d76db
   description: High confidence in the enhancement or suggestion based on known factors, or as described.
   name: Z-Confidence-High
-- color: 69E210
+- color: "69E210"
   description: Low confidence in the enhancement or suggestion based on known factors, or as described.
   name: Z-Confidence-Low
 - color: 9FB220
