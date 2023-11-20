@@ -84,6 +84,8 @@ When a user has no signed-in devices, it is necessary to use recovery in order t
    - Only shown if something is wrong (some keys not available, etc.)
    - As this is important to fix, it should also be shown as a banner above the room list to make the user aware
    - Asks the user to enter the recovery key to re-initialize the backup
+   - Guides the user how to obtain a new recovery key from another device if they have lost it
+   - Guides the user to reset their crypto identity (last resort!) if they do not have access to another device and have lost their recovery key
 
 ### Preventing loss of message history
 There are a couple of circumstances where a user will lose access to their message history if they sign out their last device. For these cases, a warning should be shown to inform/remind the user and guide them to do the right thing.
