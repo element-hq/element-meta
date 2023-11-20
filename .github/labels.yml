@@ -337,7 +337,7 @@
   description: ""
   name: 'Team: QA'
 - color: 5319E7
-  description: Element's VoIP team
+  description: "Element's VoIP team"
   name: 'Team: VoIP'
 
 # X labels
@@ -392,16 +392,13 @@
   description: ""
   name: Z-Compound
 - color: 1d76db
-  description: High confidence in the enhancement or suggestion based on known factors,
-    or as described.
+  description: High confidence in the enhancement or suggestion based on known factors, or as described.
   name: Z-Confidence-High
 - color: 69E210
-  description: Low confidence in the enhancement or suggestion based on known factors,
-    or as described.
+  description: Low confidence in the enhancement or suggestion based on known factors, or as described.
   name: Z-Confidence-Low
 - color: 9FB220
-  description: Medium confidence in the enhancement or suggestion based on known factors,
-    or as described.
+  description: Medium confidence in the enhancement or suggestion based on known factors, or as described.
   name: Z-Confidence-Medium
 - color: ededed
   description: ""
