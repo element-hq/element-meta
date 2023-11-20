@@ -7,7 +7,7 @@ const cmd = new Command("sync-labels.ts")
   .option('--labels <path...>')
   .parse();
 const opts = cmd.opts();
-console.log(opts)
+
 const merged = new Map<string, LabelInfo>();
 
 for (const path of opts.labels) {
@@ -27,8 +27,10 @@ for (const path of opts.labels) {
 }
 
 githubLabelSync({
-	accessToken: process.env.GITHUB_TOKEN!,
-	repo: process.env.GITHUB_REPO!,
-	labels: [...merged.values()],
+  accessToken: process.env.GITHUB_TOKEN!,
+  repo: process.env.GITHUB_REPO!,
+  labels: [...merged.values()],
   dryRun: true, // TODO: Remove this once we know this thing actually works
-}).then(diff => console.log(`Updated labels with diff: ${JSON.stringify(diff)}`));
+}).then(diff => console.log(`Updated labels with diff: ${JSON.stringify(diff)}`)).catch(error => {
+  console.error(error);
+});
