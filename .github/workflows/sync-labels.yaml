@@ -37,7 +37,9 @@ jobs:
           cache: yarn
           cache-dependency-path: element-meta/yarn.lock
       - name: "Sync labels"
-        run: "yarn sync-labels --labels labels.yml $(echo -e \"${{ inputs.LABELS }}\" | xargs printf -- '--labels \"../%s\"\n' | xargs echo)"
+        run: |
+          yarn install
+          yarn sync-labels --labels labels.yml $(echo -e "${{ inputs.LABELS }}" | xargs printf -- '--labels \"../%s\"\n' | xargs echo)
         working-directory: element-meta
         env:
           GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
