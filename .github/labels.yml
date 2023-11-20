@@ -1,417 +1,570 @@
-# Area labels
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-3PIDs
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Aggregations
-- color: BFD4F2
+- color: "BFD4F2
   description: Application settings
   name: A-App Settings
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Appearance
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Avatar
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Composer
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Config
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Custom-Status
-- color: C5DEF5
+- color: "C5DEF5
   description: ""
   name: A-Developer-Experience
-- color: C5DEF5
+- color: "C5DEF5
   description: ""
   name: A-DMs
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Documentation
-- color: 8CC59A
+- color: "8CC59A
   description: ""
   name: A-E2EE
-- color: 8CC59A
+- color: "8CC59A
   description: ""
   name: A-E2EE-Cross-Signing
-- color: 8CC59A
+- color: "C2E0C6
+  description: ""
+  name: A-E2EE-Key-Backup
+- color: "8CC59A
   description: ""
   name: A-E2EE-SAS-Verification
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Effects
-- color: BFD4F2
+- color: "BFD4F2
   description: ""
   name: A-Element Call
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Emoji
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Export-Chat
-- color: C5DEF5
-  description: Issues with the rendering or handling of MSC1767+friends Extensible Events
+- color: "C5DEF5
+  description: Issues with the rendering or handling of MSC1767+friends Extensible
+    Events
   name: A-Extensible-Events
-- color: bfd4f2
+- color: "bfd4f2
   description: Attachments and file uploads
   name: A-File-Upload
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Guest-Access
-- color: C5DEF5
+- color: "C5DEF5
   description: ""
   name: A-Ignore
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-ILAG
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Immutable-DMs
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Integrations
-- color: C5DEF5
+- color: "C5DEF5
   description: ""
   name: A-Invitations
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Invite
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Jitsi
-- color: ededed
+- color: "ededed
   description: ""
   name: A-Knocking
-- color: C5DEF5
+- color: "C5DEF5
   description: Left panel or menu. These can have other names on mobile.
   name: A-Left-Panel
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Location
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Login
-- color: C5DEF5
+- color: "C5DEF5
   description: ""
   name: A-Markdown
-- color: C5DEF5
+- color: "C5DEF5
   description: Issues in the Matrix protocol
   name: A-Matrix
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Matrix.to
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Media
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Member-List
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Message-Bubbles
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Message-Editing
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Mobile
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Moderation
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Modular
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-New-Users
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Notif-Panel
-- color: C5DEF5
+- color: "C5DEF5
   description: ""
   name: A-Notifications
-- color: C5DEF5
+- color: "C5DEF5
   description: ""
   name: A-OIDC
-- color: bfd4f2
-  description: The users first experience of Element, whether that be first impressions or first tasks.
+- color: "bfd4f2
+  description: The users first experience of Element, whether that be first impressions
+    or first tasks.
   name: A-Onboarding
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Password-Reset
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Performance
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Pills
-- color: C5DEF5
+- color: "C5DEF5
   description: ""
   name: A-Polls
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Presence
-- color: BFD4F2
+- color: "BFD4F2
   description: Issues relating to user privacy
   name: A-Privacy
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Reactions
-- color: C5DEF5
+- color: "C5DEF5
   description: Green line showing how far _you_ have read
   name: A-Read-Marker
-- color: C5DEF5
+- color: "C5DEF5
   description: ""
   name: A-Read-Receipts
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Redaction
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Registration
-- color: BFD4F2
+- color: "BFD4F2
   description: Issues with the new rich text editor, also known as the WYSIWYG editor
   name: A-Rich-Text-Editor
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Right-Panel
-- color: C5DEF5
+- color: "C5DEF5
   description: ""
   name: A-Roles
-- color: C5DEF5
+- color: "C5DEF5
   description: ""
   name: A-Room
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Room-Directory
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Room-List
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Room-Settings
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Room-Upgrades
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Room-View
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Safety
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Scalar
-- color: C5DEF5
+- color: "C5DEF5
   description: ""
   name: A-Search
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Slash-Commands
-- color: C5DEF5
+- color: "C5DEF5
   description: ""
   name: A-Space-Settings
-- color: C5DEF5
+- color: "C5DEF5
   description: Spaces, groups, communities
   name: A-Spaces
-- color: C5DEF5
+- color: "C5DEF5
   description: The new search dialog available in develop and Nightly
   name: A-Spotlight-Search
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Stickers
-- color: C5DEF5
+- color: "C5DEF5
   description: Spaces which are inside other spaces
   name: A-Subspaces
-- color: BFD4F2
+- color: "BFD4F2
   description: Telemetry / analytics to understand usage
   name: A-Telemetry
-- color: C5DEF5
+- color: "C5DEF5
   description: ""
   name: A-Threads
-- color: C5DEF5
+- color: "C5DEF5
   description: ""
   name: A-Timeline
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Timeline-Search
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-User-Info
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-User-Settings
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Voice Messages
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-VoIP
-- color: bfd4f2
+- color: "bfd4f2
   description: ""
   name: A-Widgets
-
-# Other
-- color: 4ADEC0
+- color: "C5DEF5
+  description: Element cross-platform wiki in the element-meta repository
+  name: A-Wiki
+- color: "4ADEC0
   description: ""
   name: A11y
-- color: D434DB
+- color: "80DEC3
+  description: ""
+  name: AirFocus - EX Feature - Epic
+- color: "5389E9
+  description: ""
+  name: AirFocus - EX Feature - Story
+- color: "3F6AC0
+  description: ""
+  name: AirFocus - EX Platform - Story
+- color: "CCF713
+  description: ""
+  name: AirFocus - EX PS - Story
+- color: "DAF7A6
+  description: ""
+  name: 'App: Android'
+- color: "a4c639
+  description: ""
+  name: 'App: ElementX Android'
+- color: "007aff
+  description: ""
+  name: 'App: ElementX iOS'
+- color: "88C1FF
+  description: ""
+  name: 'App: iOS'
+- color: "0dbd8b
+  description: ""
+  name: 'App: web'
+- color: "D434DB
   description: ""
   name: customer-retainer
-- color: 7057ff
+- color: "7057ff
   description: Good for newcomers
   name: good first issue
-- color: "159818"
+- color: ""159818"
   description: Extra attention is needed
   name: Help Wanted
-- color: d4c5f9
+- color: "d4c5f9
   description: ""
   name: I18n
-- color: BCA2D3
+- color: "BCA2D3
   description: ""
   name: MLS
-- color: b3e5fc
-  description: ""
-  name: Security
-
-# Occurance labels
-- color: 0052cc
-  description: Affects or can be seen by most users regularly or impacts most users' first experience
+- color: "0052cc
+  description: Affects or can be seen by most users regularly or impacts most users'
+    first experience
   name: O-Frequent
-- color: 1D76DB
+- color: "1D76DB
   description: Affects or can be seen by some users regularly or most users rarely
   name: O-Occasional
-- color: C5DEF5
+- color: "C5DEF5
   description: Most users are unlikely to come across this or unexpected workflow
   name: O-Uncommon
-
-# Severity labels
-- color: B60205
+- color: ""053061"
+  description: ""
+  name: P1
+- color: "2166ac
+  description: ""
+  name: P2
+- color: "92c5de
+  description: ""
+  name: P3
+- color: "f41192
+  description: ""
+  name: Privacy
+- color: "32119E
+  description: ""
+  name: Retro
+- color: "8BD9B1
+  description: ""
+  name: Roadmap
+- color: ""757632"
+  description: SDK tasks should be doable by any developer like FFI export or small
+    behavior changes
+  name: 'Rust: Easy'
+- color: "C45508
+  description: Some tasks can only be implemented by SDK experts
+  name: 'Rust: Expert'
+- color: "c4a508
+  description: SDK tasks require more Rust knowledge but they are achievable with
+    support from SDK experts
+  name: 'Rust: Medium'
+- color: "B60205
   description: Prevents work, causes data loss and/or has no workaround
   name: S-Critical
-- color: fc4e2a
-  description: Severely degrades major functionality or product features, with no satisfactory workaround
+- color: "fc4e2a
+  description: Severely degrades major functionality or product features, with no
+    satisfactory workaround
   name: S-Major
-- color: feb24c
+- color: "feb24c
   description: Impairs non-critical functionality or suitable workarounds exist
   name: S-Minor
-- color: ffeda0
+- color: "ffeda0
   description: Low/no impact on users
   name: S-Tolerable
-
-# Type labels
-- color: 98e6ae
+- color: "b3e5fc
+  description: ""
+  name: Security
+- color: "98e6ae
   description: ""
   name: T-Defect
-- color: 98e6ae
+- color: "98e6ae
   description: ""
   name: T-Enhancement
-- color: 98e6ae
+- color: "98e6ae
   description: Issue is at Epic level
   name: T-Epic
-- color: 98e6ae
+- color: "98e6ae
   description: Request to add a new feature which does not exist right now
   name: T-Feature
-- color: 98e6ae
+- color: "63E4DC
+  description: ""
+  name: T-Prep
+- color: "98e6ae
   description: Tasks for the team like planning
   name: T-Task
-
-# Team labels
-- color: 8CC59A
+- color: "98e6ae
+  description: ""
+  name: T-User Story
+- color: "0052cc
+  description: ""
+  name: T-X-Platform Task
+- color: "8CC59A
   description: ""
   name: 'Team: Crypto'
-- color: 263aa0
+- color: "263aa0
   description: ""
   name: 'Team: Delight'
-- color: FEF2C0
+- color: "FEF2C0
   description: ""
   name: 'Team: Element X Feature'
-- color: FBCA04
+- color: "FBCA04
   description: ""
   name: 'Team: Element X Platform'
-- color: e6ffff
+- color: "e6ffff
   description: ""
   name: 'Team: QA'
-- color: "5319E7"
-  description: "Element's VoIP team"
+- color: "5319E7
+  description: Element's VoIP team
   name: 'Team: VoIP'
-
-# X labels
-- color: ff7979
+- color: "ff7979
   description: ""
   name: X-Needs-Community-Testing
-- color: ff7979
+- color: "ff7979
   description: ""
   name: X-Needs-Design
-- color: ff7979
+- color: "ff7979
+  description: ""
+  name: X-Needs-ElementX
+- color: "ff7979
   description: This issue is blocked awaiting information from the reporter
   name: X-Needs-Info
-- color: ff7979
+- color: "ff7979
   description: ""
   name: X-Needs-Investigation
-- color: ff7979
+- color: "ff7979
   description: More input needed from the Product team
   name: X-Needs-Product
-- color: ff7979
-  description: This issue needs a Rust SDK change. It must have a link to a Rust SDK issue
+- color: "ff7979
+  description: This issue needs a Rust SDK change. It must have a link to a Rust SDK
+    issue
   name: X-Needs-Rust
-- color: ff7979
-  description: Stories and Epics which are ready for review by product, design and QA
+- color: "ff7979
+  description: Stories and Epics which are ready for review by product, design and
+    QA
   name: X-Needs-Signoff
-- color: ff7979
+- color: "ff7979
   description: ""
   name: X-Needs-VoIP
-- color: ff7979
+- color: "ff7979
   description: ""
   name: X-Regression
-- color: ff7979
+- color: "ff7979
   description: ""
   name: X-Release-Blocker
-- color: ff7979
+- color: "ff7979
   description: ""
   name: X-Spec-Changes
-- color: ff7979
+- color: "ff7979
   description: ""
   name: X-Won't-Fix
-
-# Z custom labels
-- color: ededed
+- color: "ededed
+  description: Delight - cycle
+  name: Z-AccountResurrection
+- color: "ededed
+  description: Moving issues from GH to AirFocus purposefully using this tag.
+  name: Z-AirFocus
+- color: "ededed
+  description: The App Layout project tag
+  name: Z-AppLayout
+- color: "ededed
+  description: Issues in code which will be replaced by the port of Element's crypto
+    layer to Rust
+  name: Z-Awaiting-Element-R
+- color: "ededed
   description: ""
   name: Z-Backend
-- color: ededed
+- color: "ededed
   description: ""
   name: Z-Chronic
-- color: ededed
+- color: "ededed
   description: ""
   name: Z-Community-Testing
-- color: ededed
+- color: "EDEDED
+  description: Compliance - Data transfers
+  name: Z-Compliance-DataTransfers
+- color: "EDEDED
+  description: Compliance - Right of access Art.15
+  name: Z-Compliance-GDPR-access
+- color: "EDEDED
+  description: Compliance - Right of Erasure Art.17
+  name: Z-Compliance-GDPR-Erasure
+- color: "EDEDED
+  description: Compliance - Data portability Art.20
+  name: Z-Compliance-GDPR-portability
+- color: "EDEDED
+  description: Personal data
+  name: Z-Compliance-PersonalData
+- color: "ededed
   description: ""
   name: Z-Compound
-- color: 1d76db
-  description: High confidence in the enhancement or suggestion based on known factors, or as described.
+- color: "1d76db
+  description: High confidence in the enhancement or suggestion based on known factors,
+    or as described.
   name: Z-Confidence-High
-- color: "69E210"
-  description: Low confidence in the enhancement or suggestion based on known factors, or as described.
+- color: "69E210
+  description: Low confidence in the enhancement or suggestion based on known factors,
+    or as described.
   name: Z-Confidence-Low
-- color: 9FB220
-  description: Medium confidence in the enhancement or suggestion based on known factors, or as described.
+- color: "9FB220
+  description: Medium confidence in the enhancement or suggestion based on known factors,
+    or as described.
   name: Z-Confidence-Medium
-- color: ededed
+- color: "ededed
+  description: ""
+  name: z-Content
+- color: "ededed
+  description: ""
+  name: Z-FTUE
+- color: "ededed
+  description: ""
+  name: Z-FTUE-Notifications
+- color: "ededed
+  description: ""
+  name: Z-GetYourUpdates
+- color: "ededed
+  description: Issues relating to information architecture
+  name: Z-IA
+- color: "ededed
   description: ""
   name: Z-Labs
-- color: ededed
+- color: "ededed
+  description: ""
+  name: Z-MadLittleMods
+- color: "ededed
+  description: ""
+  name: Z-MessageMgmt
+- color: "ededed
+  description: ""
+  name: Z-Mozilla
+- color: "ededed
+  description: ""
+  name: Z-NewUserJourney
+- color: "ededed
+  description: ""
+  name: Z-Parity
+- color: "ededed
+  description: ""
+  name: Z-Platform-Specific
+- color: "ededed
+  description: ""
+  name: Z-PS-Request
+- color: "0052CC
+  description: Flagged for refinement meeting
+  name: Z-Refinement
+- color: "ededed
+  description: ""
+  name: Z-Room-Upgrade-2019
+- color: "ededed
+  description: ""
+  name: Z-Schedule
+- color: "ededed
+  description: ""
+  name: Z-Sprint
+- color: "ededed
   description: ""
   name: Z-Synapse
-- color: ededed
+- color: "ededed
+  description: An issue related to Element terminology
+  name: Z-Terminology
+- color: "7b00ff
+  description: ""
+  name: Z-TravisR
+- color: "ededed
   description: Unable to decrypt errors
   name: Z-UISI
-- color: ededed
+- color: "ededed
   description: ""
   name: Z-Upstream
-- color: ededed
+- color: "ededed
+  description: ""
+  name: Z-User Testing
+- color: "ededed
   description: ""
   name: Z-WTF
