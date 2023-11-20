@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "sync-labels": "yarn run ts-node .github/actions/sync-labels.ts"
+    "sync-labels": "yarn ts-node .github/actions/sync-labels.ts"
   },
   "devDependencies": {
     "@types/github-label-sync": "^2.3.3",
