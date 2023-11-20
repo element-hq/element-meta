@@ -34,6 +34,7 @@ jobs:
       - name: "Set up Node.js"
         uses: actions/setup-node@v4
         with:
+          working-directory: element-meta
           cache: yarn
       - name: "Sync labels"
         run: "yarn sync-labels --labels labels.yml $(echo -e \"${{ inputs.LABELS }}\" | xargs printf -- '--labels \"../%s\"\n' | xargs echo)"
