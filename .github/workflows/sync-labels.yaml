@@ -39,6 +39,7 @@ jobs:
       - name: "Sync labels"
         run: |
           yarn install
+          echo -e ".${{ inputs.LABELS }}."
           yarn sync-labels --labels .github/labels.yml $(echo -e "${{ inputs.LABELS }}" | sed '/^$/d' | xargs printf -- '--labels \"../%s\"\n' | xargs echo)
         working-directory: element-meta
         env:
