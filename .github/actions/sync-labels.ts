@@ -3,10 +3,15 @@ import { Command } from "commander";
 import githubLabelSync, { LabelInfo } from "github-label-sync";
 import YAML from "yaml";
 
+const accessToken = process.env.GITHUB_TOKEN!;
+const repo = process.env.GITHUB_REPOSITORY!;
+console.log(`Repository: ${repo}`);
+
 const cmd = new Command("sync-labels.ts")
   .option('--labels <path...>')
   .parse();
 const opts = cmd.opts();
+console.log(`Input files: ${opts.labels}`);
 
 const merged = new Map<string, LabelInfo>();
 
@@ -27,10 +32,11 @@ for (const path of opts.labels) {
 }
 
 githubLabelSync({
-  accessToken: process.env.GITHUB_TOKEN!,
-  repo: process.env.GITHUB_REPO!,
+  accessToken,
+  repo,
   labels: [...merged.values()],
   dryRun: true, // TODO: Remove this once we know this thing actually works
 }).then(diff => console.log(`Updated labels with diff: ${JSON.stringify(diff)}`)).catch(error => {
   console.error(error);
+  throw error;
 });
