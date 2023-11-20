@@ -5,16 +5,39 @@ on:
       - develop
     paths:
       - .github/labels.yml
+  workflow_call:
+    inputs:
+      LABELS:
+        description: |
+          List of paths to YAML files, one per line, in the format specified in
+          https://github.com/Financial-Times/github-label-sync#label-config-file".
+          The files will merge/override the local YAML file in order.
+        type: string
+        required: true
+    secrets:
+      ELEMENT_BOT_TOKEN:
+        description: Sufficiently privileged GitHub token
+        type: string
+        required: true
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: micnncim/action-label-syncer@v1
+      - name: Check out calling repository
+        uses: actions/checkout@v4
+        if: github.repository != "vector-im/element-meta"
+      - name: Check out vector-im/element-meta
+        uses: actions/checkout@v4
         with:
-          repository: |
-              vector-im/element-meta
-              vector-im/element-desktop
-              vector-im/element-web
-              matrix-org/matrix-js-sdk
-          token: ${{ secrets.ELEMENT_BOT_TOKEN }}
+          path: element-meta
+          repository: vector-im/element-meta
+      - name: "Set up Node.js"
+        uses: actions/setup-node@v4
+        with:
+          cache: yarn
+      - name: "Sync labels"
+        run: "yarn sync-labels --labels labels.yml $(echo -e "${{ input.LABELS }}" | xargs printf -- '--labels \"../%s\"\n' | xargs echo)
+        working-directory: element-meta
+        env:
+          GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
