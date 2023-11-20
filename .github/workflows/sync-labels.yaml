@@ -40,7 +40,7 @@ jobs:
         run: |
           yarn install
           echo -e ".${{ inputs.LABELS }}."
-          yarn sync-labels --labels .github/labels.yml $(echo -e "${{ inputs.LABELS }}" | sed '/^$/d' | xargs printf -- '--labels \"../%s\"\n' | xargs echo)
+          yarn sync-labels --labels .github/labels.yml $(echo -e "${{ inputs.LABELS }}" | xargs -r printf -- '--labels \"../%s\"\n' | xargs echo)
         working-directory: element-meta
         env:
           GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
