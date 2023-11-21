@@ -17,6 +17,10 @@ const merged = new Map<string, LabelInfo>();
 
 for (const path of opts.labels) {
   const labels = YAML.parse(fs.readFileSync(path, "utf-8")) as [LabelInfo];
+  if (!labels) {
+    continue;
+  }
+
   for (const label of labels) {
     if (!label.name) {
       console.warn(`Ignoring invalid label without a name: ${label}`);
