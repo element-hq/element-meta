@@ -1,6 +1,6 @@
 import fs from "fs";
 import { Command } from "commander";
-import githubLabelSync, { LabelInfo } from "github-label-sync";
+import githubLabelSync, { LabelDiff, LabelInfo } from "github-label-sync";
 import YAML from "yaml";
 
 const accessToken = process.env.GITHUB_TOKEN!;
@@ -36,7 +36,19 @@ githubLabelSync({
   repo,
   labels: [...merged.values()],
   dryRun: true, // TODO: Remove this once we know this thing actually works
-}).then(diff => console.log(`Updated labels with diff: ${JSON.stringify(diff)}`)).catch(error => {
+}).then((diffs: LabelDiff[]) => {
+  for (const diff of diffs) {
+    console.log(`${diff.type} ${diff.name}`);
+    if (diff.expected?.description != diff.actual?.description) {
+      console.log(`  description (actual)   - ${diff.actual?.description}`);
+      console.log(`  description (expected) - ${diff.expected?.description}`);
+    }
+    if (diff.expected?.color != diff.actual?.color) {
+      console.log(`  color (actual)   - ${diff.actual?.color}`);
+      console.log(`  color (expected) - ${diff.expected?.color}`);
+    }
+  }
+}).catch(error => {
   console.error(error);
   throw error;
 });
