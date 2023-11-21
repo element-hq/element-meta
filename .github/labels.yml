@@ -305,7 +305,7 @@
   description: ""
   name: "MLS"
 - color: "0052cc"
-  description: "Affects or can be seen by most users regularly or impacts most users first experience"
+  description: "Affects or can be seen by most users regularly or impacts most users' first experience"
   name: "O-Frequent"
 - color: "1D76DB"
   description: "Affects or can be seen by some users regularly or most users rarely"
