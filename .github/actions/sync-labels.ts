@@ -37,6 +37,7 @@ githubLabelSync({
   labels: [...merged.values()],
   dryRun: true, // TODO: Remove this once we know this thing actually works
 }).then((diffs: LabelDiff[]) => {
+  console.log(`Label sync completed ${diffs.length ? "with" : "without"} changes`);
   for (const diff of diffs) {
     console.log(`${diff.type} ${diff.name}`);
     if (diff.expected?.description != diff.actual?.description) {
