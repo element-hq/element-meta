@@ -1,8 +1,12 @@
 {
   "scripts": {
+    "lint": "yarn lint:workflows",
+    "lint:workflows": "find .github/workflows -type f \\( -iname '*.yaml' -o -iname '*.yml' \\) | xargs -I {} sh -c 'echo \"Linting {}\"; action-validator \"{}\"'",
     "sync-labels": "yarn ts-node .github/actions/sync-labels.ts"
   },
   "devDependencies": {
+    "@action-validator/cli": "^0.5.3",
+    "@action-validator/core": "^0.5.3",
     "@types/github-label-sync": "^2.3.3",
     "@types/node": "^20.9.2",
     "commander": "^11.1.0",
