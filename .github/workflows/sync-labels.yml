@@ -55,9 +55,9 @@ jobs:
       - name: "Sync labels"
         run: |
           yarn sync-labels $(echo -e "${{ inputs.LABELS }}" | xargs -r printf -- '--labels \"../%s\"\n' | xargs echo) \
-            ${{ github.repository != "vector-im/element-meta" && "--dir .." }} \
-            ${{ inputs.DELETE && "--delete" }} \
-            ${{ inputs.WET && "--wet" }}
+            ${{ github.repository != 'vector-im/element-meta' && '--dir ..' }} \
+            ${{ inputs.DELETE && '--delete' }} \
+            ${{ inputs.WET && '--wet' }}
         working-directory: element-meta
         env:
           GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
