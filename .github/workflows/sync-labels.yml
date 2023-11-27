@@ -1,20 +1,34 @@
 name: Sync labels
 on:
   workflow_dispatch: {}
-  push:
-    branches:
-      - develop
-    paths:
-      - .github/labels.yml
+  # Disabled for now while we're testing
+  # push:
+  #   branches:
+  #     - develop
+  #   paths:
+  #     - .github/labels.yml
   workflow_call:
     inputs:
       LABELS:
         description: |
-          List of paths to YAML files, one per line, in the format specified in
+          List of label sources, one per line. Sources can either be GitHub repository
+          slugs or paths to local YAML files in the format specified in
           https://github.com/Financial-Times/github-label-sync#label-config-file".
-          The files will merge/override the local YAML file in order.
+          The sources will merge/override each other in the order they were specified in.
         type: string
+        default: |
+          .github/labels.yml
         required: true
+      DELETE:
+        description: |
+          Remove labels that exist in the repository but are missing from all sources
+        type: boolean
+        default: false
+      WET:
+        description: |
+          Write changes, *don't* run in dry mode
+        type: boolean
+        default: false
     secrets:
       ELEMENT_BOT_TOKEN:
         description: Sufficiently privileged GitHub token
@@ -40,7 +54,9 @@ jobs:
         run: "yarn install --frozen-lockfile"
       - name: "Sync labels"
         run: |
-          yarn sync-labels --labels .github/labels.yml $(echo -e "${{ inputs.LABELS }}" | xargs -r printf -- '--labels \"../%s\"\n' | xargs echo)
+          yarn sync-labels $(echo -e "${{ inputs.LABELS }}" | xargs -r printf -- '--labels \"../%s\"\n' | xargs echo) \
+            ${{ inputs.DELETE && --delete }} \
+            ${{ inputs.WET && --wet }}
         working-directory: element-meta
         env:
           GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
