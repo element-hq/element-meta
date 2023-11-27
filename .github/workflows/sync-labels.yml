@@ -52,6 +52,7 @@ jobs:
           cache-dependency-path: element-meta/yarn.lock
       - name: Install Deps
         run: "yarn install --frozen-lockfile"
+        working-directory: element-meta
       - name: "Sync labels"
         run: |
           yarn sync-labels $(echo -e "${{ inputs.LABELS }}" | xargs -r printf -- '--labels \"%s\"\n' | xargs echo) \
