@@ -1,7 +1,7 @@
 import fs from "fs";
 import { Command } from "commander";
 import githubLabelSync, { LabelDiff, LabelInfo } from "github-label-sync";
-import github from "octonode";
+import octonode from "octonode";
 import YAML from "yaml";
 
 main();
@@ -57,7 +57,7 @@ function readLabelsFromFile(file: string): LabelInfo[] {
 }
 
 async function readLabelsFromRepo(slug: string, accessToken: string): Promise<LabelInfo[]> {
-  const client = github.client(accessToken);
+  const client = octonode.client(accessToken);
 
   const labels: LabelInfo[] = [];
   const params = { page: 1, per_page: 100 };
