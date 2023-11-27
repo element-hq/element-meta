@@ -54,7 +54,7 @@ jobs:
         run: "yarn install --frozen-lockfile"
       - name: "Sync labels"
         run: |
-          yarn sync-labels $(echo -e "${{ inputs.LABELS }}" | xargs -r printf -- '--labels \"../%s\"\n' | xargs echo) \
+          yarn sync-labels $(echo -e "${{ inputs.LABELS }}" | xargs -r printf -- '--labels \"%s\"\n' | xargs echo) \
             ${{ github.repository != 'vector-im/element-meta' && '--dir ..' }} \
             ${{ inputs.DELETE && '--delete' }} \
             ${{ inputs.WET && '--wet' }}
