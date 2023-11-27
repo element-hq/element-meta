@@ -29,11 +29,16 @@ async function main() {
 
   const cmd = new Command("sync-labels.ts")
     .option("--delete", "Removes labels that exist in the repository but are missing from all sources", false)
+    .option("--dir <path>", "Working directory to run in")
     .option("--labels <path...>", "Label source as GitHub repository slug or path to local YAML file. Can be specified multiple times.")
     .option("--wet", "Write changes, *don't* run in dry mode", false)
     .parse();
   const opts = cmd.opts();
   console.log(`Options: ${JSON.stringify(opts)}`);
+
+  if (opts.dir) {
+    process.chdir(opts.dir);
+  }
   
   const merged = await readAndMergeLabels(opts.labels, accessToken);
   await syncLabels(merged, repo, accessToken, opts.delete, opts.wet);
