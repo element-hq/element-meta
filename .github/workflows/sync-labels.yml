@@ -39,12 +39,12 @@ jobs:
     steps:
       - name: Check out calling repository
         uses: actions/checkout@v4
-        if: github.repository != 'vector-im/element-meta'
-      - name: Check out vector-im/element-meta
+        if: github.repository != 'element-hq/element-meta'
+      - name: Check out element-hq/element-meta
         uses: actions/checkout@v4
         with:
           path: element-meta
-          repository: vector-im/element-meta
+          repository: element-hq/element-meta
       - name: "Set up Node.js"
         uses: actions/setup-node@v4
         with:
@@ -56,7 +56,7 @@ jobs:
       - name: "Sync labels"
         run: |
           yarn sync-labels $(echo -e "${{ inputs.LABELS }}" | xargs -r printf -- '--labels \"%s\"\n' | xargs echo) \
-            ${{ github.repository != 'vector-im/element-meta' && '--dir ..' }} \
+            ${{ github.repository != 'element-hq/element-meta' && '--dir ..' }} \
             ${{ inputs.DELETE && '--delete' }} \
             ${{ inputs.WET && '--wet' }}
         working-directory: element-meta
