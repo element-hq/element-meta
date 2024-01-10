@@ -1,38 +1,38 @@
-name: X-Plorers – Prep task
+name: EX – Prep task
 description: A preparatory task without direct user value
-title: "[Prep] ..."
-labels: ["App: ElementX Android", "App: ElementX iOS", "T-Prep", "Team: Element X Feature"]
+title: "[Prep] <title>"
+labels: ["App: ElementX Android", "App: ElementX iOS", "T-Prep", "Team: Element X Platform"]
 
 body:
 - type: textarea
   attributes:
     label: Description
     value: |
+      Description of the task
+
+      # Acceptance criteria
+      - TBD
+
       # Size estimate
-      
       S/M/L
       
-      # Dependencies
-      
-      * None
-      
-      # Acceptance criteria
-      
-      * ...
-      * TBD: ...
+      # Dependencies    
+      - None
       
       # Out of scope
-      
-      * Nothing
+      - 
       
       # Subtasks
-      
       ```[tasklist]
       ### Android
       ```
       
       ```[tasklist]
       ### iOS
+      ```
+
+      ```[tasklist]
+      ### Rust
       ```
       
       ```[tasklist]
