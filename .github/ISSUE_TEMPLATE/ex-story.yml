@@ -39,6 +39,7 @@ body:
     label: Open questions
     value: |
       ```[tasklist]
+      ### Questions
       ```
 - type: textarea
   attributes:
