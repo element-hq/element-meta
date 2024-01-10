@@ -1,4 +1,4 @@
-name: EX – User story
+name: EX – Standalone User story
 description: Template for a standalone user story with no parent projet or epic. This a small "epic" with the appropriate process and labels that fit in the team's planning board.
 title: "[Story] <title>"
 labels: ["App: ElementX Android", "App: ElementX iOS", "T-User Story", "T-Epic", "Team: Element X Platform"]
