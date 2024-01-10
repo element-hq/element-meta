@@ -1,0 +1,80 @@
+name: EX – User story
+description: Template for a standalone user story with no parent projet or epic. This a small "epic" with the appropriate process and labels that fit in the team's planning board.
+title: "[Story] <title>"
+labels: ["App: ElementX Android", "App: ElementX iOS", "T-User Story", "T-Epic", "Team: Element X Platform"]
+
+body:
+- type: textarea
+  attributes:
+    label: Description
+    value: |
+      * As a [beneficiary]
+      * I want to [objective]
+      * So that [value generated]
+- type: textarea
+  attributes:
+    label: Acceptance criteria
+    value: |
+      - TBD
+- type: textarea
+  attributes:
+    label: Leads
+    value: |
+      * Tech: <GitHub id>
+      * Design: <GitHub id>
+- type: dropdown
+  attributes:
+    label: Size estimate
+    options:
+      - TBD
+      - S
+      - M
+      - L
+- type: textarea
+  attributes:
+    label: Dependencies
+    value: |
+      - None
+- type: textarea
+  attributes:
+    label: Out of scope
+    value: |
+      - 
+- type: textarea
+  attributes:
+    label: Open questions
+    value: |
+      ```[tasklist]
+      ```
+- type: textarea
+  attributes:
+    label: Subtasks
+    value: |
+      ```[tasklist]
+      ### Android
+      ```
+      
+      ```[tasklist]
+      ### iOS
+      ```
+      
+      ```[tasklist]
+      ### Rust
+      ```
+
+      ```[tasklist]
+      ### Other
+      ```
+- type: textarea
+  attributes:
+    label: Sign-off
+    value: |
+      ### Android
+      - [ ] Design sign-off on completion
+      - [ ] QA sign-off on completion
+      - [ ] Product sign-off on completion
+
+      ### iOS
+      - [ ] Design sign-off on completion
+      - [ ] QA sign-off on completion
+      - [ ] Product sign-off on completion

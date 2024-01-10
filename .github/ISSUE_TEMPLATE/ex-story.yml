@@ -1,7 +1,7 @@
-name: X-Plorers – User story
-description: A task that generates direct user value
-title: "[Story] ..."
-labels: ["App: ElementX Android", "App: ElementX iOS", "T-User Story", "Team: Element X Feature"]
+name: EX – User story
+description: Template for a second-level planning issue template. It must be part of an Epic.
+title: "[Story] <title>"
+labels: ["App: ElementX Android", "App: ElementX iOS", "T-User Story", "Team: Element X Platform"]
 
 body:
 - type: textarea
@@ -20,6 +20,7 @@ body:
   attributes:
     label: Size estimate
     options:
+      - TBD
       - S
       - M
       - L
@@ -27,49 +28,34 @@ body:
   attributes:
     label: Dependencies
     value: |
-      - TBD
-- type: textarea
-  attributes:
-    label: Preconditions
-    value: |
-      - TBD
-- type: textarea
-  attributes:
-    label: Sign-off
-    value: |
-      ### Android
-      - [ ] Design sign-off on completion
-      - [ ] QA sign-off on completion
-      - [ ] Product sign-off on completion
-
-      ### iOS
-      - [ ] Design sign-off on completion
-      - [ ] QA sign-off on completion
-      - [ ] Product sign-off on completion
+      - None
 - type: textarea
   attributes:
     label: Out of scope
     value: |
-      - TBD
+      - 
 - type: textarea
   attributes:
     label: Open questions
     value: |
-      - TBD
+      ```[tasklist]
+      ```
 - type: textarea
   attributes:
     label: Subtasks
     value: |
       ```[tasklist]
       ### Android
-      - [ ] Verified with build in screen reader
       ```
       
       ```[tasklist]
       ### iOS
-      - [ ] Verified with build in screen reader
       ```
       
+      ```[tasklist]
+      ### Rust
+      ```
+
       ```[tasklist]
       ### Other
       ```
