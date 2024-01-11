@@ -26,7 +26,6 @@ body:
   attributes:
     label: Size estimate
     options:
-      - TBD
       - S
       - M
       - L
@@ -39,7 +38,7 @@ body:
   attributes:
     label: Out of scope
     value: |
-      - 
+      - Nothing
 - type: textarea
   attributes:
     label: Open questions
