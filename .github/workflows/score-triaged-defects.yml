@@ -17,6 +17,7 @@ jobs:
       - run: npm install @octokit/action
       - run: node .github/actions/score-triaged-defects.js
         env:
+          GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
           REPO_OWNER: element-hq
           REPO_NAME: element-x-ios
           PROJECT_ID: PVT_kwDOAM0swc4ABTXY
@@ -33,6 +34,7 @@ jobs:
       - run: npm install @octokit/action
       - run: node .github/actions/score-triaged-defects.js
         env:
+          GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
           REPO_OWNER: element-hq
           REPO_NAME: element-x-android
           PROJECT_ID: PVT_kwDOAM0swc4ABTXY
