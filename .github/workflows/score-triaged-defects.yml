@@ -1,0 +1,39 @@
+name: Score triaged defects
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6,12,18 * * 1-5"
+
+jobs:
+  score-triaged-issue-ios:
+    name: Score iOS triaged defects
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm install @octokit/action
+      - run: node .github/actions/score-triaged-defects.js
+        env:
+          REPO_OWNER: element-hq
+          REPO_NAME: element-x-ios
+          PROJECT_ID: PVT_kwDOAM0swc4ABTXY
+          PROJECT_FIELD_ID: PVTF_lADOAM0swc4ABTXYzgQaNqw
+
+  score-triaged-issue-android:
+    name: Score Android triaged defects
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm install @octokit/action
+      - run: node .github/actions/score-triaged-defects.js
+        env:
+          REPO_OWNER: element-hq
+          REPO_NAME: element-x-android
+          PROJECT_ID: PVT_kwDOAM0swc4ABTXY
+          PROJECT_FIELD_ID: PVTF_lADOAM0swc4ABTXYzgQaNqw
