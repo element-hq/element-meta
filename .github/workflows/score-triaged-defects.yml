@@ -39,3 +39,20 @@ jobs:
           REPO_NAME: element-x-android
           PROJECT_ID: PVT_kwDOAM0swc4ABTXY
           PROJECT_FIELD_ID: PVTF_lADOAM0swc4ABTXYzgQaNqw
+
+  score-triaged-issue-web:
+    name: Score Web triaged defects
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install @octokit/action
+      - run: node .github/actions/score-triaged-defects.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
+          REPO_OWNER: element-hq
+          REPO_NAME: element-web
+          PROJECT_ID: PVT_kwDOAM0swc4AcrZs
+          PROJECT_FIELD_ID: PVTF_lADOAM0swc4AcrZszgSjyX4
