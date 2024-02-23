@@ -32,7 +32,7 @@ This document aims to make first time user experience as simple as possible. FTU
 
 - [Initial prototyping](https://www.figma.com/file/o9p34zmiuEpZRyvZXJZAYL/FTUE?node-id=1-1496&t=fGZ56cXrNTbvyRyD-0)
 - [Compound Web](https://www.figma.com/file/rTaQE2nIUSLav4Tg3nozq7/Compound-Web-Components?type=design&node-id=3929-144022&mode=design&t=XrmkcI0ZA55ayrh1-4)
-- [Compound iOS](https://www.figma.com/file/ux3tYoZV9WghC7hHT9Fhk0/Compound-iOS-Components?type=design&node-id=1668-76958&mode=design&t=bDI1JhltSeshWKYF-4)
+- [Compound iOS](https://www.figma.com/file/jvZ7TIyd7V9Vn8sIDB9vMd/Compound-iOS-Templates?type=design&node-id=1-3720&mode=design&t=RhQEVkskYGTdfIJW-4)
 - [QR code login](https://www.figma.com/file/EbUDdINXYZqeB7TisFJhoN/OIDC-Sign-in-with-QR-flow?type=design&node-id=110-33582&mode=design&t=iPP7N9GrifBjdbdx-0)
 
 ## General guidelines
