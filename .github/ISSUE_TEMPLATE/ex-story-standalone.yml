@@ -11,64 +11,45 @@ body:
       * As a [beneficiary]
       * I want to [objective]
       * So that [value generated]
-- type: textarea
-  attributes:
-    label: Acceptance criteria
-    value: |
+
+      ### Acceptance criteria
       - TBD
-- type: textarea
-  attributes:
-    label: Leads
-    value: |
+
+      ### Leads
       * Tech: <GitHub id>
       * Design: <GitHub id>
-- type: dropdown
-  attributes:
-    label: Size estimate
-    options:
-      - S
-      - M
-      - L
-- type: textarea
-  attributes:
-    label: Dependencies
-    value: |
-      - None
-- type: textarea
-  attributes:
-    label: Out of scope
-    value: |
-      - Nothing
-- type: textarea
-  attributes:
-    label: Open questions
-    value: |
-      ```[tasklist]
-      ### Questions
-      ```
-- type: textarea
-  attributes:
-    label: Subtasks
-    value: |
-      ```[tasklist]
-      ### Android
-      ```
-      
-      ```[tasklist]
-      ### iOS
-      ```
-      
-      ```[tasklist]
-      ### Rust
-      ```
 
-      ```[tasklist]
+      ### Time sheeting
+      <!--The project to report the time spent on the feature-->
+      ?
+
+      ### Documentation
+      - 
+
+      ### Dependencies
+      - None
+
+      ### Out of scope
+      - Nothing
+
+      ### Open questions
+      - [ ] 
+
+      ## Subtasks
+
+      ### Android
+      -
+      
+      ### iOS
+      -
+      
+      ### Rust
+      -
+
       ### Other
-      ```
-- type: textarea
-  attributes:
-    label: Sign-off
-    value: |
+      -
+
+      ## Sign-offs
       ### Android
       - [ ] Design sign-off on completion
       - [ ] QA sign-off on completion
