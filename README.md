@@ -1,8 +1,8 @@
 # Element meta
 
-This is the home of shared Element app documentation and artefacts for the element [web, desktop](https://github.com/vector-im/element-web), [Android](https://github.com/vector-im/element-android) and [iOS](https://github.com/vector-im/element-ios) apps.
+This is the home of shared Element app documentation and artefacts for the element [web](https://github.com/element-hq/element-web), [desktop](https://github.com/element-hq/element-web), [Android](https://github.com/element-hq/element-x-android) and [iOS](https://github.com/element-hq/element-x-ios) apps.
 
-Each project will link to the [wiki](https://github.com/vector-im/element-meta/wiki) directly to reference processes that it has adopted.
+Each project will link to the [wiki](https://github.com/element-hq/element-meta/wiki) directly to reference processes that it has adopted.
 
 ## Setting up label sync in another repository
 
@@ -21,10 +21,10 @@ on:
             - .github/labels.yml
 jobs:
     sync-labels:
-        uses: vector-im/element-meta/.github/workflows/sync-labels.yml@develop
+        uses: element-hq/element-meta/.github/workflows/sync-labels.yml@develop
         with:
             LABELS: |
-                vector-im/element-meta
+                element-hq/element-meta
                 .github/labels.yml
             DELETE: true
             WET: false
