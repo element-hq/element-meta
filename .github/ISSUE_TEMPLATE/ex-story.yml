@@ -12,19 +12,22 @@ body:
       * I want to [objective]
       * So that [value generated]
 
-      ### Acceptance criteria
+      # Acceptance criteria
       - TBD
 
-      ### Dependencies
+      # Dependencies
       - None
 
-      ### Out of scope
+      # Out of scope
       - Nothing
 
-      ### Questions
-      - [ ] 
+      # Questions
+      - [x] None
 
-      ## Subtasks
+      # Subtasks
+      Subtasks should be created as separate GitHub issues in the corresponding platform repositories.  
+      Add them as sub-issues of this user story.  
+      (Optional) You may also list them below as checklist items for quick visibility.
 
       ### Android
       -

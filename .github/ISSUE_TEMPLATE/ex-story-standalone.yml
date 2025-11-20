@@ -12,10 +12,10 @@ body:
       * I want to [objective]
       * So that [value generated]
 
-      ### Acceptance criteria
+      # Acceptance criteria
       - TBD
 
-      ### Leads
+      # Leads
       * Tech: <GitHub id>
       * Design: <GitHub id>
 
@@ -23,19 +23,22 @@ body:
       <!--The project to report the time spent on the feature-->
       ?
 
-      ### Documentation
+      # Documentation
       - 
 
-      ### Dependencies
+      # Dependencies
       - None
 
-      ### Out of scope
+      # Out of scope
       - Nothing
 
-      ### Open questions
-      - [ ] 
+      # Open questions
+      - [x] None
 
-      ## Subtasks
+      # Subtasks
+      Subtasks should be created as separate GitHub issues in the corresponding platform repositories.  
+      Add them as sub-issues of this user story.  
+      (Optional) You may also list them below as checklist items for quick visibility.
 
       ### Android
       -
@@ -50,12 +53,5 @@ body:
       -
 
       ## Sign-offs
-      ### Android
-      - [ ] Design sign-off on completion
-      - [ ] QA sign-off on completion
-      - [ ] Product sign-off on completion
-
-      ### iOS
-      - [ ] Design sign-off on completion
-      - [ ] QA sign-off on completion
-      - [ ] Product sign-off on completion
+      - [ ] Android
+      - [ ] iOS
