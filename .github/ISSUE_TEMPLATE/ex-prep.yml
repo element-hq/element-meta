@@ -23,8 +23,8 @@ body:
       - 
       
       # Subtasks
-      Subtasks should be created as separate GitHub issues in the corresponding platform repositories.  
-      Add them as sub-issues of this user story.  
+      Subtasks should be created as separate GitHub issues in the corresponding platform repositories.
+      Add them as sub-issues of this prep task.  
       (Optional) You may also list them below as checklist items for quick visibility.
   
       ### Android
