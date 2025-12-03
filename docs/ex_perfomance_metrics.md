@@ -11,9 +11,15 @@ Crashes are already tracked on Sentry. Performance metrics are also useful healt
 
 This document specifies what metrics we track and how we measure them. It focuses on EX but it could be extended (and renamed) to track any matrix client app performance.
 
+## Sentry semantics
+As we use Sentry, we need to adopt its naming conventions for `Transaction(name: String, operation: String)` and `Span(operation: String, description: String)`. 
+More information can be found in the Sentry documentation about [Transaction Name](https://docs.sentry.io/platforms/native/enriching-events/transaction-name/) and [Span Operations](https://develop.sentry.dev/sdk/performance/span-operations/).
+
 ## UX metrics
 
-| Title | Android name / Description | What is it measuring? | Initial and final conditions | Tech metrics | Notes |
+There are tracked using Sentry transactions. `Transaction.operation` is `ux` to reflect high-level, user journey metrics.
+
+| Metric (Sentry Transaction Name) | Description | What is it measuring? | Initial and final conditions | Tech metrics | Notes |
 | :---- | :---- | :---- | :---- | :---- | :---- |
 | Cold start | Cold start until the cached room list is displayed | How long it takes from launching the app to displaying cached data on the screen | From:<ul><li>The user is already connected</li><li>The app is not running in background</li><li> The user taps on the app icon</li></ul> To:<ul><li>The room list is fully loaded from the permanent cached and displayed to the end user | <ul><li>First rooms displayed after login or restoration (**TBD**) </li></ul> | The clock starts after the Sentry is initialised. |
 | Catch-up | The app syncs and the room list becomes up-to-date | How long until the room list is up-to-date | From:<ul><li>The app was inactive in background and get debackgrounded</li><li>Or the app just finished its cold start</li></ul> To:<ul><li>The room list service state becomes [`Running`](https://github.com/matrix-org/matrix-rust-sdk/blob/matrix-sdk-ui-0.14.0/bindings/matrix-sdk-ffi/src/sync_service.rs#L36)</li><li>No more Syncing spinner |  | The expected final conditions should be:<ul><li>The room list is updated</li><li>Properly sorted</li><li>Last messages are up-to-date</li></ul> But we need more work to compute this metric  |
