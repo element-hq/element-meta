@@ -42,4 +42,5 @@ enable key backup.
 
 * `element-web` implemented this in February 2025:
   * https://github.com/element-hq/element-web/pull/29290
-TODO: record when Element X implemented this
+* `matrix-rust-sdk` implemented this in November 2023:
+  * https://github.com/matrix-org/matrix-rust-sdk/pull/2842
