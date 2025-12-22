@@ -25,7 +25,7 @@ There are tracked using Sentry transactions. `Transaction.operation` is `ux` to 
 | Catch-up | The app syncs and the room list becomes up-to-date | How long until the room list is up-to-date | From:<ul><li>The app was inactive in background and get debackgrounded</li><li>Or the app just finished its cold start</li></ul> To:<ul><li>The room list service state becomes [`Running`](https://github.com/matrix-org/matrix-rust-sdk/blob/matrix-sdk-ui-0.14.0/bindings/matrix-sdk-ffi/src/sync_service.rs#L36)</li><li>No more Syncing spinner |  | The expected final conditions should be:<ul><li>The room list is updated</li><li>Properly sorted</li><li>Last messages are up-to-date</li></ul> But we need more work to compute this metric.  |
 | Notification to message | A notification was tapped and it opened a timeline | How long it takes from taping the notification to the message becoming visible in the app | From:<ul><li>The app is in background or active</li><li>The notification is for a message in the main timeline</li><li>The user taps on the notification</li></ul> To:<ul><li>The message is visible in the timeline</li><li>The timeline around this message is fully loaded | <ul><li>Timeline load</li></ul> |  |
 | Open a room | Open a room and see loaded items in the timeline | How long it takes from tapping a room in the room list to displaying a full page of messages | From:<ul><li>User taps a room from the room list</li></ul> To:<ul><li>The timeline is fully loaded with first items loaded  | <ul><li>Timeline load</li></ul> |  |
-| Send a message | Send to sent state in timeline  | How long it takes from tapping send to the message appearing in the timeline as sent | From:<ul><li>User hits the send button</li></ul> To:<ul><li>The timeline shows it as sent |  | **TODO**: We need to experiment the feasibility of this metric |
+| Send a message | Send to sent state in timeline  | How long it takes from tapping send to the message appearing in the timeline as sent | From:<ul><li>User hits the send button</li></ul> To:<ul><li>The timeline shows it as sent |  | The `RoomSendQueueUpdate` enum in the SDK can be used for this: `NewLocalEvent` being returned means the event is in the send queue, `SentEvent` means we received it in the sync. We don't really know when it lands on the timeline, but the delay should be minimal. |
 
 ## Additional data
 
@@ -50,7 +50,7 @@ They are tracked as Senty spans. `Span.operation` follows the [Span Operations](
 
 | Metric (Sentry Span Description) | Category (Sentry Span Operation) | Description  | Notes |
 | :---- | :---- | :---- | :---- |
-| Timeline load | `function` | `sdkRoom.timelineWithConfiguration ()` | |
+| Timeline load | `function` | `Room.timelineWithConfiguration` | |
 
 **TODO: Add more**
 
