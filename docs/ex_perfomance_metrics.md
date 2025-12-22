@@ -36,6 +36,11 @@ We need to add some data to the metrics so that we can better characterise them:
 | Device information | <ul><li>To detect specific device problem, especially on the fragmented Android ecosystem</li></ul> | It is provided by Sentry |
 | Homeserver | <ul><li>To compare matrix.org and element.io homeservers speed</li><li>To measure the impact of a slow homeserver</li></ul> | **We use SHA-512 to compute the hash of the homeserve domain**, ie matrix.org or element.io.  |
 | DB files size:<ul><li>Crypto store</li><li>State store</li><li>Event cache store</li><li>Media store</li></ul> | <ul><li>To check the impact of growing DB on speed performance</li><li>To check disk space used by the app</li></ul> | Expressed in MB. |
+
+We'd want to add this data too, but it's not possible at the moment given the info we have in the SDK:
+
+| Data | Why is it useful? | Notes |
+| :---- | :---- | :---- |
 | Account size | <ul><li>To check the impact on speed performance</li><li>To check the impact on \`/sync\` response size</li></ul> | Expressed in number of joined rooms.</br>**TODO**: Add the Rust SDK API for reference<br/>**TODO**: We need to experiment the feasibility of this metric |
 | Catch-up /sync size | <ul><li>To check network usage stays as low as possible</li></ul> | The response size in kB of the first `/sync` request made during catch-up.</br>**TODO**: Add the Rust SDK API for reference</br>**TODO**: We need to experiment the feasibility of this metric |
 
