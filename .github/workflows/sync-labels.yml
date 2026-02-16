@@ -40,26 +40,28 @@ jobs:
       - name: Check out calling repository
         uses: actions/checkout@v4
         if: github.repository != 'element-hq/element-meta'
+        with:
+          path: caller-repository
+
       - name: Check out element-hq/element-meta
         uses: actions/checkout@v4
         with:
-          path: element-meta
           repository: element-hq/element-meta
+
       - name: "Set up Node.js"
         uses: actions/setup-node@v4
         with:
           cache: yarn
-          cache-dependency-path: element-meta/yarn.lock
+
       - name: Install Deps
         run: "yarn install --frozen-lockfile"
-        working-directory: element-meta
+
       - name: "Sync labels"
         run: |
           yarn sync-labels $(echo -e "${{ inputs.LABELS }}" | xargs -r printf -- '--labels \"%s\"\n' | xargs echo) \
-            ${{ github.repository != 'element-hq/element-meta' && '--dir ..' }} \
+            ${{ github.repository != 'element-hq/element-meta' && '--dir ./caller-repository' }} \
             ${{ inputs.DELETE && '--delete' }} \
             ${{ inputs.WET && '--wet' }}
-        working-directory: element-meta
         env:
           GITHUB_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
