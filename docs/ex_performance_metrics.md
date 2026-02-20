@@ -34,8 +34,8 @@ We need to add some data to the metrics so that we can better characterise them:
 | Data | Why is it useful? | Notes |
 | :---- | :---- | :---- |
 | Device information | <ul><li>To detect specific device problem, especially on the fragmented Android ecosystem</li></ul> | It is provided by Sentry |
-| Homeserver | <ul><li>To compare matrix.org and element.io homeservers speed</li><li>To measure the impact of a slow homeserver</li></ul> | **We use SHA-512 to compute the hash of the homeserver domain**, ie matrix.org or element.io.  |
-| DB files size:<ul><li>Crypto store</li><li>State store</li><li>Event cache store</li><li>Media store</li></ul> | <ul><li>To check the impact of growing DB on speed performance</li><li>To check disk space used by the app</li></ul> | Expressed in MB. |
+| Homeserver (`homeserver`) | <ul><li>To compare matrix.org and element.io homeservers speed</li><li>To measure the impact of a slow homeserver</li></ul> | **We use SHA-512 to compute the hash of the homeserver domain**, ie matrix.org or element.io.  |
+| DB files size:<ul><li>Crypto store (`crypto_store_size`)</li><li>State store (`state_store_size`)</li><li>Event cache store (`event_cache_size`)</li><li>Media store (`media_store_size`)</li></ul> | <ul><li>To check the impact of growing DB on speed performance</li><li>To check disk space used by the app</li></ul> | Expressed in MB. |
 
 We'd want to add this data too, but it's not possible at the moment given the info we have in the SDK:
 
