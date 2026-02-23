@@ -37,16 +37,18 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out element-hq/element-meta
+        uses: actions/checkout@v4
+        with:
+          repository: element-hq/element-meta
+
+      # nb. this put the caller repo within the element-meta checkout so it must
+      # be done afterwards as actions/checkout erases the directory
       - name: Check out calling repository
         uses: actions/checkout@v4
         if: github.repository != 'element-hq/element-meta'
         with:
           path: caller-repository
-
-      - name: Check out element-hq/element-meta
-        uses: actions/checkout@v4
-        with:
-          repository: element-hq/element-meta
 
       - name: "Set up Node.js"
         uses: actions/setup-node@v4
