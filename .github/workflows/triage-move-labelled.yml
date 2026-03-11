@@ -5,58 +5,6 @@ on:
     types: [labeled]
 
 jobs:
-  apply_Z-Labs_label:
-    name: Add Z-Labs label for features behind labs flags
-    runs-on: ubuntu-latest
-    if: >
-        contains(github.event.issue.labels.*.name, 'A-Maths') ||
-        contains(github.event.issue.labels.*.name, 'A-Message-Pinning') ||
-        contains(github.event.issue.labels.*.name, 'A-Threads') ||
-        contains(github.event.issue.labels.*.name, 'A-Polls') ||
-        contains(github.event.issue.labels.*.name, 'A-Location-Sharing') ||
-        contains(github.event.issue.labels.*.name, 'A-Message-Bubbles') ||
-        contains(github.event.issue.labels.*.name, 'Z-IA') ||
-        contains(github.event.issue.labels.*.name, 'A-Themes-Custom') ||
-        contains(github.event.issue.labels.*.name, 'A-E2EE-Dehydration') ||
-        contains(github.event.issue.labels.*.name, 'A-Tags')
-    steps:
-      - uses: actions/github-script@v5
-        with:
-          script: |
-            github.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['Z-Labs']
-            })
-
-  add_design_issues_to_project:
-    name: X-Needs-Design to Design project board
-    runs-on: ubuntu-latest
-    if: >
-      contains(github.event.issue.labels.*.name, 'X-Needs-Design') &&
-      (contains(github.event.issue.labels.*.name, 'S-Critical') &&
-       (contains(github.event.issue.labels.*.name, 'O-Frequent') ||
-        contains(github.event.issue.labels.*.name, 'O-Occasional')) ||
-       contains(github.event.issue.labels.*.name, 'S-Major') &&
-       contains(github.event.issue.labels.*.name, 'O-Frequent') ||
-       contains(github.event.issue.labels.*.name, 'A11y'))
-    steps:
-      - uses: actions/add-to-project@main
-        with:
-          project-url: https://github.com/orgs/element-hq/projects/18
-          github-token: ${{ secrets.ELEMENT_BOT_TOKEN }}
-
-  add_product_issues:
-    name: X-Needs-Product to Design project board
-    runs-on: ubuntu-latest
-    if: >
-        contains(github.event.issue.labels.*.name, 'X-Needs-Product')
-    steps:
-      - uses: actions/add-to-project@main
-        with:
-          project-url: https://github.com/orgs/element-hq/projects/28
-          github-token: ${{ secrets.ELEMENT_BOT_TOKEN }}
 
   ex_platform:
     name: Add labelled issues to EX platform project
@@ -77,28 +25,5 @@ jobs:
     steps:
       - uses: actions/add-to-project@main
         with:
-          project-url: https://github.com/orgs/element-hq/projects/41
-          github-token: ${{ secrets.ELEMENT_BOT_TOKEN }}
-
-  qa:
-    name: Add labelled issues to QA project
-    runs-on: ubuntu-latest
-    if: >
-      contains(github.event.issue.labels.*.name, 'Team: QA') ||
-      contains(github.event.issue.labels.*.name, 'X-Needs-Signoff')
-    steps:
-      - uses: actions/add-to-project@main
-        with:
-          project-url: https://github.com/orgs/element-hq/projects/69
-          github-token: ${{ secrets.ELEMENT_BOT_TOKEN }}
-
-  signoff:
-    name: Add labelled issues to signoff project
-    runs-on: ubuntu-latest
-    if: >
-      contains(github.event.issue.labels.*.name, 'X-Needs-Signoff')
-    steps:
-      - uses: actions/add-to-project@main
-        with:
-          project-url: https://github.com/orgs/element-hq/projects/89
+          project-url: https://github.com/orgs/element-hq/projects/139
           github-token: ${{ secrets.ELEMENT_BOT_TOKEN }}
