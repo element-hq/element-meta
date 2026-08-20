@@ -49,6 +49,7 @@ jobs:
         if: github.repository != 'element-hq/element-meta'
         with:
           path: caller-repository
+          token: ${{ secrets.ELEMENT_BOT_TOKEN }}
 
       - name: "Set up Node.js"
         uses: actions/setup-node@v4
