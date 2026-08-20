@@ -51,6 +51,9 @@ jobs:
           path: caller-repository
           token: ${{ secrets.ELEMENT_BOT_TOKEN }}
           persist-credentials: false
+          # On pull_request events, github.sha resolves to GitHub's ephemeral
+          # merge-preview commit, which a non-Actions token can't fetch by SHA.
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: "Set up Node.js"
         uses: actions/setup-node@v4
