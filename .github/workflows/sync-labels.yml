@@ -50,6 +50,7 @@ jobs:
         with:
           path: caller-repository
           token: ${{ secrets.ELEMENT_BOT_TOKEN }}
+          persist-credentials: false
 
       - name: "Set up Node.js"
         uses: actions/setup-node@v4
