@@ -1,0 +1,74 @@
+name: Apply priority label
+
+# Reusable workflow: derives the P-label for an issue from its S-* and O-* labels
+# using the risk matrix at
+# https://github.com/element-hq/element-meta/wiki/triage-process#prioritisation
+#
+# Call it from a repository's own workflow on `issues: [labeled, unlabeled]`.
+# See the README for the caller snippet.
+
+on:
+  workflow_call:
+    secrets:
+      ELEMENT_BOT_TOKEN:
+        description: Token with permission to edit labels on the calling repository
+        required: true
+
+permissions: {} # We use ELEMENT_BOT_TOKEN instead
+
+jobs:
+  apply_priority_label:
+    name: Derive P-label from S-* and O-* labels
+    runs-on: ubuntu-latest
+    # Only react to severity/occurrence changes, not every label event
+    if: startsWith(github.event.label.name, 'S-') || startsWith(github.event.label.name, 'O-')
+    steps:
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        with:
+          github-token: ${{ secrets.ELEMENT_BOT_TOKEN }}
+          script: |
+            // Priority is defined per S/O pair rather than by the numeric score,
+            // because the score is not unique (e.g. 4 is P2 or P3 depending on the pair).
+            // The wiki merges P4 and P5 into one row, so the bottom row maps to P4.
+            const MATRIX = {
+              "S-Critical":  { "O-Frequent": "P0", "O-Occasional": "P1", "O-Uncommon": "P2" },
+              "S-Major":     { "O-Frequent": "P1", "O-Occasional": "P2", "O-Uncommon": "P3" },
+              "S-Minor":     { "O-Frequent": "P2", "O-Occasional": "P3", "O-Uncommon": "P4" },
+              "S-Tolerable": { "O-Frequent": "P3", "O-Occasional": "P4", "O-Uncommon": "P4" },
+            };
+            const P_LABELS = ["P0", "P1", "P2", "P3", "P4", "P5"];
+
+            const ref = {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            };
+
+            // Re-fetch the issue rather than trusting the event payload, which can be
+            // stale when several labels are changed in quick succession.
+            const { data: issue } = await github.rest.issues.get(ref);
+            const names = issue.labels.map((label) => label.name);
+
+            // We need exactly one severity and one occurrence label to pick a priority.
+            // Anything else (none, or more than one) means the priority is undefined.
+            const severity = names.filter((name) => name.startsWith("S-"));
+            const occurrence = names.filter((name) => name.startsWith("O-"));
+            const wanted =
+              severity.length === 1 && occurrence.length === 1
+                ? MATRIX[severity[0]]?.[occurrence[0]]
+                : undefined;
+
+            // Remove any P-label that no longer matches. When `wanted` is undefined
+            // this strips every P-label, so a half-triaged issue carries no priority.
+            for (const stale of P_LABELS.filter((p) => p !== wanted && names.includes(p))) {
+              console.log(`#${ref.issue_number}: removing ${stale}`);
+              await github.rest.issues.removeLabel({ ...ref, name: stale });
+            }
+
+            // Add the derived P-label if it isn't already there.
+            if (wanted && !names.includes(wanted)) {
+              console.log(`#${ref.issue_number}: adding ${wanted} (${severity[0]} + ${occurrence[0]})`);
+              await github.rest.issues.addLabels({ ...ref, labels: [wanted] });
+            } else if (!wanted) {
+              console.log(`#${ref.issue_number}: no priority (S-* = ${severity}, O-* = ${occurrence})`);
+            }
