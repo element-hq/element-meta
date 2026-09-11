@@ -4,28 +4,25 @@ name: Apply priority label
 # using the risk matrix at
 # https://github.com/element-hq/element-meta/wiki/triage-process#prioritisation
 #
-# Call it from a repository's own workflow on `issues: [labeled, unlabeled]`.
-# See the README for the caller snippet.
+# Call it from a repository's own workflow on `issues: [labeled, unlabeled]`,
+# granting `permissions: issues: write`.
 
 on:
   workflow_call:
-    secrets:
-      ELEMENT_BOT_TOKEN:
-        description: Token with permission to edit labels on the calling repository
-        required: true
 
-permissions: {} # We use ELEMENT_BOT_TOKEN instead
+permissions: {}
 
 jobs:
   apply_priority_label:
     name: Derive P-label from S-* and O-* labels
     runs-on: ubuntu-latest
+    permissions:
+      issues: write # The caller must grant this too
     # Only react to severity/occurrence changes, not every label event
     if: startsWith(github.event.label.name, 'S-') || startsWith(github.event.label.name, 'O-')
     steps:
       - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
         with:
-          github-token: ${{ secrets.ELEMENT_BOT_TOKEN }}
           script: |
             // Priority is defined per S/O pair rather than by the numeric score,
             // because the score is not unique (e.g. 4 is P2 or P3 depending on the pair).
