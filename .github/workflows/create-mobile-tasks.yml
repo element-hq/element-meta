@@ -1,0 +1,59 @@
+name: Create mobile tasks
+
+# When the "Create mobile tasks" label is added to an issue, create a task issue
+# on each of element-x-android and element-x-ios, and attach them as sub-issues
+# of the labelled issue. The label is removed so that it acts as a button.
+
+on:
+  issues:
+    types: [labeled]
+
+permissions: {}
+
+jobs:
+  create_mobile_tasks:
+    name: Create Android and iOS tasks
+    runs-on: ubuntu-latest
+    if: github.event.label.name == 'Create mobile tasks'
+    steps:
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        with:
+          # The default GITHUB_TOKEN cannot create issues in other repositories
+          github-token: ${{ secrets.ELEMENT_BOT_TOKEN }}
+          script: |
+            const LABEL = "Create mobile tasks";
+            const TARGET_OWNER = "element-hq";
+            const TARGET_REPOS = ["element-x-android", "element-x-ios"];
+
+            const ref = {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            };
+
+            // Remove the label first, so a later failure does not leave it stuck on the issue.
+            try {
+              await github.rest.issues.removeLabel({ ...ref, name: LABEL });
+            } catch (error) {
+              if (error.status !== 404) throw error;
+            }
+
+            const title = `[Task] ${context.payload.issue.title}`;
+            const body = "Please see and discuss the details in the meta issue.";
+
+            for (const repo of TARGET_REPOS) {
+              const { data: created } = await github.rest.issues.create({
+                owner: TARGET_OWNER,
+                repo,
+                title,
+                body,
+              });
+              console.log(`#${ref.issue_number}: created ${created.html_url}`);
+
+              // sub_issue_id is the issue's id, not its number.
+              await github.request("POST /repos/{owner}/{repo}/issues/{issue_number}/sub_issues", {
+                ...ref,
+                sub_issue_id: created.id,
+              });
+              console.log(`#${ref.issue_number}: added ${created.html_url} as sub-issue`);
+            }
