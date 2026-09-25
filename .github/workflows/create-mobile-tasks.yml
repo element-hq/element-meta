@@ -50,10 +50,22 @@ jobs:
               });
               console.log(`#${ref.issue_number}: created ${created.html_url}`);
 
-              // sub_issue_id is the issue's id, not its number.
-              await github.request("POST /repos/{owner}/{repo}/issues/{issue_number}/sub_issues", {
-                ...ref,
-                sub_issue_id: created.id,
-              });
+              // A freshly created issue is not immediately visible to the sub-issues API,
+              // which answers 404 for a while, so retry with backoff.
+              for (let attempt = 1; ; attempt++) {
+                try {
+                  // sub_issue_id is the issue's id, not its number.
+                  await github.request("POST /repos/{owner}/{repo}/issues/{issue_number}/sub_issues", {
+                    ...ref,
+                    sub_issue_id: created.id,
+                  });
+                  break;
+                } catch (error) {
+                  if (error.status !== 404 || attempt >= 8) throw error;
+                  const delay = 5 * attempt;
+                  console.log(`#${ref.issue_number}: sub-issue not linkable yet, retrying in ${delay}s`);
+                  await new Promise((resolve) => setTimeout(resolve, delay * 1000));
+                }
+              }
               console.log(`#${ref.issue_number}: added ${created.html_url} as sub-issue`);
             }
