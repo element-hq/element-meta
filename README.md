@@ -1,62 +1,69 @@
 # Element meta
 
-This is the home of shared Element app documentation and artefacts for the element [web](https://github.com/element-hq/element-web), [desktop](https://github.com/element-hq/element-web), [Android](https://github.com/element-hq/element-x-android) and [iOS](https://github.com/element-hq/element-x-ios) apps.
+element-meta is the shared home of the Element apps: [Web and Desktop](https://github.com/element-hq/element-web),
+[Android](https://github.com/element-hq/element-x-android) and [iOS](https://github.com/element-hq/element-x-ios).
+It holds what is common to all of them: feature requests, the processes the app teams follow, and
+product documentation.
 
-Each project will link to the [wiki](https://github.com/element-hq/element-meta/wiki) directly to reference processes that it has adopted.
+## Feature requests
 
-## Setting up label sync in another repository
+**This is the place to request a feature or a change for the Element apps**, whatever the platform.
+[Open an enhancement request](https://github.com/element-hq/element-meta/issues/new?template=enhancement.yml).
 
-This repository includes a reusable workflow for synchronising labels across repositories and from YAML files. To set up label synchronisation in another repository, go to that repository and create an empty file `.github/labels.yml` as well as a new workflow `.github/workflows/sync-labels.yml`.
+The product team answers every request within a week, on the
+[Feature Request Triage board](https://github.com/orgs/element-hq/projects/168). The answer also
+says whether we would accept a PR for it. [How feature requests are triaged](docs/process/feature-requests.md)
+explains what each answer means.
 
-```
-name: Sync labels
-on:
-    workflow_dispatch: {}
-    schedule:
-        - cron: "0 2 * * *" # 2am every day
-    push:
-        branches:
-            - develop
-        paths:
-            - .github/labels.yml
-jobs:
-    sync-labels:
-        uses: element-hq/element-meta/.github/workflows/sync-labels.yml@develop
-        with:
-            LABELS: |
-                element-hq/element-meta
-                .github/labels.yml
-            DELETE: true
-            WET: false
-        secrets:
-            ELEMENT_BOT_TOKEN: ${{ secrets.ELEMENT_BOT_TOKEN }}
-```
+We no longer take feature requests in [Discussions](https://github.com/element-hq/element-meta/discussions),
+and they will be closed. Please open an issue instead.
 
-This will sync labels from vector-im/element-meta as well as the local `labels.yml` file. Note that `WET: false` ensures that the workflow runs in dry mode without actually changing any labels.
+## Where else to go
 
-Manually execute the workflow once. The workflow run's logs will include a summary of the label changes that would have been applied. Take particular note of the section that lists additional labels.
+- **A bug:** the app repository where it reproduces:
+  [element-web](https://github.com/element-hq/element-web/issues),
+  [element-x-android](https://github.com/element-hq/element-x-android/issues) or
+  [element-x-ios](https://github.com/element-hq/element-x-ios/issues).
+- **A request that only makes sense on one platform:** that app repository. If you are not sure,
+  use it anyway; we will move the issue here if it concerns other platforms too.
+- **An SDK API, protocol, performance or crypto concern:**
+  [matrix-rust-sdk](https://github.com/matrix-org/matrix-rust-sdk/issues) for Element X on Android
+  and iOS, [matrix-js-sdk](https://github.com/matrix-org/matrix-js-sdk/issues) for Element Web and
+  Desktop.
+- **Calls:** [element-call](https://github.com/element-hq/element-call/issues), which provides
+  calls in all three apps.
+- **The rich text composer:**
+  [matrix-rich-text-editor](https://github.com/element-hq/matrix-rich-text-editor/issues), shared
+  by all three apps.
+- **Signing in, signing up or managing your account** in the web pages your homeserver opens for
+  it: [matrix-authentication-service](https://github.com/element-hq/matrix-authentication-service/issues).
+- **A security issue:** email security@element.io, not a public issue. See the
+  [security disclosure policy](https://element.io/security/security-disclosure-policy).
+- **A question or support request:** the app's Matrix room:
+  [#element-web:matrix.org](https://matrix.to/#/#element-web:matrix.org),
+  [#element-x-android:matrix.org](https://matrix.to/#/#element-x-android:matrix.org) or
+  [#element-x-ios:matrix.org](https://matrix.to/#/#element-x-ios:matrix.org).
 
-```
-The following labels exist in matrix-org/matrix-react-sdk-module-api but are missing in all sources. They will be deleted.
-- name: "A-Timesheet-1"
-  description: "Log any time spent on this into the A-Timesheet-1 project"
-  color: "5319E7"
-- name: "bug"
-  description: "Something isn't working"
-  color: "d73a4a"
-- name: "documentation"
-  ...
-```
+## Contributing
 
-If you want to retain these labels, either copy them to `labels.yml` or set `DELETE: false`.
+A PR for a feature or an enhancement must link an issue that carries the `X-Accepting-PRs` or
+`X-Accepting-PoC-PRs` label. Get agreement on the change before writing the code. Bug fixes are
+welcome without a prior decision. Each app repository's `CONTRIBUTING.md` has the details for its
+codebase.
 
-Afterwards set `WET: true` in the workflow and execute it. You may hit GitHub's rate limits on the initial run.
+## Process docs
 
-```
-Syncing labels
-[UnhandledPromiseRejection: This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason "Error: You have exceeded a secondary rate limit. Please wait a few minutes before you try again. If you reach out to GitHub Support for help, please include the request ID 9892:05D0:25DA3A:4F0839:6564EE53.".] {
-  code: 'ERR_UNHANDLED_REJECTION'
-}
-```
+- [Feature requests](docs/process/feature-requests.md): where to file them, how they are answered,
+  when to write a PR.
+- [Label sync](docs/process/label-sync.md): the reusable workflow that syncs labels across
+  repositories.
 
-If so, just do as the message says and execute the workflow again after a few minutes to let it apply the leftover changes. From here on labels should be kept in sync automatically.
+The app teams' other processes (issue triage, labelling, reviews) are being moved here from the
+[wiki](https://github.com/element-hq/element-meta/wiki), which is out of date.
+
+## Product documentation
+
+- [`docs/`](docs): how some Element features are meant to behave. Many of these pages date from
+  2022–2024, and some describe the legacy Element apps. Treat them as reference material, not as a
+  description of the current apps.
+- [`spec/`](spec/index.md): the non-standard Matrix event types used by Element.
