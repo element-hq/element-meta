@@ -1,32 +1,54 @@
 name: Enhancement request
-description: Do you have a suggestion or feature request?
+description: Suggest a new feature or a change to an existing one, for any Element app.
 labels: [T-Enhancement]
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for taking the time to propose an enhancement to an existing feature. If you would like to propose a new feature or a major cross-platform change, please [start a discussion](https://github.com/vector-im/element-meta/discussions/new?category=ideas).
+        Thank you for taking the time to propose an enhancement or a new feature for the Element
+        apps. This is the right place for anything that affects Web/Desktop, Android or iOS.
+
+        Your request will be triaged by the Element product team, usually within a week. See
+        [how feature requests are triaged](https://github.com/element-hq/element-meta/blob/develop/docs/process/feature-requests.md)
+        for what the answer means.
+
+        Please report security issues by email to security@element.io — not here.
+  - type: checkboxes
+    id: duplicates
+    attributes:
+      label: Before you start
+      options:
+        - label: I have searched [element-meta](https://github.com/element-hq/element-meta/issues) and the app repositories and found no duplicate.
+          required: true
   - type: textarea
     id: usecase
     attributes:
       label: Your use case
-      description: Please feel welcome to include screenshots or mock ups.
-      placeholder: Tell us what you would like to do!
+      description: Start with the problem rather than the solution — it is what we decide on. Screenshots or mock ups are welcome.
       value: |
-        #### What would you like to do?
+        #### What problem are you trying to solve?
 
-        #### Why would you like to do it?
+        #### Who has this problem, and how often? (just you, your team or organisation, your community, most users…)
 
-        #### How would you like to achieve it?
+        #### What would you like to happen instead?
     validations:
       required: true
   - type: textarea
     id: alternative
     attributes:
       label: Have you considered any alternatives?
-      placeholder: A clear and concise description of any alternative solutions or features you've considered.
+      placeholder: How do you work around it today? Any other solution you've considered?
     validations:
       required: false
+  - type: checkboxes
+    id: platforms
+    attributes:
+      label: Platforms concerned
+      description: Tick every app this should land on. The matching `App:` labels are added for you.
+      options:
+        - label: Web / Desktop
+        - label: Android
+        - label: iOS
   - type: textarea
     id: additional-context
     attributes:
@@ -34,3 +56,17 @@ body:
       placeholder: Is there anything else you'd like to add?
     validations:
       required: false
+  - type: dropdown
+    id: pr
+    attributes:
+      label: Are you willing to provide a PR?
+      description: |
+        Don't worry, it's still OK to answer 'No' :). If 'Yes': please wait for the issue to get
+        an `X-Accepting-PRs` or `X-Accepting-PoC-PRs` label before writing code. Both mean we will
+        review a PR — the first is a commitment to help get it integrated, the second means we
+        will evaluate it as a proof of concept, with no promise to merge.
+      options:
+        - 'Yes'
+        - 'No'
+    validations:
+      required: true

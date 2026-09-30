@@ -1,0 +1,40 @@
+name: Label platforms
+
+# Turn the "Platforms concerned" checkboxes of the enhancement form into App: labels.
+
+on:
+  issues:
+    types: [opened]
+
+permissions: {}
+
+jobs:
+  label_platforms:
+    name: Add App labels
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'T-Enhancement')
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        with:
+          script: |
+            const LABELS = {
+              "Web / Desktop": "App: web",
+              "Android": "App: ElementX Android",
+              "iOS": "App: ElementX iOS",
+            };
+
+            // Read once at opening: ticks changed by a later edit are not synced.
+            const body = (context.payload.issue.body ?? "").toLowerCase();
+            const labels = Object.entries(LABELS)
+              .filter(([option]) => body.includes(`- [x] ${option.toLowerCase()}`))
+              .map(([, label]) => label);
+
+            if (labels.length > 0) {
+              await github.rest.issues.addLabels({
+                ...context.repo,
+                issue_number: context.issue.number,
+                labels,
+              });
+            }
