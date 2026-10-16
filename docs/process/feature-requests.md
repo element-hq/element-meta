@@ -58,14 +58,15 @@ Projects
 | 📥 Untriaged | Nobody has looked at it yet. | Not yet. Wait for an answer. |
 | ❓ Needs info | We need more from you before we can answer. | Not yet. |
 | 💬 In discussion | Product, design or engineering is working out an answer. | Not yet. |
-| 🚫 Don't do | It does not fit the direction of the product. The issue is closed as "not planned", with the reason in a comment. | No. |
+| 🚫 Don't do | It does not fit the direction of the product. The issue is closed as "not planned". | No. |
 | ⏸️ Maybe later | It does not fit now. We may reconsider it. No promise, no date. | No. If you disagree, say so on the issue and we can look at it again. |
 | 🧪 Let's try | We are open to a PR and will evaluate it as a proof of concept. We may still decide not to ship it. | Yes, knowing the risk. See below. |
 | ✅ Do it | We want this. The core team will support integrating a PR that meets our quality bar. | Yes. |
 | 🏗️ Coming soon | The core team is working on it, or will start soon. | No. Please don't duplicate the work. |
 
-Every answer is explained in a comment on the issue. On the board, the assignee of an issue is the
-person who owns its triage, not the person who will implement it.
+We explain our answers when it helps, but not always in depth. A request that clearly does not fit
+may be closed with a short or standard reply and no detailed reasoning: we would rather spend that
+time on the requests we can say yes to.
 
 ### This is not a roadmap
 
