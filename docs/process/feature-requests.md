@@ -27,6 +27,10 @@ The SDK, calls, composer and authentication repositories are not on the triage b
 below: requests there are agreed with their maintainers and do not go through the process on this
 page.
 
+**Please file at most 2 feature requests a week.** Each one takes time to read and answer. If you
+file more, we may close the extra ones with a standard reply. You can file them again once your
+earlier requests have an answer.
+
 Please report security issues by email to security@element.io, not in a public issue. See the
 [security disclosure policy](https://element.io/security/security-disclosure-policy).
 
