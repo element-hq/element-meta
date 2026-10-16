@@ -13,17 +13,15 @@ consistent.
 
 | What you want | Where |
 | --- | --- |
-| A new feature, or a change to how an existing feature behaves: anything a user would notice | [element-meta](https://github.com/element-hq/element-meta/issues/new?template=enhancement.yml) |
-| Something that only makes sense on one platform: OS integration, platform UI conventions, that platform's accessibility APIs, that repository's build or CI | the app repository: [element-web](https://github.com/element-hq/element-web/issues/new/choose), [element-x-android](https://github.com/element-hq/element-x-android/issues/new/choose) or [element-x-ios](https://github.com/element-hq/element-x-ios/issues/new/choose) |
-| A bug | the repository where it reproduces |
+| A new feature, or a change to how an existing feature behaves, for one platform or all of them | [element-meta](https://github.com/element-hq/element-meta/issues/new?template=enhancement.yml) |
+| A bug | the repository where it reproduces: [element-web](https://github.com/element-hq/element-web/issues/new/choose), [element-x-android](https://github.com/element-hq/element-x-android/issues/new/choose) or [element-x-ios](https://github.com/element-hq/element-x-ios/issues/new/choose) |
 | An SDK API, protocol, performance or crypto concern | [matrix-rust-sdk](https://github.com/matrix-org/matrix-rust-sdk/issues) (Element X on Android and iOS) or [matrix-js-sdk](https://github.com/matrix-org/matrix-js-sdk/issues) (Element Web and Desktop) |
 | Calls | [element-call](https://github.com/element-hq/element-call/issues) |
 | The rich text composer | [matrix-rich-text-editor](https://github.com/element-hq/matrix-rich-text-editor/issues) |
 | The sign-in, sign-up and account management pages opened by your homeserver | [matrix-authentication-service](https://github.com/element-hq/matrix-authentication-service/issues) |
 
-**If you are not sure, open it in the app repository you use.** We will move it to element-meta if
-it concerns other platforms too. The templates ask the same questions in the same order, so a moved
-issue still reads as if it had been filed in the right place.
+The app repositories hold only bugs and the engineering tasks that deliver a feature, no feature
+requests.
 
 The SDK, calls, composer and authentication repositories are not on the triage board described
 below: requests there are agreed with their maintainers and do not go through the process on this
@@ -42,17 +40,16 @@ solution: what you are trying to do, who has this problem, and how often.
 
 ## How we answer
 
-Feature requests are triaged on the
-[Feature Request Triage board](https://github.com/orgs/element-hq/projects/168). It collects open
-issues labelled `T-Enhancement` (or `T-Feature`) from element-meta, element-web, element-x-android
-and element-x-ios. **Every request gets an answer within a week.**
+Feature requests are triaged on the public
+[Feature Requests Triage board](https://github.com/orgs/element-hq/projects/168). It collects open
+issues labelled `T-Enhancement` in element-meta. We aim to answer every request in a timely manner.
 
 The answer is the issue's `Status` on the board. It is shown in the Projects panel of the issue
 page:
 
 ```
 Projects
-  Feature Request Triage
+  Feature Requests Triage
     Status   🧪 Let's try
 ```
 
@@ -70,8 +67,15 @@ Projects
 Every answer is explained in a comment on the issue. On the board, the assignee of an issue is the
 person who owns its triage, not the person who will implement it.
 
-These answers are not a priority order. They say how much *we* commit to, not when anything will
-ship: most of the work behind 🧪 and ✅ is done by contributors, on their own schedule.
+### This is not a roadmap
+
+The Status is our **answer to a request**. It is not a plan, a schedule or a promise.
+
+- ✅ Do it means we would welcome a PR and help get it merged. It does not mean the core team will
+  build it.
+- 🏗️ Coming soon means the core team has picked it up. It carries no date.
+- These answers are not a priority order. Most of the work behind 🧪 and ✅ is done by
+  contributors, on their own schedule.
 
 ### About 🧪 Let's try
 
@@ -103,8 +107,11 @@ For example:
 2. **Wait for ✅ Do it or 🧪 Let's try** (or their labels) before you start. This rule protects your
    time more than ours: a PR with no agreed intent behind it is a design conversation held after
    the code was written.
-3. **Link the issue from your PR.** A feature PR whose issue has neither label may be closed with a
-   pointer back to the issue.
-4. **If a week goes by without an answer**, comment on the issue and say so.
+3..**Link the issue from your PR.** with `Part of element-hq/element-meta#N`, not `Fixes`. A feature PR
+   whose issue has neither label may be closed with a pointer back to the issue.
+4. **If you feel you have been waiting too long for an answer**, comment on the issue to remind us.
+
+You never need to create issues in the app repositories for an accepted request: when the core team
+picks work up, it creates the `T-Task` sub-issues there itself.
 
 This applies to features and enhancements only. Bug fixes are welcome without a prior decision.

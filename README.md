@@ -10,10 +10,11 @@ product documentation.
 **This is the place to request a feature or a change for the Element apps**, whatever the platform.
 [Open an enhancement request](https://github.com/element-hq/element-meta/issues/new?template=enhancement.yml).
 
-The product team answers every request within a week, on the
-[Feature Request Triage board](https://github.com/orgs/element-hq/projects/168). The answer also
-says whether we would accept a PR for it. [How feature requests are triaged](docs/process/feature-requests.md)
-explains what each answer means.
+The product team answers requests on the public
+[Feature Requests Triage board](https://github.com/orgs/element-hq/projects/168). The answer also
+says whether we would accept a PR for it. It is not a roadmap: it says nothing about when anything
+ships. [How feature requests are triaged](docs/process/feature-requests.md) explains what each
+answer means.
 
 We no longer take feature requests in [Discussions](https://github.com/element-hq/element-meta/discussions),
 and they will be closed. Please open an issue instead.
@@ -24,8 +25,6 @@ and they will be closed. Please open an issue instead.
   [element-web](https://github.com/element-hq/element-web/issues),
   [element-x-android](https://github.com/element-hq/element-x-android/issues) or
   [element-x-ios](https://github.com/element-hq/element-x-ios/issues).
-- **A request that only makes sense on one platform:** that app repository. If you are not sure,
-  use it anyway; we will move the issue here if it concerns other platforms too.
 - **An SDK API, protocol, performance or crypto concern:**
   [matrix-rust-sdk](https://github.com/matrix-org/matrix-rust-sdk/issues) for Element X on Android
   and iOS, [matrix-js-sdk](https://github.com/matrix-org/matrix-js-sdk/issues) for Element Web and
@@ -46,10 +45,10 @@ and they will be closed. Please open an issue instead.
 
 ## Contributing
 
-A PR for a feature or an enhancement must link an issue that carries the `X-Accepting-PRs` or
-`X-Accepting-PoC-PRs` label. Get agreement on the change before writing the code. Bug fixes are
-welcome without a prior decision. Each app repository's `CONTRIBUTING.md` has the details for its
-codebase.
+A PR for a feature or an enhancement must reference an issue that carries the `X-Accepting-PRs` or
+`X-Accepting-PoC-PRs` label, with `Part of element-hq/element-meta#N`. Get agreement on the change
+before writing the code. Bug fixes are welcome without a prior decision. Each app repository's
+`CONTRIBUTING.md` has the details for its codebase.
 
 ## Process docs
 

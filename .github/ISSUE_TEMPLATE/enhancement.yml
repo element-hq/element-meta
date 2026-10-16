@@ -6,7 +6,11 @@ body:
     attributes:
       value: |
         Thank you for taking the time to propose an enhancement or a new feature for the Element
-        apps. This is the right place for anything that affects Web/Desktop, Android or iOS.
+        apps.
+
+        **All feature requests for the Element apps live here**, even if only one platform is
+        concerned: Web/Desktop, Android or iOS. The app repositories hold bugs and engineering tasks
+        only.
 
         Your request will be triaged by the Element product team, usually within a week. See
         [how feature requests are triaged](https://github.com/element-hq/element-meta/blob/develop/docs/process/feature-requests.md)
