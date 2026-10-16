@@ -101,9 +101,13 @@ issue list without opening the board:
 For example:
 [issues accepting PRs in element-meta](https://github.com/element-hq/element-meta/issues?q=is%3Aissue%20is%3Aopen%20label%3AX-Accepting-PRs%2CX-Accepting-PoC-PRs).
 
+When we accept a request, we also add an `App:` label for each platform we want it on:
+`App: web`, `App: ElementX Android` or `App: ElementX iOS`. As a rule, a feature lands on all
+platforms, so a PR for one platform may wait for the others before it is merged.
+
 ## Before you write code
 
-1. **Say whether you want to implement it.** The issue template asks.
+1. **Say whether you want to implement it, and on which platforms.** The issue template asks.
 2. **Wait for ✅ Do it or 🧪 Let's try** (or their labels) before you start. This rule protects your
    time more than ours: a PR with no agreed intent behind it is a design conversation held after
    the code was written.
