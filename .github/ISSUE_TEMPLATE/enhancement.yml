@@ -1,6 +1,6 @@
 name: Enhancement request
 description: Suggest a new feature or a change to an existing one, for any Element app.
-labels: [T-Enhancement]
+labels: [T-Enhancement, "App: web", "App: ElementX Android", "App: ElementX iOS"]
 body:
   - type: markdown
     attributes:

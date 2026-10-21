@@ -106,9 +106,10 @@ issue list without opening the board:
 For example:
 [issues accepting PRs in element-meta](https://github.com/element-hq/element-meta/issues?q=is%3Aissue%20is%3Aopen%20label%3AX-Accepting-PRs%2CX-Accepting-PoC-PRs).
 
-When we accept a request, we also add an `App:` label for each platform we want it on:
-`App: web`, `App: ElementX Android` or `App: ElementX iOS`. As a rule, a feature lands on all
-platforms, so a PR for one platform may wait for the others before it is merged.
+The `App:` labels say which platforms a request is for: `App: web`, `App: ElementX Android` and
+`App: ElementX iOS`. New requests start with all three, and triage removes the ones that don't
+apply. As a rule, a feature lands on all platforms, so a PR for one platform may wait for the
+others before it is merged.
 
 ## Before you write code
 
