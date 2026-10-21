@@ -96,7 +96,7 @@ a comment on the issue brings it back to our attention.
 ## Labels
 
 Only the two answers that invite you to write code also get a label, so you can find them in any
-issue list without opening the board:
+issue list without opening the board. The labels follow the board automatically, within an hour:
 
 | Label | Meaning |
 | --- | --- |
