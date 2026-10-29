@@ -38,7 +38,8 @@ jobs:
               if (error.status !== 404) throw error;
             }
 
-            const title = `[Task] ${context.payload.issue.title}`;
+            // Strip a single leading [Tag] (e.g. [Story]) and following whitespace.
+            const title = `[Task] ${context.payload.issue.title.replace(/^\[[^\]]*\]\s*/, "")}`;
             const body = "Please see and discuss the details in the meta issue.";
 
             // Handle each repository on its own, so a failure on one does not block the other.
@@ -50,6 +51,7 @@ jobs:
                   repo,
                   title,
                   body,
+                  labels: ["T-Task"],
                 });
                 console.log(`#${ref.issue_number}: created ${created.html_url}`);
 
