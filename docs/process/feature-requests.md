@@ -117,8 +117,8 @@ others before it is merged.
 2. **Wait for ✅ Do it or 🧪 Let's try** (or their labels) before you start. This rule protects your
    time more than ours: a PR with no agreed intent behind it is a design conversation held after
    the code was written.
-3..**Link the issue from your PR.** with `Part of element-hq/element-meta#N`, not `Fixes`. A feature PR
-   whose issue has neither label may be closed with a pointer back to the issue.
+3. **Link the issue from your PR** with `Part of element-hq/element-meta#N`, not `Fixes`. A feature
+   PR whose issue has neither label may be closed with a pointer back to the issue.
 4. **If you feel you have been waiting too long for an answer**, comment on the issue to remind us.
 
 You never need to create issues in the app repositories for an accepted request: when the core team
