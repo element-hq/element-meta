@@ -47,7 +47,7 @@ and they will be closed. Please open an issue instead.
 
 A PR for a feature or an enhancement must reference an issue that carries the `X-Accepting-PRs` or
 `X-Accepting-PoC-PRs` label, with `Part of element-hq/element-meta#N`. Get agreement on the change
-before writing the code. Bug fixes are welcome without a prior decision. Each app repository's
+before writing the code. Bug fixes don't go through product triage. Each app repository's
 `CONTRIBUTING.md` has the details for its codebase.
 
 ## Process docs

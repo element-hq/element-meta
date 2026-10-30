@@ -123,4 +123,4 @@ so a PR for one platform may wait for the others before it is merged.
 You never need to create issues in the app repositories for an accepted request: when the core team
 picks work up, it creates the `T-Task` sub-issues there itself.
 
-This applies to features and enhancements only. Bug fixes are welcome without a prior decision.
+This applies to features and enhancements only. Bug fixes don't go through product triage.
