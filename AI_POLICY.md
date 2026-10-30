@@ -9,11 +9,11 @@ are accepted; unreviewed AI output is not. AI is a tool, not a substitute for yo
 judgement. The rules below apply regardless of how the code was written. We expect the following
 from you, and close PRs that don't meet it:
 
-1. **Start with an issue:** Open an issue and wait for a maintainer to validate it **before** you
-   write code. This is how we agree on the problem, the scope, and the approach from a product and
+1. **Start with an issue:** Open an issue and wait for it to be validated **before** you write
+   code. This is how we agree on the problem, the scope, and the approach from a product and
    engineering perspective.
-   - Features and behaviour changes: always need a validated issue. For the Element apps, see
-     [Feature requests](docs/process/feature-requests.md).
+   - Features and behaviour changes: always need a validated issue. For the Element apps and
+     Element Call, the product team decides: see [Feature requests](docs/process/feature-requests.md).
    - Complex bug fixes: need an issue describing the problem and the proposed fix, validated by a
      maintainer.
    - Simple bug fixes: need an issue describing the problem. You can open the PR right away.
@@ -30,4 +30,5 @@ from you, and close PRs that don't meet it:
    yourself. Commit messages may be AI-drafted, but you **must review** them and rewrite them if
    needed. Machine translation and grammar/spelling tools are fine.
 
-**In return**, every PR is reviewed and approved by a **human maintainer**.
+**In return**, every PR is reviewed by a **human maintainer**, and only a human approves or closes
+it.
