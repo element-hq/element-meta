@@ -50,8 +50,12 @@ A PR for a feature or an enhancement must reference an issue that carries the `X
 before writing the code. Bug fixes are welcome without a prior decision. Each app repository's
 `CONTRIBUTING.md` has the details for its codebase.
 
+All contributions, AI-assisted or not, must follow the [AI policy](docs/process/ai-policy.md).
+
 ## Process docs
 
+- [AI policy](docs/process/ai-policy.md): what we expect from every contribution, and when we close
+  a PR.
 - [Feature requests](docs/process/feature-requests.md): where to file them, how they are answered,
   when to write a PR.
 - [Label sync](docs/process/label-sync.md): the reusable workflow that syncs labels across

@@ -12,7 +12,8 @@ from you, and close PRs that don't meet it:
 1. **Start with an issue:** Open an issue and wait for a maintainer to validate it **before** you
    write code. This is how we agree on the problem, the scope, and the approach from a product and
    engineering perspective.
-   - Features and behaviour changes: always need a validated issue.
+   - Features and behaviour changes: always need a validated issue. For the Element apps, see
+     [Feature requests](feature-requests.md).
    - Complex bug fixes: need an issue describing the problem and the proposed fix, validated by a
      maintainer.
    - Simple bug fixes: need an issue describing the problem. You can open the PR right away.
