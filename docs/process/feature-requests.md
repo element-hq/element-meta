@@ -1,7 +1,7 @@
 # Feature requests
 
-This page explains how feature requests for the Element apps (Web/Desktop, Android and iOS) are
-filed, how the product team answers them, and when it makes sense to write code.
+This page explains how feature requests for the Element apps (Web/Desktop, Android and iOS) and
+Element Call are filed, how the product team answers them, and when it makes sense to write code.
 
 The short version: **open an issue, wait for an answer, and only write a PR once the issue says we
 want one.**
@@ -13,17 +13,16 @@ consistent.
 
 | What you want | Where |
 | --- | --- |
-| A new feature, or a change to how an existing feature behaves, for one platform or all of them | [element-meta](https://github.com/element-hq/element-meta/issues/new?template=enhancement.yml) |
-| A bug | the repository where it reproduces: [element-web](https://github.com/element-hq/element-web/issues/new/choose), [element-x-android](https://github.com/element-hq/element-x-android/issues/new/choose) or [element-x-ios](https://github.com/element-hq/element-x-ios/issues/new/choose) |
+| A new feature, or a change to how an existing feature behaves, for one platform or all of them, calls included | [element-meta](https://github.com/element-hq/element-meta/issues/new?template=enhancement.yml) |
+| A bug | the repository where it reproduces: [element-web](https://github.com/element-hq/element-web/issues/new/choose), [element-x-android](https://github.com/element-hq/element-x-android/issues/new/choose) or [element-x-ios](https://github.com/element-hq/element-x-ios/issues/new/choose); [element-call](https://github.com/element-hq/element-call/issues/new/choose) for calls |
 | An SDK API, protocol, performance or crypto concern | [matrix-rust-sdk](https://github.com/matrix-org/matrix-rust-sdk/issues) (Element X on Android and iOS) or [matrix-js-sdk](https://github.com/matrix-org/matrix-js-sdk/issues) (Element Web and Desktop) |
-| Calls | [element-call](https://github.com/element-hq/element-call/issues) |
 | The rich text composer | [matrix-rich-text-editor](https://github.com/element-hq/matrix-rich-text-editor/issues) |
 | The sign-in, sign-up and account management pages opened by your homeserver | [matrix-authentication-service](https://github.com/element-hq/matrix-authentication-service/issues) |
 
-The app repositories hold only bugs and the engineering tasks that deliver a feature, no feature
-requests.
+The app and element-call repositories hold only bugs and the engineering tasks that deliver a
+feature, no feature requests.
 
-The SDK, calls, composer and authentication repositories are not on the triage board described
+The SDK, composer and authentication repositories are not on the triage board described
 below: requests there are agreed with their maintainers and do not go through the process on this
 page.
 
@@ -108,8 +107,8 @@ For example:
 
 The `App:` labels say which platforms a request is for: `App: web`, `App: ElementX Android` and
 `App: ElementX iOS`. New requests start with all three, and triage removes the ones that don't
-apply. As a rule, a feature lands on all platforms, so a PR for one platform may wait for the
-others before it is merged.
+apply. Requests about calls also get `A-Element Call`. As a rule, a feature lands on all platforms,
+so a PR for one platform may wait for the others before it is merged.
 
 ## Before you write code
 

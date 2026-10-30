@@ -7,7 +7,8 @@ product documentation.
 
 ## Feature requests
 
-**This is the place to request a feature or a change for the Element apps**, whatever the platform.
+**This is the place to request a feature or a change for the Element apps**, whatever the platform,
+calls included.
 [Open an enhancement request](https://github.com/element-hq/element-meta/issues/new?template=enhancement.yml).
 
 The product team answers requests on the public
@@ -21,16 +22,15 @@ and they will be closed. Please open an issue instead.
 
 ## Where else to go
 
-- **A bug:** the app repository where it reproduces:
+- **A bug:** the repository where it reproduces:
   [element-web](https://github.com/element-hq/element-web/issues),
   [element-x-android](https://github.com/element-hq/element-x-android/issues) or
-  [element-x-ios](https://github.com/element-hq/element-x-ios/issues).
+  [element-x-ios](https://github.com/element-hq/element-x-ios/issues), and
+  [element-call](https://github.com/element-hq/element-call/issues) for calls.
 - **An SDK API, protocol, performance or crypto concern:**
   [matrix-rust-sdk](https://github.com/matrix-org/matrix-rust-sdk/issues) for Element X on Android
   and iOS, [matrix-js-sdk](https://github.com/matrix-org/matrix-js-sdk/issues) for Element Web and
   Desktop.
-- **Calls:** [element-call](https://github.com/element-hq/element-call/issues), which provides
-  calls in all three apps.
 - **The rich text composer:**
   [matrix-rich-text-editor](https://github.com/element-hq/matrix-rich-text-editor/issues), shared
   by all three apps.
