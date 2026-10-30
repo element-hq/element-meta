@@ -8,7 +8,7 @@
 # Generate a Markdown report of the Localazy strings which are not used by Element X Android and/or by Element X iOS.
 # The latest develop branch of the Element X Android and Element X iOS projects is cloned (or updated) in the build/repos folder.
 # Requires git, and the Localazy CLI to get the actual Localazy keys.
-# Usage: ./tools/localazy/generateLocalazyReport.py [--output build/localazy/LocalazyReport.md]
+# Usage: ./tools/localazy/generateLocalazyReport.py [--output tools/localazy/LocalazyReport.md]
 
 import argparse
 import datetime
@@ -22,7 +22,7 @@ import xml.etree.ElementTree as ET
 
 META_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 REPOS_DIR = os.path.join(META_ROOT, "build", "repos")
-DEFAULT_OUTPUT = os.path.join(META_ROOT, "build", "localazy", "LocalazyReport.md")
+DEFAULT_OUTPUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "LocalazyReport.md")
 BRANCH = "develop"
 LOCALAZY_READ_KEY = "a7876306080832595063-aa37154bb3772f6146890fca868d155b2228b492c56c91f67abdcdfb74d6142d"
 PLURAL_QUANTITIES = ("zero", "one", "two", "few", "many", "other")
