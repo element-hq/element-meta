@@ -1,0 +1,80 @@
+name: Sync accepting labels
+
+# Mirror the Feature Requests Triage board on the issues: X-Accepting-PRs for ✅ Do it,
+# X-Accepting-PoC-PRs for 🧪 Let's try. The board is the source of truth.
+# GitHub sends no Actions event when a card moves, so this runs on a schedule.
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Hourly, Monday to Friday, covering European working hours.
+    - cron: "0 7-17 * * 1-5"
+
+permissions: {}
+
+jobs:
+  sync:
+    name: Sync labels from the board
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
+        with:
+          github-token: ${{ secrets.ELEMENT_BOT_TOKEN }}
+          script: |
+            const STATUS_LABELS = {
+              "✅ Do it": "X-Accepting-PRs",
+              "🧪 Let's try": "X-Accepting-PoC-PRs",
+            };
+            const repo = `${context.repo.owner}/${context.repo.repo}`;
+
+            // Open issues of this repo that the board says should carry each label.
+            const wanted = Object.fromEntries(Object.values(STATUS_LABELS).map((label) => [label, new Set()]));
+            let cursor = null;
+            do {
+              const { organization } = await github.graphql(`
+                query($cursor: String) {
+                  organization(login: "element-hq") {
+                    projectV2(number: 168) {
+                      items(first: 100, after: $cursor) {
+                        pageInfo { hasNextPage endCursor }
+                        nodes {
+                          status: fieldValueByName(name: "Status") {
+                            ... on ProjectV2ItemFieldSingleSelectValue { name }
+                          }
+                          content {
+                            ... on Issue { number state repository { nameWithOwner } }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }`, { cursor });
+              const items = organization.projectV2.items;
+              for (const { status, content } of items.nodes) {
+                const label = STATUS_LABELS[status?.name];
+                if (label && content?.repository?.nameWithOwner === repo && content.state === "OPEN") {
+                  wanted[label].add(content.number);
+                }
+              }
+              cursor = items.pageInfo.hasNextPage ? items.pageInfo.endCursor : null;
+            } while (cursor);
+
+            for (const [label, numbers] of Object.entries(wanted)) {
+              const labelled = await github.paginate(github.rest.issues.listForRepo, {
+                ...context.repo, labels: label, state: "open", per_page: 100,
+              });
+              const current = new Set(labelled.filter((i) => !i.pull_request).map((i) => i.number));
+
+              for (const number of numbers) {
+                if (!current.has(number)) {
+                  await github.rest.issues.addLabels({ ...context.repo, issue_number: number, labels: [label] });
+                  core.info(`#${number}: added ${label}`);
+                }
+              }
+              for (const number of current) {
+                if (!numbers.has(number)) {
+                  await github.rest.issues.removeLabel({ ...context.repo, issue_number: number, name: label });
+                  core.info(`#${number}: removed ${label}`);
+                }
+              }
+            }
