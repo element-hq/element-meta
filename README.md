@@ -60,13 +60,3 @@ Syncing labels
 ```
 
 If so, just do as the message says and execute the workflow again after a few minutes to let it apply the leftover changes. From here on labels should be kept in sync automatically.
-
-## Check unused Localazy strings
-
-[checkUnusedStrings.py](tools/localazy/checkUnusedStrings.py) generates a Markdown report of the [Localazy](https://localazy.com/p/element) strings which are used neither by [Element X Android](https://github.com/element-hq/element-x-android) nor by [Element X iOS](https://github.com/element-hq/element-x-ios), with a link to Localazy for each unused string.
-
-It requires local checkouts of both projects, next to this project by default, and the [Localazy CLI](https://localazy.com/docs/cli/installation) to get the actual Localazy keys. Run:
-
-```shell
-./tools/localazy/checkUnusedStrings.py [--android ../element-x-android] [--ios ../element-x-ios] [--output unusedStrings.md]
-```

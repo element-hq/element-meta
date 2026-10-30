@@ -5,9 +5,10 @@
 # SPDX-License-Identifier: AGPL-3.0-only OR LicenseRef-Element-Commercial.
 # Please see LICENSE files in the repository root for full details.
 
-# Generate a Markdown report of the Localazy strings which are not used by Element X Android nor by Element X iOS.
-# Requires local checkouts of the Element X Android and Element X iOS projects, and the Localazy CLI to get the actual Localazy keys.
-# Usage: ./tools/localazy/checkUnusedStrings.py [--android ../element-x-android] [--ios ../element-x-ios] [--output unusedStrings.md]
+# Generate a Markdown report of the Localazy strings which are not used by Element X Android and/or by Element X iOS.
+# The latest develop branch of the Element X Android and Element X iOS projects is cloned (or updated) in the build/repos folder.
+# Requires git, and the Localazy CLI to get the actual Localazy keys.
+# Usage: ./tools/localazy/generateLocalazyReport.py [--output build/localazy/LocalazyReport.md]
 
 import argparse
 import datetime
@@ -20,11 +21,33 @@ import tempfile
 import xml.etree.ElementTree as ET
 
 META_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+REPOS_DIR = os.path.join(META_ROOT, "build", "repos")
+DEFAULT_OUTPUT = os.path.join(META_ROOT, "build", "localazy", "LocalazyReport.md")
+BRANCH = "develop"
 LOCALAZY_READ_KEY = "a7876306080832595063-aa37154bb3772f6146890fca868d155b2228b492c56c91f67abdcdfb74d6142d"
 PLURAL_QUANTITIES = ("zero", "one", "two", "few", "many", "other")
 IOS_LOCALIZATIONS = "ElementX/Resources/Localizations/en.lproj"
 IOS_GENERATED_STRINGS = "ElementX/Sources/Generated/Strings.swift"
 IOS_SKIPPED_ROOT_DIRS = ("UnitTests", "UITests", "PreviewTests", "IntegrationTests", "AccessibilityTests")
+
+
+# Clone the latest develop branch of the element-hq project in the build/repos folder, or update it if already cloned,
+# and return its path. LFS files are not downloaded, they are not needed.
+def checkoutProject(name):
+    path = os.path.join(REPOS_DIR, name)
+    env = dict(os.environ, GIT_LFS_SKIP_SMUDGE="1")
+    if os.path.isdir(os.path.join(path, ".git")):
+        print(f"Updating {name}…", file=sys.stderr)
+        subprocess.run(["git", "-C", path, "fetch", "--quiet", "--depth", "1", "origin", BRANCH], check=True, env=env)
+        subprocess.run(["git", "-C", path, "reset", "--quiet", "--hard", "FETCH_HEAD"], check=True, env=env)
+        subprocess.run(["git", "-C", path, "clean", "-fdx", "--quiet"], check=True, env=env)
+    else:
+        print(f"Cloning {name}…", file=sys.stderr)
+        subprocess.run([
+            "git", "clone", "--quiet", "--depth", "1", "--branch", BRANCH, "--single-branch",
+            f"https://github.com/element-hq/{name}.git", path,
+        ], check=True, env=env)
+    return path
 
 
 # Yield the paths of the files under root with one of the given extensions, ignoring hidden and build folders,
@@ -197,9 +220,12 @@ def getLocalazyKeys():
     return result
 
 
-# Return the short hash of the current commit of the git repository.
-def getSha(repo):
-    return subprocess.check_output(["git", "-C", repo, "rev-parse", "--short", "HEAD"], text=True).strip()
+# Return a Markdown link to the current commit of the element-hq project cloned by checkoutProject(), on GitHub.
+# Example: [`58dd508c`](https://github.com/element-hq/element-x-android/commit/58dd508c...).
+def getCommitLink(repo):
+    sha = subprocess.check_output(["git", "-C", repo, "rev-parse", "HEAD"], text=True).strip()
+    shortSha = subprocess.check_output(["git", "-C", repo, "rev-parse", "--short", "HEAD"], text=True).strip()
+    return f"[`{shortSha}`](https://github.com/element-hq/{os.path.basename(repo)}/commit/{sha})"
 
 
 # Format a string value so that it fits in a Markdown table cell: remove the surrounding quotes, replace the line breaks
@@ -214,19 +240,13 @@ def formatValue(value):
     return value if len(value) <= 120 else value[:117] + "…"
 
 
-# Find the keys used neither on Android nor on iOS, and write the Markdown report.
+# Find the keys unused on Android and/or on iOS, and write the Markdown report.
 def main():
-    parser = argparse.ArgumentParser(description="Generate a report of the Localazy strings unused by both Element X Android and Element X iOS.")
-    parser.add_argument("--android", default=os.path.join(META_ROOT, "..", "element-x-android"), help="Path to the Element X Android project")
-    parser.add_argument("--ios", default=os.path.join(META_ROOT, "..", "element-x-ios"), help="Path to the Element X iOS project")
-    parser.add_argument("--output", default="unusedStrings.md", help="Path to the generated Markdown file")
+    parser = argparse.ArgumentParser(description="Generate a report of the Localazy strings unused by Element X Android and/or Element X iOS.")
+    parser.add_argument("--output", default=DEFAULT_OUTPUT, help="Path to the generated Markdown file")
     args = parser.parse_args()
-    androidRoot = os.path.abspath(args.android)
-    if not os.path.isdir(os.path.join(androidRoot, "libraries", "ui-strings")):
-        sys.exit(f"Element X Android project not found at {androidRoot}, use --android to set its path")
-    iosRoot = os.path.abspath(args.ios)
-    if not os.path.isdir(os.path.join(iosRoot, IOS_LOCALIZATIONS)):
-        sys.exit(f"Element X iOS project not found at {iosRoot}, use --ios to set its path")
+    androidRoot = checkoutProject("element-x-android")
+    iosRoot = checkoutProject("element-x-ios")
 
     androidStrings = getAndroidStrings(androidRoot)
     iosStrings = getIosStrings(iosRoot)
@@ -248,46 +268,81 @@ def main():
     displayKeys = {key: key for key in androidStrings}
     displayKeys.update(iosKeysByNormalizedKey)
     allKeys = sorted(displayKeys)
-    unusedKeys = [
-        key for key in allKeys
-        if not (key in androidStrings and key in androidWords)
-        and not (key in iosKeysByNormalizedKey and isUsedOnIos(iosKeysByNormalizedKey[key]))
+
+    # Keys with a platform suffix are only imported by that platform, so they count as used on the other one
+    def isUsedOnAndroidOrIgnored(key):
+        return key.endswith("_ios") or (key in androidStrings and key in androidWords)
+
+    def isUsedOnIosOrIgnored(key):
+        return key.endswith("_android") or (key in iosKeysByNormalizedKey and isUsedOnIos(iosKeysByNormalizedKey[key]))
+
+    sections = [
+        (
+            "Unused strings",
+            "Strings used neither by Element X Android nor by Element X iOS. They can probably be removed from Localazy.",
+            [key for key in allKeys if not isUsedOnAndroidOrIgnored(key) and not isUsedOnIosOrIgnored(key)],
+        ),
+        (
+            "Strings not used on Android",
+            "Strings used by Element X iOS but not by Element X Android. Keys with the `_android` suffix can probably be removed. "
+            "For the other keys, this can be a difference between the implementations of both projects, or a feature not implemented "
+            "yet on Android. If the difference is expected, the key can be renamed with the `_ios` suffix.",
+            [key for key in allKeys if isUsedOnIosOrIgnored(key) and not isUsedOnAndroidOrIgnored(key)],
+        ),
+        (
+            "Strings not used on iOS",
+            "Strings used by Element X Android but not by Element X iOS. Keys with the `_ios` suffix can probably be removed. "
+            "For the other keys, this can be a difference between the implementations of both projects, or a feature not implemented "
+            "yet on iOS. If the difference is expected, the key can be renamed with the `_android` suffix.",
+            [key for key in allKeys if isUsedOnAndroidOrIgnored(key) and not isUsedOnIosOrIgnored(key)],
+        ),
     ]
 
+    def tableLines(keys):
+        lines = ["| Key | English value | Localazy |", "|---|---|---|"]
+        # Keys with a platform suffix first, the sort is stable so the keys stay sorted in each group
+        for key in sorted(keys, key=lambda k: not k.endswith(("_android", "_ios"))):
+            value = androidStrings[key] if key in androidStrings else iosStrings.get(displayKeys[key])
+            displayKey = localazyKeys.get(key, displayKeys[key])
+            lines.append(
+                f"| `{displayKey}` | {formatValue(value)} "
+                f"| [link](https://localazy.com/p/element/source-language?search={displayKey}&searchOptions=KEY,EXACT_MATCH) |"
+            )
+        return lines
+
     lines = [
-        "# Unused strings",
+        "# Localazy report",
         "",
-        f"Localazy keys that are not used by Element X Android (`{getSha(androidRoot)}`) or Element X iOS (`{getSha(iosRoot)}`), "
-        f"generated on {datetime.date.today().isoformat()}.",
+        f"Usage of the Localazy strings by Element X Android (`{BRANCH}` at {getCommitLink(androidRoot)}) "
+        f"and Element X iOS (`{BRANCH}` at {getCommitLink(iosRoot)}), generated on {datetime.date.today().isoformat()}, "
+        f"out of {len(allKeys)} keys found in the English string files of both projects:",
         "",
-        f"**{len(unusedKeys)}** unused keys, out of {len(allKeys)} keys found in the English string files of both projects.",
+    ]
+    lines += [f"- [{title}](#{title.lower().replace(' ', '-')}): **{len(keys)}** keys" for title, _, keys in sections]
+    lines += [
         "",
         "How this was computed:",
         "- Android: a key counts as used when it appears as a word in production `.kt`, `.kts` or `.xml` files "
         "(excluding `res/values*/`, `src/test`, `src/androidTest` and `tools/`).",
         "- iOS: a key counts as used when its SwiftGen accessor (`L10n.xxx`) or the raw key literal appears in production `.swift` files "
         "(excluding `Sources/Generated`, `UnitTests`, `UITests`, `PreviewTests`, `IntegrationTests` and `AccessibilityTests`).",
-        "- The Android and iOS columns say whether the key is in that platform's English string files.",
+        "- Keys with the `_android` suffix are not imported in the iOS project, and keys with the `_ios` suffix are not imported "
+        "in the Android project, so they are only checked on their platform.",
         "",
-        "Caveats: keys built dynamically at runtime are not detected, so check each key before you delete it. "
+        "Caveats: keys built dynamically at runtime are not detected, so check each key before you change it. "
         "A string used only in tests counts as unused.",
-        "",
-        "| Key | English value | Android | iOS | Localazy |",
-        "|---|---|---|---|---|",
     ]
-    for key in unusedKeys:
-        value = androidStrings[key] if key in androidStrings else iosStrings.get(displayKeys[key])
-        displayKey = localazyKeys.get(key, displayKeys[key])
-        lines.append(
-            f"| `{displayKey}` | {formatValue(value)} "
-            f"| {'present' if key in androidStrings else 'absent'} "
-            f"| {'present' if key in iosKeysByNormalizedKey else 'absent'} "
-            f"| [link](https://localazy.com/p/element/source-language?search={displayKey}) |"
-        )
+    for title, description, keys in sections:
+        lines += ["", f"## {title}", "", f"{description} **{len(keys)}** keys.", ""]
+        # The blank line after the summary is required by GitHub to render the Markdown table
+        lines += ["<details>", f"<summary>Show the {len(keys)} keys</summary>", ""]
+        lines += tableLines(keys)
+        lines += ["", "</details>"]
+    os.makedirs(os.path.dirname(os.path.abspath(args.output)), exist_ok=True)
     with open(args.output, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
-    print(f"{len(unusedKeys)} unused keys out of {len(allKeys)}, report written to {args.output}")
-
+    counts = ", ".join(f"{len(keys)} {title[0].lower() + title[1:]}" for title, _, keys in sections)
+    print(f"{counts}, out of {len(allKeys)} keys, report written to {args.output}")
 
 if __name__ == "__main__":
     main()
