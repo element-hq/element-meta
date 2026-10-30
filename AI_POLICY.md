@@ -18,8 +18,8 @@ from you, and close PRs that don't meet it:
 3. **Accountability:** You are fully responsible for the quality of the PR. **You must thoroughly
    review the code yourself** to ensure that you understand every change and that it is of high
    quality. It is unfair to leave the burden of this with the reviewer. If a PR doesn't show
-   **effort** (code does not compile, code does not work as expected, code with no test, no screen
-   records or screenshots, etc.) on your part, it will be closed.
+   **effort** on your part (code does not compile, code does not work as expected, code with no
+   test, no screen recordings or screenshots, etc.), it will be closed.
 4. **Communication is yours:** Issues, PR descriptions, commit messages and review replies must
    reflect your own understanding. **Don't paste LLM essays.** Keep them short and write them
    yourself. Commit messages may be AI-drafted, but you **must review** them and rewrite them if
