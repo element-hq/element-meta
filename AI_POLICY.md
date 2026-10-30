@@ -1,5 +1,9 @@
 # AI policy
 
+This policy applies to contributions to all Element projects: the repositories of
+[element-hq](https://github.com/element-hq), and the [matrix-org](https://github.com/matrix-org)
+repositories where Element is the core contributor.
+
 Contributions are judged on their content, not on how they were produced. AI-assisted contributions
 are accepted; unreviewed AI output is not. AI is a tool, not a substitute for your own engineering
 judgement. The rules below apply regardless of how the code was written. We expect the following
