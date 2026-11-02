@@ -6,7 +6,8 @@
 # Please see LICENSE files in the repository root for full details.
 
 # Generate a Markdown report of the Localazy strings which are not used by Element X Android and/or by Element X iOS.
-# The latest develop branch of the Element X Android and Element X iOS projects is cloned (or updated) in the build/repos folder.
+# The latest develop branch of the Element X Android and Element X iOS projects is cloned (or updated) in the build/repos folder,
+# with its full history, to know when each string was added.
 # Requires git, and the Localazy CLI to get the actual Localazy keys.
 # Usage: ./tools/localazy/generateLocalazyReport.py [--output tools/localazy/LocalazyReport.md]
 
@@ -24,6 +25,7 @@ META_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 REPOS_DIR = os.path.join(META_ROOT, "build", "repos")
 DEFAULT_OUTPUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "LocalazyReport.md")
 BRANCH = "develop"
+RECENT_DAYS = 90
 LOCALAZY_READ_KEY = "a7876306080832595063-aa37154bb3772f6146890fca868d155b2228b492c56c91f67abdcdfb74d6142d"
 PLURAL_QUANTITIES = ("zero", "one", "two", "few", "many", "other")
 IOS_LOCALIZATIONS = "ElementX/Resources/Localizations/en.lproj"
@@ -32,19 +34,22 @@ IOS_SKIPPED_ROOT_DIRS = ("UnitTests", "UITests", "PreviewTests", "IntegrationTes
 
 
 # Clone the latest develop branch of the element-hq project in the build/repos folder, or update it if already cloned,
-# and return its path. LFS files are not downloaded, they are not needed.
+# and return its path. The full history is needed to know when each string was added (see getKeyAddedDates()).
+# LFS files are not downloaded, they are not needed.
 def checkoutProject(name):
     path = os.path.join(REPOS_DIR, name)
     env = dict(os.environ, GIT_LFS_SKIP_SMUDGE="1")
     if os.path.isdir(os.path.join(path, ".git")):
         print(f"Updating {name}…", file=sys.stderr)
-        subprocess.run(["git", "-C", path, "fetch", "--quiet", "--depth", "1", "origin", BRANCH], check=True, env=env)
+        isShallow = subprocess.check_output(["git", "-C", path, "rev-parse", "--is-shallow-repository"], text=True).strip() == "true"
+        unshallow = ["--unshallow"] if isShallow else []
+        subprocess.run(["git", "-C", path, "fetch", "--quiet", *unshallow, "origin", BRANCH], check=True, env=env)
         subprocess.run(["git", "-C", path, "reset", "--quiet", "--hard", "FETCH_HEAD"], check=True, env=env)
         subprocess.run(["git", "-C", path, "clean", "-fdx", "--quiet"], check=True, env=env)
     else:
         print(f"Cloning {name}…", file=sys.stderr)
         subprocess.run([
-            "git", "clone", "--quiet", "--depth", "1", "--branch", BRANCH, "--single-branch",
+            "git", "clone", "--quiet", "--branch", BRANCH, "--single-branch",
             f"https://github.com/element-hq/{name}.git", path,
         ], check=True, env=env)
     return path
@@ -228,6 +233,29 @@ def getCommitLink(repo):
     return f"[`{shortSha}`](https://github.com/element-hq/{os.path.basename(repo)}/commit/{sha})"
 
 
+# Return a dict mapping each flattened key to the date (YYYY-MM-DD) of the first commit which added it to the files
+# matching pathspecs, by going through the git history from the oldest commit. Only the keys in knownKeys are kept.
+# Example: for Android, the diff line `+    <string name="action_copy">"Copy"</string>` of a commit of 2023-05-12,
+# in any `localazy.xml` file, gives {"action_copy": "2023-05-12"}, even if the key was later moved to another module.
+def getKeyAddedDates(repo, pathspecs, pattern, knownKeys):
+    result = {}
+    log = subprocess.run(
+        ["git", "-C", repo, "log", "--reverse", "--format=commit %cs", "-p", "--no-color", "--", *pathspecs],
+        check=True, capture_output=True, text=True, encoding="utf-8", errors="ignore",
+    ).stdout
+    date = None
+    for line in log.splitlines():
+        if line.startswith("commit "):
+            date = line[len("commit "):]
+        elif line.startswith("+"):
+            match = re.match(pattern, line)
+            if match:
+                key = next(group for group in match.groups() if group)
+                if key in knownKeys:
+                    result.setdefault(key.replace(".", "_"), date)
+    return result
+
+
 # Format a string value so that it fits in a Markdown table cell: remove the surrounding quotes, replace the line breaks
 # with spaces, escape the pipes, unescape the quotes and truncate to 120 characters.
 # Example: `"Don\'t | stop\nnow"` gives `Don't \| stop now`.
@@ -254,6 +282,14 @@ def main():
     androidWords = getAndroidUsedWords(androidRoot)
     iosWords, iosLiterals = getIosUsedWordsAndLiterals(iosRoot)
     localazyKeys = getLocalazyKeys()
+    androidAddedDates = getKeyAddedDates(
+        androidRoot, [":(glob)**/src/main/res/values/localazy.xml"],
+        r'^\+\s*<(?:string|plurals) name="([^"]+)"', androidStrings,
+    )
+    iosAddedDates = getKeyAddedDates(
+        iosRoot, [":(glob)**/en.lproj/Localizable.strings", ":(glob)**/en.lproj/Localizable.stringsdict"],
+        r'^\+"((?:[^"\\]|\\.)+)"\s*=|^\+\s*<key>([^<]+)</key>', iosStrings,
+    )
 
     missingAccessors = [key for key in iosStrings if key not in iosAccessors]
     if missingAccessors:
@@ -282,6 +318,17 @@ def main():
     # Short strings are generic enough to be reused in the future
     def isShort(key):
         return len(formatValue(englishValue(key)).split()) <= 3
+
+    # The key was added to Localazy a bit before it was first synced to one of the projects
+    def addedDate(key):
+        dates = [d for d in (androidAddedDates.get(key), iosAddedDates.get(key)) if d]
+        return min(dates) if dates else None
+
+    recentLimit = (datetime.date.today() - datetime.timedelta(days=RECENT_DAYS)).isoformat()
+
+    def isRecent(key):
+        date = addedDate(key)
+        return date is not None and date >= recentLimit
 
     unusedKeys = [key for key in allKeys if not isUsedOnAndroidOrIgnored(key) and not isUsedOnIosOrIgnored(key)]
     sections = [
@@ -314,12 +361,13 @@ def main():
     ]
 
     def tableLines(keys):
-        lines = ["| Key | English value | Localazy |", "|---|---|---|"]
+        lines = ["| Key | English value | Added | Localazy |", "|---|---|---|---|"]
         # Keys with a platform suffix first, the sort is stable so the keys stay sorted in each group
         for key in sorted(keys, key=lambda k: not k.endswith(("_android", "_ios"))):
             displayKey = localazyKeys.get(key, displayKeys[key])
+            added = (addedDate(key) or "?") + (" 🆕" if isRecent(key) else "")
             lines.append(
-                f"| `{displayKey}` | {formatValue(englishValue(key))} "
+                f"| `{displayKey}` | {formatValue(englishValue(key))} | {added} "
                 f"| [link](https://localazy.com/p/element/source-language?search={displayKey}&searchOptions=KEY,EXACT_MATCH) |"
             )
         return lines
@@ -346,6 +394,10 @@ def main():
         "Caveats: keys built dynamically at runtime are not detected, so check each key before you change it. "
         "A string used only in tests counts as unused. Only the `develop` branch of both projects is analysed, "
         "so a string added to Localazy for a feature not merged yet (still in a pull request or in a branch) counts as unused.",
+        "",
+        "The *Added* column is the date of the first commit adding the key to the English string files of either project, "
+        f"which is close to the date the key was added to Localazy. 🆕 marks the keys added in the last {RECENT_DAYS} days, "
+        "which may be used by a feature still in development.",
     ]
     for title, description, keys in sections:
         lines += ["", f"## {title}", "", f"{description} **{len(keys)}** keys.", ""]
@@ -357,7 +409,9 @@ def main():
     with open(args.output, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
     counts = ", ".join(f"{len(keys)} {title[0].lower() + title[1:]}" for title, _, keys in sections)
-    print(f"{counts}, out of {len(allKeys)} keys, report written to {args.output}")
+    recentUnusedCount = sum(1 for key in unusedKeys if isRecent(key))
+    print(f"{counts}, out of {len(allKeys)} keys ({recentUnusedCount} unused keys added in the last {RECENT_DAYS} days), "
+          f"report written to {args.output}")
 
 if __name__ == "__main__":
     main()

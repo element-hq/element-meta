@@ -8,7 +8,9 @@
 
 Keys with the `_android` suffix are not imported in the iOS project, and keys with the `_ios` suffix are not imported in the Android project, so they are only checked on their platform.
 
-The script clones the latest `develop` branch of both projects in the `build/repos` folder of this repository (git ignored), or updates them if they are already there. The report is written to [LocalazyReport.md](LocalazyReport.md), next to the script, by default. It is committed so that it can be read on GitHub, since it is too large for a GitHub issue. To refresh it, run the script again and commit the result. It requires `git`, and the [Localazy CLI](https://localazy.com/docs/cli/installation) to get the actual Localazy keys. From the root of this repository, run:
+For each key, the report also gives the date of the first commit adding it to the English string files of either project, which is close to the date the key was added to Localazy. Keys added in the last 90 days are marked with 🆕, since they may be used by a feature still in development.
+
+The script clones the latest `develop` branch of both projects, with their full history, in the `build/repos` folder of this repository (git ignored), or updates them if they are already there. The first run is slower because of the clones. The report is written to [LocalazyReport.md](LocalazyReport.md), next to the script, by default. It is committed so that it can be read on GitHub, since it is too large for a GitHub issue. To refresh it, run the script again and commit the result. It requires `git`, and the [Localazy CLI](https://localazy.com/docs/cli/installation) to get the actual Localazy keys. From the root of this repository, run:
 
 ```shell
 ./tools/localazy/generateLocalazyReport.py [--output tools/localazy/LocalazyReport.md]
