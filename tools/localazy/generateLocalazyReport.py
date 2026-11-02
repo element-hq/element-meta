@@ -288,7 +288,7 @@ def main():
         (
             "Unused strings",
             "Strings with more than 3 words, used neither by Element X Android nor by Element X iOS. "
-            "They can probably be removed from Localazy.",
+            "They can probably be removed from Localazy, unless they are for a feature not merged yet.",
             [key for key in unusedKeys if not isShort(key)],
         ),
         (
@@ -344,7 +344,8 @@ def main():
         "in the Android project, so they are only checked on their platform.",
         "",
         "Caveats: keys built dynamically at runtime are not detected, so check each key before you change it. "
-        "A string used only in tests counts as unused.",
+        "A string used only in tests counts as unused. Only the `develop` branch of both projects is analysed, "
+        "so a string added to Localazy for a feature not merged yet (still in a pull request or in a branch) counts as unused.",
     ]
     for title, description, keys in sections:
         lines += ["", f"## {title}", "", f"{description} **{len(keys)}** keys.", ""]
