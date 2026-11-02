@@ -1,10 +1,11 @@
 # Localazy report
 
-Usage of the Localazy strings by Element X Android (`develop` at [`b5832472`](https://github.com/element-hq/element-x-android/commit/b58324725868691ba4ab6ce1b24dc66924949b0c)) and Element X iOS (`develop` at [`d87d74d`](https://github.com/element-hq/element-x-ios/commit/d87d74d2c0e0fe8a2cf2b8ad10b3690e24c544cd)), generated on 2026-10-30, out of 1937 keys found in the English string files of both projects:
+Usage of the Localazy strings by Element X Android (`develop` at [`bb79064b`](https://github.com/element-hq/element-x-android/commit/bb79064b2250aab4a3c14fb7664bdb5668694c26)) and Element X iOS (`develop` at [`1474cb3`](https://github.com/element-hq/element-x-ios/commit/1474cb353df1d36a33be03ef039df990ed9bad0e)), generated on 2026-11-02, out of 1889 keys found in the English string files of both projects:
 
-- [Unused strings](#unused-strings): **244** keys
-- [Strings not used on Android](#strings-not-used-on-android): **188** keys
-- [Strings not used on iOS](#strings-not-used-on-ios): **359** keys
+- [Unused strings](#unused-strings): **84** keys
+- [Short unused strings](#short-unused-strings): **107** keys
+- [Strings not used on Android](#strings-not-used-on-android): **193** keys
+- [Strings not used on iOS](#strings-not-used-on-ios): **357** keys
 
 How this was computed:
 - Android: a key counts as used when it appears as a word in production `.kt`, `.kts` or `.xml` files (excluding `res/values*/`, `src/test`, `src/androidTest` and `tools/`).
@@ -15,40 +16,122 @@ Caveats: keys built dynamically at runtime are not detected, so check each key b
 
 ## Unused strings
 
-Strings used neither by Element X Android nor by Element X iOS. They can probably be removed from Localazy. **244** keys.
+Strings with more than 3 words, used neither by Element X Android nor by Element X iOS. They can probably be removed from Localazy. **84** keys.
 
 <details>
-<summary>Show the 244 keys</summary>
+<summary>Show the 84 keys</summary>
+
+| Key | English value | Localazy |
+|---|---|---|
+| `crypto.history_visible` | This room has been configured so that new members can read history. %1$s | [link](https://localazy.com/p/element/source-language?search=crypto.history_visible&searchOptions=KEY,EXACT_MATCH) |
+| `crypto.identity_change.pin_violation` | %1$s's digital identity was reset. %2$s | [link](https://localazy.com/p/element/source-language?search=crypto.identity_change.pin_violation&searchOptions=KEY,EXACT_MATCH) |
+| `full_screen_intent_banner_message` | To ensure you never miss an important call, please change your settings to allow full-screen notifications when your … | [link](https://localazy.com/p/element/source-language?search=full_screen_intent_banner_message&searchOptions=KEY,EXACT_MATCH) |
+| `full_screen_intent_banner_title` | Enhance your call experience | [link](https://localazy.com/p/element/source-language?search=full_screen_intent_banner_title&searchOptions=KEY,EXACT_MATCH) |
+| `notification_unread_notified_messages` | %d unread notified messages | [link](https://localazy.com/p/element/source-language?search=notification_unread_notified_messages&searchOptions=KEY,EXACT_MATCH) |
+| `notification_unread_notified_messages_in_room_and_invitation` | %1$s in %2$s and %3$s | [link](https://localazy.com/p/element/source-language?search=notification_unread_notified_messages_in_room_and_invitation&searchOptions=KEY,EXACT_MATCH) |
+| `rich_text_editor.full_screen_toggle` | Toggle full screen mode | [link](https://localazy.com/p/element/source-language?search=rich_text_editor.full_screen_toggle&searchOptions=KEY,EXACT_MATCH) |
+| `screen.bottom_sheet.manage_room_member.remove_confirmation_title` | Remove member and ban from joining in the future? | [link](https://localazy.com/p/element/source-language?search=screen.bottom_sheet.manage_room_member.remove_confirmation_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_bug_report_editor_supporting` | If possible, please write the description in English. | [link](https://localazy.com/p/element/source-language?search=screen_bug_report_editor_supporting&searchOptions=KEY,EXACT_MATCH) |
+| `screen_bug_report_rash_logs_alert_title` | %1$s crashed the last time it was used. Would you like to share a crash report with us? | [link](https://localazy.com/p/element/source-language?search=screen_bug_report_rash_logs_alert_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_change_account_provider_subtitle` | Use a different account provider, such as your own private server or a work account. | [link](https://localazy.com/p/element/source-language?search=screen_change_account_provider_subtitle&searchOptions=KEY,EXACT_MATCH) |
+| `screen_change_server_form_notice` | Enter a domain address. | [link](https://localazy.com/p/element/source-language?search=screen_change_server_form_notice&searchOptions=KEY,EXACT_MATCH) |
+| `screen_change_server_subtitle` | What is the address of your server? | [link](https://localazy.com/p/element/source-language?search=screen_change_server_subtitle&searchOptions=KEY,EXACT_MATCH) |
+| `screen_chat_backup_key_storage_toggle_description` | Upload keys from this device | [link](https://localazy.com/p/element/source-language?search=screen_chat_backup_key_storage_toggle_description&searchOptions=KEY,EXACT_MATCH) |
+| `screen_create_new_recovery_key_list_item_1` | Open %1$s on a desktop device | [link](https://localazy.com/p/element/source-language?search=screen_create_new_recovery_key_list_item_1&searchOptions=KEY,EXACT_MATCH) |
+| `screen_create_new_recovery_key_list_item_2` | Sign into your account again | [link](https://localazy.com/p/element/source-language?search=screen_create_new_recovery_key_list_item_2&searchOptions=KEY,EXACT_MATCH) |
+| `screen_create_new_recovery_key_list_item_3` | When asked to verify your device, select %1$s | [link](https://localazy.com/p/element/source-language?search=screen_create_new_recovery_key_list_item_3&searchOptions=KEY,EXACT_MATCH) |
+| `screen_create_new_recovery_key_list_item_4` | Follow the instructions to create a new recovery key | [link](https://localazy.com/p/element/source-language?search=screen_create_new_recovery_key_list_item_4&searchOptions=KEY,EXACT_MATCH) |
+| `screen_create_new_recovery_key_list_item_5` | Save your new recovery key in a password manager or encrypted note | [link](https://localazy.com/p/element/source-language?search=screen_create_new_recovery_key_list_item_5&searchOptions=KEY,EXACT_MATCH) |
+| `screen_create_new_recovery_key_title` | Reset the encryption for your account using another device | [link](https://localazy.com/p/element/source-language?search=screen_create_new_recovery_key_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_create_room_private_option_description` | Only people invited can join. | [link](https://localazy.com/p/element/source-language?search=screen_create_room_private_option_description&searchOptions=KEY,EXACT_MATCH) |
+| `screen_create_room_public_option_description` | Anyone can find this room. You can change this anytime in room settings. | [link](https://localazy.com/p/element/source-language?search=screen_create_room_public_option_description&searchOptions=KEY,EXACT_MATCH) |
+| `screen.create_room.public_option_short_description` | Anyone can join, including people outside your organisation. | [link](https://localazy.com/p/element/source-language?search=screen.create_room.public_option_short_description&searchOptions=KEY,EXACT_MATCH) |
+| `screen.custom_recovery_key.confirm.error.mismatch` | The recovery key you entered doesn't match | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.confirm.error.mismatch&searchOptions=KEY,EXACT_MATCH) |
+| `screen.custom_recovery_key.confirm.subtitle` | Enter your recovery key again. | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.confirm.subtitle&searchOptions=KEY,EXACT_MATCH) |
+| `screen.custom_recovery_key.confirm.title` | Confirm your recovery key | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.confirm.title&searchOptions=KEY,EXACT_MATCH) |
+| `screen.custom_recovery_key.input.notice` | Minimum %1$d characters. Do not use your account password | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.input.notice&searchOptions=KEY,EXACT_MATCH) |
+| `screen.custom_recovery_key.input.subtitle` | Choose a recovery key that you can memorize. | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.input.subtitle&searchOptions=KEY,EXACT_MATCH) |
+| `screen.custom_recovery_key.input.title` | Enter a recovery key | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.input.title&searchOptions=KEY,EXACT_MATCH) |
+| `screen.custom_recovery_key.loading.a11y` | Loading recovery key requirements | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.loading.a11y&searchOptions=KEY,EXACT_MATCH) |
+| `screen.custom_recovery_key.success.notice` | To change your recovery key, go to Settings → Encryption → Backup | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.success.notice&searchOptions=KEY,EXACT_MATCH) |
+| `screen.custom_recovery_key.success.subtitle` | You can use your recovery key to confirm new devices or restore your encrypted chats if you lose access to all your d… | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.success.subtitle&searchOptions=KEY,EXACT_MATCH) |
+| `screen.custom_recovery_key.success.title` | Your backup is now fully set up | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.success.title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_encryption_reset_bullet_4` | Any devices you’re signed in to will need to be reconfirmed | [link](https://localazy.com/p/element/source-language?search=screen_encryption_reset_bullet_4&searchOptions=KEY,EXACT_MATCH) |
+| `screen_encryption_reset_no_chats_message` | It looks like you don’t have any chats yet. If this is correct, you can safely proceed with resetting your digital id… | [link](https://localazy.com/p/element/source-language?search=screen_encryption_reset_no_chats_message&searchOptions=KEY,EXACT_MATCH) |
+| `screen_encryption_reset_no_options_subtitle` | You don’t have access to any other verified devices or a recovery key, so you’ll need to reset your digital identity … | [link](https://localazy.com/p/element/source-language?search=screen_encryption_reset_no_options_subtitle&searchOptions=KEY,EXACT_MATCH) |
+| `screen_encryption_reset_no_options_title` | You need to reset your digital identity | [link](https://localazy.com/p/element/source-language?search=screen_encryption_reset_no_options_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_encryption_reset_subtitle` | If you don’t have access to any other verified devices and you don’t have your recovery key, then you’ll need to rese… | [link](https://localazy.com/p/element/source-language?search=screen_encryption_reset_subtitle&searchOptions=KEY,EXACT_MATCH) |
+| `screen_identity_confirmation_create_new_recovery_key` | Create a new recovery key | [link](https://localazy.com/p/element/source-language?search=screen_identity_confirmation_create_new_recovery_key&searchOptions=KEY,EXACT_MATCH) |
+| `screen_join_room_space_not_supported_description` | %1$s does not support spaces yet. You can access spaces on web. | [link](https://localazy.com/p/element/source-language?search=screen_join_room_space_not_supported_description&searchOptions=KEY,EXACT_MATCH) |
+| `screen_join_room_space_not_supported_title` | Spaces are not supported yet | [link](https://localazy.com/p/element/source-language?search=screen_join_room_space_not_supported_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_join_room_subtitle_knock` | Tap the button below and a chat administrator will be notified. You'll be able to join the conversation once approved. | [link](https://localazy.com/p/element/source-language?search=screen_join_room_subtitle_knock&searchOptions=KEY,EXACT_MATCH) |
+| `screen_join_room_subtitle_no_preview` | You must be a member of this room to view the message history. | [link](https://localazy.com/p/element/source-language?search=screen_join_room_subtitle_no_preview&searchOptions=KEY,EXACT_MATCH) |
+| `screen_join_room_title_knock` | Want to join this room? | [link](https://localazy.com/p/element/source-language?search=screen_join_room_title_knock&searchOptions=KEY,EXACT_MATCH) |
+| `screen.link_new_device.error.app_not_supported.subtitle` | Your account provider does not support %1$s. | [link](https://localazy.com/p/element/source-language?search=screen.link_new_device.error.app_not_supported.subtitle&searchOptions=KEY,EXACT_MATCH) |
+| `screen_login_error_invalid_user_id` | This is not a valid user identifier. Expected format: ‘@user:homeserver.org’ | [link](https://localazy.com/p/element/source-language?search=screen_login_error_invalid_user_id&searchOptions=KEY,EXACT_MATCH) |
+| `screen_migration_title` | Setting up your account. | [link](https://localazy.com/p/element/source-language?search=screen_migration_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_recovery_key_check_subtitle` | Enter the recovery key you’ve saved to make sure that it’s correct and active. | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_check_subtitle&searchOptions=KEY,EXACT_MATCH) |
+| `screen_recovery_key_check_success_title` | Your recovery key is active | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_check_success_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_recovery_key_check_title` | Check your recovery key | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_check_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_recovery_key_confirm_create_new_recovery_key` | Create new recovery key | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_confirm_create_new_recovery_key&searchOptions=KEY,EXACT_MATCH) |
+| `screen_recovery_key_confirm_lost_recovery_key` | Lost your recovery key? | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_confirm_lost_recovery_key&searchOptions=KEY,EXACT_MATCH) |
+| `screen_recovery_key_success_title` | Your new recovery key is now active | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_success_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_reset_identity_confirmation_subtitle` | You're about to go to your %1$s account to reset your digital identity. Afterwards you'll be taken back to the app. | [link](https://localazy.com/p/element/source-language?search=screen_reset_identity_confirmation_subtitle&searchOptions=KEY,EXACT_MATCH) |
+| `screen_reset_identity_confirmation_title` | Can't confirm? Go to your account to reset your digital identity. | [link](https://localazy.com/p/element/source-language?search=screen_reset_identity_confirmation_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_room_encrypted_history_banner` | Message history is currently unavailable. | [link](https://localazy.com/p/element/source-language?search=screen_room_encrypted_history_banner&searchOptions=KEY,EXACT_MATCH) |
+| `screen_room_encrypted_history_banner_unverified` | Message history is unavailable in this room. Verify this device to see your message history. | [link](https://localazy.com/p/element/source-language?search=screen_room_encrypted_history_banner_unverified&searchOptions=KEY,EXACT_MATCH) |
+| `screen_room_error_failed_retrieving_user_details` | Could not retrieve user details | [link](https://localazy.com/p/element/source-language?search=screen_room_error_failed_retrieving_user_details&searchOptions=KEY,EXACT_MATCH) |
+| `screen_room_member_details_verify_button_subtitle` | Use the web app to verify this user. | [link](https://localazy.com/p/element/source-language?search=screen_room_member_details_verify_button_subtitle&searchOptions=KEY,EXACT_MATCH) |
+| `screen_room_member_list_banned_empty` | There are no banned users. | [link](https://localazy.com/p/element/source-language?search=screen_room_member_list_banned_empty&searchOptions=KEY,EXACT_MATCH) |
+| `screen_room_member_list_manage_member_unban_message` | They will be able to join this room again if invited. | [link](https://localazy.com/p/element/source-language?search=screen_room_member_list_manage_member_unban_message&searchOptions=KEY,EXACT_MATCH) |
+| `screen.room.mentions_at_room_subtitle` | Notify the whole room | [link](https://localazy.com/p/element/source-language?search=screen.room.mentions_at_room_subtitle&searchOptions=KEY,EXACT_MATCH) |
+| `screen_room_retry_send_menu_title` | Your message failed to send | [link](https://localazy.com/p/element/source-language?search=screen_room_retry_send_menu_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_roomlist_a11y_create_message` | Create a new conversation or room | [link](https://localazy.com/p/element/source-language?search=screen_roomlist_a11y_create_message&searchOptions=KEY,EXACT_MATCH) |
+| `screen.security_and_privacy.room_directory_visibility_section_footer` | Allow for this room to be found by searching %1$s public room directory | [link](https://localazy.com/p/element/source-language?search=screen.security_and_privacy.room_directory_visibility_section_footer&searchOptions=KEY,EXACT_MATCH) |
+| `screen.security_and_privacy.room_publishing_section_footer` | Room addresses are ways to find and access rooms. This also ensures you can easily share your room with others. You c… | [link](https://localazy.com/p/element/source-language?search=screen.security_and_privacy.room_publishing_section_footer&searchOptions=KEY,EXACT_MATCH) |
+| `screen.select_account.permalink.room.subtitle` | None of your accounts have joined this room yet, choose which one to use. | [link](https://localazy.com/p/element/source-language?search=screen.select_account.permalink.room.subtitle&searchOptions=KEY,EXACT_MATCH) |
+| `screen.select_account.permalink.title` | Select an account to open the link: | [link](https://localazy.com/p/element/source-language?search=screen.select_account.permalink.title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_server_confirmation_message_login_matrix_dot_org` | Matrix is an open network for secure, decentralised communication. | [link](https://localazy.com/p/element/source-language?search=screen_server_confirmation_message_login_matrix_dot_org&searchOptions=KEY,EXACT_MATCH) |
+| `screen_session_verification_waiting_other_device_title` | Start verification on the other device | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_waiting_other_device_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_session_verification_waiting_to_accept_title` | Waiting to accept request | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_waiting_to_accept_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_signout_other_verified_device_dialog_content` | Make sure you always have access to another verified device or your recovery key to avoid losing your encrypted chat … | [link](https://localazy.com/p/element/source-language?search=screen_signout_other_verified_device_dialog_content&searchOptions=KEY,EXACT_MATCH) |
+| `screen_signout_other_verified_device_dialog_title` | Are you sure you want to remove this device? | [link](https://localazy.com/p/element/source-language?search=screen_signout_other_verified_device_dialog_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_signout_save_recovery_key_action_check` | Check your recovery key | [link](https://localazy.com/p/element/source-language?search=screen_signout_save_recovery_key_action_check&searchOptions=KEY,EXACT_MATCH) |
+| `screen_signout_save_recovery_key_action_continue` | Continue to remove this device | [link](https://localazy.com/p/element/source-language?search=screen_signout_save_recovery_key_action_continue&searchOptions=KEY,EXACT_MATCH) |
+| `screen_signout_save_recovery_key_action_generate` | Generate new recovery key | [link](https://localazy.com/p/element/source-language?search=screen_signout_save_recovery_key_action_generate&searchOptions=KEY,EXACT_MATCH) |
+| `slash_command.error.discard_session_not_handled` | Only supported in encrypted rooms | [link](https://localazy.com/p/element/source-language?search=slash_command.error.discard_session_not_handled&searchOptions=KEY,EXACT_MATCH) |
+| `state_event_demoted_to_member` | %1$s was demoted to member | [link](https://localazy.com/p/element/source-language?search=state_event_demoted_to_member&searchOptions=KEY,EXACT_MATCH) |
+| `state_event_demoted_to_moderator` | %1$s was demoted to moderator | [link](https://localazy.com/p/element/source-language?search=state_event_demoted_to_moderator&searchOptions=KEY,EXACT_MATCH) |
+| `state_event_promoted_to_administrator` | %1$s was promoted to admin | [link](https://localazy.com/p/element/source-language?search=state_event_promoted_to_administrator&searchOptions=KEY,EXACT_MATCH) |
+| `state_event_promoted_to_moderator` | %1$s was promoted to moderator | [link](https://localazy.com/p/element/source-language?search=state_event_promoted_to_moderator&searchOptions=KEY,EXACT_MATCH) |
+| `state_event_room_unknown_membership_change` | %1$s made an unknown change to their membership | [link](https://localazy.com/p/element/source-language?search=state_event_room_unknown_membership_change&searchOptions=KEY,EXACT_MATCH) |
+| `timeline.decryption_failure.historical_event_user_not_joined` | You don't have access to this message | [link](https://localazy.com/p/element/source-language?search=timeline.decryption_failure.historical_event_user_not_joined&searchOptions=KEY,EXACT_MATCH) |
+| `troubleshoot_notifications_test_detect_push_provider_success` | Found %1$d push providers: %2$s | [link](https://localazy.com/p/element/source-language?search=troubleshoot_notifications_test_detect_push_provider_success&searchOptions=KEY,EXACT_MATCH) |
+
+</details>
+
+## Short unused strings
+
+Strings with at most 3 words, used neither by Element X Android nor by Element X iOS. They could be reused in the future, so check them before removing them from Localazy. **107** keys.
+
+<details>
+<summary>Show the 107 keys</summary>
 
 | Key | English value | Localazy |
 |---|---|---|
 | `a11y.notifications_mentions_only` | Mentions only | [link](https://localazy.com/p/element/source-language?search=a11y.notifications_mentions_only&searchOptions=KEY,EXACT_MATCH) |
-| `a11y.other_user_avatar` | Other user's avatar | [link](https://localazy.com/p/element/source-language?search=a11y.other_user_avatar&searchOptions=KEY,EXACT_MATCH) |
 | `a11y.send_files` | Send files | [link](https://localazy.com/p/element/source-language?search=a11y.send_files&searchOptions=KEY,EXACT_MATCH) |
-| `a11y.your_avatar` | Your avatar | [link](https://localazy.com/p/element/source-language?search=a11y.your_avatar&searchOptions=KEY,EXACT_MATCH) |
-| `action_complete_verification` | Complete verification | [link](https://localazy.com/p/element/source-language?search=action_complete_verification&searchOptions=KEY,EXACT_MATCH) |
 | `action.copy_link` | Copy link | [link](https://localazy.com/p/element/source-language?search=action.copy_link&searchOptions=KEY,EXACT_MATCH) |
-| `action_deactivate` | Deactivate | [link](https://localazy.com/p/element/source-language?search=action_deactivate&searchOptions=KEY,EXACT_MATCH) |
-| `action_deactivate_account` | Deactivate account | [link](https://localazy.com/p/element/source-language?search=action_deactivate_account&searchOptions=KEY,EXACT_MATCH) |
 | `action.enable` | Enable | [link](https://localazy.com/p/element/source-language?search=action.enable&searchOptions=KEY,EXACT_MATCH) |
 | `action.go_back` | Go back | [link](https://localazy.com/p/element/source-language?search=action.go_back&searchOptions=KEY,EXACT_MATCH) |
 | `action.go_to_settings` | Go to settings | [link](https://localazy.com/p/element/source-language?search=action.go_to_settings&searchOptions=KEY,EXACT_MATCH) |
 | `action.invites_list` | Invites | [link](https://localazy.com/p/element/source-language?search=action.invites_list&searchOptions=KEY,EXACT_MATCH) |
-| `action_manage_account` | Manage account | [link](https://localazy.com/p/element/source-language?search=action_manage_account&searchOptions=KEY,EXACT_MATCH) |
-| `action_manage_devices` | Manage devices | [link](https://localazy.com/p/element/source-language?search=action_manage_devices&searchOptions=KEY,EXACT_MATCH) |
 | `action.minimize` | Minimise | [link](https://localazy.com/p/element/source-language?search=action.minimize&searchOptions=KEY,EXACT_MATCH) |
 | `action.quote` | Quote | [link](https://localazy.com/p/element/source-language?search=action.quote&searchOptions=KEY,EXACT_MATCH) |
-| `action_report_bug` | Report bug | [link](https://localazy.com/p/element/source-language?search=action_report_bug&searchOptions=KEY,EXACT_MATCH) |
 | `action.report_dm` | Report conversation | [link](https://localazy.com/p/element/source-language?search=action.report_dm&searchOptions=KEY,EXACT_MATCH) |
 | `action.retry_decryption` | Retry decryption | [link](https://localazy.com/p/element/source-language?search=action.retry_decryption&searchOptions=KEY,EXACT_MATCH) |
 | `action.share_link` | Share link | [link](https://localazy.com/p/element/source-language?search=action.share_link&searchOptions=KEY,EXACT_MATCH) |
-| `action_sign_in_again` | Sign in again | [link](https://localazy.com/p/element/source-language?search=action_sign_in_again&searchOptions=KEY,EXACT_MATCH) |
 | `action.tap_for_options` | Tap for options | [link](https://localazy.com/p/element/source-language?search=action.tap_for_options&searchOptions=KEY,EXACT_MATCH) |
-| `banner_migrate_to_native_sliding_sync_description` | Your server now supports a new, faster protocol. Log out and log back in to upgrade now. Doing this now will help you… | [link](https://localazy.com/p/element/source-language?search=banner_migrate_to_native_sliding_sync_description&searchOptions=KEY,EXACT_MATCH) |
-| `banner_migrate_to_native_sliding_sync_force_logout_title` | Your account provider no longer supports the old protocol. Please sign out and sign back in to continue using the app. | [link](https://localazy.com/p/element/source-language?search=banner_migrate_to_native_sliding_sync_force_logout_title&searchOptions=KEY,EXACT_MATCH) |
-| `banner_migrate_to_native_sliding_sync_title` | Upgrade available | [link](https://localazy.com/p/element/source-language?search=banner_migrate_to_native_sliding_sync_title&searchOptions=KEY,EXACT_MATCH) |
-| `common_add_account` | Add an account | [link](https://localazy.com/p/element/source-language?search=common_add_account&searchOptions=KEY,EXACT_MATCH) |
-| `common_bubbles` | Bubbles | [link](https://localazy.com/p/element/source-language?search=common_bubbles&searchOptions=KEY,EXACT_MATCH) |
 | `common.chat_backup` | Chat backup | [link](https://localazy.com/p/element/source-language?search=common.chat_backup&searchOptions=KEY,EXACT_MATCH) |
 | `common.decryption_error` | Decryption error | [link](https://localazy.com/p/element/source-language?search=common.decryption_error&searchOptions=KEY,EXACT_MATCH) |
 | `common.direct_chat` | Direct chat | [link](https://localazy.com/p/element/source-language?search=common.direct_chat&searchOptions=KEY,EXACT_MATCH) |
@@ -75,77 +158,33 @@ Strings used neither by Element X Android nor by Element X iOS. They can probabl
 | `common.verify_identity` | Verify identity | [link](https://localazy.com/p/element/source-language?search=common.verify_identity&searchOptions=KEY,EXACT_MATCH) |
 | `common.waiting` | Waiting… | [link](https://localazy.com/p/element/source-language?search=common.waiting&searchOptions=KEY,EXACT_MATCH) |
 | `common.your_account` | Your account | [link](https://localazy.com/p/element/source-language?search=common.your_account&searchOptions=KEY,EXACT_MATCH) |
-| `crypto.history_visible` | This room has been configured so that new members can read history. %1$s | [link](https://localazy.com/p/element/source-language?search=crypto.history_visible&searchOptions=KEY,EXACT_MATCH) |
-| `crypto.identity_change.pin_violation` | %1$s's digital identity was reset. %2$s | [link](https://localazy.com/p/element/source-language?search=crypto.identity_change.pin_violation&searchOptions=KEY,EXACT_MATCH) |
 | `dialog_default_video_quality_selector_title` | Video upload quality | [link](https://localazy.com/p/element/source-language?search=dialog_default_video_quality_selector_title&searchOptions=KEY,EXACT_MATCH) |
 | `dialog_title_success` | Success | [link](https://localazy.com/p/element/source-language?search=dialog_title_success&searchOptions=KEY,EXACT_MATCH) |
 | `notification_channel_listening_for_events` | Listening for events | [link](https://localazy.com/p/element/source-language?search=notification_channel_listening_for_events&searchOptions=KEY,EXACT_MATCH) |
 | `notification_compat_summary_line_for_room` | %1$s: %2$d messages | [link](https://localazy.com/p/element/source-language?search=notification_compat_summary_line_for_room&searchOptions=KEY,EXACT_MATCH) |
-| `notification_fallback_content` | You have new messages. | [link](https://localazy.com/p/element/source-language?search=notification_fallback_content&searchOptions=KEY,EXACT_MATCH) |
-| `notification_invitation_action_join` | Join | [link](https://localazy.com/p/element/source-language?search=notification_invitation_action_join&searchOptions=KEY,EXACT_MATCH) |
-| `notification_invitation_action_reject` | Reject | [link](https://localazy.com/p/element/source-language?search=notification_invitation_action_reject&searchOptions=KEY,EXACT_MATCH) |
 | `notification_invitations` | %d invitations | [link](https://localazy.com/p/element/source-language?search=notification_invitations&searchOptions=KEY,EXACT_MATCH) |
 | `notification_mentioned_you_body` | Mentioned you: %1$s | [link](https://localazy.com/p/element/source-language?search=notification_mentioned_you_body&searchOptions=KEY,EXACT_MATCH) |
 | `notification_new_messages` | New Messages | [link](https://localazy.com/p/element/source-language?search=notification_new_messages&searchOptions=KEY,EXACT_MATCH) |
 | `notification_new_messages_for_room` | %d new messages | [link](https://localazy.com/p/element/source-language?search=notification_new_messages_for_room&searchOptions=KEY,EXACT_MATCH) |
 | `notification_reaction_body` | Reacted with %1$s | [link](https://localazy.com/p/element/source-language?search=notification_reaction_body&searchOptions=KEY,EXACT_MATCH) |
-| `notification_unread_notified_messages` | %d unread notified messages | [link](https://localazy.com/p/element/source-language?search=notification_unread_notified_messages&searchOptions=KEY,EXACT_MATCH) |
 | `notification_unread_notified_messages_and_invitation` | %1$s and %2$s | [link](https://localazy.com/p/element/source-language?search=notification_unread_notified_messages_and_invitation&searchOptions=KEY,EXACT_MATCH) |
 | `notification_unread_notified_messages_in_room` | %1$s in %2$s | [link](https://localazy.com/p/element/source-language?search=notification_unread_notified_messages_in_room&searchOptions=KEY,EXACT_MATCH) |
-| `notification_unread_notified_messages_in_room_and_invitation` | %1$s in %2$s and %3$s | [link](https://localazy.com/p/element/source-language?search=notification_unread_notified_messages_in_room_and_invitation&searchOptions=KEY,EXACT_MATCH) |
 | `notification_unread_notified_messages_in_room_rooms` | %d rooms | [link](https://localazy.com/p/element/source-language?search=notification_unread_notified_messages_in_room_rooms&searchOptions=KEY,EXACT_MATCH) |
 | `rich_text_editor.composer_encrypted_placeholder` | Encrypted message… | [link](https://localazy.com/p/element/source-language?search=rich_text_editor.composer_encrypted_placeholder&searchOptions=KEY,EXACT_MATCH) |
 | `rich_text_editor.composer_unencrypted_placeholder` | Unencrypted message… | [link](https://localazy.com/p/element/source-language?search=rich_text_editor.composer_unencrypted_placeholder&searchOptions=KEY,EXACT_MATCH) |
-| `rich_text_editor.full_screen_toggle` | Toggle full screen mode | [link](https://localazy.com/p/element/source-language?search=rich_text_editor.full_screen_toggle&searchOptions=KEY,EXACT_MATCH) |
 | `rich_text_editor.open_compose_options` | Open compose options | [link](https://localazy.com/p/element/source-language?search=rich_text_editor.open_compose_options&searchOptions=KEY,EXACT_MATCH) |
-| `screen_account_provider_change` | Change account provider | [link](https://localazy.com/p/element/source-language?search=screen_account_provider_change&searchOptions=KEY,EXACT_MATCH) |
-| `screen_account_provider_form_hint` | Homeserver address | [link](https://localazy.com/p/element/source-language?search=screen_account_provider_form_hint&searchOptions=KEY,EXACT_MATCH) |
-| `screen_account_provider_form_notice` | Enter a search term or a domain address. | [link](https://localazy.com/p/element/source-language?search=screen_account_provider_form_notice&searchOptions=KEY,EXACT_MATCH) |
-| `screen_account_provider_form_subtitle` | Search for a company, community, or private server. | [link](https://localazy.com/p/element/source-language?search=screen_account_provider_form_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_account_provider_form_title` | Find an account provider | [link](https://localazy.com/p/element/source-language?search=screen_account_provider_form_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_account_provider_signin_subtitle` | This is where your conversations will live — just like you would use an email provider to keep your emails. | [link](https://localazy.com/p/element/source-language?search=screen_account_provider_signin_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_account_provider_signup_subtitle` | This is where your conversations will live — just like you would use an email provider to keep your emails. | [link](https://localazy.com/p/element/source-language?search=screen_account_provider_signup_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_account_provider_signup_title` | You’re about to create an account on %s | [link](https://localazy.com/p/element/source-language?search=screen_account_provider_signup_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_advanced_settings_developer_mode` | Developer mode | [link](https://localazy.com/p/element/source-language?search=screen_advanced_settings_developer_mode&searchOptions=KEY,EXACT_MATCH) |
-| `screen_advanced_settings_developer_mode_description` | Enable to have access to features and functionality for developers. | [link](https://localazy.com/p/element/source-language?search=screen_advanced_settings_developer_mode_description&searchOptions=KEY,EXACT_MATCH) |
-| `screen_advanced_settings_hide_timeline_media_toggle_title` | Hide media previews in timeline | [link](https://localazy.com/p/element/source-language?search=screen_advanced_settings_hide_timeline_media_toggle_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_advanced_settings_moderation_and_safety_section_title` | Moderation and Safety | [link](https://localazy.com/p/element/source-language?search=screen_advanced_settings_moderation_and_safety_section_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_advanced_settings_rich_text_editor_description` | Disable the rich text editor to type Markdown manually. | [link](https://localazy.com/p/element/source-language?search=screen_advanced_settings_rich_text_editor_description&searchOptions=KEY,EXACT_MATCH) |
-| `screen_advanced_settings_send_read_receipts` | Read receipts | [link](https://localazy.com/p/element/source-language?search=screen_advanced_settings_send_read_receipts&searchOptions=KEY,EXACT_MATCH) |
-| `screen_advanced_settings_send_read_receipts_description` | If turned off, your read receipts won't be sent to anyone. You will still receive read receipts from other users. | [link](https://localazy.com/p/element/source-language?search=screen_advanced_settings_send_read_receipts_description&searchOptions=KEY,EXACT_MATCH) |
-| `screen.bottom_sheet.manage_room_member.remove_confirmation_title` | Remove member and ban from joining in the future? | [link](https://localazy.com/p/element/source-language?search=screen.bottom_sheet.manage_room_member.remove_confirmation_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_bug_report_editor_supporting` | If possible, please write the description in English. | [link](https://localazy.com/p/element/source-language?search=screen_bug_report_editor_supporting&searchOptions=KEY,EXACT_MATCH) |
 | `screen_bug_report_include_crash_logs` | Send crash logs | [link](https://localazy.com/p/element/source-language?search=screen_bug_report_include_crash_logs&searchOptions=KEY,EXACT_MATCH) |
-| `screen_bug_report_rash_logs_alert_title` | %1$s crashed the last time it was used. Would you like to share a crash report with us? | [link](https://localazy.com/p/element/source-language?search=screen_bug_report_rash_logs_alert_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_change_account_provider_matrix_org_subtitle` | Matrix.org is a large, free server on the public Matrix network for secure, decentralised communication, run by the M… | [link](https://localazy.com/p/element/source-language?search=screen_change_account_provider_matrix_org_subtitle&searchOptions=KEY,EXACT_MATCH) |
 | `screen_change_account_provider_other` | Other | [link](https://localazy.com/p/element/source-language?search=screen_change_account_provider_other&searchOptions=KEY,EXACT_MATCH) |
-| `screen_change_account_provider_subtitle` | Use a different account provider, such as your own private server or a work account. | [link](https://localazy.com/p/element/source-language?search=screen_change_account_provider_subtitle&searchOptions=KEY,EXACT_MATCH) |
 | `screen_change_account_provider_title` | Change account provider | [link](https://localazy.com/p/element/source-language?search=screen_change_account_provider_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_change_server_form_header` | Homeserver URL | [link](https://localazy.com/p/element/source-language?search=screen_change_server_form_header&searchOptions=KEY,EXACT_MATCH) |
-| `screen_change_server_form_notice` | Enter a domain address. | [link](https://localazy.com/p/element/source-language?search=screen_change_server_form_notice&searchOptions=KEY,EXACT_MATCH) |
-| `screen_change_server_subtitle` | What is the address of your server? | [link](https://localazy.com/p/element/source-language?search=screen_change_server_subtitle&searchOptions=KEY,EXACT_MATCH) |
 | `screen.change_server.title` | Select your server | [link](https://localazy.com/p/element/source-language?search=screen.change_server.title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_chat_backup_key_backup_action_enable` | Turn on backup | [link](https://localazy.com/p/element/source-language?search=screen_chat_backup_key_backup_action_enable&searchOptions=KEY,EXACT_MATCH) |
-| `screen_chat_backup_key_storage_toggle_description` | Upload keys from this device | [link](https://localazy.com/p/element/source-language?search=screen_chat_backup_key_storage_toggle_description&searchOptions=KEY,EXACT_MATCH) |
-| `screen_create_new_recovery_key_list_item_1` | Open %1$s on a desktop device | [link](https://localazy.com/p/element/source-language?search=screen_create_new_recovery_key_list_item_1&searchOptions=KEY,EXACT_MATCH) |
-| `screen_create_new_recovery_key_list_item_2` | Sign into your account again | [link](https://localazy.com/p/element/source-language?search=screen_create_new_recovery_key_list_item_2&searchOptions=KEY,EXACT_MATCH) |
-| `screen_create_new_recovery_key_list_item_3` | When asked to verify your device, select %1$s | [link](https://localazy.com/p/element/source-language?search=screen_create_new_recovery_key_list_item_3&searchOptions=KEY,EXACT_MATCH) |
 | `screen_create_new_recovery_key_list_item_3_reset_all` | “Reset all” | [link](https://localazy.com/p/element/source-language?search=screen_create_new_recovery_key_list_item_3_reset_all&searchOptions=KEY,EXACT_MATCH) |
-| `screen_create_new_recovery_key_list_item_4` | Follow the instructions to create a new recovery key | [link](https://localazy.com/p/element/source-language?search=screen_create_new_recovery_key_list_item_4&searchOptions=KEY,EXACT_MATCH) |
-| `screen_create_new_recovery_key_list_item_5` | Save your new recovery key in a password manager or encrypted note | [link](https://localazy.com/p/element/source-language?search=screen_create_new_recovery_key_list_item_5&searchOptions=KEY,EXACT_MATCH) |
-| `screen_create_new_recovery_key_title` | Reset the encryption for your account using another device | [link](https://localazy.com/p/element/source-language?search=screen_create_new_recovery_key_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_create_room_private_option_description` | Only people invited can join. | [link](https://localazy.com/p/element/source-language?search=screen_create_room_private_option_description&searchOptions=KEY,EXACT_MATCH) |
 | `screen_create_room_private_option_title` | Private | [link](https://localazy.com/p/element/source-language?search=screen_create_room_private_option_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_create_room_public_option_description` | Anyone can find this room. You can change this anytime in room settings. | [link](https://localazy.com/p/element/source-language?search=screen_create_room_public_option_description&searchOptions=KEY,EXACT_MATCH) |
-| `screen.create_room.public_option_short_description` | Anyone can join, including people outside your organisation. | [link](https://localazy.com/p/element/source-language?search=screen.create_room.public_option_short_description&searchOptions=KEY,EXACT_MATCH) |
 | `screen_create_room_public_option_title` | Public | [link](https://localazy.com/p/element/source-language?search=screen_create_room_public_option_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen.create_room.room_visibility_section_title` | Room visibility | [link](https://localazy.com/p/element/source-language?search=screen.create_room.room_visibility_section_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen.create_room.space_selection_no_space_description` | (no space) | [link](https://localazy.com/p/element/source-language?search=screen.create_room.space_selection_no_space_description&searchOptions=KEY,EXACT_MATCH) |
-| `screen.custom_recovery_key.confirm.error.mismatch` | The recovery key you entered doesn't match | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.confirm.error.mismatch&searchOptions=KEY,EXACT_MATCH) |
 | `screen.custom_recovery_key.confirm.submit` | Finish setup | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.confirm.submit&searchOptions=KEY,EXACT_MATCH) |
-| `screen.custom_recovery_key.confirm.subtitle` | Enter your recovery key again. | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.confirm.subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen.custom_recovery_key.confirm.title` | Confirm your recovery key | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.confirm.title&searchOptions=KEY,EXACT_MATCH) |
-| `screen.custom_recovery_key.input.notice` | Minimum %1$d characters. Do not use your account password | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.input.notice&searchOptions=KEY,EXACT_MATCH) |
 | `screen.custom_recovery_key.input.strength` | Strength | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.input.strength&searchOptions=KEY,EXACT_MATCH) |
 | `screen.custom_recovery_key.input.strength.a11y` | Passphrase strength: %1$s | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.input.strength.a11y&searchOptions=KEY,EXACT_MATCH) |
 | `screen.custom_recovery_key.input.strength.moderate` | Moderate | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.input.strength.moderate&searchOptions=KEY,EXACT_MATCH) |
@@ -153,40 +192,10 @@ Strings used neither by Element X Android nor by Element X iOS. They can probabl
 | `screen.custom_recovery_key.input.strength.very_strong` | Very strong | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.input.strength.very_strong&searchOptions=KEY,EXACT_MATCH) |
 | `screen.custom_recovery_key.input.strength.very_weak` | Very weak | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.input.strength.very_weak&searchOptions=KEY,EXACT_MATCH) |
 | `screen.custom_recovery_key.input.strength.weak` | Weak | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.input.strength.weak&searchOptions=KEY,EXACT_MATCH) |
-| `screen.custom_recovery_key.input.subtitle` | Choose a recovery key that you can memorize. | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.input.subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen.custom_recovery_key.input.title` | Enter a recovery key | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.input.title&searchOptions=KEY,EXACT_MATCH) |
-| `screen.custom_recovery_key.loading.a11y` | Loading recovery key requirements | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.loading.a11y&searchOptions=KEY,EXACT_MATCH) |
-| `screen.custom_recovery_key.success.notice` | To change your recovery key, go to Settings → Encryption → Backup | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.success.notice&searchOptions=KEY,EXACT_MATCH) |
-| `screen.custom_recovery_key.success.subtitle` | You can use your recovery key to confirm new devices or restore your encrypted chats if you lose access to all your d… | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.success.subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen.custom_recovery_key.success.title` | Your backup is now fully set up | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.success.title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_encryption_reset_bullet_4` | Any devices you’re signed in to will need to be reconfirmed | [link](https://localazy.com/p/element/source-language?search=screen_encryption_reset_bullet_4&searchOptions=KEY,EXACT_MATCH) |
-| `screen_encryption_reset_no_chats_message` | It looks like you don’t have any chats yet. If this is correct, you can safely proceed with resetting your digital id… | [link](https://localazy.com/p/element/source-language?search=screen_encryption_reset_no_chats_message&searchOptions=KEY,EXACT_MATCH) |
-| `screen_encryption_reset_no_options_subtitle` | You don’t have access to any other verified devices or a recovery key, so you’ll need to reset your digital identity … | [link](https://localazy.com/p/element/source-language?search=screen_encryption_reset_no_options_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_encryption_reset_no_options_title` | You need to reset your digital identity | [link](https://localazy.com/p/element/source-language?search=screen_encryption_reset_no_options_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_encryption_reset_subtitle` | If you don’t have access to any other verified devices and you don’t have your recovery key, then you’ll need to rese… | [link](https://localazy.com/p/element/source-language?search=screen_encryption_reset_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_identity_confirmation_create_new_recovery_key` | Create a new recovery key | [link](https://localazy.com/p/element/source-language?search=screen_identity_confirmation_create_new_recovery_key&searchOptions=KEY,EXACT_MATCH) |
-| `screen_identity_waiting_on_other_device` | Waiting on other device… | [link](https://localazy.com/p/element/source-language?search=screen_identity_waiting_on_other_device&searchOptions=KEY,EXACT_MATCH) |
-| `screen_invites_empty_list` | No Invites | [link](https://localazy.com/p/element/source-language?search=screen_invites_empty_list&searchOptions=KEY,EXACT_MATCH) |
-| `screen_join_room_space_not_supported_description` | %1$s does not support spaces yet. You can access spaces on web. | [link](https://localazy.com/p/element/source-language?search=screen_join_room_space_not_supported_description&searchOptions=KEY,EXACT_MATCH) |
-| `screen_join_room_space_not_supported_title` | Spaces are not supported yet | [link](https://localazy.com/p/element/source-language?search=screen_join_room_space_not_supported_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_join_room_subtitle_knock` | Tap the button below and a chat administrator will be notified. You'll be able to join the conversation once approved. | [link](https://localazy.com/p/element/source-language?search=screen_join_room_subtitle_knock&searchOptions=KEY,EXACT_MATCH) |
-| `screen_join_room_subtitle_no_preview` | You must be a member of this room to view the message history. | [link](https://localazy.com/p/element/source-language?search=screen_join_room_subtitle_no_preview&searchOptions=KEY,EXACT_MATCH) |
-| `screen_join_room_title_knock` | Want to join this room? | [link](https://localazy.com/p/element/source-language?search=screen_join_room_title_knock&searchOptions=KEY,EXACT_MATCH) |
-| `screen.link_new_device.error.app_not_supported.subtitle` | Your account provider does not support %1$s. | [link](https://localazy.com/p/element/source-language?search=screen.link_new_device.error.app_not_supported.subtitle&searchOptions=KEY,EXACT_MATCH) |
 | `screen.link_new_device.error.app_not_supported.title` | %1$s not supported | [link](https://localazy.com/p/element/source-language?search=screen.link_new_device.error.app_not_supported.title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_login_error_invalid_user_id` | This is not a valid user identifier. Expected format: ‘@user:homeserver.org’ | [link](https://localazy.com/p/element/source-language?search=screen_login_error_invalid_user_id&searchOptions=KEY,EXACT_MATCH) |
-| `screen_login_title` | Welcome back! | [link](https://localazy.com/p/element/source-language?search=screen_login_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen.media_upload_preview.processing` | Processing… | [link](https://localazy.com/p/element/source-language?search=screen.media_upload_preview.processing&searchOptions=KEY,EXACT_MATCH) |
-| `screen_migration_message` | This is a one time process, thanks for waiting. | [link](https://localazy.com/p/element/source-language?search=screen_migration_message&searchOptions=KEY,EXACT_MATCH) |
-| `screen_migration_title` | Setting up your account. | [link](https://localazy.com/p/element/source-language?search=screen_migration_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_notification_settings_mentions_section_title` | Mentions | [link](https://localazy.com/p/element/source-language?search=screen_notification_settings_mentions_section_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_onboarding_welcome_subtitle` | Welcome to %1$s. Supercharged, for speed and simplicity. | [link](https://localazy.com/p/element/source-language?search=screen_onboarding_welcome_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_qr_code_login_start_over_button` | Start over | [link](https://localazy.com/p/element/source-language?search=screen_qr_code_login_start_over_button&searchOptions=KEY,EXACT_MATCH) |
-| `screen_recovery_key_confirm_create_new_recovery_key` | Create new recovery key | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_confirm_create_new_recovery_key&searchOptions=KEY,EXACT_MATCH) |
-| `screen_recovery_key_confirm_lost_recovery_key` | Lost your recovery key? | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_confirm_lost_recovery_key&searchOptions=KEY,EXACT_MATCH) |
-| `screen_recovery_key_success_title` | Your new recovery key is now active | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_success_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_reset_identity_confirmation_subtitle` | You're about to go to your %1$s account to reset your digital identity. Afterwards you'll be taken back to the app. | [link](https://localazy.com/p/element/source-language?search=screen_reset_identity_confirmation_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_reset_identity_confirmation_title` | Can't confirm? Go to your account to reset your digital identity. | [link](https://localazy.com/p/element/source-language?search=screen_reset_identity_confirmation_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_recovery_key_check_key_title` | Enter recovery key | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_check_key_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen.room_change_permissions.change_settings` | Change settings | [link](https://localazy.com/p/element/source-language?search=screen.room_change_permissions.change_settings&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_change_role_confirm_demote_self_action` | Demote | [link](https://localazy.com/p/element/source-language?search=screen_room_change_role_confirm_demote_self_action&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_change_role_confirm_demote_self_title` | Demote yourself? | [link](https://localazy.com/p/element/source-language?search=screen_room_change_role_confirm_demote_self_title&searchOptions=KEY,EXACT_MATCH) |
@@ -197,84 +206,35 @@ Strings used neither by Element X Android nor by Element X iOS. They can probabl
 | `screen_room_details_leave_conversation_title` | Leave conversation | [link](https://localazy.com/p/element/source-language?search=screen_room_details_leave_conversation_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_details_room_name_label` | Name | [link](https://localazy.com/p/element/source-language?search=screen_room_details_room_name_label&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_details_topic_title` | Topic | [link](https://localazy.com/p/element/source-language?search=screen_room_details_topic_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_room_encrypted_history_banner` | Message history is currently unavailable. | [link](https://localazy.com/p/element/source-language?search=screen_room_encrypted_history_banner&searchOptions=KEY,EXACT_MATCH) |
-| `screen_room_encrypted_history_banner_unverified` | Message history is unavailable in this room. Verify this device to see your message history. | [link](https://localazy.com/p/element/source-language?search=screen_room_encrypted_history_banner_unverified&searchOptions=KEY,EXACT_MATCH) |
-| `screen_room_error_failed_retrieving_user_details` | Could not retrieve user details | [link](https://localazy.com/p/element/source-language?search=screen_room_error_failed_retrieving_user_details&searchOptions=KEY,EXACT_MATCH) |
-| `screen_room_event_pill` | Message in %1$s | [link](https://localazy.com/p/element/source-language?search=screen_room_event_pill&searchOptions=KEY,EXACT_MATCH) |
-| `screen_room_member_details_verify_button_subtitle` | Use the web app to verify this user. | [link](https://localazy.com/p/element/source-language?search=screen_room_member_details_verify_button_subtitle&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_member_details_verify_button_title` | Verify %1$s | [link](https://localazy.com/p/element/source-language?search=screen_room_member_details_verify_button_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_room_member_list_banned_empty` | There are no banned users. | [link](https://localazy.com/p/element/source-language?search=screen_room_member_list_banned_empty&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_member_list_manage_member_remove_confirmation_ban` | Ban user | [link](https://localazy.com/p/element/source-language?search=screen_room_member_list_manage_member_remove_confirmation_ban&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_member_list_manage_member_remove_confirmation_kick` | Only remove member | [link](https://localazy.com/p/element/source-language?search=screen_room_member_list_manage_member_remove_confirmation_kick&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_member_list_manage_member_unban_action` | Unban | [link](https://localazy.com/p/element/source-language?search=screen_room_member_list_manage_member_unban_action&searchOptions=KEY,EXACT_MATCH) |
-| `screen_room_member_list_manage_member_unban_message` | They will be able to join this room again if invited. | [link](https://localazy.com/p/element/source-language?search=screen_room_member_list_manage_member_unban_message&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_member_list_manage_member_unban_title` | Unban user | [link](https://localazy.com/p/element/source-language?search=screen_room_member_list_manage_member_unban_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_member_list_room_members_header_title` | Room members | [link](https://localazy.com/p/element/source-language?search=screen_room_member_list_room_members_header_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_member_list_unbanning_user` | Unbanning %1$s | [link](https://localazy.com/p/element/source-language?search=screen_room_member_list_unbanning_user&searchOptions=KEY,EXACT_MATCH) |
-| `screen.room.mentions_at_room_subtitle` | Notify the whole room | [link](https://localazy.com/p/element/source-language?search=screen.room.mentions_at_room_subtitle&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_retry_send_menu_send_again_action` | Send again | [link](https://localazy.com/p/element/source-language?search=screen_room_retry_send_menu_send_again_action&searchOptions=KEY,EXACT_MATCH) |
-| `screen_room_retry_send_menu_title` | Your message failed to send | [link](https://localazy.com/p/element/source-language?search=screen_room_retry_send_menu_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_roles_and_permissions_member_moderation` | Member moderation | [link](https://localazy.com/p/element/source-language?search=screen_room_roles_and_permissions_member_moderation&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_roles_and_permissions_messages_and_content` | Messages and content | [link](https://localazy.com/p/element/source-language?search=screen_room_roles_and_permissions_messages_and_content&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_roles_and_permissions_room_details` | Room details | [link](https://localazy.com/p/element/source-language?search=screen_room_roles_and_permissions_room_details&searchOptions=KEY,EXACT_MATCH) |
 | `screen.room_roles_and_permissions.space_details` | Space details | [link](https://localazy.com/p/element/source-language?search=screen.room_roles_and_permissions.space_details&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_voice_message_tooltip` | Hold to record | [link](https://localazy.com/p/element/source-language?search=screen_room_voice_message_tooltip&searchOptions=KEY,EXACT_MATCH) |
-| `screen_roomlist_a11y_create_message` | Create a new conversation or room | [link](https://localazy.com/p/element/source-language?search=screen_roomlist_a11y_create_message&searchOptions=KEY,EXACT_MATCH) |
-| `screen.security_and_privacy.room_directory_visibility_section_footer` | Allow for this room to be found by searching %1$s public room directory | [link](https://localazy.com/p/element/source-language?search=screen.security_and_privacy.room_directory_visibility_section_footer&searchOptions=KEY,EXACT_MATCH) |
-| `screen.security_and_privacy.room_publishing_section_footer` | Room addresses are ways to find and access rooms. This also ensures you can easily share your room with others. You c… | [link](https://localazy.com/p/element/source-language?search=screen.security_and_privacy.room_publishing_section_footer&searchOptions=KEY,EXACT_MATCH) |
 | `screen.security_and_privacy.room_publishing_section_header` | Room publishing | [link](https://localazy.com/p/element/source-language?search=screen.security_and_privacy.room_publishing_section_header&searchOptions=KEY,EXACT_MATCH) |
-| `screen.select_account.permalink.room.subtitle` | None of your accounts have joined this room yet, choose which one to use. | [link](https://localazy.com/p/element/source-language?search=screen.select_account.permalink.room.subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen.select_account.permalink.title` | Select an account to open the link: | [link](https://localazy.com/p/element/source-language?search=screen.select_account.permalink.title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_server_confirmation_change_server` | Change account provider | [link](https://localazy.com/p/element/source-language?search=screen_server_confirmation_change_server&searchOptions=KEY,EXACT_MATCH) |
-| `screen_server_confirmation_message_login_element_dot_io` | A private server for Element employees. | [link](https://localazy.com/p/element/source-language?search=screen_server_confirmation_message_login_element_dot_io&searchOptions=KEY,EXACT_MATCH) |
-| `screen_server_confirmation_message_login_matrix_dot_org` | Matrix is an open network for secure, decentralised communication. | [link](https://localazy.com/p/element/source-language?search=screen_server_confirmation_message_login_matrix_dot_org&searchOptions=KEY,EXACT_MATCH) |
-| `screen_server_confirmation_message_register` | This is where your conversations will live — just like you would use an email provider to keep your emails. | [link](https://localazy.com/p/element/source-language?search=screen_server_confirmation_message_register&searchOptions=KEY,EXACT_MATCH) |
-| `screen_server_confirmation_title_login` | You’re about to sign in to %1$s | [link](https://localazy.com/p/element/source-language?search=screen_server_confirmation_title_login&searchOptions=KEY,EXACT_MATCH) |
-| `screen_server_confirmation_title_register` | You’re about to create an account on %1$s | [link](https://localazy.com/p/element/source-language?search=screen_server_confirmation_title_register&searchOptions=KEY,EXACT_MATCH) |
-| `screen_session_verification_cancelled_subtitle` | Something doesn’t seem right. Either the request timed out or the request was denied. | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_cancelled_subtitle&searchOptions=KEY,EXACT_MATCH) |
 | `screen_session_verification_enter_recovery_key` | Enter recovery key | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_enter_recovery_key&searchOptions=KEY,EXACT_MATCH) |
-| `screen_session_verification_open_existing_session_subtitle` | Prove it’s you in order to access your encrypted message history. | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_open_existing_session_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_session_verification_open_existing_session_title` | Open an existing session | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_open_existing_session_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_session_verification_positive_button_canceled` | Retry verification | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_positive_button_canceled&searchOptions=KEY,EXACT_MATCH) |
-| `screen_session_verification_positive_button_initial` | I am ready | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_positive_button_initial&searchOptions=KEY,EXACT_MATCH) |
-| `screen_session_verification_request_accepted_subtitle` | Compare the unique emoji, ensuring they appear in the same order. | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_request_accepted_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_session_verification_request_success_subtitle` | Now you can read or send messages securely on your other device. | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_request_success_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_session_verification_request_success_title` | Device verified | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_request_success_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_session_verification_unavailable_subtitle` | Please use another device or recovery key. | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_unavailable_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_session_verification_unavailable_title` | Verification with this device is currently unavailable | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_unavailable_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_session_verification_waiting_another_device_subtitle` | You should see a popup on the other device. Start the verification from there now. | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_waiting_another_device_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_session_verification_waiting_other_device_title` | Start verification on the other device | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_waiting_other_device_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_session_verification_waiting_to_accept_subtitle` | Accept the request to start the verification process in your other session to continue. | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_waiting_to_accept_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_session_verification_waiting_to_accept_title` | Waiting to accept request | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_waiting_to_accept_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_signed_out_subtitle` | You might have been signed out for one of the reasons listed below. Please sign in again to continue using %s. | [link](https://localazy.com/p/element/source-language?search=screen_signed_out_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_signout_other_verified_device_dialog_content` | Make sure you always have access to another verified device or your recovery key to avoid losing your encrypted chat … | [link](https://localazy.com/p/element/source-language?search=screen_signout_other_verified_device_dialog_content&searchOptions=KEY,EXACT_MATCH) |
-| `screen_signout_other_verified_device_dialog_title` | Are you sure you want to remove this device? | [link](https://localazy.com/p/element/source-language?search=screen_signout_other_verified_device_dialog_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_signout_save_recovery_key_action_continue` | Continue to remove this device | [link](https://localazy.com/p/element/source-language?search=screen_signout_save_recovery_key_action_continue&searchOptions=KEY,EXACT_MATCH) |
-| `screen_signout_save_recovery_key_action_generate` | Generate new recovery key | [link](https://localazy.com/p/element/source-language?search=screen_signout_save_recovery_key_action_generate&searchOptions=KEY,EXACT_MATCH) |
 | `screen.space.add_room_action` | Room | [link](https://localazy.com/p/element/source-language?search=screen.space.add_room_action&searchOptions=KEY,EXACT_MATCH) |
 | `screen.space_list.parent_space` | %1$s space | [link](https://localazy.com/p/element/source-language?search=screen.space_list.parent_space&searchOptions=KEY,EXACT_MATCH) |
-| `session_verification_banner_message` | Looks like you’re using a new device. Verify with another device to access your encrypted messages. | [link](https://localazy.com/p/element/source-language?search=session_verification_banner_message&searchOptions=KEY,EXACT_MATCH) |
-| `session_verification_banner_title` | Verify it’s you | [link](https://localazy.com/p/element/source-language?search=session_verification_banner_title&searchOptions=KEY,EXACT_MATCH) |
 | `slash_command.error` | Command error | [link](https://localazy.com/p/element/source-language?search=slash_command.error&searchOptions=KEY,EXACT_MATCH) |
-| `slash_command.error.discard_session_not_handled` | Only supported in encrypted rooms | [link](https://localazy.com/p/element/source-language?search=slash_command.error.discard_session_not_handled&searchOptions=KEY,EXACT_MATCH) |
-| `state_event_demoted_to_member` | %1$s was demoted to member | [link](https://localazy.com/p/element/source-language?search=state_event_demoted_to_member&searchOptions=KEY,EXACT_MATCH) |
-| `state_event_demoted_to_moderator` | %1$s was demoted to moderator | [link](https://localazy.com/p/element/source-language?search=state_event_demoted_to_moderator&searchOptions=KEY,EXACT_MATCH) |
-| `state_event_promoted_to_administrator` | %1$s was promoted to admin | [link](https://localazy.com/p/element/source-language?search=state_event_promoted_to_administrator&searchOptions=KEY,EXACT_MATCH) |
-| `state_event_promoted_to_moderator` | %1$s was promoted to moderator | [link](https://localazy.com/p/element/source-language?search=state_event_promoted_to_moderator&searchOptions=KEY,EXACT_MATCH) |
-| `state_event_room_unknown_membership_change` | %1$s made an unknown change to their membership | [link](https://localazy.com/p/element/source-language?search=state_event_room_unknown_membership_change&searchOptions=KEY,EXACT_MATCH) |
 | `test_language_identifier` | en | [link](https://localazy.com/p/element/source-language?search=test_language_identifier&searchOptions=KEY,EXACT_MATCH) |
 | `test_untranslated_default_language_identifier` | en | [link](https://localazy.com/p/element/source-language?search=test_untranslated_default_language_identifier&searchOptions=KEY,EXACT_MATCH) |
-| `timeline.decryption_failure.historical_event_user_not_joined` | You don't have access to this message | [link](https://localazy.com/p/element/source-language?search=timeline.decryption_failure.historical_event_user_not_joined&searchOptions=KEY,EXACT_MATCH) |
-| `troubleshoot_notifications_test_detect_push_provider_success` | Found %1$d push providers: %2$s | [link](https://localazy.com/p/element/source-language?search=troubleshoot_notifications_test_detect_push_provider_success&searchOptions=KEY,EXACT_MATCH) |
 
 </details>
 
 ## Strings not used on Android
 
-Strings used by Element X iOS but not by Element X Android. Keys with the `_android` suffix can probably be removed. For the other keys, this can be a difference between the implementations of both projects, or a feature not implemented yet on Android. If the difference is expected, the key can be renamed with the `_ios` suffix. **188** keys.
+Strings used by Element X iOS but not by Element X Android. Keys with the `_android` suffix can probably be removed. For the other keys, this can be a difference between the implementations of both projects, or a feature not implemented yet on Android. If the difference is expected, the key can be renamed with the `_ios` suffix. **193** keys.
 
 <details>
-<summary>Show the 188 keys</summary>
+<summary>Show the 193 keys</summary>
 
 | Key | English value | Localazy |
 |---|---|---|
@@ -315,6 +275,7 @@ Strings used by Element X iOS but not by Element X Android. Keys with the `_andr
 | `action.enter_pin` | Enter PIN | [link](https://localazy.com/p/element/source-language?search=action.enter_pin&searchOptions=KEY,EXACT_MATCH) |
 | `action.forgot_password` | Forgot password? | [link](https://localazy.com/p/element/source-language?search=action.forgot_password&searchOptions=KEY,EXACT_MATCH) |
 | `action.forward_messages` | Forward %1$d messages | [link](https://localazy.com/p/element/source-language?search=action.forward_messages&searchOptions=KEY,EXACT_MATCH) |
+| `action.got_it` | Got it | [link](https://localazy.com/p/element/source-language?search=action.got_it&searchOptions=KEY,EXACT_MATCH) |
 | `action.invite_people_to_app` | Invite people to %1$s | [link](https://localazy.com/p/element/source-language?search=action.invite_people_to_app&searchOptions=KEY,EXACT_MATCH) |
 | `action.next` | Next | [link](https://localazy.com/p/element/source-language?search=action.next&searchOptions=KEY,EXACT_MATCH) |
 | `action.quick_reply` | Quick reply | [link](https://localazy.com/p/element/source-language?search=action.quick_reply&searchOptions=KEY,EXACT_MATCH) |
@@ -453,6 +414,10 @@ Strings used by Element X iOS but not by Element X Android. Keys with the `_andr
 | `screen.roomlist.filter_mention` | Mention | [link](https://localazy.com/p/element/source-language?search=screen.roomlist.filter_mention&searchOptions=KEY,EXACT_MATCH) |
 | `screen.roomlist.filter_mention_empty_state_title` | You don’t have any unread mentions | [link](https://localazy.com/p/element/source-language?search=screen.roomlist.filter_mention_empty_state_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_roomlist_main_space_title` | Chats | [link](https://localazy.com/p/element/source-language?search=screen_roomlist_main_space_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_search_history_limit_message` | Search runs on your device, so your encrypted messages stay private. Your device keeps the most recent 3 months of me… | [link](https://localazy.com/p/element/source-language?search=screen_search_history_limit_message&searchOptions=KEY,EXACT_MATCH) |
+| `screen_search_history_limit_title` | Search covers the last 3 months | [link](https://localazy.com/p/element/source-language?search=screen_search_history_limit_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_search_messages_no_results_message` | There are no results for “%1$s” in your recent messages. | [link](https://localazy.com/p/element/source-language?search=screen_search_messages_no_results_message&searchOptions=KEY,EXACT_MATCH) |
+| `screen_search_messages_no_results_title` | No results in the last 3 months | [link](https://localazy.com/p/element/source-language?search=screen_search_messages_no_results_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_session_verification_request_details_timestamp` | Signed in | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_request_details_timestamp&searchOptions=KEY,EXACT_MATCH) |
 | `screen.settings.add_account` | Add account | [link](https://localazy.com/p/element/source-language?search=screen.settings.add_account&searchOptions=KEY,EXACT_MATCH) |
 | `screen_share_open_apple_maps` | Open in Apple Maps | [link](https://localazy.com/p/element/source-language?search=screen_share_open_apple_maps&searchOptions=KEY,EXACT_MATCH) |
@@ -471,10 +436,10 @@ Strings used by Element X iOS but not by Element X Android. Keys with the `_andr
 
 ## Strings not used on iOS
 
-Strings used by Element X Android but not by Element X iOS. Keys with the `_ios` suffix can probably be removed. For the other keys, this can be a difference between the implementations of both projects, or a feature not implemented yet on iOS. If the difference is expected, the key can be renamed with the `_android` suffix. **359** keys.
+Strings used by Element X Android but not by Element X iOS. Keys with the `_ios` suffix can probably be removed. For the other keys, this can be a difference between the implementations of both projects, or a feature not implemented yet on iOS. If the difference is expected, the key can be renamed with the `_android` suffix. **357** keys.
 
 <details>
-<summary>Show the 359 keys</summary>
+<summary>Show the 357 keys</summary>
 
 | Key | English value | Localazy |
 |---|---|---|
@@ -598,8 +563,6 @@ Strings used by Element X Android but not by Element X iOS. Keys with the `_ios`
 | `error.sending_failure.other` | Error details: %s | [link](https://localazy.com/p/element/source-language?search=error.sending_failure.other&searchOptions=KEY,EXACT_MATCH) |
 | `error.sending_failure.sending_from_unverified_device` | Sending from unverified device | [link](https://localazy.com/p/element/source-language?search=error.sending_failure.sending_from_unverified_device&searchOptions=KEY,EXACT_MATCH) |
 | `error.sending_failure.unknown` | Unknown error | [link](https://localazy.com/p/element/source-language?search=error.sending_failure.unknown&searchOptions=KEY,EXACT_MATCH) |
-| `full_screen_intent_banner_message` | To ensure you never miss an important call, please change your settings to allow full-screen notifications when your … | [link](https://localazy.com/p/element/source-language?search=full_screen_intent_banner_message&searchOptions=KEY,EXACT_MATCH) |
-| `full_screen_intent_banner_title` | Enhance your call experience | [link](https://localazy.com/p/element/source-language?search=full_screen_intent_banner_title&searchOptions=KEY,EXACT_MATCH) |
 | `invite_friends_rich_title` | 🔐️ Join me on %1$s | [link](https://localazy.com/p/element/source-language?search=invite_friends_rich_title&searchOptions=KEY,EXACT_MATCH) |
 | `notification_channel_call` | Call | [link](https://localazy.com/p/element/source-language?search=notification_channel_call&searchOptions=KEY,EXACT_MATCH) |
 | `notification_channel_noisy` | Noisy notifications | [link](https://localazy.com/p/element/source-language?search=notification_channel_noisy&searchOptions=KEY,EXACT_MATCH) |

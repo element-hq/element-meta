@@ -276,11 +276,26 @@ def main():
     def isUsedOnIosOrIgnored(key):
         return key.endswith("_android") or (key in iosKeysByNormalizedKey and isUsedOnIos(iosKeysByNormalizedKey[key]))
 
+    def englishValue(key):
+        return androidStrings[key] if key in androidStrings else iosStrings.get(displayKeys[key])
+
+    # Short strings are generic enough to be reused in the future
+    def isShort(key):
+        return len(formatValue(englishValue(key)).split()) <= 3
+
+    unusedKeys = [key for key in allKeys if not isUsedOnAndroidOrIgnored(key) and not isUsedOnIosOrIgnored(key)]
     sections = [
         (
             "Unused strings",
-            "Strings used neither by Element X Android nor by Element X iOS. They can probably be removed from Localazy.",
-            [key for key in allKeys if not isUsedOnAndroidOrIgnored(key) and not isUsedOnIosOrIgnored(key)],
+            "Strings with more than 3 words, used neither by Element X Android nor by Element X iOS. "
+            "They can probably be removed from Localazy.",
+            [key for key in unusedKeys if not isShort(key)],
+        ),
+        (
+            "Short unused strings",
+            "Strings with at most 3 words, used neither by Element X Android nor by Element X iOS. "
+            "They could be reused in the future, so check them before removing them from Localazy.",
+            [key for key in unusedKeys if isShort(key)],
         ),
         (
             "Strings not used on Android",
@@ -302,10 +317,9 @@ def main():
         lines = ["| Key | English value | Localazy |", "|---|---|---|"]
         # Keys with a platform suffix first, the sort is stable so the keys stay sorted in each group
         for key in sorted(keys, key=lambda k: not k.endswith(("_android", "_ios"))):
-            value = androidStrings[key] if key in androidStrings else iosStrings.get(displayKeys[key])
             displayKey = localazyKeys.get(key, displayKeys[key])
             lines.append(
-                f"| `{displayKey}` | {formatValue(value)} "
+                f"| `{displayKey}` | {formatValue(englishValue(key))} "
                 f"| [link](https://localazy.com/p/element/source-language?search={displayKey}&searchOptions=KEY,EXACT_MATCH) |"
             )
         return lines

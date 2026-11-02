@@ -1,7 +1,8 @@
 # Localazy report
 
-[generateLocalazyReport.py](generateLocalazyReport.py) generates a Markdown report of the usage of the [Localazy](https://localazy.com/p/element) strings by [Element X Android](https://github.com/element-hq/element-x-android) and [Element X iOS](https://github.com/element-hq/element-x-ios), with a link to Localazy for each string. The report can be linked from a GitHub issue to track the work to do. It contains 3 sections:
+[generateLocalazyReport.py](generateLocalazyReport.py) generates a Markdown report of the usage of the [Localazy](https://localazy.com/p/element) strings by [Element X Android](https://github.com/element-hq/element-x-android) and [Element X iOS](https://github.com/element-hq/element-x-ios), with a link to Localazy for each string. The report can be linked from a GitHub issue to track the work to do. It contains 4 sections:
 - the strings used by neither project;
+- the short strings (at most 3 words) used by neither project, which could be reused in the future;
 - the strings used by Element X iOS but not by Element X Android;
 - the strings used by Element X Android but not by Element X iOS.
 
