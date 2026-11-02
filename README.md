@@ -50,8 +50,11 @@ A PR for a feature or an enhancement must reference an issue that carries the `X
 before writing the code. Bug fixes don't go through product triage. Each app repository's
 `CONTRIBUTING.md` has the details for its codebase.
 
+All contributions, AI-assisted or not, must follow [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Process docs
 
+- [Contributing](CONTRIBUTING.md): what we expect from every contribution, AI-assisted or not.
 - [Feature requests](docs/process/feature-requests.md): where to file them, how they are answered,
   when to write a PR.
 - [Label sync](docs/process/label-sync.md): the reusable workflow that syncs labels across
