@@ -198,14 +198,20 @@ def getIosUsedWordsAndLiterals(iosRoot):
 # The intermediate nodes are kept, because a key can also be the parent of other keys, e.g.
 # `screen.custom_recovery_key.input.strength` and `screen.custom_recovery_key.input.strength.weak`,
 # and in this case, the JSON only contains the children.
-# Return an empty dict if the Localazy CLI is not available.
+# Also return the set of the flattened keys of the plurals, e.g. {"a11y_digits_entered"}, since Localazy needs a `p:` prefix
+# to find them.
+# Return an empty dict and an empty set if the Localazy CLI is not available.
 def getLocalazyKeys():
     result = {}
+    plurals = set()
 
     def collect(node, path):
         if path:
             result.setdefault("_".join(path).replace(".", "_"), ".".join(path))
-        if isinstance(node, dict) and not (node and all(quantity in PLURAL_QUANTITIES for quantity in node)):
+        isPlural = isinstance(node, dict) and node and all(quantity in PLURAL_QUANTITIES for quantity in node)
+        if isPlural:
+            plurals.add("_".join(path).replace(".", "_"))
+        elif isinstance(node, dict):
             for key, value in node.items():
                 collect(value, path + [key])
 
@@ -219,10 +225,10 @@ def getLocalazyKeys():
             subprocess.run(["localazy", "download"], cwd=directory, check=True, capture_output=True)
         except (OSError, subprocess.CalledProcessError) as e:
             print(f"Warning: cannot download the keys from Localazy ({e}), the links may use wrong keys", file=sys.stderr)
-            return result
+            return result, plurals
         with open(os.path.join(directory, "en_content.json"), encoding="utf-8") as f:
             collect(json.load(f), [])
-    return result
+    return result, plurals
 
 
 # Return a Markdown link to the current commit of the element-hq project cloned by checkoutProject(), on GitHub.
@@ -281,7 +287,7 @@ def main():
     iosAccessors = getIosAccessors(iosRoot)
     androidWords = getAndroidUsedWords(androidRoot)
     iosWords, iosLiterals = getIosUsedWordsAndLiterals(iosRoot)
-    localazyKeys = getLocalazyKeys()
+    localazyKeys, localazyPlurals = getLocalazyKeys()
     androidAddedDates = getKeyAddedDates(
         androidRoot, [":(glob)**/src/main/res/values/localazy.xml"],
         r'^\+\s*<(?:string|plurals) name="([^"]+)"', androidStrings,
@@ -366,9 +372,11 @@ def main():
         for key in sorted(keys, key=lambda k: not k.endswith(("_android", "_ios"))):
             displayKey = localazyKeys.get(key, displayKeys[key])
             added = (addedDate(key) or "?") + (" 🆕" if isRecent(key) else "")
+            # Localazy only finds the plurals with the `p:` prefix
+            searchKey = ("p:" if key in localazyPlurals else "") + displayKey
             lines.append(
                 f"| `{displayKey}` | {formatValue(englishValue(key))} | {added} "
-                f"| [link](https://localazy.com/p/element/source-language?search={displayKey}&searchOptions=KEY,EXACT_MATCH) |"
+                f"| [link](https://localazy.com/p/element/source-language?search={searchKey}&searchOptions=KEY,EXACT_MATCH) |"
             )
         return lines
 
