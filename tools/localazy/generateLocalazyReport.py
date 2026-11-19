@@ -383,29 +383,21 @@ def main():
     lines = [
         "# Localazy report",
         "",
-        f"Usage of the Localazy strings by Element X Android (`{BRANCH}` at {getCommitLink(androidRoot)}) "
-        f"and Element X iOS (`{BRANCH}` at {getCommitLink(iosRoot)}), generated on {datetime.date.today().isoformat()}, "
-        f"out of {len(allKeys)} keys found in the English string files of both projects:",
+        f"| Date | Keys | Android (`{BRANCH}`) | iOS (`{BRANCH}`) |",
+        "|---|---|---|---|",
+        f"| {datetime.date.today().isoformat()} | {len(allKeys)} | {getCommitLink(androidRoot)} | {getCommitLink(iosRoot)} |",
         "",
+        "| Section | Keys | 🆕 |",
+        "|---|---|---|",
     ]
-    lines += [f"- [{title}](#{title.lower().replace(' ', '-')}): **{len(keys)}** keys" for title, _, keys in sections]
+    lines += [
+        f"| [{title}](#{title.lower().replace(' ', '-')}) | {len(keys)} | {sum(1 for key in keys if isRecent(key))} |"
+        for title, _, keys in sections
+    ]
     lines += [
         "",
-        "How this was computed:",
-        "- Android: a key counts as used when it appears as a word in production `.kt`, `.kts` or `.xml` files "
-        "(excluding `res/values*/`, `src/test`, `src/androidTest` and `tools/`).",
-        "- iOS: a key counts as used when its SwiftGen accessor (`L10n.xxx`) or the raw key literal appears in production `.swift` files "
-        "(excluding `Sources/Generated`, `UnitTests`, `UITests`, `PreviewTests`, `IntegrationTests` and `AccessibilityTests`).",
-        "- Keys with the `_android` suffix are not imported in the iOS project, and keys with the `_ios` suffix are not imported "
-        "in the Android project, so they are only checked on their platform.",
-        "",
-        "Caveats: keys built dynamically at runtime are not detected, so check each key before you change it. "
-        "A string used only in tests counts as unused. Only the `develop` branch of both projects is analysed, "
-        "so a string added to Localazy for a feature not merged yet (still in a pull request or in a branch) counts as unused.",
-        "",
-        "The *Added* column is the date of the first commit adding the key to the English string files of either project, "
-        f"which is close to the date the key was added to Localazy. 🆕 marks the keys added in the last {RECENT_DAYS} days, "
-        "which may be used by a feature still in development.",
+        f"🆕: keys added in the last {RECENT_DAYS} days, which may be used by a feature still in development. "
+        "Check each key before you change it, see [How this was computed](#how-this-was-computed).",
     ]
     for title, description, keys in sections:
         lines += ["", f"## {title}", "", f"{description} **{len(keys)}** keys.", ""]
@@ -413,6 +405,22 @@ def main():
         lines += ["<details>", f"<summary>Show the {len(keys)} keys</summary>", ""]
         lines += tableLines(keys)
         lines += ["", "</details>"]
+    lines += [
+        "",
+        "## How this was computed",
+        "",
+        "- Android: a key counts as used when it appears as a word in production `.kt`, `.kts` or `.xml` files "
+        "(excluding `res/values*/`, `src/test`, `src/androidTest` and `tools/`).",
+        "- iOS: a key counts as used when its SwiftGen accessor (`L10n.xxx`) or the raw key literal appears in production `.swift` files "
+        "(excluding `Sources/Generated`, `UnitTests`, `UITests`, `PreviewTests`, `IntegrationTests` and `AccessibilityTests`).",
+        "- Keys with the `_android` suffix are not imported in the iOS project, and keys with the `_ios` suffix are not imported "
+        "in the Android project, so they are only checked on their platform.",
+        "- The *Added* column is the date of the first commit adding the key to the English string files of either project, "
+        f"which is close to the date the key was added to Localazy. 🆕 marks the keys added in the last {RECENT_DAYS} days.",
+        "- A string used only in tests counts as unused. "
+        f"Only the `{BRANCH}` branch of both projects is analysed, so a string added to Localazy for a feature not merged yet "
+        "(still in a pull request or in a branch) counts as unused.",
+    ]
     os.makedirs(os.path.dirname(os.path.abspath(args.output)), exist_ok=True)
     with open(args.output, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")

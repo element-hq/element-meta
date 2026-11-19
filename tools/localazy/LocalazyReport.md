@@ -1,27 +1,24 @@
 # Localazy report
 
-Usage of the Localazy strings by Element X Android (`develop` at [`c4246f59af`](https://github.com/element-hq/element-x-android/commit/c4246f59afeac86b68f61f28f2936400a3366df5)) and Element X iOS (`develop` at [`151552258`](https://github.com/element-hq/element-x-ios/commit/1515522587c73cfa36a9629ba382028ccb9bb09e)), generated on 2026-11-03, out of 1887 keys found in the English string files of both projects:
+| Date | Keys | Android (`develop`) | iOS (`develop`) |
+|---|---|---|---|
+| 2026-11-19 | 1880 | [`27ebf05fe7`](https://github.com/element-hq/element-x-android/commit/27ebf05fe7fabbcc4302c08f40ae6b60ed549445) | [`093ece2ab`](https://github.com/element-hq/element-x-ios/commit/093ece2ab0ee8094bb7afc88817c102a766097e6) |
 
-- [Unused strings](#unused-strings): **82** keys
-- [Short unused strings](#short-unused-strings): **107** keys
-- [Strings not used on Android](#strings-not-used-on-android): **193** keys
-- [Strings not used on iOS](#strings-not-used-on-ios): **354** keys
+| Section | Keys | 🆕 |
+|---|---|---|
+| [Unused strings](#unused-strings) | 62 | 1 |
+| [Short unused strings](#short-unused-strings) | 102 | 5 |
+| [Strings not used on Android](#strings-not-used-on-android) | 184 | 9 |
+| [Strings not used on iOS](#strings-not-used-on-ios) | 355 | 64 |
 
-How this was computed:
-- Android: a key counts as used when it appears as a word in production `.kt`, `.kts` or `.xml` files (excluding `res/values*/`, `src/test`, `src/androidTest` and `tools/`).
-- iOS: a key counts as used when its SwiftGen accessor (`L10n.xxx`) or the raw key literal appears in production `.swift` files (excluding `Sources/Generated`, `UnitTests`, `UITests`, `PreviewTests`, `IntegrationTests` and `AccessibilityTests`).
-- Keys with the `_android` suffix are not imported in the iOS project, and keys with the `_ios` suffix are not imported in the Android project, so they are only checked on their platform.
-
-Caveats: keys built dynamically at runtime are not detected, so check each key before you change it. A string used only in tests counts as unused. Only the `develop` branch of both projects is analysed, so a string added to Localazy for a feature not merged yet (still in a pull request or in a branch) counts as unused.
-
-The *Added* column is the date of the first commit adding the key to the English string files of either project, which is close to the date the key was added to Localazy. 🆕 marks the keys added in the last 90 days, which may be used by a feature still in development.
+🆕: keys added in the last 90 days, which may be used by a feature still in development. Check each key before you change it, see [How this was computed](#how-this-was-computed).
 
 ## Unused strings
 
-Strings with more than 3 words, used neither by Element X Android nor by Element X iOS. They can probably be removed from Localazy, unless they are for a feature not merged yet. **82** keys.
+Strings with more than 3 words, used neither by Element X Android nor by Element X iOS. They can probably be removed from Localazy, unless they are for a feature not merged yet. **62** keys.
 
 <details>
-<summary>Show the 82 keys</summary>
+<summary>Show the 62 keys</summary>
 
 | Key | English value | Added | Localazy |
 |---|---|---|---|
@@ -53,14 +50,6 @@ Strings with more than 3 words, used neither by Element X Android nor by Element
 | `screen.custom_recovery_key.input.subtitle` | Choose a recovery key that you can memorize. | 2026-06-17 | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.input.subtitle&searchOptions=KEY,EXACT_MATCH) |
 | `screen.custom_recovery_key.input.title` | Enter a recovery key | 2026-06-17 | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.input.title&searchOptions=KEY,EXACT_MATCH) |
 | `screen.custom_recovery_key.loading.a11y` | Loading recovery key requirements | 2026-06-17 | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.loading.a11y&searchOptions=KEY,EXACT_MATCH) |
-| `screen.custom_recovery_key.success.notice` | To change your recovery key, go to Settings → Encryption → Backup | 2026-06-17 | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.success.notice&searchOptions=KEY,EXACT_MATCH) |
-| `screen.custom_recovery_key.success.subtitle` | You can use your recovery key to confirm new devices or restore your encrypted chats if you lose access to all your d… | 2026-06-17 | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.success.subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen.custom_recovery_key.success.title` | Your backup is now fully set up | 2026-06-17 | [link](https://localazy.com/p/element/source-language?search=screen.custom_recovery_key.success.title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_encryption_reset_bullet_4` | Any devices you’re signed in to will need to be reconfirmed | 2026-10-19 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_encryption_reset_bullet_4&searchOptions=KEY,EXACT_MATCH) |
-| `screen_encryption_reset_no_chats_message` | It looks like you don’t have any chats yet. If this is correct, you can safely proceed with resetting your digital id… | 2026-10-19 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_encryption_reset_no_chats_message&searchOptions=KEY,EXACT_MATCH) |
-| `screen_encryption_reset_no_options_subtitle` | You don’t have access to any other verified devices or a recovery key, so you’ll need to reset your digital identity … | 2026-10-19 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_encryption_reset_no_options_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_encryption_reset_no_options_title` | You need to reset your digital identity | 2026-10-19 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_encryption_reset_no_options_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_encryption_reset_subtitle` | If you don’t have access to any other verified devices and you don’t have your recovery key, then you’ll need to rese… | 2024-08-05 | [link](https://localazy.com/p/element/source-language?search=screen_encryption_reset_subtitle&searchOptions=KEY,EXACT_MATCH) |
 | `screen_identity_confirmation_create_new_recovery_key` | Create a new recovery key | 2024-04-04 | [link](https://localazy.com/p/element/source-language?search=screen_identity_confirmation_create_new_recovery_key&searchOptions=KEY,EXACT_MATCH) |
 | `screen_join_room_space_not_supported_description` | %1$s does not support spaces yet. You can access spaces on web. | 2024-04-25 | [link](https://localazy.com/p/element/source-language?search=screen_join_room_space_not_supported_description&searchOptions=KEY,EXACT_MATCH) |
 | `screen_join_room_space_not_supported_title` | Spaces are not supported yet | 2024-04-25 | [link](https://localazy.com/p/element/source-language?search=screen_join_room_space_not_supported_title&searchOptions=KEY,EXACT_MATCH) |
@@ -70,12 +59,8 @@ Strings with more than 3 words, used neither by Element X Android nor by Element
 | `screen.link_new_device.error.app_not_supported.subtitle` | Your account provider does not support %1$s. | 2025-12-11 | [link](https://localazy.com/p/element/source-language?search=screen.link_new_device.error.app_not_supported.subtitle&searchOptions=KEY,EXACT_MATCH) |
 | `screen_login_error_invalid_user_id` | This is not a valid user identifier. Expected format: ‘@user:homeserver.org’ | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_login_error_invalid_user_id&searchOptions=KEY,EXACT_MATCH) |
 | `screen_migration_title` | Setting up your account. | 2023-06-30 | [link](https://localazy.com/p/element/source-language?search=screen_migration_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_recovery_key_check_subtitle` | Enter the recovery key you’ve saved to make sure that it’s correct and active. | 2026-10-31 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_check_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_recovery_key_check_success_title` | Your recovery key is active | 2026-10-31 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_check_success_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_recovery_key_check_title` | Check your recovery key | 2026-10-31 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_check_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_recovery_key_confirm_create_new_recovery_key` | Create new recovery key | 2024-04-04 | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_confirm_create_new_recovery_key&searchOptions=KEY,EXACT_MATCH) |
 | `screen_recovery_key_confirm_lost_recovery_key` | Lost your recovery key? | 2024-04-25 | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_confirm_lost_recovery_key&searchOptions=KEY,EXACT_MATCH) |
-| `screen_recovery_key_success_title` | Your new recovery key is now active | 2026-10-29 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_success_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_reset_identity_confirmation_subtitle` | You're about to go to your %1$s account to reset your digital identity. Afterwards you'll be taken back to the app. | 2024-08-26 | [link](https://localazy.com/p/element/source-language?search=screen_reset_identity_confirmation_subtitle&searchOptions=KEY,EXACT_MATCH) |
 | `screen_reset_identity_confirmation_title` | Can't confirm? Go to your account to reset your digital identity. | 2024-08-26 | [link](https://localazy.com/p/element/source-language?search=screen_reset_identity_confirmation_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_encrypted_history_banner` | Message history is currently unavailable. | 2023-07-05 | [link](https://localazy.com/p/element/source-language?search=screen_room_encrypted_history_banner&searchOptions=KEY,EXACT_MATCH) |
@@ -89,16 +74,9 @@ Strings with more than 3 words, used neither by Element X Android nor by Element
 | `screen_roomlist_a11y_create_message` | Create a new conversation or room | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_roomlist_a11y_create_message&searchOptions=KEY,EXACT_MATCH) |
 | `screen.security_and_privacy.room_directory_visibility_section_footer` | Allow for this room to be found by searching %1$s public room directory | 2024-12-23 | [link](https://localazy.com/p/element/source-language?search=screen.security_and_privacy.room_directory_visibility_section_footer&searchOptions=KEY,EXACT_MATCH) |
 | `screen.security_and_privacy.room_publishing_section_footer` | Room addresses are ways to find and access rooms. This also ensures you can easily share your room with others. You c… | 2024-12-23 | [link](https://localazy.com/p/element/source-language?search=screen.security_and_privacy.room_publishing_section_footer&searchOptions=KEY,EXACT_MATCH) |
-| `screen.select_account.permalink.room.subtitle` | None of your accounts have joined this room yet, choose which one to use. | 2026-10-29 🆕 | [link](https://localazy.com/p/element/source-language?search=screen.select_account.permalink.room.subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen.select_account.permalink.title` | Select an account to open the link: | 2026-10-29 🆕 | [link](https://localazy.com/p/element/source-language?search=screen.select_account.permalink.title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_server_confirmation_message_login_matrix_dot_org` | Matrix is an open network for secure, decentralised communication. | 2023-05-29 | [link](https://localazy.com/p/element/source-language?search=screen_server_confirmation_message_login_matrix_dot_org&searchOptions=KEY,EXACT_MATCH) |
 | `screen_session_verification_waiting_other_device_title` | Start verification on the other device | 2025-02-10 | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_waiting_other_device_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_session_verification_waiting_to_accept_title` | Waiting to accept request | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_waiting_to_accept_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_signout_other_verified_device_dialog_content` | Make sure you always have access to another verified device or your recovery key to avoid losing your encrypted chat … | 2026-10-20 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_signout_other_verified_device_dialog_content&searchOptions=KEY,EXACT_MATCH) |
-| `screen_signout_other_verified_device_dialog_title` | Are you sure you want to remove this device? | 2026-10-20 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_signout_other_verified_device_dialog_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_signout_save_recovery_key_action_check` | Check your recovery key | 2026-10-31 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_signout_save_recovery_key_action_check&searchOptions=KEY,EXACT_MATCH) |
-| `screen_signout_save_recovery_key_action_continue` | Continue to remove this device | 2026-10-20 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_signout_save_recovery_key_action_continue&searchOptions=KEY,EXACT_MATCH) |
-| `screen_signout_save_recovery_key_action_generate` | Generate new recovery key | 2026-10-29 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_signout_save_recovery_key_action_generate&searchOptions=KEY,EXACT_MATCH) |
 | `slash_command.error.discard_session_not_handled` | Only supported in encrypted rooms | 2026-10-29 🆕 | [link](https://localazy.com/p/element/source-language?search=slash_command.error.discard_session_not_handled&searchOptions=KEY,EXACT_MATCH) |
 | `state_event_demoted_to_member` | %1$s was demoted to member | 2024-03-12 | [link](https://localazy.com/p/element/source-language?search=state_event_demoted_to_member&searchOptions=KEY,EXACT_MATCH) |
 | `state_event_demoted_to_moderator` | %1$s was demoted to moderator | 2024-03-12 | [link](https://localazy.com/p/element/source-language?search=state_event_demoted_to_moderator&searchOptions=KEY,EXACT_MATCH) |
@@ -106,16 +84,15 @@ Strings with more than 3 words, used neither by Element X Android nor by Element
 | `state_event_promoted_to_moderator` | %1$s was promoted to moderator | 2024-03-12 | [link](https://localazy.com/p/element/source-language?search=state_event_promoted_to_moderator&searchOptions=KEY,EXACT_MATCH) |
 | `state_event_room_unknown_membership_change` | %1$s made an unknown change to their membership | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=state_event_room_unknown_membership_change&searchOptions=KEY,EXACT_MATCH) |
 | `timeline.decryption_failure.historical_event_user_not_joined` | You don't have access to this message | 2024-12-09 | [link](https://localazy.com/p/element/source-language?search=timeline.decryption_failure.historical_event_user_not_joined&searchOptions=KEY,EXACT_MATCH) |
-| `troubleshoot_notifications_test_detect_push_provider_success` | Found %1$d push providers: %2$s | 2024-03-28 | [link](https://localazy.com/p/element/source-language?search=p:troubleshoot_notifications_test_detect_push_provider_success&searchOptions=KEY,EXACT_MATCH) |
 
 </details>
 
 ## Short unused strings
 
-Strings with at most 3 words, used neither by Element X Android nor by Element X iOS. They could be reused in the future, so check them before removing them from Localazy. **107** keys.
+Strings with at most 3 words, used neither by Element X Android nor by Element X iOS. They could be reused in the future, so check them before removing them from Localazy. **102** keys.
 
 <details>
-<summary>Show the 107 keys</summary>
+<summary>Show the 102 keys</summary>
 
 | Key | English value | Added | Localazy |
 |---|---|---|---|
@@ -123,10 +100,12 @@ Strings with at most 3 words, used neither by Element X Android nor by Element X
 | `a11y.send_files` | Send files | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=a11y.send_files&searchOptions=KEY,EXACT_MATCH) |
 | `action.copy_link` | Copy link | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=action.copy_link&searchOptions=KEY,EXACT_MATCH) |
 | `action.enable` | Enable | 2022-04-26 | [link](https://localazy.com/p/element/source-language?search=action.enable&searchOptions=KEY,EXACT_MATCH) |
+| `action.forgot_password` | Forgot password? | 2023-05-29 | [link](https://localazy.com/p/element/source-language?search=action.forgot_password&searchOptions=KEY,EXACT_MATCH) |
 | `action.go_back` | Go back | 2024-03-05 | [link](https://localazy.com/p/element/source-language?search=action.go_back&searchOptions=KEY,EXACT_MATCH) |
 | `action.go_to_settings` | Go to settings | 2025-10-06 | [link](https://localazy.com/p/element/source-language?search=action.go_to_settings&searchOptions=KEY,EXACT_MATCH) |
 | `action.invites_list` | Invites | 2023-04-11 | [link](https://localazy.com/p/element/source-language?search=action.invites_list&searchOptions=KEY,EXACT_MATCH) |
 | `action.minimize` | Minimise | 2025-10-03 | [link](https://localazy.com/p/element/source-language?search=action.minimize&searchOptions=KEY,EXACT_MATCH) |
+| `action.next` | Next | 2022-09-19 | [link](https://localazy.com/p/element/source-language?search=action.next&searchOptions=KEY,EXACT_MATCH) |
 | `action.quote` | Quote | 2022-04-26 | [link](https://localazy.com/p/element/source-language?search=action.quote&searchOptions=KEY,EXACT_MATCH) |
 | `action.report_dm` | Report conversation | 2025-04-14 | [link](https://localazy.com/p/element/source-language?search=action.report_dm&searchOptions=KEY,EXACT_MATCH) |
 | `action.retry_decryption` | Retry decryption | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=action.retry_decryption&searchOptions=KEY,EXACT_MATCH) |
@@ -143,12 +122,12 @@ Strings with at most 3 words, used neither by Element X Android nor by Element X
 | `common.permalink` | Permalink | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=common.permalink&searchOptions=KEY,EXACT_MATCH) |
 | `common.private_room` | Private room | 2025-08-07 | [link](https://localazy.com/p/element/source-language?search=common.private_room&searchOptions=KEY,EXACT_MATCH) |
 | `common.public_room` | Public room | 2025-08-07 | [link](https://localazy.com/p/element/source-language?search=common.public_room&searchOptions=KEY,EXACT_MATCH) |
-| `common.reaction` | Reaction | 2023-09-13 | [link](https://localazy.com/p/element/source-language?search=common.reaction&searchOptions=KEY,EXACT_MATCH) |
 | `common.refreshing` | Refreshing… | 2023-06-28 | [link](https://localazy.com/p/element/source-language?search=common.refreshing&searchOptions=KEY,EXACT_MATCH) |
 | `common.replying_to` | Replying to %1$s | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=common.replying_to&searchOptions=KEY,EXACT_MATCH) |
 | `common.rich_text_editor` | Rich text editor | 2023-09-14 | [link](https://localazy.com/p/element/source-language?search=common.rich_text_editor&searchOptions=KEY,EXACT_MATCH) |
 | `common.role` | Role | 2026-01-23 | [link](https://localazy.com/p/element/source-language?search=common.role&searchOptions=KEY,EXACT_MATCH) |
 | `common.room` | Room | 2023-10-27 | [link](https://localazy.com/p/element/source-language?search=common.room&searchOptions=KEY,EXACT_MATCH) |
+| `common.select_account` | Select an account | 2025-09-05 | [link](https://localazy.com/p/element/source-language?search=common.select_account&searchOptions=KEY,EXACT_MATCH) |
 | `common.server_url` | Server URL | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=common.server_url&searchOptions=KEY,EXACT_MATCH) |
 | `common.suggested` | Suggested | 2026-01-09 | [link](https://localazy.com/p/element/source-language?search=common.suggested&searchOptions=KEY,EXACT_MATCH) |
 | `common.third_party_notices` | Third-party notices | 2023-06-07 | [link](https://localazy.com/p/element/source-language?search=common.third_party_notices&searchOptions=KEY,EXACT_MATCH) |
@@ -161,11 +140,7 @@ Strings with at most 3 words, used neither by Element X Android nor by Element X
 | `dialog_default_video_quality_selector_title` | Video upload quality | 2025-08-11 | [link](https://localazy.com/p/element/source-language?search=dialog_default_video_quality_selector_title&searchOptions=KEY,EXACT_MATCH) |
 | `dialog_title_success` | Success | 2022-04-26 | [link](https://localazy.com/p/element/source-language?search=dialog_title_success&searchOptions=KEY,EXACT_MATCH) |
 | `notification_channel_listening_for_events` | Listening for events | 2023-04-05 | [link](https://localazy.com/p/element/source-language?search=notification_channel_listening_for_events&searchOptions=KEY,EXACT_MATCH) |
-| `notification_compat_summary_line_for_room` | %1$s: %2$d messages | 2022-04-26 | [link](https://localazy.com/p/element/source-language?search=p:notification_compat_summary_line_for_room&searchOptions=KEY,EXACT_MATCH) |
-| `notification_invitations` | %d invitations | 2022-04-26 | [link](https://localazy.com/p/element/source-language?search=p:notification_invitations&searchOptions=KEY,EXACT_MATCH) |
 | `notification_mentioned_you_body` | Mentioned you: %1$s | 2023-11-09 | [link](https://localazy.com/p/element/source-language?search=notification_mentioned_you_body&searchOptions=KEY,EXACT_MATCH) |
-| `notification_new_messages` | New Messages | 2022-04-26 | [link](https://localazy.com/p/element/source-language?search=notification_new_messages&searchOptions=KEY,EXACT_MATCH) |
-| `notification_new_messages_for_room` | %d new messages | 2023-04-05 | [link](https://localazy.com/p/element/source-language?search=p:notification_new_messages_for_room&searchOptions=KEY,EXACT_MATCH) |
 | `notification_reaction_body` | Reacted with %1$s | 2023-06-28 | [link](https://localazy.com/p/element/source-language?search=notification_reaction_body&searchOptions=KEY,EXACT_MATCH) |
 | `notification_unread_notified_messages_and_invitation` | %1$s and %2$s | 2022-04-26 | [link](https://localazy.com/p/element/source-language?search=notification_unread_notified_messages_and_invitation&searchOptions=KEY,EXACT_MATCH) |
 | `notification_unread_notified_messages_in_room` | %1$s in %2$s | 2022-04-26 | [link](https://localazy.com/p/element/source-language?search=notification_unread_notified_messages_in_room&searchOptions=KEY,EXACT_MATCH) |
@@ -174,9 +149,6 @@ Strings with at most 3 words, used neither by Element X Android nor by Element X
 | `rich_text_editor.composer_unencrypted_placeholder` | Unencrypted message… | 2025-03-04 | [link](https://localazy.com/p/element/source-language?search=rich_text_editor.composer_unencrypted_placeholder&searchOptions=KEY,EXACT_MATCH) |
 | `rich_text_editor.open_compose_options` | Open compose options | 2023-09-01 | [link](https://localazy.com/p/element/source-language?search=rich_text_editor.open_compose_options&searchOptions=KEY,EXACT_MATCH) |
 | `screen_bug_report_include_crash_logs` | Send crash logs | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_bug_report_include_crash_logs&searchOptions=KEY,EXACT_MATCH) |
-| `screen_change_account_provider_other` | Other | 2023-06-07 | [link](https://localazy.com/p/element/source-language?search=screen_change_account_provider_other&searchOptions=KEY,EXACT_MATCH) |
-| `screen_change_account_provider_title` | Change account provider | 2023-06-07 | [link](https://localazy.com/p/element/source-language?search=screen_change_account_provider_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_change_server_form_header` | Homeserver URL | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_change_server_form_header&searchOptions=KEY,EXACT_MATCH) |
 | `screen.change_server.title` | Select your server | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen.change_server.title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_chat_backup_key_backup_action_enable` | Turn on backup | 2023-10-19 | [link](https://localazy.com/p/element/source-language?search=screen_chat_backup_key_backup_action_enable&searchOptions=KEY,EXACT_MATCH) |
 | `screen_create_new_recovery_key_list_item_3_reset_all` | “Reset all” | 2024-04-04 | [link](https://localazy.com/p/element/source-language?search=screen_create_new_recovery_key_list_item_3_reset_all&searchOptions=KEY,EXACT_MATCH) |
@@ -195,14 +167,13 @@ Strings with at most 3 words, used neither by Element X Android nor by Element X
 | `screen.link_new_device.error.app_not_supported.title` | %1$s not supported | 2025-12-11 | [link](https://localazy.com/p/element/source-language?search=screen.link_new_device.error.app_not_supported.title&searchOptions=KEY,EXACT_MATCH) |
 | `screen.media_upload_preview.processing` | Processing… | 2025-08-11 | [link](https://localazy.com/p/element/source-language?search=screen.media_upload_preview.processing&searchOptions=KEY,EXACT_MATCH) |
 | `screen_notification_settings_mentions_section_title` | Mentions | 2023-07-31 | [link](https://localazy.com/p/element/source-language?search=screen_notification_settings_mentions_section_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_recovery_key_check_key_title` | Enter recovery key | 2026-10-31 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_check_key_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen.room_change_permissions.change_settings` | Change settings | 2025-11-12 | [link](https://localazy.com/p/element/source-language?search=screen.room_change_permissions.change_settings&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_change_role_confirm_demote_self_action` | Demote | 2024-02-23 | [link](https://localazy.com/p/element/source-language?search=screen_room_change_role_confirm_demote_self_action&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_change_role_confirm_demote_self_title` | Demote yourself? | 2024-02-23 | [link](https://localazy.com/p/element/source-language?search=screen_room_change_role_confirm_demote_self_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_change_role_invited_member_name` | %1$s (Pending) | 2024-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_room_change_role_invited_member_name&searchOptions=KEY,EXACT_MATCH) |
-| `screen.room_details.audio_push_to_talk` | Push to talk | 2026-09-30 🆕 | [link](https://localazy.com/p/element/source-language?search=screen.room_details.audio_push_to_talk&searchOptions=KEY,EXACT_MATCH) |
-| `screen.room_details.audio_title` | Room Audio | 2026-09-30 🆕 | [link](https://localazy.com/p/element/source-language?search=screen.room_details.audio_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen.room_details.audio_video_calls` | Video calls | 2026-09-30 🆕 | [link](https://localazy.com/p/element/source-language?search=screen.room_details.audio_video_calls&searchOptions=KEY,EXACT_MATCH) |
+| `screen_room_details_audio_push_to_talk` | Push to talk | 2026-10-05 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_room_details_audio_push_to_talk&searchOptions=KEY,EXACT_MATCH) |
+| `screen_room_details_audio_title` | Room Audio | 2026-10-05 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_room_details_audio_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_room_details_audio_video_calls` | Video calls | 2026-10-05 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_room_details_audio_video_calls&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_details_leave_conversation_title` | Leave conversation | 2024-01-16 | [link](https://localazy.com/p/element/source-language?search=screen_room_details_leave_conversation_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_details_room_name_label` | Name | 2023-06-01 | [link](https://localazy.com/p/element/source-language?search=screen_room_details_room_name_label&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_details_topic_title` | Topic | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_room_details_topic_title&searchOptions=KEY,EXACT_MATCH) |
@@ -221,6 +192,7 @@ Strings with at most 3 words, used neither by Element X Android nor by Element X
 | `screen_room_voice_message_tooltip` | Hold to record | 2023-10-16 | [link](https://localazy.com/p/element/source-language?search=screen_room_voice_message_tooltip&searchOptions=KEY,EXACT_MATCH) |
 | `screen.security_and_privacy.room_publishing_section_header` | Room publishing | 2024-12-23 | [link](https://localazy.com/p/element/source-language?search=screen.security_and_privacy.room_publishing_section_header&searchOptions=KEY,EXACT_MATCH) |
 | `screen_session_verification_enter_recovery_key` | Enter recovery key | 2024-02-19 | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_enter_recovery_key&searchOptions=KEY,EXACT_MATCH) |
+| `screen_signout_confirmation_dialog_title` | Remove this device | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_signout_confirmation_dialog_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen.space.add_room_action` | Room | 2026-01-23 | [link](https://localazy.com/p/element/source-language?search=screen.space.add_room_action&searchOptions=KEY,EXACT_MATCH) |
 | `screen.space_list.parent_space` | %1$s space | 2025-09-26 | [link](https://localazy.com/p/element/source-language?search=screen.space_list.parent_space&searchOptions=KEY,EXACT_MATCH) |
 | `slash_command.error` | Command error | 2026-10-29 🆕 | [link](https://localazy.com/p/element/source-language?search=slash_command.error&searchOptions=KEY,EXACT_MATCH) |
@@ -231,10 +203,10 @@ Strings with at most 3 words, used neither by Element X Android nor by Element X
 
 ## Strings not used on Android
 
-Strings used by Element X iOS but not by Element X Android. Keys with the `_android` suffix can probably be removed. For the other keys, this can be a difference between the implementations of both projects, or a feature not implemented yet on Android. If the difference is expected, the key can be renamed with the `_ios` suffix. **193** keys.
+Strings used by Element X iOS but not by Element X Android. Keys with the `_android` suffix can probably be removed. For the other keys, this can be a difference between the implementations of both projects, or a feature not implemented yet on Android. If the difference is expected, the key can be renamed with the `_ios` suffix. **184** keys.
 
 <details>
-<summary>Show the 193 keys</summary>
+<summary>Show the 184 keys</summary>
 
 | Key | English value | Added | Localazy |
 |---|---|---|---|
@@ -273,11 +245,8 @@ Strings used by Element X iOS but not by Element X Android. Keys with the `_andr
 | `action.add_to_timeline` | Add to timeline | 2023-09-21 | [link](https://localazy.com/p/element/source-language?search=action.add_to_timeline&searchOptions=KEY,EXACT_MATCH) |
 | `action.choose_file` | Choose file | 2026-04-30 | [link](https://localazy.com/p/element/source-language?search=action.choose_file&searchOptions=KEY,EXACT_MATCH) |
 | `action.enter_pin` | Enter PIN | 2023-10-26 | [link](https://localazy.com/p/element/source-language?search=action.enter_pin&searchOptions=KEY,EXACT_MATCH) |
-| `action.forgot_password` | Forgot password? | 2023-05-29 | [link](https://localazy.com/p/element/source-language?search=action.forgot_password&searchOptions=KEY,EXACT_MATCH) |
 | `action.forward_messages` | Forward %1$d messages | 2026-09-25 🆕 | [link](https://localazy.com/p/element/source-language?search=p:action.forward_messages&searchOptions=KEY,EXACT_MATCH) |
-| `action.got_it` | Got it | 2026-10-31 🆕 | [link](https://localazy.com/p/element/source-language?search=action.got_it&searchOptions=KEY,EXACT_MATCH) |
 | `action.invite_people_to_app` | Invite people to %1$s | 2023-06-20 | [link](https://localazy.com/p/element/source-language?search=action.invite_people_to_app&searchOptions=KEY,EXACT_MATCH) |
-| `action.next` | Next | 2022-09-19 | [link](https://localazy.com/p/element/source-language?search=action.next&searchOptions=KEY,EXACT_MATCH) |
 | `action.quick_reply` | Quick reply | 2022-04-26 | [link](https://localazy.com/p/element/source-language?search=action.quick_reply&searchOptions=KEY,EXACT_MATCH) |
 | `action.react` | React | 2023-07-24 | [link](https://localazy.com/p/element/source-language?search=action.react&searchOptions=KEY,EXACT_MATCH) |
 | `action.start_over` | Start over | 2025-12-11 | [link](https://localazy.com/p/element/source-language?search=action.start_over&searchOptions=KEY,EXACT_MATCH) |
@@ -296,6 +265,7 @@ Strings used by Element X iOS but not by Element X Android. Keys with the `_andr
 | `common.message` | Message | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=common.message&searchOptions=KEY,EXACT_MATCH) |
 | `common.private_space` | Private space | 2025-08-07 | [link](https://localazy.com/p/element/source-language?search=common.private_space&searchOptions=KEY,EXACT_MATCH) |
 | `common.public_space` | Public space | 2025-08-07 | [link](https://localazy.com/p/element/source-language?search=common.public_space&searchOptions=KEY,EXACT_MATCH) |
+| `common.reaction` | Reaction | 2023-09-13 | [link](https://localazy.com/p/element/source-language?search=common.reaction&searchOptions=KEY,EXACT_MATCH) |
 | `common.reactions` | Reactions | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=common.reactions&searchOptions=KEY,EXACT_MATCH) |
 | `common.removing` | Removing… | 2026-01-16 | [link](https://localazy.com/p/element/source-language?search=common.removing&searchOptions=KEY,EXACT_MATCH) |
 | `common.security` | Security | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=common.security&searchOptions=KEY,EXACT_MATCH) |
@@ -330,8 +300,8 @@ Strings used by Element X iOS but not by Element X Android. Keys with the `_andr
 | `screen_bug_report_edit_screenshot` | Edit screenshot | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_bug_report_edit_screenshot&searchOptions=KEY,EXACT_MATCH) |
 | `screen_bug_report_include_logs_error` | Your logs are excessively large so cannot be included in this report, please send them to us another way. | 2025-06-24 | [link](https://localazy.com/p/element/source-language?search=screen_bug_report_include_logs_error&searchOptions=KEY,EXACT_MATCH) |
 | `screen_change_server_error_invalid_well_known` | Server isn't available due to an issue in the .well-known file: %1$s | 2024-02-23 | [link](https://localazy.com/p/element/source-language?search=screen_change_server_error_invalid_well_known&searchOptions=KEY,EXACT_MATCH) |
-| `screen.change_server.navigation_title.login` | Sign in | 2026-08-10 🆕 | [link](https://localazy.com/p/element/source-language?search=screen.change_server.navigation_title.login&searchOptions=KEY,EXACT_MATCH) |
-| `screen.change_server.navigation_title.register` | Create account | 2026-08-10 🆕 | [link](https://localazy.com/p/element/source-language?search=screen.change_server.navigation_title.register&searchOptions=KEY,EXACT_MATCH) |
+| `screen.change_server.navigation_title.login` | Sign in | 2026-08-10 | [link](https://localazy.com/p/element/source-language?search=screen.change_server.navigation_title.login&searchOptions=KEY,EXACT_MATCH) |
+| `screen.change_server.navigation_title.register` | Create account | 2026-08-10 | [link](https://localazy.com/p/element/source-language?search=screen.change_server.navigation_title.register&searchOptions=KEY,EXACT_MATCH) |
 | `screen_create_account_title` | Create account | 2024-09-16 | [link](https://localazy.com/p/element/source-language?search=screen_create_account_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen.create_poll.option_accessibility_label` | %1$s: %2$s | 2025-06-16 | [link](https://localazy.com/p/element/source-language?search=screen.create_poll.option_accessibility_label&searchOptions=KEY,EXACT_MATCH) |
 | `screen.create_poll.options_section_title` | Options | 2025-06-16 | [link](https://localazy.com/p/element/source-language?search=screen.create_poll.options_section_title&searchOptions=KEY,EXACT_MATCH) |
@@ -360,6 +330,7 @@ Strings used by Element X iOS but not by Element X Android. Keys with the `_andr
 | `screen_media_browser_download_error_message` | Check your internet connection and try again. | 2024-12-19 | [link](https://localazy.com/p/element/source-language?search=screen_media_browser_download_error_message&searchOptions=KEY,EXACT_MATCH) |
 | `screen_media_browser_title` | Media and files | 2024-12-03 | [link](https://localazy.com/p/element/source-language?search=screen_media_browser_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_media_picker_error_failed_selection` | Failed selecting media, please try again. | 2023-05-01 | [link](https://localazy.com/p/element/source-language?search=screen_media_picker_error_failed_selection&searchOptions=KEY,EXACT_MATCH) |
+| `screen.media_upload_preview.a11y_draw` | Draw | 2026-11-13 🆕 | [link](https://localazy.com/p/element/source-language?search=screen.media_upload_preview.a11y_draw&searchOptions=KEY,EXACT_MATCH) |
 | `screen.media_upload_preview.error_could_not_be_uploaded` | The file could not be uploaded. | 2025-07-28 | [link](https://localazy.com/p/element/source-language?search=screen.media_upload_preview.error_could_not_be_uploaded&searchOptions=KEY,EXACT_MATCH) |
 | `screen.media_upload_preview.error_too_large_message` | The maximum file size allowed is %1$s. | 2025-07-28 | [link](https://localazy.com/p/element/source-language?search=screen.media_upload_preview.error_too_large_message&searchOptions=KEY,EXACT_MATCH) |
 | `screen.media_upload_preview.error_too_large_title` | The file is too large to upload | 2025-07-28 | [link](https://localazy.com/p/element/source-language?search=screen.media_upload_preview.error_too_large_title&searchOptions=KEY,EXACT_MATCH) |
@@ -414,10 +385,6 @@ Strings used by Element X iOS but not by Element X Android. Keys with the `_andr
 | `screen.roomlist.filter_mention` | Mention | 2026-09-01 🆕 | [link](https://localazy.com/p/element/source-language?search=screen.roomlist.filter_mention&searchOptions=KEY,EXACT_MATCH) |
 | `screen.roomlist.filter_mention_empty_state_title` | You don’t have any unread mentions | 2026-09-01 🆕 | [link](https://localazy.com/p/element/source-language?search=screen.roomlist.filter_mention_empty_state_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_roomlist_main_space_title` | Chats | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_roomlist_main_space_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_search_history_limit_message` | Search runs on your device, so your encrypted messages stay private. Your device keeps the most recent 3 months of me… | 2026-10-31 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_search_history_limit_message&searchOptions=KEY,EXACT_MATCH) |
-| `screen_search_history_limit_title` | Search covers the last 3 months | 2026-10-31 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_search_history_limit_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_search_messages_no_results_message` | There are no results for “%1$s” in your recent messages. | 2026-10-31 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_search_messages_no_results_message&searchOptions=KEY,EXACT_MATCH) |
-| `screen_search_messages_no_results_title` | No results in the last 3 months | 2026-10-31 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_search_messages_no_results_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_session_verification_request_details_timestamp` | Signed in | 2024-10-21 | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_request_details_timestamp&searchOptions=KEY,EXACT_MATCH) |
 | `screen.settings.add_account` | Add account | 2026-10-05 🆕 | [link](https://localazy.com/p/element/source-language?search=screen.settings.add_account&searchOptions=KEY,EXACT_MATCH) |
 | `screen_share_open_apple_maps` | Open in Apple Maps | 2023-06-29 | [link](https://localazy.com/p/element/source-language?search=screen_share_open_apple_maps&searchOptions=KEY,EXACT_MATCH) |
@@ -425,21 +392,17 @@ Strings used by Element X iOS but not by Element X Android. Keys with the `_andr
 | `screen_share_open_osm_maps` | Open in OpenStreetMap | 2023-06-29 | [link](https://localazy.com/p/element/source-language?search=screen_share_open_osm_maps&searchOptions=KEY,EXACT_MATCH) |
 | `screen.sharing_location_option_sheet.title` | Sharing options | 2026-03-09 | [link](https://localazy.com/p/element/source-language?search=screen.sharing_location_option_sheet.title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_signout_confirmation_dialog_submit` | Remove this device | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_signout_confirmation_dialog_submit&searchOptions=KEY,EXACT_MATCH) |
-| `screen_signout_confirmation_dialog_title` | Remove this device | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_signout_confirmation_dialog_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_signout_key_backup_offline_title` | Your keys are still being backed up | 2023-10-24 | [link](https://localazy.com/p/element/source-language?search=screen_signout_key_backup_offline_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_signout_preference_item` | Remove this device | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_signout_preference_item&searchOptions=KEY,EXACT_MATCH) |
-| `screen_signout_recovery_disabled_subtitle` | This is your only device. If you remove it you’ll need a recovery key in order to confirm your digital identity and r… | 2023-10-24 | [link](https://localazy.com/p/element/source-language?search=screen_signout_recovery_disabled_subtitle&searchOptions=KEY,EXACT_MATCH) |
-| `screen_signout_save_recovery_key_subtitle` | This is your only device. If you remove it you’ll need a recovery key in order to confirm your digital identity and r… | 2023-10-24 | [link](https://localazy.com/p/element/source-language?search=screen_signout_save_recovery_key_subtitle&searchOptions=KEY,EXACT_MATCH) |
 | `screen.space_settings.leave_space` | Leave space | 2025-10-30 | [link](https://localazy.com/p/element/source-language?search=screen.space_settings.leave_space&searchOptions=KEY,EXACT_MATCH) |
 
 </details>
 
 ## Strings not used on iOS
 
-Strings used by Element X Android but not by Element X iOS. Keys with the `_ios` suffix can probably be removed. For the other keys, this can be a difference between the implementations of both projects, or a feature not implemented yet on iOS. If the difference is expected, the key can be renamed with the `_android` suffix. **354** keys.
+Strings used by Element X Android but not by Element X iOS. Keys with the `_ios` suffix can probably be removed. For the other keys, this can be a difference between the implementations of both projects, or a feature not implemented yet on iOS. If the difference is expected, the key can be renamed with the `_android` suffix. **355** keys.
 
 <details>
-<summary>Show the 354 keys</summary>
+<summary>Show the 355 keys</summary>
 
 | Key | English value | Added | Localazy |
 |---|---|---|---|
@@ -465,11 +428,10 @@ Strings used by Element X Android but not by Element X iOS. Keys with the `_ios`
 | `a11y.remove_reaction_with` | Remove reaction with %1$s | 2023-11-21 | [link](https://localazy.com/p/element/source-language?search=a11y.remove_reaction_with&searchOptions=KEY,EXACT_MATCH) |
 | `a11y.sent_by_sender_at_date` | Sent by %1$s at %2$s | 2026-05-20 | [link](https://localazy.com/p/element/source-language?search=a11y.sent_by_sender_at_date&searchOptions=KEY,EXACT_MATCH) |
 | `a11y.settings_with_required_action` | Settings, action required | 2026-04-27 | [link](https://localazy.com/p/element/source-language?search=a11y.settings_with_required_action&searchOptions=KEY,EXACT_MATCH) |
-| `a11y.state_collapsed` | Collapsed | 2026-10-29 🆕 | [link](https://localazy.com/p/element/source-language?search=a11y.state_collapsed&searchOptions=KEY,EXACT_MATCH) |
-| `a11y.state_expanded` | Expanded | 2026-10-29 🆕 | [link](https://localazy.com/p/element/source-language?search=a11y.state_expanded&searchOptions=KEY,EXACT_MATCH) |
 | `a11y.thread_in_room` | Thread in %1$s | 2026-05-20 | [link](https://localazy.com/p/element/source-language?search=a11y.thread_in_room&searchOptions=KEY,EXACT_MATCH) |
 | `a11y.threads_in_room` | Threads in %1$s | 2026-05-20 | [link](https://localazy.com/p/element/source-language?search=a11y.threads_in_room&searchOptions=KEY,EXACT_MATCH) |
 | `a11y.user_menu` | User menu | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=a11y.user_menu&searchOptions=KEY,EXACT_MATCH) |
+| `action.back` | Back | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=action.back&searchOptions=KEY,EXACT_MATCH) |
 | `action.copy_to_clipboard` | Copy to clipboard | 2026-09-22 🆕 | [link](https://localazy.com/p/element/source-language?search=action.copy_to_clipboard&searchOptions=KEY,EXACT_MATCH) |
 | `action.disable` | Disable | 2022-04-26 | [link](https://localazy.com/p/element/source-language?search=action.disable&searchOptions=KEY,EXACT_MATCH) |
 | `action.explore_public_spaces` | Explore public spaces | 2026-01-21 | [link](https://localazy.com/p/element/source-language?search=action.explore_public_spaces&searchOptions=KEY,EXACT_MATCH) |
@@ -484,11 +446,8 @@ Strings used by Element X Android but not by Element X iOS. Keys with the `_ios`
 | `action.send_edited_message` | Send edited message | 2025-07-03 | [link](https://localazy.com/p/element/source-language?search=action.send_edited_message&searchOptions=KEY,EXACT_MATCH) |
 | `action.send_message` | Send message | 2023-04-05 | [link](https://localazy.com/p/element/source-language?search=action.send_message&searchOptions=KEY,EXACT_MATCH) |
 | `action.send_voice_message` | Send voice message | 2025-07-03 | [link](https://localazy.com/p/element/source-language?search=action.send_voice_message&searchOptions=KEY,EXACT_MATCH) |
-| `action.signout_anyway` | Remove this device anyway | 2023-10-19 | [link](https://localazy.com/p/element/source-language?search=action.signout_anyway&searchOptions=KEY,EXACT_MATCH) |
 | `action.start` | Start | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=action.start&searchOptions=KEY,EXACT_MATCH) |
 | `action.view` | View | 2025-06-30 | [link](https://localazy.com/p/element/source-language?search=action.view&searchOptions=KEY,EXACT_MATCH) |
-| `banner.migrate_to_native_sliding_sync.action` | Log Out & Upgrade | 2024-09-09 | [link](https://localazy.com/p/element/source-language?search=banner.migrate_to_native_sliding_sync.action&searchOptions=KEY,EXACT_MATCH) |
-| `banner.migrate_to_native_sliding_sync.app_force_logout.title` | %1$s no longer supports the old protocol. Please log out and log back in to continue using the app. | 2025-02-18 | [link](https://localazy.com/p/element/source-language?search=banner.migrate_to_native_sliding_sync.app_force_logout.title&searchOptions=KEY,EXACT_MATCH) |
 | `banner.swipe_avatar.content` | Swipe up or down on your avatar to switch between your accounts without going to the app settings. | 2026-10-13 🆕 | [link](https://localazy.com/p/element/source-language?search=banner.swipe_avatar.content&searchOptions=KEY,EXACT_MATCH) |
 | `banner.swipe_avatar.title` | Swipe your avatar to switch accounts | 2026-10-13 🆕 | [link](https://localazy.com/p/element/source-language?search=banner.swipe_avatar.title&searchOptions=KEY,EXACT_MATCH) |
 | `call_invalid_audio_device_bluetooth_devices_disabled` | Element Call does not support using Bluetooth audio devices in this Android version. Please select a different audio … | 2025-06-13 | [link](https://localazy.com/p/element/source-language?search=call_invalid_audio_device_bluetooth_devices_disabled&searchOptions=KEY,EXACT_MATCH) |
@@ -520,7 +479,6 @@ Strings used by Element X Android but not by Element X iOS. Keys with the `_ios`
 | `common.rooms` | %1$d Rooms | 2025-08-05 | [link](https://localazy.com/p/element/source-language?search=p:common.rooms&searchOptions=KEY,EXACT_MATCH) |
 | `common.saved_changes` | Saved changes | 2024-03-05 | [link](https://localazy.com/p/element/source-language?search=common.saved_changes&searchOptions=KEY,EXACT_MATCH) |
 | `common.search_results` | Search results | 2023-05-15 | [link](https://localazy.com/p/element/source-language?search=common.search_results&searchOptions=KEY,EXACT_MATCH) |
-| `common.select_account` | Select an account | 2025-09-05 | [link](https://localazy.com/p/element/source-language?search=common.select_account&searchOptions=KEY,EXACT_MATCH) |
 | `common.selected_count` | %1$d selected | 2026-01-15 | [link](https://localazy.com/p/element/source-language?search=p:common.selected_count&searchOptions=KEY,EXACT_MATCH) |
 | `common.send_to` | Send to | 2024-06-05 | [link](https://localazy.com/p/element/source-language?search=common.send_to&searchOptions=KEY,EXACT_MATCH) |
 | `common.sentence_delimiter` | . | 2025-06-13 | [link](https://localazy.com/p/element/source-language?search=common.sentence_delimiter&searchOptions=KEY,EXACT_MATCH) |
@@ -529,7 +487,6 @@ Strings used by Element X Android but not by Element X iOS. Keys with the `_ios`
 | `common.signed_in` | Signed in | 2026-09-30 🆕 | [link](https://localazy.com/p/element/source-language?search=common.signed_in&searchOptions=KEY,EXACT_MATCH) |
 | `common.spoiler` | Spoiler | 2026-10-29 🆕 | [link](https://localazy.com/p/element/source-language?search=common.spoiler&searchOptions=KEY,EXACT_MATCH) |
 | `common.starting_chat` | Starting chat… | 2023-05-15 | [link](https://localazy.com/p/element/source-language?search=common.starting_chat&searchOptions=KEY,EXACT_MATCH) |
-| `common.switch_accounts` | Switch accounts | 2026-09-21 🆕 | [link](https://localazy.com/p/element/source-language?search=common.switch_accounts&searchOptions=KEY,EXACT_MATCH) |
 | `common.unable_to_decrypt` | Unable to decrypt | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=common.unable_to_decrypt&searchOptions=KEY,EXACT_MATCH) |
 | `common.video_quality_high` | High quality | 2025-08-11 | [link](https://localazy.com/p/element/source-language?search=common.video_quality_high&searchOptions=KEY,EXACT_MATCH) |
 | `common.video_quality_high_description` | Best quality but larger file size | 2025-08-11 | [link](https://localazy.com/p/element/source-language?search=common.video_quality_high_description&searchOptions=KEY,EXACT_MATCH) |
@@ -551,9 +508,9 @@ Strings used by Element X Android but not by Element X iOS. Keys with the `_ios`
 | `dialog_video_quality_selector_subtitle_file_size` | The max file size allowed is: %1$s | 2025-08-11 | [link](https://localazy.com/p/element/source-language?search=dialog_video_quality_selector_subtitle_file_size&searchOptions=KEY,EXACT_MATCH) |
 | `dialog_video_quality_selector_subtitle_no_file_size` | Select the quality of the video you want to upload. | 2025-08-11 | [link](https://localazy.com/p/element/source-language?search=dialog_video_quality_selector_subtitle_no_file_size&searchOptions=KEY,EXACT_MATCH) |
 | `dialog_video_quality_selector_title` | Select video upload quality | 2025-08-11 | [link](https://localazy.com/p/element/source-language?search=dialog_video_quality_selector_title&searchOptions=KEY,EXACT_MATCH) |
+| `emoji_picker_a11y_backspace` | Delete the character before the cursor | 2026-11-11 🆕 | [link](https://localazy.com/p/element/source-language?search=emoji_picker_a11y_backspace&searchOptions=KEY,EXACT_MATCH) |
 | `emoji_picker_category_recent` | Recent emojis | 2025-09-16 | [link](https://localazy.com/p/element/source-language?search=emoji_picker_category_recent&searchOptions=KEY,EXACT_MATCH) |
 | `emoji_picker_search_placeholder` | Search emojis | 2025-09-04 | [link](https://localazy.com/p/element/source-language?search=emoji_picker_search_placeholder&searchOptions=KEY,EXACT_MATCH) |
-| `error.account_already_logged_in` | You’re already signed in as %1$s. | 2025-09-05 | [link](https://localazy.com/p/element/source-language?search=error.account_already_logged_in&searchOptions=KEY,EXACT_MATCH) |
 | `error.account_already_logged_in.title` | Duplicate sign-in | 2026-10-16 🆕 | [link](https://localazy.com/p/element/source-language?search=error.account_already_logged_in.title&searchOptions=KEY,EXACT_MATCH) |
 | `error.network_or_server_issue` | This may be due to network or server issues. | 2025-02-10 | [link](https://localazy.com/p/element/source-language?search=error.network_or_server_issue&searchOptions=KEY,EXACT_MATCH) |
 | `error_no_compatible_app_found` | No compatible app was found to handle this action. | 2023-03-29 | [link](https://localazy.com/p/element/source-language?search=error_no_compatible_app_found&searchOptions=KEY,EXACT_MATCH) |
@@ -572,7 +529,7 @@ Strings used by Element X Android but not by Element X iOS. Keys with the `_ios`
 | `notification_incoming_audio_call` | 📞 Incoming call | 2026-03-06 | [link](https://localazy.com/p/element/source-language?search=notification_incoming_audio_call&searchOptions=KEY,EXACT_MATCH) |
 | `notification_inline_reply_failed` | ** Failed to send - please open room | 2022-04-26 | [link](https://localazy.com/p/element/source-language?search=notification_inline_reply_failed&searchOptions=KEY,EXACT_MATCH) |
 | `notification_invite_body_with_sender` | %1$s invited you to chat | 2024-09-23 | [link](https://localazy.com/p/element/source-language?search=notification_invite_body_with_sender&searchOptions=KEY,EXACT_MATCH) |
-| `notification.knock_request.body` | Requested to join | 2026-08-17 🆕 | [link](https://localazy.com/p/element/source-language?search=notification.knock_request.body&searchOptions=KEY,EXACT_MATCH) |
+| `notification.knock_request.body` | Requested to join | 2026-08-17 | [link](https://localazy.com/p/element/source-language?search=notification.knock_request.body&searchOptions=KEY,EXACT_MATCH) |
 | `notification_room_action_mark_as_read` | Mark as read | 2023-04-05 | [link](https://localazy.com/p/element/source-language?search=notification_room_action_mark_as_read&searchOptions=KEY,EXACT_MATCH) |
 | `notification_room_action_quick_reply` | Quick reply | 2023-04-05 | [link](https://localazy.com/p/element/source-language?search=notification_room_action_quick_reply&searchOptions=KEY,EXACT_MATCH) |
 | `notification_room_invite_body_with_sender` | %1$s invited you to join the room | 2024-09-23 | [link](https://localazy.com/p/element/source-language?search=notification_room_invite_body_with_sender&searchOptions=KEY,EXACT_MATCH) |
@@ -584,6 +541,7 @@ Strings used by Element X Android but not by Element X iOS. Keys with the `_ios`
 | `preference_rageshake` | Rageshake to report bug | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=preference_rageshake&searchOptions=KEY,EXACT_MATCH) |
 | `rageshake_detection_dialog_content` | You seem to be shaking the phone in frustration. Would you like to open the bug report screen? | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=rageshake_detection_dialog_content&searchOptions=KEY,EXACT_MATCH) |
 | `rich_text_editor_a11y_add_attachment` | Add attachment | 2023-07-19 | [link](https://localazy.com/p/element/source-language?search=rich_text_editor_a11y_add_attachment&searchOptions=KEY,EXACT_MATCH) |
+| `rich_text_editor_a11y_add_emoji` | Add emoji | 2026-11-11 🆕 | [link](https://localazy.com/p/element/source-language?search=rich_text_editor_a11y_add_emoji&searchOptions=KEY,EXACT_MATCH) |
 | `rich_text_editor.remove_link` | Remove link | 2023-09-14 | [link](https://localazy.com/p/element/source-language?search=rich_text_editor.remove_link&searchOptions=KEY,EXACT_MATCH) |
 | `screen_account_provider_signin_title` | You’re about to sign in to %s | 2023-06-07 | [link](https://localazy.com/p/element/source-language?search=screen_account_provider_signin_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen.advanced_settings.element_call_base_url` | Custom Element Call base URL | 2023-10-19 | [link](https://localazy.com/p/element/source-language?search=screen.advanced_settings.element_call_base_url&searchOptions=KEY,EXACT_MATCH) |
@@ -615,7 +573,6 @@ Strings used by Element X Android but not by Element X iOS. Keys with the `_ios`
 | `screen_create_poll_delete_option_a11y` | Delete option %1$s | 2025-06-13 | [link](https://localazy.com/p/element/source-language?search=screen_create_poll_delete_option_a11y&searchOptions=KEY,EXACT_MATCH) |
 | `screen_create_room_error_creating_room` | An error occurred when creating the room | 2023-04-14 | [link](https://localazy.com/p/element/source-language?search=screen_create_room_error_creating_room&searchOptions=KEY,EXACT_MATCH) |
 | `screen.create_room.error_creating_space` | The space could not be created because of an unknown error. Try again later. | 2026-01-09 | [link](https://localazy.com/p/element/source-language?search=screen.create_room.error_creating_space&searchOptions=KEY,EXACT_MATCH) |
-| `screen_identity_confirmation_sign_out` | Sign out | 2026-10-14 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_identity_confirmation_sign_out&searchOptions=KEY,EXACT_MATCH) |
 | `screen_identity_use_another_device` | Use another device | 2024-03-25 | [link](https://localazy.com/p/element/source-language?search=screen_identity_use_another_device&searchOptions=KEY,EXACT_MATCH) |
 | `screen.image_edition.a11y_flip_image_horizontally` | Flip image horizontally | 2026-06-03 | [link](https://localazy.com/p/element/source-language?search=screen.image_edition.a11y_flip_image_horizontally&searchOptions=KEY,EXACT_MATCH) |
 | `screen.image_edition.a11y_flip_image_horizontally_state_flipped` | Flipped horizontally | 2026-06-03 | [link](https://localazy.com/p/element/source-language?search=screen.image_edition.a11y_flip_image_horizontally_state_flipped&searchOptions=KEY,EXACT_MATCH) |
@@ -660,7 +617,12 @@ Strings used by Element X Android but not by Element X iOS. Keys with the `_ios`
 | `screen.notification_settings.sound_system_default` | System Default | 2026-05-28 | [link](https://localazy.com/p/element/source-language?search=screen.notification_settings.sound_system_default&searchOptions=KEY,EXACT_MATCH) |
 | `screen_onboarding_sign_up` | Create account | 2023-06-01 | [link](https://localazy.com/p/element/source-language?search=screen_onboarding_sign_up&searchOptions=KEY,EXACT_MATCH) |
 | `screen.push_history.title` | Push history | 2025-04-11 | [link](https://localazy.com/p/element/source-language?search=screen.push_history.title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_recovery_key_change_generate_key` | Generate a new recovery key | 2023-10-19 | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_change_generate_key&searchOptions=KEY,EXACT_MATCH) |
+| `screen_recovery_key_change_success` | Recovery key changed | 2023-10-19 | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_change_success&searchOptions=KEY,EXACT_MATCH) |
 | `screen_recovery_key_copied_to_clipboard` | Copied recovery key | 2023-10-24 | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_copied_to_clipboard&searchOptions=KEY,EXACT_MATCH) |
+| `screen_recovery_key_generating_key` | Generating… | 2023-10-24 | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_generating_key&searchOptions=KEY,EXACT_MATCH) |
+| `screen_recovery_key_setup_generate_key` | Generate your recovery key | 2023-10-19 | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_setup_generate_key&searchOptions=KEY,EXACT_MATCH) |
+| `screen_recovery_key_setup_success` | Recovery setup successful | 2023-10-19 | [link](https://localazy.com/p/element/source-language?search=screen_recovery_key_setup_success&searchOptions=KEY,EXACT_MATCH) |
 | `screen.reset_encryption_password.error` | An unknown error happened. Please check your account password is correct and try again. | 2024-08-14 | [link](https://localazy.com/p/element/source-language?search=screen.reset_encryption_password.error&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_alias_resolver_resolve_alias_failure` | Failed to resolve room alias. | 2024-04-18 | [link](https://localazy.com/p/element/source-language?search=screen_room_alias_resolver_resolve_alias_failure&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_attachment_source_camera_photo` | Take photo | 2023-05-04 | [link](https://localazy.com/p/element/source-language?search=screen_room_attachment_source_camera_photo&searchOptions=KEY,EXACT_MATCH) |
@@ -672,7 +634,7 @@ Strings used by Element X Android but not by Element X iOS. Keys with the `_ios`
 | `screen_room_details_security_title` | Security | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_room_details_security_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_details_share_room_title` | Share room | 2023-03-29 | [link](https://localazy.com/p/element/source-language?search=screen_room_details_share_room_title&searchOptions=KEY,EXACT_MATCH) |
 | `screen.room.mentions_at_room_title` | Everyone | 2023-10-27 | [link](https://localazy.com/p/element/source-language?search=screen.room.mentions_at_room_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_room_notification_settings_mode_mute` | Mute | 2026-08-17 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_room_notification_settings_mode_mute&searchOptions=KEY,EXACT_MATCH) |
+| `screen_room_notification_settings_mode_mute` | Mute | 2026-08-17 | [link](https://localazy.com/p/element/source-language?search=screen_room_notification_settings_mode_mute&searchOptions=KEY,EXACT_MATCH) |
 | `screen.room_select.error.cannot_load_rooms` | The room list associated with this account cannot be loaded. | 2026-10-07 🆕 | [link](https://localazy.com/p/element/source-language?search=screen.room_select.error.cannot_load_rooms&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_timeline_add_reaction` | Add a reaction | 2023-07-07 | [link](https://localazy.com/p/element/source-language?search=screen_room_timeline_add_reaction&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_timeline_less_reactions` | Show less | 2023-07-07 | [link](https://localazy.com/p/element/source-language?search=screen_room_timeline_less_reactions&searchOptions=KEY,EXACT_MATCH) |
@@ -681,10 +643,11 @@ Strings used by Element X Android but not by Element X iOS. Keys with the `_ios`
 | `screen_room_typing_many_members` | %1$s, %2$s and %3$d others | 2024-01-31 | [link](https://localazy.com/p/element/source-language?search=p:screen_room_typing_many_members&searchOptions=KEY,EXACT_MATCH) |
 | `screen_room_typing_notification` | %1$s are typing | 2024-01-31 | [link](https://localazy.com/p/element/source-language?search=p:screen_room_typing_notification&searchOptions=KEY,EXACT_MATCH) |
 | `screen_search_from_your_messages_header` | From your messages | 2026-10-29 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_search_from_your_messages_header&searchOptions=KEY,EXACT_MATCH) |
+| `screen.select_account.permalink.room.subtitle` | None of your accounts have joined this room yet, choose which one to use. | 2026-10-28 🆕 | [link](https://localazy.com/p/element/source-language?search=screen.select_account.permalink.room.subtitle&searchOptions=KEY,EXACT_MATCH) |
+| `screen.select_account.permalink.title` | Select an account to open the link: | 2026-10-28 🆕 | [link](https://localazy.com/p/element/source-language?search=screen.select_account.permalink.title&searchOptions=KEY,EXACT_MATCH) |
 | `screen_server_confirmation_title_picker_mode` | Choose account provider | 2025-05-20 | [link](https://localazy.com/p/element/source-language?search=screen_server_confirmation_title_picker_mode&searchOptions=KEY,EXACT_MATCH) |
 | `screen_session_verification_compare_numbers_subtitle` | Confirm that the numbers below match those shown on your other session. | 2023-12-08 | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_compare_numbers_subtitle&searchOptions=KEY,EXACT_MATCH) |
 | `screen_session_verification_compare_numbers_title` | Compare numbers | 2023-12-08 | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_compare_numbers_title&searchOptions=KEY,EXACT_MATCH) |
-| `screen_session_verification_positive_button_verifying_ongoing` | Waiting to match… | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_positive_button_verifying_ongoing&searchOptions=KEY,EXACT_MATCH) |
 | `screen_session_verification_ready_subtitle` | Compare a unique set of emojis. | 2023-11-07 | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_ready_subtitle&searchOptions=KEY,EXACT_MATCH) |
 | `screen_session_verification_request_failure_subtitle` | Either the request timed out, the request was denied, or there was a verification mismatch. | 2024-10-24 | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_request_failure_subtitle&searchOptions=KEY,EXACT_MATCH) |
 | `screen_session_verification_request_failure_title` | Verification failed | 2024-10-24 | [link](https://localazy.com/p/element/source-language?search=screen_session_verification_request_failure_title&searchOptions=KEY,EXACT_MATCH) |
@@ -698,6 +661,7 @@ Strings used by Element X Android but not by Element X iOS. Keys with the `_ios`
 | `screen_signed_out_reason_3` | Your server's session expired or the administrator has blocked your access | 2023-10-10 | [link](https://localazy.com/p/element/source-language?search=screen_signed_out_reason_3&searchOptions=KEY,EXACT_MATCH) |
 | `screen_signed_out_subtitle_v2` | This device was removed for one of the reasons listed below. Please sign in again to connect this device to your acco… | 2026-09-30 🆕 | [link](https://localazy.com/p/element/source-language?search=screen_signed_out_subtitle_v2&searchOptions=KEY,EXACT_MATCH) |
 | `screen_signed_out_title` | Device removed | 2023-10-10 | [link](https://localazy.com/p/element/source-language?search=screen_signed_out_title&searchOptions=KEY,EXACT_MATCH) |
+| `screen_signout_confirmation_dialog_content` | Are you sure you want to remove this device? | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_signout_confirmation_dialog_content&searchOptions=KEY,EXACT_MATCH) |
 | `screen_signout_in_progress_dialog_content` | Removing device… | 2023-03-27 | [link](https://localazy.com/p/element/source-language?search=screen_signout_in_progress_dialog_content&searchOptions=KEY,EXACT_MATCH) |
 | `screen.space_list.details` | %1$s • %2$s | 2025-08-05 | [link](https://localazy.com/p/element/source-language?search=screen.space_list.details&searchOptions=KEY,EXACT_MATCH) |
 | `screen.space.remove_rooms_confirmation_title` | Remove %1$d rooms from %2$s | 2026-01-14 | [link](https://localazy.com/p/element/source-language?search=p:screen.space.remove_rooms_confirmation_title&searchOptions=KEY,EXACT_MATCH) |
@@ -790,7 +754,7 @@ Strings used by Element X Android but not by Element X iOS. Keys with the `_ios`
 | `troubleshoot_notifications_test_push_loop_back_failure_2` | Error: %1$s. | 2024-03-28 | [link](https://localazy.com/p/element/source-language?search=troubleshoot_notifications_test_push_loop_back_failure_2&searchOptions=KEY,EXACT_MATCH) |
 | `troubleshoot_notifications_test_push_loop_back_failure_3` | Error, cannot test push. | 2024-03-28 | [link](https://localazy.com/p/element/source-language?search=troubleshoot_notifications_test_push_loop_back_failure_3&searchOptions=KEY,EXACT_MATCH) |
 | `troubleshoot_notifications_test_push_loop_back_failure_4` | Error, timeout waiting for push. | 2024-03-28 | [link](https://localazy.com/p/element/source-language?search=troubleshoot_notifications_test_push_loop_back_failure_4&searchOptions=KEY,EXACT_MATCH) |
-| `troubleshoot_notifications_test_push_loop_back_failure_rate_limit` | Error: the push gateway is rate limiting this device, so notifications won't be reliable. Please set up a different p… | 2026-08-17 🆕 | [link](https://localazy.com/p/element/source-language?search=troubleshoot_notifications_test_push_loop_back_failure_rate_limit&searchOptions=KEY,EXACT_MATCH) |
+| `troubleshoot_notifications_test_push_loop_back_failure_rate_limit` | Error: the push gateway is rate limiting this device, so notifications won't be reliable. Please set up a different p… | 2026-08-17 | [link](https://localazy.com/p/element/source-language?search=troubleshoot_notifications_test_push_loop_back_failure_rate_limit&searchOptions=KEY,EXACT_MATCH) |
 | `troubleshoot_notifications_test_push_loop_back_success` | Push loop back took %1$d ms. | 2024-03-28 | [link](https://localazy.com/p/element/source-language?search=troubleshoot_notifications_test_push_loop_back_success&searchOptions=KEY,EXACT_MATCH) |
 | `troubleshoot_notifications_test_push_loop_back_title` | Test Push loop back | 2024-03-28 | [link](https://localazy.com/p/element/source-language?search=troubleshoot_notifications_test_push_loop_back_title&searchOptions=KEY,EXACT_MATCH) |
 | `troubleshoot_notifications_test_unified_push_description` | Ensure that UnifiedPush distributors are available. | 2024-03-28 | [link](https://localazy.com/p/element/source-language?search=troubleshoot_notifications_test_unified_push_description&searchOptions=KEY,EXACT_MATCH) |
@@ -799,3 +763,11 @@ Strings used by Element X Android but not by Element X iOS. Keys with the `_ios`
 | `troubleshoot_notifications_test_unified_push_title` | Check UnifiedPush | 2024-03-28 | [link](https://localazy.com/p/element/source-language?search=troubleshoot_notifications_test_unified_push_title&searchOptions=KEY,EXACT_MATCH) |
 
 </details>
+
+## How this was computed
+
+- Android: a key counts as used when it appears as a word in production `.kt`, `.kts` or `.xml` files (excluding `res/values*/`, `src/test`, `src/androidTest` and `tools/`).
+- iOS: a key counts as used when its SwiftGen accessor (`L10n.xxx`) or the raw key literal appears in production `.swift` files (excluding `Sources/Generated`, `UnitTests`, `UITests`, `PreviewTests`, `IntegrationTests` and `AccessibilityTests`).
+- Keys with the `_android` suffix are not imported in the iOS project, and keys with the `_ios` suffix are not imported in the Android project, so they are only checked on their platform.
+- The *Added* column is the date of the first commit adding the key to the English string files of either project, which is close to the date the key was added to Localazy. 🆕 marks the keys added in the last 90 days.
+- A string used only in tests counts as unused. Only the `develop` branch of both projects is analysed, so a string added to Localazy for a feature not merged yet (still in a pull request or in a branch) counts as unused.
